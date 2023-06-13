@@ -1,4 +1,4 @@
-using Hexerspiel.Character.monster;
+ using Hexerspiel.Character.monster;
 using Hexerspiel.Items;
 using System;
 using System.Collections;
@@ -17,6 +17,7 @@ namespace Hexerspiel.nfcTags
         {
             public int xp;
             public int gold;
+            public int herbs, meat, magicEssence;
             public List<SO_item> items;
         }
 

@@ -8,22 +8,26 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Socialinteraction", menuName = "Hexer_ScriptableObjects/Spots and NPCs/Socialinteraction", order = 3)]
 public class SO_socialInteractionOutcome : ScriptableObject
 {
+   
+
     [Serializable]
     public struct PositivOutcome
     {
-        public SO_spots.Reward moneyOrXp;
-        public List<SO_item> itemsReward;
+        public string description;
+        public SO_spots.Reward reward;
         public int friendshipLevel;
     }
 
     [Serializable]
     public struct NegativeOutcome
     {
-        public SO_spots.Reward moneyOrXp;
+        public string description;
+        public SO_spots.Reward loss;
         //maybe item for the future
         public int friendshipLevel;
     }
 
+    public string outComeName;
     public PositivOutcome positivOutcome;
     public NegativeOutcome negativeOutcome;
 }
