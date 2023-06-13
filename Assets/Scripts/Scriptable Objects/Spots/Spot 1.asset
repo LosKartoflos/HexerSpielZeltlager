@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eff250380e04514f8447090116ddedd, type: 3}
+  m_Name: Spot 1
+  m_EditorClassIdentifier: 
+  attribute:
+    body: 0
+    mind: 0
+    charisma: 0
+  questList: []
+  friendshipLevel: 0
+  npcInFight: {fileID: 0}
+  socialThreaten: {fileID: 0}
+  socialBeNice: {fileID: 0}
+  socialVerzaubern: {fileID: 0}
