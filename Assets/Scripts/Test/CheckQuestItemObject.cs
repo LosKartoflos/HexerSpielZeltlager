@@ -22,6 +22,6 @@ public class CheckQuestItemObject : MonoBehaviour
 
         nextStep = bringQuestItem.GetNextStepIfSolved(null, null, questItem);
 
-        Debug.Log("Step is solved: " + nextStep.name);
+        Debug.Log("Step is solved: " + nextStep);
     }
 }
