@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Hexerspiel
 {
     //Nfc Type
-    public enum NFCType { spot, shopItem, npc}
+    public enum NFCType { spot, shopItem, npc, questStart}
 
     //Spells
 

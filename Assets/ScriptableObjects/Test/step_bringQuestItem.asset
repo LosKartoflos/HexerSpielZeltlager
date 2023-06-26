@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6352a066c47e8c34f87357d5f4a61131, type: 3}
+  m_Name: step_bringQuestItem
+  m_EditorClassIdentifier: 
+  stepName: 
+  image: 
+  questText: 
+  resolvedText: 
+  gold: 0
+  xp: 0
+  herbs: 0
+  meat: 0
+  magicEssence: 0
+  dropedGear: []
+  dropedQuestItems: []
+  nextQuestStep: {fileID: 0}
+  spotToGO: {fileID: 0}
+  npcToInteract: {fileID: 0}
+  questItemNeeded: {fileID: 11400000, guid: 36d2ba885474a864787add6b02f07cf9, type: 2}

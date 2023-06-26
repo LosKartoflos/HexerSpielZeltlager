@@ -1,5 +1,6 @@
 using Hexerspiel.Character;
 using Hexerspiel.Character.monster;
+using Hexerspiel.nfcTags;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,7 @@ namespace Hexerspiel.spots
 
         public PlayerCharacter.PlayerAttributes attribute;
 
-        public List<SO_quest> questList = new List<SO_quest>();
+        public List<SO_questStartTag> questToStartList = new List<SO_questStartTag>();
 
         [Range(1, 100)]
         public int friendshipLevel;

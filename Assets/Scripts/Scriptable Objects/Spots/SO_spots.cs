@@ -12,6 +12,8 @@ namespace Hexerspiel.nfcTags
     [CreateAssetMenu(fileName = "Spot", menuName = "Hexer_ScriptableObjects/Spots and NPCs/spot", order = 1)]
     public class SO_spots : SO_nfcTag
     {
+        public const NFCType nfcType = NFCType.questStart;
+
         [Serializable]
         public struct Reward
         {

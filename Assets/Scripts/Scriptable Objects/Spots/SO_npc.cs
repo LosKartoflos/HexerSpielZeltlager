@@ -1,5 +1,7 @@
 using Hexerspiel.Character;
 using Hexerspiel.Character.monster;
+using Hexerspiel.nfcTags;
+using Hexerspiel.Quests;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +14,7 @@ public class SO_npc : ScriptableObject
 
     public PlayerCharacter.PlayerAttributes attribute;
 
-    public List<SO_quest> questList = new List<SO_quest>();
+    public List<SO_questStep> questList = new List<SO_questStep>();
 
     [Range(1, 100)]
     public int friendshipLevel;

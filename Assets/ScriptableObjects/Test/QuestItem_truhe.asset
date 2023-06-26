@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb89b2d5d56032549853b9abd3cad3ea, type: 3}
-  m_Name: QuestItem_
+  m_Name: QuestItem_truhe
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: truhe
   itemImage: {fileID: 0}
   valueBuy: 0
   valueSell: 0
