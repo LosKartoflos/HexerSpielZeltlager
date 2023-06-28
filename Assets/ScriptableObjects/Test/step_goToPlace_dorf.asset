@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21860df45ff9cd940bd5d07720a16000, type: 3}
-  m_Name: step_collectMist
+  m_Script: {fileID: 11500000, guid: 92cd217e4a9a6a446925be2bf5932eab, type: 3}
+  m_Name: step_goToPlace_dorf
   m_EditorClassIdentifier: 
   stepName: 
   image: 
@@ -26,9 +26,5 @@ MonoBehaviour:
   dropedGear: []
   dropedQuestItems: []
   nextQuestStep: {fileID: 11400000, guid: 110e78e642858c94fa4672824eff88c0, type: 2}
-  spotToGO: {fileID: 0}
+  spotToGO: {fileID: 11400000, guid: 5a1daa041951bce4a86402709aa2fd5e, type: 2}
   npcToInteract: {fileID: 11400000, guid: e2a5254f3febd93469e594506aa85eee, type: 2}
-  miscItmesNeeded:
-    herbs: -10
-    meat: 0
-    magicEssence: 0

@@ -43,7 +43,7 @@ namespace Hexerspiel.Character
         [SerializeField]
         private SpellLevel spellLevel;
         [SerializeField]
-        private Inventory inventory;
+        private InventoryCollection inventory;
 
 
 
@@ -54,7 +54,7 @@ namespace Hexerspiel.Character
 
         
         public static PlayerCharacter Instance { get => instance;  }
-        public Inventory Inventory { get => inventory; set => inventory = value; }
+        public InventoryCollection Inventory { get => inventory; set => inventory = value; }
 
         private void Awake()
         {

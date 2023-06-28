@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Hexerspiel.Character
 {
-    public class Inventory : MonoBehaviour
+    public class InventoryCollection : MonoBehaviour
     {
         [SerializeField]
         private BasicInventory basicInventory = new BasicInventory();

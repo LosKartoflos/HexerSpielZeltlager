@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Hexerspiel.Quests
 {
     [CreateAssetMenu(fileName = "step_collectMisc", menuName = "Hexer_ScriptableObjects/QuestSteps/collectMisc")]
-    public class SO_quest_collectMisc : SO_questStep
+    public class SO_step_collectMisc : SO_questStep
     {
         public MiscItems miscItmesNeeded;
         protected override QuestTarget QuestStepTarget { get { return QuestTarget.collectMisc; } }

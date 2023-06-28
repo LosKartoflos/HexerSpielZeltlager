@@ -175,8 +175,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questItem: {fileID: 11400000, guid: 36d2ba885474a864787add6b02f07cf9, type: 2}
   spotToGo: {fileID: 11400000, guid: 5a1daa041951bce4a86402709aa2fd5e, type: 2}
-  npc: {fileID: 11400000, guid: e2a5254f3febd93469e594506aa85eee, type: 2}
-  questStep: {fileID: 11400000, guid: dd781db621c8d8840bcbe2afa8cf4c79, type: 2}
+  npc: {fileID: 11400000, guid: 65ded78ab265dc44c8e3b83db8fcae11, type: 2}
+  questStep: {fileID: 11400000, guid: 1245e00d7a8339942ad153da6b982cfb, type: 2}
 --- !u!1 &1022055112
 GameObject:
   m_ObjectHideFlags: 0

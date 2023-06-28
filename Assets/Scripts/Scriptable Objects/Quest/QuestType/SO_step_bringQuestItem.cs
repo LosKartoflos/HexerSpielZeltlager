@@ -56,7 +56,6 @@ namespace Hexerspiel.Quests
                 }
             }
 
-
         }
     }
 }
