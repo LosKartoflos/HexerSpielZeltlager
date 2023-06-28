@@ -34,12 +34,16 @@ namespace Hexerspiel.Character
             public int charismaSpell;
         }
 
+        private static PlayerCharacter instance;
+        
         [SerializeField]
         private PlayerStats playerStats;
         [SerializeField]
         private PlayerAttributes playerAttributes;
         [SerializeField]
         private SpellLevel spellLevel;
+        [SerializeField]
+        private Inventory inventory;
 
 
 
@@ -48,5 +52,13 @@ namespace Hexerspiel.Character
         private Dictionary<Spot, Time> visitedSpots = new Dictionary<Spot, Time>();
         private Dictionary<NPC, Time> lastSocialInteraction = new Dictionary<NPC, Time>();
 
+        
+        public static PlayerCharacter Instance { get => instance;  }
+        public Inventory Inventory { get => inventory; set => inventory = value; }
+
+        private void Awake()
+        {
+            instance = this;
+        }
     }
 }

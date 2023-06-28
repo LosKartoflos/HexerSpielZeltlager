@@ -1,13 +1,16 @@
+using Hexerspiel.Character;
 using Hexerspiel.Items;
 using Hexerspiel.nfcTags;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace Hexerspiel.Quests
 {
     public abstract class SO_questStep : ScriptableObject
     {
+      
         public string stepName;
         public string image;
 
@@ -16,10 +19,9 @@ namespace Hexerspiel.Quests
         public string resolvedText;
 
         //reward
-        public int gold;
         public int xp;
+        public BasicInventoryCounters rewards;
         //Drops
-        public int herbs, meat, magicEssence;
         public List<SO_gear> dropedGear;
         public List<SO_questItem> dropedQuestItems;
 
@@ -33,25 +35,58 @@ namespace Hexerspiel.Quests
         public SO_spots spotToGO;
         public SO_npc npcToInteract;
 
-        //to do:
-        // check if place or location is valid for quest
+        protected virtual QuestTarget QuestStepTarget { get { return QuestTarget.baseStep; } }
 
         public virtual void TestIfStepIsSolved(SO_spots spotCurrent, SO_npc npcCurrent, out bool stepIsSolved, params ScriptableObject[] possibleSolution)
         {
             stepIsSolved = false;
 
-            if (spotToGO == null || spotToGO == spotCurrent)
+      
+            if (spotToGO != null && spotCurrent == null)
+            {
+                stepIsSolved = false;
+                return;
+            }
+            else if (spotToGO == null)
             {
                 stepIsSolved = true;
+            }
+            else if (spotToGO.nfcTagInfos.name == spotCurrent.nfcTagInfos.name)
+            {
+                stepIsSolved = true;
+            }
+            else if (spotToGO.nfcTagInfos.name != spotCurrent.nfcTagInfos.name)
+            {
+                stepIsSolved = false;
+                return;
             }
             else
             {
                 return;
             }
 
-            if (npcCurrent == null || npcToInteract == npcCurrent)
+
+            //ther is an npc needed but no provided
+            if (npcToInteract != null && npcCurrent == null)
+            {
+                stepIsSolved = false;
+                return;
+            }
+            //no npc needed
+            else if (npcToInteract == null)
             {
                 stepIsSolved = true;
+            }
+            // npc is needed and provided
+            else if (npcToInteract.npcInformation.name == npcCurrent.npcInformation.name)
+            {
+                stepIsSolved = true;
+            }
+            // npc is needed and provided but wrong
+            else if (npcToInteract.npcInformation.name != npcCurrent.npcInformation.name)
+            {
+                stepIsSolved = false;
+                return;
             }
             else
             {

@@ -11,15 +11,41 @@ namespace Hexerspiel.Quests
     public class SO_step_bringQuestItem : SO_questStep
     {
         public SO_questItem questItemNeeded;
+        protected override QuestTarget QuestStepTarget { get { return QuestTarget.bringQuestItem; } }
 
-        public override void  TestIfStepIsSolved(SO_spots spotCurrent, SO_npc npcCurrent, out bool stepIsSolved, params ScriptableObject[] possibleSolution)
+        public override void TestIfStepIsSolved(SO_spots spotCurrent, SO_npc npcCurrent, out bool stepIsSolved, params ScriptableObject[] possibleSolution)
         {
+            if (questItemNeeded == null)
+            {
+                Debug.LogError("You forgot to add a questItem in the bringQuest item Step: " + name);
+                stepIsSolved = false;
+                return;
+
+            }
+
             base.TestIfStepIsSolved(spotCurrent, npcCurrent, out stepIsSolved, possibleSolution);
 
-            //check if needed object is in the loop
-            foreach(ScriptableObject solution in possibleSolution)
+            if (!stepIsSolved)
+                return;
+
+
+            //no object to check
+            if(possibleSolution.Length == 0 && questItemNeeded)
             {
-                if(solution.name == questItemNeeded.name)
+                stepIsSolved = false;
+                return;
+            }
+
+            
+
+            //check if needed object is in the loop
+            foreach (SO_questItem solution in possibleSolution)
+            {
+                if(solution == null)
+                {
+                    stepIsSolved = false;
+                }
+                else if (solution.itemName == questItemNeeded.itemName)
                 {
                     stepIsSolved = true;
                     break;
@@ -30,7 +56,7 @@ namespace Hexerspiel.Quests
                 }
             }
 
-            
+
         }
     }
 }

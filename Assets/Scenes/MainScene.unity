@@ -151,7 +151,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1815538865}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -172,8 +173,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f61e7ba391942c4f965ef499f1fa0ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questItem: {fileID: 11400000, guid: 9a01f365493dc77469a93823b0ef23ad, type: 2}
-  bringQuestItem: {fileID: 11400000, guid: 110e78e642858c94fa4672824eff88c0, type: 2}
+  questItem: {fileID: 11400000, guid: 36d2ba885474a864787add6b02f07cf9, type: 2}
+  spotToGo: {fileID: 11400000, guid: 5a1daa041951bce4a86402709aa2fd5e, type: 2}
+  npc: {fileID: 11400000, guid: e2a5254f3febd93469e594506aa85eee, type: 2}
+  questStep: {fileID: 11400000, guid: dd781db621c8d8840bcbe2afa8cf4c79, type: 2}
 --- !u!1 &1022055112
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,6 +472,113 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1815538864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1815538865}
+  - component: {fileID: 1815538867}
+  - component: {fileID: 1815538866}
+  - component: {fileID: 1815538868}
+  m_Layer: 5
+  m_Name: TestPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1815538865
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815538864}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 263078253}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1815538866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815538864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd486d824d179804e981c47a90a38777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicInventory: {fileID: 1815538868}
+--- !u!114 &1815538867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815538864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f2339dc432abec4db807322bf0111b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterStats:
+    health: 0
+    characterMovement: 0
+    characterType: 0
+  attackStats:
+    succesThreshold: 0
+    attackDice: 0
+    damageType: 0
+  deffensiveStats:
+    armor: 0
+  playerStats:
+    mana: 0
+    manaRegen: 0
+    healthRegen: 0
+    xp: 0
+    level: 0
+  playerAttributes:
+    body: 0
+    mind: 0
+    charisma: 0
+  spellLevel:
+    lifeSpell: 0
+    mindSpell: 0
+    charismaSpell: 0
+  inventory: {fileID: 1815538866}
+--- !u!114 &1815538868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815538864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12ef347fca86e4641b759cd5c5042bf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount:
+    gold: 100
+    miscItems:
+      herbs: 20
+      meat: 20
+      magicEssence: 20
 --- !u!1 &1981457117
 GameObject:
   m_ObjectHideFlags: 0

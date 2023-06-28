@@ -1,4 +1,5 @@
 using Hexerspiel.Items;
+using Hexerspiel.nfcTags;
 using Hexerspiel.Quests;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,16 +13,23 @@ public class CheckQuestItemObject : MonoBehaviour
     SO_questItem questItem;
 
     [SerializeField]
-    SO_step_bringQuestItem bringQuestItem;
+    SO_spots spotToGo;
+
+    [SerializeField]
+    SO_npc npc;
+
+    [SerializeField]
+    SO_questStep questStep;
 
     private void Start()
     {
-        bool stepIsSolved = false;
 
         SO_questStep nextStep;
 
-        nextStep = bringQuestItem.GetNextStepIfSolved(null, null, questItem);
+        
 
-        Debug.Log("Step is solved: " + nextStep);
+        nextStep = questStep.GetNextStepIfSolved(spotToGo, npc, null);
+
+        Debug.Log("next step:"+ nextStep);
     }
 }

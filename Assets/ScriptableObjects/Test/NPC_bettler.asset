@@ -10,8 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7eff250380e04514f8447090116ddedd, type: 3}
-  m_Name: NPC
+  m_Name: NPC_bettler
   m_EditorClassIdentifier: 
+  npcInformation:
+    id: 
+    name: bettler
+    image: 
   attribute:
     body: 0
     mind: 0
