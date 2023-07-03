@@ -8,7 +8,7 @@ namespace Hexerspiel.Items
     [CreateAssetMenu(fileName = "Potion", menuName = "Hexer_ScriptableObjects/Items/Potion")]
     public class SO_potion : SO_item
     {
-        public DiceRoll.DiceManipulation diceManipulation;
+        public Dice.Manipulation diceManipulation;
         public float addMana, addLife;
     }
 }

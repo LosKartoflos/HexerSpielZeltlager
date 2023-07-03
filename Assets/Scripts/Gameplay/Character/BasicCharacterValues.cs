@@ -41,5 +41,9 @@ namespace Hexerspiel.Character
 
         [SerializeField]
         private DefensiveStats deffensiveStats;
+
+
+
+        
     }
 }

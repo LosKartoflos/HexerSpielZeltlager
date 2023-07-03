@@ -48,9 +48,9 @@ namespace Hexerspiel.nfcTags
             public bool shop;
             public bool basicItems;
             //the tier is assigend globally or by time
-            public List<Gear> tier1Gear;
-            public List<Gear> tier2Gear;
-            public List<Gear> tier3Gear;
+            public List<SO_gear> tier1Gear;
+            public List<SO_gear> tier2Gear;
+            public List<SO_gear> tier3Gear;
         
             public OfferType amuletOffer;
             public OfferType armorOffer;

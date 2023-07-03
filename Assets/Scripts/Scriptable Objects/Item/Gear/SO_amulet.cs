@@ -11,6 +11,6 @@ namespace Hexerspiel.Items
     public class SO_amulet : SO_gear
     {
         public const GearType gearType = GearType.amulet;
-        public DiceRoll.DiceManipulation diceManipulation;
+        public Dice.Manipulation diceManipulation;
     }
 }

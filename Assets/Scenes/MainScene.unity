@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 263078253}
   - component: {fileID: 263078254}
+  - component: {fileID: 263078255}
   m_Layer: 5
   m_Name: TestObject
   m_TagString: Untagged
@@ -168,7 +169,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 263078252}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f61e7ba391942c4f965ef499f1fa0ae, type: 3}
   m_Name: 
@@ -177,6 +178,18 @@ MonoBehaviour:
   spotToGo: {fileID: 11400000, guid: 5a1daa041951bce4a86402709aa2fd5e, type: 2}
   npc: {fileID: 11400000, guid: 65ded78ab265dc44c8e3b83db8fcae11, type: 2}
   questStep: {fileID: 11400000, guid: 1245e00d7a8339942ad153da6b982cfb, type: 2}
+--- !u!114 &263078255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263078252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 026598d738484bc40846f4d143bea85e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1022055112
 GameObject:
   m_ObjectHideFlags: 0
