@@ -178,10 +178,6 @@ namespace Hexerspiel
             return rollResults;
         }
 
-        private void Start()
-        {
-            RollForSuccess(5, 4, 0, -3);
-        }
     }
 
 }

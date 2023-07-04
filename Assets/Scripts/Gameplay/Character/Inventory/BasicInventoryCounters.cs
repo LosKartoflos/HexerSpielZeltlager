@@ -12,6 +12,14 @@ namespace Hexerspiel.Character
         public int gold;
         public MiscItems miscItems;
 
+        public BasicInventoryCounters(int gold)
+        {
+            this.gold = gold;
+            this.miscItems.herbs = 0;
+            this.miscItems.magicEssence = 0;
+            this.miscItems.meat = 0;
+        }
+
         public BasicInventoryCounters()
         {
             this.gold = 0;

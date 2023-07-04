@@ -25,10 +25,18 @@ namespace Hexerspiel.Character
             this.amount = amount;
         }
 
+        public BasicInventory(int gold)
+        {
+            amount.gold = gold;
+            amount.miscItems.herbs = 0;
+            amount.miscItems.magicEssence = 0;
+            amount.miscItems.meat = 0;
+        }
+
         public BasicInventory(int gold, MiscItems miscItems)
         {
-           amount.gold = gold;
-           amount.miscItems = miscItems;
+            amount.gold = gold;
+            amount.miscItems = miscItems;
         }
 
         public BasicInventory(int gold, int herbs, int magicEssence, int meat)
@@ -111,7 +119,7 @@ namespace Hexerspiel.Character
         /// <returns></returns>
         public bool ControlledMiscManipulation(MiscItems manipulationAmount)
         {
-            if (!CheckIfMiscItemsManipulationIsPossible( manipulationAmount))
+            if (!CheckIfMiscItemsManipulationIsPossible(manipulationAmount))
             {
                 return false;
             }
@@ -136,5 +144,69 @@ namespace Hexerspiel.Character
             return CheckIfManipulationIsPossible(amount, bic);
         }
 
+
+        //Gold
+
+        public bool CheckIfGoldManipulationIsPossible(int goldAmount)
+        {
+            BasicInventoryCounters bic = new BasicInventoryCounters(goldAmount);
+
+            return CheckIfManipulationIsPossible(bic);
+        }
+
+        public bool ChangeGold(int amount)
+        {
+            if (!CheckIfGoldManipulationIsPossible(amount))
+                return false;
+
+            this.amount.gold += amount;
+
+            return true;
+        }
+
+        public bool ChanageMeat(int amount)
+        {
+            MiscItems miscItems;
+            miscItems.herbs = 0;
+            miscItems.magicEssence = 0;
+            miscItems.meat = amount;
+
+            if (!CheckIfMiscItemsManipulationIsPossible(miscItems))
+                return false;
+
+            this.amount.miscItems.meat += amount;
+
+            return true;
+        }
+
+        public bool ChanageMagicessence(int amount)
+        {
+            MiscItems miscItems;
+            miscItems.herbs = 0;
+            miscItems.magicEssence = amount;
+            miscItems.meat = 0;
+
+            if (!CheckIfMiscItemsManipulationIsPossible(miscItems))
+                return false;
+
+            this.amount.miscItems.magicEssence += amount;
+
+            return true;
+        }
+
+        public bool ChanageHerbs(int amount)
+        {
+            MiscItems miscItems;
+            miscItems.herbs = amount;
+            miscItems.magicEssence = 0;
+            miscItems.meat = 0;
+
+            if (!CheckIfMiscItemsManipulationIsPossible(miscItems))
+                return false;
+
+            this.amount.miscItems.herbs += amount;
+
+            return true;
+        }
     }
 }

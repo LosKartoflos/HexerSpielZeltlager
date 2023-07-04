@@ -8,7 +8,7 @@ namespace Hexerspiel.Items
     [CreateAssetMenu(fileName = "Weapon", menuName = "Hexer_ScriptableObjects/Items/Gear/Weapon")]
     public class SO_weapon : SO_gear
     {
-        public const GearType gearType = GearType.weapon;
+        protected override GearType gearType => GearType.armor;
         public PlayerCharacter.OffensivStats weaponStats;
     }
 }
