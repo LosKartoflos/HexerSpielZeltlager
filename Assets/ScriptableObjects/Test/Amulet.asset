@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b178ddf166764488506b4101f18bbc, type: 3}
   m_Name: Amulet
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: amulet xy
   itemImage: {fileID: 0}
-  valueBuy: 0
-  valueSell: 0
+  valueBuy: 200
+  valueSell: 30
   attributeBuffs:
     body: 0
-    mind: 0
-    charisma: 0
+    mind: 5
+    charisma: 5
   spellLevelBuff:
-    lifeSpell: 0
-    mindSpell: 0
-    charismaSpell: 0
+    lifeSpell: 1
+    mindSpell: 2
+    charismaSpell: 3
   diceManipulation:
-    addDice: 0
-    substractDiceFromEnemy: 0
-    addablePoints: 0
-    subtractablePointsFromEnemy: 0
+    addDice: 1
+    substractDiceFromEnemy: 1
+    addablePoints: 3
+    subtractablePointsFromEnemy: 4

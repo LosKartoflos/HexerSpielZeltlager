@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ced5e7fe17edc1841aceea631c5a7da7, type: 3}
   m_Name: Armor
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: armor
   itemImage: {fileID: 0}
-  valueBuy: 0
-  valueSell: 0
+  valueBuy: 140
+  valueSell: 40
   attributeBuffs:
-    body: 0
-    mind: 0
-    charisma: 0
+    body: 1
+    mind: 1
+    charisma: 1
   spellLevelBuff:
-    lifeSpell: 0
-    mindSpell: 0
-    charismaSpell: 0
+    lifeSpell: 1
+    mindSpell: 1
+    charismaSpell: 1
   armorStats:
     armor: 0

@@ -33,17 +33,17 @@ public class GearInventory : MonoBehaviour
 
     private void Start()
     {
-        EquipGear(testGear[0]);
-        GetGear(testGear[0]);
-        GetGear(testGear[0]);
-        GetGear(testGear[0]);
-        GetGear(testGear[0]);
-        GetGear(testGear[1]);
+        //EquipGear(testGear[0]);
+        //GetGear(testGear[0]);
+        //GetGear(testGear[0]);
+        //GetGear(testGear[0]);
+        //GetGear(testGear[0]);
+        BuyGear(testGear[1]);
         EquipGear(armorsCollected[0]);
-       DropGear(testGear[0]);
-        DropGear(amuletCollected[0]);
-        // DropGear(testGear.armor);
-        SellGear(amuletCollected[0]);
+        //DropGear(testGear[0]);
+        // DropGear(amuletCollected[0]);
+        // // DropGear(testGear.armor);
+        SellGear(armorsCollected[0]);
 
     }
 
@@ -118,13 +118,19 @@ public class GearInventory : MonoBehaviour
         EquipGearChanged();
     }
 
-    public void DropGear(SO_gear gearToDrop)
+    public bool DropGear(SO_gear gearToDrop)
     {
+        bool soldSuccesfull = false;
+
         switch (gearToDrop.GearType)
         {
             case GearType.armor:
                 if (armorsCollected.Contains((SO_armor)gearToDrop))
+                {
                     armorsCollected.Remove((SO_armor)gearToDrop);
+                    soldSuccesfull = true;
+                }
+
                 else
                     Debug.Log("You do not own " + gearToDrop.itemName);
 
@@ -134,7 +140,10 @@ public class GearInventory : MonoBehaviour
                 break;
             case GearType.weapon:
                 if (weaponsCollected.Contains((SO_weapon)gearToDrop))
+                {
                     weaponsCollected.Remove((SO_weapon)gearToDrop);
+                    soldSuccesfull = true;
+                }
                 else
                     Debug.Log("You do not own " + gearToDrop.itemName);
 
@@ -144,7 +153,10 @@ public class GearInventory : MonoBehaviour
                 break;
             case GearType.amulet:
                 if (amuletCollected.Contains((SO_amulet)gearToDrop))
+                {
                     amuletCollected.Remove((SO_amulet)gearToDrop);
+                    soldSuccesfull = true;
+                }
                 else
                     Debug.Log("You do not own " + gearToDrop.itemName);
 
@@ -157,21 +169,34 @@ public class GearInventory : MonoBehaviour
                 break;
         }
 
-        EquipGearChanged();
+        if (soldSuccesfull)
+            EquipGearChanged();
+
+        return soldSuccesfull;
     }
 
-    public void SellGear(SO_gear gearToSell)
+    public bool SellGear(SO_gear gearToSell)
     {
-        Debug.Log("Sell " + gearToSell.name + " for " + gearToSell.valueSell.ToString());
-        PlayerCharacter.Instance.Inventory.BasicInventory.ChangeGold(gearToSell.valueSell);
+        
+        if (DropGear(gearToSell))
+        {
+            PlayerCharacter.Instance.Inventory.BasicInventory.ChangeGold(gearToSell.valueSell);
+            Debug.Log("Sell " + gearToSell.name + " for " + gearToSell.valueSell.ToString());
+            return true;
+        }
 
-        DropGear(gearToSell);
+        return false;
     }
-    public void BuyGear(SO_gear gearToSell)
-    {
-        Debug.Log("Sell " + gearToSell.name + " for " + gearToSell.valueSell.ToString());
-        if(PlayerCharacter.Instance.Inventory.BasicInventory.ChangeGold(gearToSell.valueBuy))
 
-        DropGear(gearToSell);
+    public bool BuyGear(SO_gear gearTobuy)
+    {
+        
+        if (PlayerCharacter.Instance.Inventory.BasicInventory.ChangeGold(-gearTobuy.valueBuy))
+        {
+            GetGear(gearTobuy);
+            Debug.Log("Buy " + gearTobuy.name + " for " + gearTobuy.valueBuy.ToString());
+            return true;
+        }
+        return false;
     }
 }

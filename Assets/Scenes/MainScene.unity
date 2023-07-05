@@ -497,8 +497,9 @@ GameObject:
   - component: {fileID: 1815538867}
   - component: {fileID: 1815538866}
   - component: {fileID: 1815538868}
+  - component: {fileID: 1815538869}
   m_Layer: 5
-  m_Name: TestPlayer
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -587,11 +588,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amount:
-    gold: 100
+    gold: 1000
     miscItems:
       herbs: 20
       meat: 20
       magicEssence: 20
+--- !u!114 &1815538869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815538864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71e587559ef7cb347aec67c79c928c9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testGear:
+  - {fileID: 11400000, guid: 83c1066c99bf566428b0a8370a130516, type: 2}
+  - {fileID: 11400000, guid: a8318a33938cff44f94985a838d4ddc8, type: 2}
+  armorsCollected: []
+  amuletCollected: []
+  weaponsCollected: []
+  armorEquiped: {fileID: 0}
+  amuletEquipped: {fileID: 0}
+  weaponEquipped: {fileID: 0}
 --- !u!1 &1981457117
 GameObject:
   m_ObjectHideFlags: 0

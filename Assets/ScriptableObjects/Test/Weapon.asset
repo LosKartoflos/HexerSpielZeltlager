@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   itemImage: {fileID: 0}
-  valueBuy: 0
-  valueSell: 0
+  valueBuy: 300
+  valueSell: 30
   attributeBuffs:
-    body: 0
+    body: 4
     mind: 0
     charisma: 0
   spellLevelBuff:
