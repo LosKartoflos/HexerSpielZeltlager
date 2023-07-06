@@ -31,22 +31,6 @@ public class GearInventory : MonoBehaviour
     [SerializeField]
     private SO_weapon weaponEquipped;
 
-    private void Start()
-    {
-        //EquipGear(testGear[0]);
-        //GetGear(testGear[0]);
-        //GetGear(testGear[0]);
-        //GetGear(testGear[0]);
-        //GetGear(testGear[0]);
-        BuyGear(testGear[1]);
-        EquipGear(armorsCollected[0]);
-        //DropGear(testGear[0]);
-        // DropGear(amuletCollected[0]);
-        // // DropGear(testGear.armor);
-        SellGear(armorsCollected[0]);
-
-    }
-
 
     public void GetGear(SO_gear newGear)
     {

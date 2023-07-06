@@ -11,5 +11,9 @@ namespace Hexerspiel.Items
         public Image itemImage;
         public int valueBuy;
         public int valueSell;
+
+        protected virtual ItemType itemType => ItemType.none;
+        public ItemType ItemType { get => itemType; }
+
     }
 }

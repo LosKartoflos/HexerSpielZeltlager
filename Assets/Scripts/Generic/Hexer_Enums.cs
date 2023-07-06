@@ -11,7 +11,7 @@ namespace Hexerspiel
 
 
     //Objects
-    public enum ItemType { utility, gear, quest, misc }
+    public enum ItemType { potion, gear, quest, misc, none }
     public enum GearType { armor, weapon, amulet, none }
     public enum WeaponRange { close, distant }
     public enum DamageType { normal, magical }

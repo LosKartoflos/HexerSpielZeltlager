@@ -14,12 +14,12 @@ namespace Hexerspiel.Items
             public float healthRegen;
         }
 
-        public const ItemType itemType = ItemType.gear;
-        protected virtual GearType gearType => GearType.none;
+        protected override ItemType itemType => ItemType.gear;
+
         public PlayerCharacter.PlayerAttributes attributeBuffs;
         public RegenBuffs regenBuffs;
         public PlayerCharacter.SpellLevel spellLevelBuff;
-
+        protected virtual GearType gearType => GearType.none;
         public GearType GearType { get => gearType;}
 
     }
