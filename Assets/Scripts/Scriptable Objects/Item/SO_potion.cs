@@ -1,7 +1,12 @@
+using Hexerspiel.Character;
 using Hexerspiel.gameplay;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+
+
+
 
 namespace Hexerspiel.Items
 {
@@ -9,7 +14,6 @@ namespace Hexerspiel.Items
     public class SO_potion : SO_item
     {
         protected override ItemType itemType => ItemType.potion;
-        public Dice.Manipulation diceManipulation;
-        public float addMana, addLife;
+        public PotionStats potionStats;
     }
 }

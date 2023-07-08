@@ -20,6 +20,13 @@ namespace Hexerspiel
             public int addablePoints;
             public int subtractablePointsFromEnemy;
 
+            public Manipulation(int addDice, int substractDiceFromEnemy, int addablePoints, int subtractablePointsFromEnemy)
+            {
+                this.addDice = addDice;
+                this.substractDiceFromEnemy = substractDiceFromEnemy;
+                this.addablePoints = addablePoints;
+                this.subtractablePointsFromEnemy = subtractablePointsFromEnemy;
+            }
         }
 
         private void Awake()

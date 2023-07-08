@@ -11,9 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/DigitsNFCToolkit/Samples/Scenes/NFCTools.unity
     guid: befa626c478f23b4cb9ead522d1c55fb
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 5e5adb10cee44b445b234d6386b5a7ba
+  - enabled: 1
+    path: Assets/Scenes/FightScene.unity
+    guid: e5c91f9192ea5344fac775f15443c3a4
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 70a17dc19702f2b4a9862bc97278d2fd, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 608452d1b3819494b99ce605e0bd0638, type: 2}

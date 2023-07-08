@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace Hexerspiel.Character
 {
     [Serializable]
@@ -10,7 +11,7 @@ namespace Hexerspiel.Character
         public int herbs, meat, magicEssence;
     }
 
-
+    [RequireComponent(typeof(Inventory))]
     /// <summary>
     /// Class for the basic inventory values which act like currencies
     /// </summary>

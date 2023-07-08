@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01b98ed72e2712248a586f05935f8908, type: 3}
   m_Name: Potion
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Universal Potion
   itemImage: {fileID: 0}
-  valueBuy: 0
-  valueSell: 0
-  diceManipulation:
-    addDice: 0
-    substractDiceFromEnemy: 0
-    addablePoints: 0
-    subtractablePointsFromEnemy: 0
-  addMana: 0
-  addLife: 0
+  valueBuy: 100
+  valueSell: 10
+  potionStats:
+    diceManipulation:
+      addDice: 1
+      substractDiceFromEnemy: 2
+      addablePoints: 3
+      subtractablePointsFromEnemy: 4
+    addMana: 10
+    addLife: 20

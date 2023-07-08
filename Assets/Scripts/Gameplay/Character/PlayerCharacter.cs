@@ -59,6 +59,8 @@ namespace Hexerspiel.Character
         private void Awake()
         {
             instance = this;
+
+            DontDestroyOnLoad(this.gameObject);
         }
     }
 }
