@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Hexerspiel.Character
 {
-    public abstract class BasicCharacterValues : MonoBehaviour
+    public abstract class BasicCharacter : MonoBehaviour
     {
         [Serializable]
         public struct BasicStats
@@ -23,7 +23,7 @@ namespace Hexerspiel.Character
             [Range(1, 10)]
             public int attackDice;
             public DamageType damageType;
-           
+
         }
 
         [Serializable]
@@ -33,19 +33,17 @@ namespace Hexerspiel.Character
             public int armor;
         }
 
-        [SerializeField]
-        private BasicStats characterStats;
 
-        [SerializeField]
-        private OffensivStats attackStats;
-
-        [SerializeField]
-        private DefensiveStats deffensiveStats;
-
-        
+        protected BasicStats basicStatsValue;
 
 
+        protected OffensivStats offensivStatsValue;
 
-        
+
+        protected DefensiveStats deffensiveStatsValue;
+
+        public BasicStats BasicStatsValue { get => basicStatsValue; set => basicStatsValue = value; }
+        public OffensivStats OffensivStatsValue { get => offensivStatsValue; set => offensivStatsValue = value; }
+        public DefensiveStats DeffensiveStatsValue { get => deffensiveStatsValue; set => deffensiveStatsValue = value; }
     }
 }

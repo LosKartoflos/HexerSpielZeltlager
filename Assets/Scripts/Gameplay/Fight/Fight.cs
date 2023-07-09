@@ -1,38 +1,43 @@
 using Hexerspiel.Character;
+using Hexerspiel.Character.monster;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Hexerspiel.Fight
 {
     /// <summary>
     /// manages the fight procedure
     /// </summary>
-    public class Fight : MonoBehaviour
+    public  class Fight
     {
+
+        #region Variables
         [SerializeField]
-        PlayerCharacter player;
+        public static BasicCharacter player;
         [SerializeField]
-        MonsterCharacter enemy;
+        public static MonsterCharacter enemy;
+        public static int round = 1;
+        #endregion
 
-        private int round = 1;
+        #region Accessors
+        #endregion
 
-        public static Action fightStarted = delegate { };
+        #region LifeCycle
+        #endregion
 
-        public int Round { get => round;  }
-
-        public Fight(PlayerCharacter player, MonsterCharacter enemy)
+        #region Functions
+        public static void StartFightingScene(SO_Monster so_monster)
         {
-            this.player = player;
-            this.enemy = enemy;
+            SceneManager.LoadScene("FightScene");
+            enemy = new MonsterCharacter(so_monster);
+            player = (BasicCharacter) PlayerCharacter.Instance;
 
-            round = 1;
-
-            fightStarted();
         }
 
-
+        #endregion
         //private void Attack(out BasicCharacterValues attacker, out BasicCharacterValues basicCharacterValues)
         //{
 

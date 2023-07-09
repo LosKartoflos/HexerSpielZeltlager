@@ -12,24 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee13194364c7a76459928be9ec285a84, type: 3}
   m_Name: Monster
   m_EditorClassIdentifier: 
-  monsterName: 
+  monsterName: Spinne
   monsterImage: {fileID: 0}
   basicStats:
-    health: 0
+    health: 20
     characterMovement: 0
     characterType: 0
   monsterStats:
-    level: 0
-    gold: 0
-    xp: 0
-    herbs: 0
-    meat: 0
-    magicEssence: 0
+    level: 2
+    gold: 10
+    xp: 10
+    herbs: 1
+    meat: 1
+    magicEssence: 1
     dropedGear: []
     dropedQuestItems: []
   offensivStats:
-    succesThreshold: 0
-    attackDice: 0
+    succesThreshold: 2
+    attackDice: 5
     damageType: 0
   defensiveStats:
-    armor: 0
+    armor: 2

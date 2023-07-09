@@ -23,7 +23,7 @@ public class MainManager : MonoBehaviour
     }
     #endregion
 
-    #region Functiosn
+    #region Functions
     #endregion
 
 }

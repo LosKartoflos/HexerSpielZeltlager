@@ -1,3 +1,4 @@
+using Hexerspiel.Character.monster;
 using Hexerspiel.spots;
 using System;
 using System.Collections;
@@ -5,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Hexerspiel.Character
 {
-    public class PlayerCharacter : BasicCharacterValues
+    public class PlayerCharacter : BasicCharacter
     {
 
         [Serializable]

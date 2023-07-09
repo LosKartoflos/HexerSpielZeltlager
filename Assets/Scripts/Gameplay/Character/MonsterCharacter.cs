@@ -4,9 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Hexerspiel.Character
+namespace Hexerspiel.Character.monster
 {
-    public class MonsterCharacter : BasicCharacterValues
+    public class MonsterCharacter : BasicCharacter
     {
         [Serializable]
         public struct MonsterStats
@@ -23,5 +23,28 @@ namespace Hexerspiel.Character
             public List<SO_questItem> dropedQuestItems;
 
         }
+
+
+        #region Variables
+        [SerializeField]
+        protected MonsterStats monsterStats;
+        #endregion
+
+        #region Accessors
+        public MonsterCharacter(SO_Monster newMonster)
+        {
+            monsterStats = newMonster.monsterStats;
+            basicStatsValue = newMonster.basicStats;
+            deffensiveStatsValue = newMonster.defensiveStats;
+            offensivStatsValue = newMonster.offensivStats;
+        }
+
+        #endregion
+
+        #region LifeCycle
+        #endregion
+
+        #region Functions
+        #endregion
     }
 }
