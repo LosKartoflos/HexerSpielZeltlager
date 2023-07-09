@@ -16,12 +16,12 @@ public class SO_npc : ScriptableObject
 
     public List<SO_questStep> questList = new List<SO_questStep>();
 
-    [Range(1, 100)]
-    public int friendshipLevel;
+    //[Range(1, 100)]
+    //public int friendshipLevel;
 
     public SO_Monster npcInFight;
 
-    public SO_socialInteractionOutcome socialThreaten;
-    public SO_socialInteractionOutcome socialCharm;
-    public SO_socialInteractionOutcome socialDebate;
+    //public SO_socialInteractionOutcome socialThreaten;
+    //public SO_socialInteractionOutcome socialCharm;
+    //public SO_socialInteractionOutcome socialDebate;
 }
