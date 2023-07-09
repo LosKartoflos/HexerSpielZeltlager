@@ -13,7 +13,7 @@ namespace Hexerspiel.spots
         //questTracker needs to keep track which quests are done
         public TagInfos npcInformation;
 
-        public PlayerCharacter.PlayerAttributes attribute;
+        public PlayerCharacterValues.PlayerAttributes attribute;
 
         public List<SO_questStartTag> questToStartList = new List<SO_questStartTag>();
 

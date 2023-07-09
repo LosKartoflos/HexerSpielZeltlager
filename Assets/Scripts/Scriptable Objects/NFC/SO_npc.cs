@@ -12,7 +12,7 @@ public class SO_npc : ScriptableObject
 {
     public TagInfos npcInformation;
 
-    public PlayerCharacter.PlayerAttributes attribute;
+    public PlayerCharacterValues.PlayerAttributes attribute;
 
     public List<SO_questStep> questList = new List<SO_questStep>();
 

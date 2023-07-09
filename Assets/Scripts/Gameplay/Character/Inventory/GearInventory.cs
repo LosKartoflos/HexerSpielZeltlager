@@ -170,7 +170,7 @@ namespace Hexerspiel.Character
 
             if (DropGear(gearToSell))
             {
-                PlayerCharacter.Instance.Inventory.BasicInventory.ChangeGold(gearToSell.valueSell);
+                Player.Instance.Inventory.BasicInventory.ChangeGold(gearToSell.valueSell);
                 Debug.Log("Sell " + gearToSell.name + " for " + gearToSell.valueSell.ToString());
                 return true;
             }
@@ -181,7 +181,7 @@ namespace Hexerspiel.Character
         public bool BuyGear(SO_gear gearTobuy)
         {
 
-            if (PlayerCharacter.Instance.Inventory.BasicInventory.ChangeGold(-gearTobuy.valueBuy))
+            if (Player.Instance.Inventory.BasicInventory.ChangeGold(-gearTobuy.valueBuy))
             {
                 GetGear(gearTobuy);
                 Debug.Log("Buy " + gearTobuy.name + " for " + gearTobuy.valueBuy.ToString());

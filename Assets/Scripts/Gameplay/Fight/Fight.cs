@@ -11,14 +11,14 @@ namespace Hexerspiel.Fight
     /// <summary>
     /// manages the fight procedure
     /// </summary>
-    public  class Fight
+    public class Fight : MonoBehaviour
     {
 
         #region Variables
         [SerializeField]
-        public static BasicCharacter player;
+        public static PlayerCharacterValues player = new PlayerCharacterValues();
         [SerializeField]
-        public static MonsterCharacter enemy;
+        public static MonsterCharacter enemy = new MonsterCharacter();
         public static int round = 1;
         #endregion
 
@@ -31,17 +31,30 @@ namespace Hexerspiel.Fight
         #region Functions
         public static void StartFightingScene(SO_Monster so_monster)
         {
-            SceneManager.LoadScene("FightScene");
             enemy = new MonsterCharacter(so_monster);
-            player = (BasicCharacter) PlayerCharacter.Instance;
+            player = Player.Instance.PlayerValues;
+            SceneManager.LoadScene("FightScene");
 
         }
 
-        #endregion
-        //private void Attack(out BasicCharacterValues attacker, out BasicCharacterValues basicCharacterValues)
-        //{
+        public void FightARound()
+        {
+            if (enemy == null || player == null)
+            {
+                Debug.LogError("No enemay or player");
+                return;
+            }
 
-        //}
+
+                
+        }
+
+
+        
+
+
+        #endregion
+
 
     }
 

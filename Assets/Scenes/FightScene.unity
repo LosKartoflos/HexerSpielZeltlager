@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 702405174}
   - component: {fileID: 702405175}
+  - component: {fileID: 702405176}
   m_Layer: 0
   m_Name: FightManager
   m_TagString: Untagged
@@ -165,6 +166,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb4c04389b457be4daf3ca5d2b3f037b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &702405176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702405173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 026598d738484bc40846f4d143bea85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1468061455

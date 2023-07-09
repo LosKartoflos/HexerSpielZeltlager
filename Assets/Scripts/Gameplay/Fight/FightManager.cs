@@ -18,8 +18,13 @@ namespace Hexerspiel.Fight
         #region LifeCycle
         private void Start()
         {
-            //Debug.Log(string.Format("Fight start with {0}. Player has {1}hp.", Fight.enemy.name, Fight.player.BasicStatsValue.health));
-            Debug.Log(Fight.enemy.name);
+            Debug.Log(string.Format("Fight start with {0}. Player has {1}hp.", Fight.enemy.MonsterName, Fight.player.BasicStatsValue.health));
+
+            Fight.enemy.Attack(0,0,Fight.player.BasicStatsValue.characterType,Fight.player.BasicStatsValue.characterMovement);
+
+            Debug.Log(string.Format("Fight start with {0}. Player has {1}hp.", Fight.enemy.MonsterName, Fight.player.BasicStatsValue.health)); 
+
+
         }
         #endregion
 

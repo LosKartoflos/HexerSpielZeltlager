@@ -9,6 +9,6 @@ namespace Hexerspiel.Items
     public class SO_weapon : SO_gear
     {
         protected override GearType gearType => GearType.armor;
-        public PlayerCharacter.OffensivStats weaponStats;
+        public PlayerCharacterValues.OffensivStats weaponStats;
     }
 }

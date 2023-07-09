@@ -38,12 +38,12 @@ public class CheckQuestItemObject : MonoBehaviour
 
         //PlayerCharacter.Instance.Inventory.GetItem(weapon);
 
-       PlayerCharacter.Instance.Inventory.PotionInventory.GetPotion(potion);
+       Player.Instance.Inventory.PotionInventory.GetPotion(potion);
        //// PotionStats potionStats = PlayerCharacter.Instance.Inventory.PotionInventory.UsePotion(potion);
 
 
 
-       PlayerCharacter.Instance.Inventory.QuestItemInventory.BuyQuestItem(sO_QuestItem);
+       Player.Instance.Inventory.QuestItemInventory.BuyQuestItem(sO_QuestItem);
 
        // PlayerCharacter.Instance.Inventory.QuestItemInventory.DropQuestItem(sO_QuestItem);
         // PlayerCharacter.Instance.Inventory.PotionInventory.SellPotion(potion);

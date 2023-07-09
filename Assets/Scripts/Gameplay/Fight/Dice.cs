@@ -10,7 +10,13 @@ namespace Hexerspiel
     /// </summary>
     public class Dice : MonoBehaviour
     {
+        private static Dice instance;
+
         private System.Random random;
+
+        public static Dice Instance { get => instance; }
+
+
 
         [Serializable]
         public struct Manipulation
@@ -31,6 +37,7 @@ namespace Hexerspiel
 
         private void Awake()
         {
+            instance = this;
             random = new System.Random();
         }
 
@@ -67,8 +74,6 @@ namespace Hexerspiel
             Array.Sort(rollResults);
             Array.Reverse(rollResults);
 
-            //test
-            rollResults = new int[] { 5, 4, 2, 2, 2 };
 
             string rolledValues = "";
             foreach (int value in rollResults)

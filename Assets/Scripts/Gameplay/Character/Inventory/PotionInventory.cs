@@ -64,7 +64,7 @@ namespace Hexerspiel.Character
 
             if (DropPotion(potionToSell))
             {
-                PlayerCharacter.Instance.Inventory.BasicInventory.ChangeGold(potionToSell.valueSell);
+                Player.Instance.Inventory.BasicInventory.ChangeGold(potionToSell.valueSell);
                 Debug.Log("Sell " + potionToSell.name + " for " + potionToSell.valueSell.ToString());
                 return true;
             }
@@ -75,7 +75,7 @@ namespace Hexerspiel.Character
         public bool BuyPotion(SO_potion potionToBuy)
         {
 
-            if (PlayerCharacter.Instance.Inventory.BasicInventory.ChangeGold(-potionToBuy.valueBuy))
+            if (Player.Instance.Inventory.BasicInventory.ChangeGold(-potionToBuy.valueBuy))
             {
                 GetPotion(potionToBuy);
                 Debug.Log("Buy " + potionToBuy.name + " for " + potionToBuy.valueBuy.ToString());

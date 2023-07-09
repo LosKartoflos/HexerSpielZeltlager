@@ -15,14 +15,14 @@ namespace Hexerspiel.Quests
 
         public override void TestIfStepIsSolved(SO_spots spotCurrent, SO_npc npcCurrent, out bool stepIsSolved, params ScriptableObject[] possibleSolution)
         {
-            if (PlayerCharacter.Instance.Inventory.BasicInventory == null)
+            if (Player.Instance.Inventory.BasicInventory == null)
             {
                 Debug.LogError("No Basicinventory");
                 stepIsSolved = false;
                 return;
             }
 
-            if (!PlayerCharacter.Instance.Inventory.BasicInventory.CheckIfMiscItemsManipulationIsPossible(miscItmesNeeded))
+            if (!Player.Instance.Inventory.BasicInventory.CheckIfMiscItemsManipulationIsPossible(miscItmesNeeded))
             {
                 stepIsSolved = false;
                 return;
@@ -35,7 +35,7 @@ namespace Hexerspiel.Quests
 
 
             //the conditions are fullfilled. Decrease the amount and step is solved.
-            PlayerCharacter.Instance.Inventory.BasicInventory.ControlledMiscManipulation(miscItmesNeeded);
+            Player.Instance.Inventory.BasicInventory.ControlledMiscManipulation(miscItmesNeeded);
 
             stepIsSolved = true;
 
