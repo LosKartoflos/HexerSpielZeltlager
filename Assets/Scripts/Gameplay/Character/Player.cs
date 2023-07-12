@@ -1,4 +1,5 @@
 using Hexerspiel.Character;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,9 +32,11 @@ public class Player : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject);
     }
+
+  
     #endregion
 
     #region Functions
- 
+
     #endregion
 }

@@ -1,5 +1,6 @@
 using Hexerspiel.Character;
 using Hexerspiel.Character.monster;
+using Hexerspiel.Items;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,15 @@ namespace Hexerspiel.Fight
     public class FightManager : MonoBehaviour
     {
         #region Variables
+        int[] damageFromPlayer;
+        int[] damageFromEnemy;
+
+        int extraDiceForPlayer;
+        int extraPointsForPlayer;
+
+        int malusDiceForEnemy;
+        int malusPointsForEnemy;
+
         #endregion
 
         #region Accessors
@@ -18,18 +28,102 @@ namespace Hexerspiel.Fight
         #region LifeCycle
         private void Start()
         {
-            Debug.Log(string.Format("Fight start with {0}. Player has {1}hp.", Fight.enemy.MonsterName, Fight.player.BasicStatsValue.health));
-
-            Fight.enemy.Attack(0,0,Fight.player.BasicStatsValue.characterType,Fight.player.BasicStatsValue.characterMovement);
-
-            Debug.Log(string.Format("Fight start with {0}. Player has {1}hp.", Fight.enemy.MonsterName, Fight.player.BasicStatsValue.health)); 
-
+            // check why random of dice is null;
+            FightARound();
 
         }
         #endregion
 
         #region Functions
+        /// <summary>
+        /// A Round in a fight
+        /// </summary>
+        /// <returns>if the fight is over because one contester is dead, returns false</returns>
+        public bool FightARound()
+        {
+            //to do: give back winner or if still fighting
+            bool fighIsOver = false;
+            //player Attacks
 
+            //apply amulet dice modifiers
+            UseAmulet(Player.Instance.Inventory.GearInventory.AmuletEquipped);
+
+            Debug.Log(string.Format("Player attacks now. Enemy has {1}hp.", Fight.enemy.MonsterName, Fight.enemy.BasicStatsValue.health));
+            int[] damageDealtByPlayer = Fight.player.Attack(0, extraPointsForPlayer, extraDiceForPlayer, Fight.enemy.BasicStatsValue.characterType, Fight.enemy.BasicStatsValue.characterMovement);
+            Fight.enemy.Defend(damageDealtByPlayer[0]);
+            Debug.Log(string.Format("Player fought. Damge dealt {0}. Damaged modified {2}, Enemy has {1}hp.", damageDealtByPlayer[0], Fight.enemy.BasicStatsValue.health, damageDealtByPlayer[1]));
+
+
+            //falls monster schon besiegt ist
+            if (Fight.enemy.BasicStatsValue.health <= 0)
+            {
+                Fight.player.SetLife(0);
+                Player.Instance.PlayerValues.Died();
+                fighIsOver = true;
+
+                ClearExtraDiceAndPoints();
+                return fighIsOver;
+
+                
+            }
+
+            //Enemy Attacks
+            Debug.Log(string.Format("{0} attacks now. Player has {1}hp.", Fight.enemy.MonsterName, Fight.player.BasicStatsValue.health));
+            int[] damageDealtByEnemy = Fight.enemy.Attack(0, malusPointsForEnemy, malusDiceForEnemy, Fight.player.BasicStatsValue.characterType, Fight.player.BasicStatsValue.characterMovement);
+            Fight.player.Defend(damageDealtByEnemy[0]);
+            Debug.Log(string.Format("Round fought with. Damge dealt {0}. Damaged modified {2}, Player has {1}hp.", damageDealtByEnemy[0], Fight.player.BasicStatsValue.health, damageDealtByEnemy[1]));
+
+            //Round fought check for results and reset;
+
+            //falls spieler besiegt ist
+            if(Fight.player.BasicStatsValue.health <= 0)
+            {
+                Fight.enemy.SetLife(0);
+                Fight.enemy.Died();
+                Player.Instance.PlayerValues.SetLife(Fight.player.GetLife());
+                fighIsOver = true;
+            }
+
+            
+            ClearExtraDiceAndPoints();
+
+            return fighIsOver;
+        }
+
+
+        public void DrinkPotion(SO_potion potion)
+        {
+            if (potion == null)
+                return;
+
+
+            extraDiceForPlayer = potion.potionStats.diceManipulation.addDice;
+            extraPointsForPlayer = potion.potionStats.diceManipulation.addablePoints;
+
+            malusDiceForEnemy = potion.potionStats.diceManipulation.substractDiceFromEnemy;
+            malusPointsForEnemy = potion.potionStats.diceManipulation.subtractablePointsFromEnemy;
+        }
+
+        public void UseAmulet(SO_amulet amulet)
+        {
+            if (amulet == null)
+                return;
+
+            extraDiceForPlayer = amulet.diceManipulation.addDice;
+            extraPointsForPlayer = amulet.diceManipulation.addablePoints;
+
+            malusDiceForEnemy = amulet.diceManipulation.substractDiceFromEnemy;
+            malusPointsForEnemy = amulet.diceManipulation.subtractablePointsFromEnemy;
+        }
+
+        public void ClearExtraDiceAndPoints()
+        {
+            extraDiceForPlayer = 0;
+            extraPointsForPlayer = 0;
+
+            malusDiceForEnemy = 0;
+            malusPointsForEnemy = 0;
+        }
 
         #endregion
     }

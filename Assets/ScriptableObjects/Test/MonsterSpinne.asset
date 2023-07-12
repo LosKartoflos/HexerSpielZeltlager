@@ -30,6 +30,7 @@ MonoBehaviour:
   offensivStats:
     succesThreshold: 2
     attackDice: 5
-    damageType: 0
+    damageType: 1
+    weaponRange: 0
   defensiveStats:
     armor: 2

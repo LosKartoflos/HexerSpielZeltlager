@@ -67,7 +67,8 @@ namespace Hexerspiel
             //roll available dices;
             for (int i = 0; i < availableDices; i++)
             {
-                rollResults[i] = Roll() + passiveModifierPool;
+                //roll should never be below zero
+                rollResults[i] = (Roll() + passiveModifierPool)>=0? (Roll() + passiveModifierPool):0;
             }
 
             //Sort from high to low and check for successa and modify if needed

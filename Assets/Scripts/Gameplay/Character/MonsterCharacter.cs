@@ -48,7 +48,7 @@ namespace Hexerspiel.Character.monster
         {
             monsterStat = newMonster.monsterStats;
             basicStatsValue = newMonster.basicStats;
-            deffensiveStatsValue = newMonster.defensiveStats;
+            defensiveStatsValue = newMonster.defensiveStats;
             offensivStatsValue = newMonster.offensivStats;
 
             monsterName = newMonster.monsterName;
@@ -73,19 +73,19 @@ namespace Hexerspiel.Character.monster
         /// <summary>
         /// calculates the damage
         /// </summary>
-        /// <param name="extraDice">Extra dice for player oder malus for monster(negativ)</param>
+        /// <param name="extraThreshhold">permanent modifier for the succestrehshold on the attackthrow</param>
         /// <param name="manipulationPoints">extra for player, malus for monster (negativ)</param>
         /// <param name="enemyType">type of enemy</param>
         /// <param name="enemyMovement">movement of enemy</param>
         /// <returns>first value is the combined applicable damage. The Second value is the modifier</returns>
-        public override int[] Attack(int extraDice, int manipulationPoints, CharacterType enemyType, CharacterMovement enemyMovement)
+        public override int[] Attack(int extraThreshhold, int manipulationPoints, int extraDice, CharacterType enemyType, CharacterMovement enemyMovement)
         {
             int damage = 0;
             int bonusDamage = 0;
 
             //normal damage
-            
-            damage = Dice.Instance.RollForSuccess(offensivStatsValue.attackDice, offensivStatsValue.succesThreshold, extraDice, manipulationPoints);
+
+            damage = Dice.Instance.RollForSuccess((offensivStatsValue.attackDice + extraDice) < 1 ? 1 : (offensivStatsValue.attackDice + extraDice), offensivStatsValue.succesThreshold, extraThreshhold, manipulationPoints);
 
             //extra or minusdamge
             bonusDamage += CalculateBonusDamage(enemyType, enemyMovement, offensivStatsValue.weaponRange, offensivStatsValue.damageType);
@@ -96,7 +96,8 @@ namespace Hexerspiel.Character.monster
                 damage += bonusDamage;
             }
             // if damage is bigger than one and there is applicable bonus damge (positiv or negativ)
-            else if(damage > 1){
+            else if (damage > 1)
+            {
                 damage += bonusDamage;
                 //at least one damage
                 if (damage < 1)
@@ -104,11 +105,16 @@ namespace Hexerspiel.Character.monster
             }
 
 
-            int[] finalDamge = { damage, bonusDamage };
-            return finalDamge;
+            int[] finalDamage = { damage, bonusDamage };
+            return finalDamage;
         }
 
-       
+        public override void Died()
+        {
+            //TO DO: apply xp give loot
+        }
+
+
 
         #endregion
     }

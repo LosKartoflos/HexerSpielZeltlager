@@ -12,9 +12,10 @@ namespace Hexerspiel.Character
         public struct BasicStats
         {
             public float health;
+            public float healthMax;
             public CharacterMovement characterMovement;
             public CharacterType characterType;
-            
+
         }
 
         [Serializable]
@@ -43,14 +44,42 @@ namespace Hexerspiel.Character
         protected OffensivStats offensivStatsValue;
 
         [SerializeField]
-        protected DefensiveStats deffensiveStatsValue;
+        protected DefensiveStats defensiveStatsValue;
 
 
         public BasicStats BasicStatsValue { get => basicStatsValue; set => basicStatsValue = value; }
         public OffensivStats OffensivStatsValue { get => offensivStatsValue; set => offensivStatsValue = value; }
-        public DefensiveStats DeffensiveStatsValue { get => deffensiveStatsValue; set => deffensiveStatsValue = value; }
+        public DefensiveStats DeffensiveStatsValue { get => defensiveStatsValue; set => defensiveStatsValue = value; }
 
-        public abstract int[] Attack(int extraDice, int manipulationPoints, CharacterType enemyType, CharacterMovement enemyMovement);
+        public abstract int[] Attack(int extraThreshhold, int manipulationPoints, int extraDice, CharacterType enemyType, CharacterMovement enemyMovement);
+
+        public virtual void Defend(int damageDealt)
+        {
+            // wenn schaden negativ soll man kein leben dazubekommen, daher das ?:
+            basicStatsValue.health -= (damageDealt - defensiveStatsValue.armor) < 0 ? 0 : damageDealt - defensiveStatsValue.armor;
+        }
+
+        public virtual void SetLife(float healthAmount)
+        {
+            basicStatsValue.health = healthAmount;
+        }
+
+        public virtual void AddLife(float healthAmount)
+        {
+            basicStatsValue.health += healthAmount;
+
+            if (basicStatsValue.health > basicStatsValue.healthMax)
+                basicStatsValue.health = basicStatsValue.healthMax;
+        }
+
+        public virtual float GetLife()
+        {
+            return basicStatsValue.health;
+
+          
+        }
+
+        public abstract void Died();
 
         protected virtual int CalculateBonusDamage(CharacterType enemyType, CharacterMovement enemyMovement, WeaponRange ownRange, DamageType ownDamageType)
         {
