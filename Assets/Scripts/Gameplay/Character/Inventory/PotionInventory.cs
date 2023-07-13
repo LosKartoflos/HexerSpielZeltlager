@@ -12,6 +12,8 @@ namespace Hexerspiel.Character
         public Dice.Manipulation diceManipulation;
         public float addMana, addLife;
 
+        
+
         public PotionStats(Dice.Manipulation diceManipulation, float addMana, float addLife)
         {
             this.diceManipulation = diceManipulation;
@@ -22,6 +24,7 @@ namespace Hexerspiel.Character
     [RequireComponent(typeof(Inventory))]
     public class PotionInventory : MonoBehaviour
     {
+        public static event Action<PotionStats> PotionUsed = delegate { };
         [SerializeField]
         private List<SO_potion> potionList = new List<SO_potion>();
 
@@ -36,10 +39,12 @@ namespace Hexerspiel.Character
         {
             if (DropPotion(usedPotion))
             {
-                
+                PotionUsed(usedPotion.potionStats);
                 return usedPotion.potionStats;
             }
             Debug.Log("potion not in inventory");
+
+            
             return new PotionStats();
         }
 

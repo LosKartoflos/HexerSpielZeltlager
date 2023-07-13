@@ -29,12 +29,26 @@ namespace Hexerspiel.Fight
         private void Start()
         {
             // check why random of dice is null;
-            FightARound();
+           
 
+        }
+
+        private void OnEnable()
+        {
+            PotionInventory.PotionUsed += DrinkPotion;
+        }
+        private void OnDisable()
+        {
+            PotionInventory.PotionUsed -= DrinkPotion;
         }
         #endregion
 
         #region Functions
+
+        public void FightTest()
+        {
+            FightARound();
+        }
         /// <summary>
         /// A Round in a fight
         /// </summary>
@@ -90,18 +104,20 @@ namespace Hexerspiel.Fight
             return fighIsOver;
         }
 
-
-        public void DrinkPotion(SO_potion potion)
+        /// <summary>
+        /// use a potion in fight
+        /// </summary>
+        /// <param name="potionStats">potion to use</param>
+        public void DrinkPotion(PotionStats potionStats)
         {
-            if (potion == null)
-                return;
+            Fight.player.AddLife(potionStats.addLife);
+            Fight.player.AddMana(potionStats.addMana);
 
+            extraDiceForPlayer = potionStats.diceManipulation.addDice;
+            extraPointsForPlayer = potionStats.diceManipulation.addablePoints;
 
-            extraDiceForPlayer = potion.potionStats.diceManipulation.addDice;
-            extraPointsForPlayer = potion.potionStats.diceManipulation.addablePoints;
-
-            malusDiceForEnemy = potion.potionStats.diceManipulation.substractDiceFromEnemy;
-            malusPointsForEnemy = potion.potionStats.diceManipulation.subtractablePointsFromEnemy;
+            malusDiceForEnemy = potionStats.diceManipulation.substractDiceFromEnemy;
+            malusPointsForEnemy = potionStats.diceManipulation.subtractablePointsFromEnemy;
         }
 
         public void UseAmulet(SO_amulet amulet)

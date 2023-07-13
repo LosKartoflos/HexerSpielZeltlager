@@ -243,10 +243,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e5444f0d0501b4ba84e1bf4a991c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bt_fight: {fileID: 0}
-  bt_run: {fileID: 0}
-  bt_usePotion: {fileID: 0}
-  bt_ChangeEquipment: {fileID: 0}
+  bt_fight: {fileID: 819120833}
+  bt_run: {fileID: 538378591}
+  bt_usePotion: {fileID: 971057737}
+  bt_ChangeEquipment: {fileID: 994297848}
+  bt_useSpell: {fileID: 1650578183}
 --- !u!1 &538378589
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,6 +657,7 @@ MonoBehaviour:
   bt_run: {fileID: 0}
   bt_usePotion: {fileID: 0}
   bt_ChangeEquipment: {fileID: 0}
+  bt_useSpell: {fileID: 0}
 --- !u!1 &702405173
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,7 +933,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 819120834}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 702405175}
+        m_TargetAssemblyTypeName: Hexerspiel.Fight.FightManager, Assembly-CSharp
+        m_MethodName: FightTest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &819120834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1053,7 +1067,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 971057738}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 386605744}
+        m_TargetAssemblyTypeName: UI_Fight, Assembly-CSharp
+        m_MethodName: DrinkTestpotion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &971057738
 MonoBehaviour:
   m_ObjectHideFlags: 0

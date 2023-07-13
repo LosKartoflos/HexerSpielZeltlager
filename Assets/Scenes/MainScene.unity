@@ -844,7 +844,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb5182ae17710d04f93fc858ecb5915e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  potionList: []
+  potionList:
+  - {fileID: 11400000, guid: 73023c6e79efbba458b9eececf9d630d, type: 2}
+  - {fileID: 11400000, guid: 73023c6e79efbba458b9eececf9d630d, type: 2}
 --- !u!114 &799964554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -871,10 +873,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   armorsCollected: []
-  amuletCollected: []
+  amuletCollected:
+  - {fileID: 11400000, guid: 83c1066c99bf566428b0a8370a130516, type: 2}
   weaponsCollected: []
   armorEquiped: {fileID: 0}
-  amuletEquipped: {fileID: 0}
+  amuletEquipped: {fileID: 11400000, guid: 83c1066c99bf566428b0a8370a130516, type: 2}
   weaponEquipped: {fileID: 0}
 --- !u!114 &799964556
 MonoBehaviour:
@@ -1549,19 +1552,21 @@ MonoBehaviour:
   playerValues:
     basicStatsValue:
       health: 100
+      healthMax: 150
       characterMovement: 0
       characterType: 0
     offensivStatsValue:
-      succesThreshold: 0
+      succesThreshold: 1
       attackDice: 0
       damageType: 0
       weaponRange: 0
-    deffensiveStatsValue:
-      armor: 0
+    defensiveStatsValue:
+      armor: 1
     playerStats:
-      mana: 0
-      manaRegen: 0
-      healthRegen: 0
+      mana: 10
+      manaRegen: 1
+      manaMax: 50
+      healthRegen: 5
       xp: 0
       level: 0
     playerAttributes:

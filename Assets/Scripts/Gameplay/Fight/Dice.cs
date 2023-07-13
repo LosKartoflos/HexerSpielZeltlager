@@ -47,6 +47,8 @@ namespace Hexerspiel
         /// <returns>returns a random number between 1 and 6</returns>
         public int Roll()
         {
+            if(random == null)
+                random = new System.Random();
             return random.Next(1, 7);
         }
 
@@ -68,7 +70,7 @@ namespace Hexerspiel
             for (int i = 0; i < availableDices; i++)
             {
                 //roll should never be below zero
-                rollResults[i] = (Roll() + passiveModifierPool)>=0? (Roll() + passiveModifierPool):0;
+                rollResults[i] = Roll() + passiveModifierPool;// (Roll() + passiveModifierPool)>=0? (Roll() + passiveModifierPool):0;
             }
 
             //Sort from high to low and check for successa and modify if needed

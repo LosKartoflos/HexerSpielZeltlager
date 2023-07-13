@@ -18,14 +18,14 @@ MonoBehaviour:
   valueSell: 30
   attributeBuffs:
     body: 0
-    mind: 5
-    charisma: 5
+    mind: 2
+    charisma: 2
   spellLevelBuff:
     lifeSpell: 1
     mindSpell: 2
     charismaSpell: 3
   diceManipulation:
-    addDice: 1
+    addDice: 2
     substractDiceFromEnemy: 1
     addablePoints: 3
-    subtractablePointsFromEnemy: 4
+    subtractablePointsFromEnemy: 3

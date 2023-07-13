@@ -15,6 +15,7 @@ namespace Hexerspiel.Character
         {
             public float mana;
             public float manaRegen;
+            public float manaMax;
             public float healthRegen;
             public int xp;
             public int level;
@@ -74,7 +75,7 @@ namespace Hexerspiel.Character
 
             //normal damage
             Dice dice = new Dice();
-            damage = dice.RollForSuccess((offensivStatsValue.attackDice + extraDice) < 1 ? 1 : (offensivStatsValue.attackDice + extraDice), offensivStatsValue.succesThreshold, extraThreshhold, manipulationPoints);
+            damage = dice.RollForSuccess((offensivStatsValue.attackDice + extraDice) < 1 ? 1 : (offensivStatsValue.attackDice + extraDice), (offensivStatsValue.succesThreshold < 1 ? 1 : offensivStatsValue.succesThreshold), extraThreshhold, manipulationPoints);
 
             //extra or minusdamge
             bonusDamage += CalculateBonusDamage(enemyType, enemyMovement, offensivStatsValue.weaponRange, offensivStatsValue.damageType);
@@ -96,6 +97,25 @@ namespace Hexerspiel.Character
 
             int[] finalDamge = { damage, bonusDamage };
             return finalDamge;
+        }
+
+
+        public virtual void SetMana(float manaAmount)
+        {
+            playerStats.mana = manaAmount;
+        }
+
+        public virtual void AddMana(float manaAmount)
+        {
+            playerStats.mana += manaAmount;
+
+            if (playerStats.mana > playerStats.manaMax)
+                playerStats.mana = playerStats.manaMax;
+        }
+
+        public virtual float GetMana()
+        {
+            return playerStats.mana;
         }
 
         public override void Died()

@@ -16,6 +16,7 @@ MonoBehaviour:
   monsterImage: {fileID: 0}
   basicStats:
     health: 20
+    healthMax: 0
     characterMovement: 0
     characterType: 0
   monsterStats:

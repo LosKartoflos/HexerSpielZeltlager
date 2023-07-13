@@ -31,12 +31,31 @@ public class Player : MonoBehaviour
         instance = this;
 
         DontDestroyOnLoad(this.gameObject);
+
+        
     }
 
-  
+    private void OnEnable()
+    {
+        PotionInventory.PotionUsed += DrinkPotion;
+    }
+    private void OnDisable()
+    {
+        PotionInventory.PotionUsed -= DrinkPotion;
+    }
+
     #endregion
 
     #region Functions
+    /// <summary>
+    /// use a potion outside of fight
+    /// </summary>
+    /// <param name="potion">potion to use</param>
+    public void DrinkPotion(PotionStats potionStats)
+    {
+        playerValues.AddLife(potionStats.addLife);
+        playerValues.AddMana(potionStats.addMana);        
+    }
 
     #endregion
 }
