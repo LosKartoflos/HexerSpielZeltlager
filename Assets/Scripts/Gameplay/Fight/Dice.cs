@@ -16,6 +16,16 @@ namespace Hexerspiel
 
         public static Dice Instance { get => instance; }
 
+        [Serializable]
+        public struct RollInfos
+        {
+            public int diceRolled;
+            public int threshold;
+            public string rolledValues;
+            public int mods;
+            public string modedValues;
+            public int succssess;
+        }
 
 
         [Serializable]
@@ -47,7 +57,7 @@ namespace Hexerspiel
         /// <returns>returns a random number between 1 and 6</returns>
         public int Roll()
         {
-            if(random == null)
+            if (random == null)
                 random = new System.Random();
             return random.Next(1, 7);
         }
@@ -60,7 +70,7 @@ namespace Hexerspiel
         /// <param name="passiveModifierPool">Permanent modifiers for every roll. Like gear modifiers</param>
         /// <param name="activeModifierPool">Points that get distributed to modify dice rolls</param>
         /// <returns></returns>
-        public int RollForSuccess(int availableDices, int successThreshhold, int passiveModifierPool, int activeModifierPool)
+        public int RollForSuccess(int availableDices, int successThreshhold, int passiveModifierPool, int activeModifierPool, out RollInfos rollInfos)
         {
 
             int[] rollResults = new int[availableDices];
@@ -84,7 +94,7 @@ namespace Hexerspiel
                 rolledValues += (value.ToString() + "; ");
             }
 
-           
+
 
             //modifiy add
             if (activeModifierPool > 0)
@@ -116,7 +126,14 @@ namespace Hexerspiel
                 modifiedRolledValues += (value.ToString() + "; ");
             }
 
-            Debug.Log("Successes: " + successfullRolls + " Threshold: " + successThreshhold + "; Rolled Values: " + rolledValues + " Modified Values: " + modifiedRolledValues);
+            rollInfos.succssess = successfullRolls;
+            rollInfos.threshold = successThreshhold;
+            rollInfos.rolledValues = rolledValues;
+            rollInfos.modedValues = modifiedRolledValues;
+            rollInfos.diceRolled = availableDices;
+            rollInfos.mods = activeModifierPool;
+            //Debug.Log("Successes: " + successfullRolls + " Threshold: " + successThreshhold + "; Rolled Values: " + rolledValues + " Modified Values: " + modifiedRolledValues);
+
 
             return successfullRolls;
         }

@@ -10,5 +10,20 @@ namespace Hexerspiel.Items
     {
         protected override GearType gearType => GearType.armor;
         public PlayerCharacterValues.OffensivStats weaponStats;
+
+        public int ExtraAttack()
+        {
+            if(weaponStats.damageType == DamageType.magical)
+            {
+                return Mathf.FloorToInt(Player.Instance.PlayerValues.PlayerAttributes1.mind / Player.Instance.PlayerValues.PlayerAttributes1.attributAddThreshold);
+            }
+            
+            else if (weaponStats.damageType == DamageType.normal)
+            {
+                return Mathf.FloorToInt(Player.Instance.PlayerValues.PlayerAttributes1.body / Player.Instance.PlayerValues.PlayerAttributes1.attributAddThreshold);
+            }
+
+            return 0;
+        }
     }
 }

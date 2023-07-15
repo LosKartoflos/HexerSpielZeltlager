@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Hexerspiel.Dice;
 
 namespace Hexerspiel.Character
 {
@@ -51,12 +52,14 @@ namespace Hexerspiel.Character
         public OffensivStats OffensivStatsValue { get => offensivStatsValue; set => offensivStatsValue = value; }
         public DefensiveStats DeffensiveStatsValue { get => defensiveStatsValue; set => defensiveStatsValue = value; }
 
-        public abstract int[] Attack(int extraThreshhold, int manipulationPoints, int extraDice, CharacterType enemyType, CharacterMovement enemyMovement);
+        public abstract int[] Attack(int extraThreshhold, int manipulationPoints, int extraDice, CharacterType enemyType, CharacterMovement enemyMovement, out RollInfos rollInfos);
 
-        public virtual void Defend(int damageDealt)
+        public virtual int Defend(int damageDealt)
         {
             // wenn schaden negativ soll man kein leben dazubekommen, daher das ?:
-            basicStatsValue.health -= (damageDealt - defensiveStatsValue.armor) < 0 ? 0 : damageDealt - defensiveStatsValue.armor;
+            int damageFinal = (damageDealt - defensiveStatsValue.armor) < 0 ? 0 : damageDealt - defensiveStatsValue.armor;
+            basicStatsValue.health -= damageFinal;
+            return damageFinal;
         }
 
         public virtual void SetLife(float healthAmount)
@@ -111,6 +114,7 @@ namespace Hexerspiel.Character
                         extraDamage -= 1;
                     break;
             }
+
 
             return extraDamage;
         }

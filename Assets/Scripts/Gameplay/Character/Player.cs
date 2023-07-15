@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Hexerspiel.Character.PlayerCharacterValues;
 
 public class Player : MonoBehaviour
 {
@@ -23,6 +24,11 @@ public class Player : MonoBehaviour
 
     public Inventory Inventory { get => inventory; set => inventory = value; }
     public PlayerCharacterValues PlayerValues { get => playerValues; set => playerValues = value; }
+
+    [Header("Calculated Values with Gear")]
+
+    [SerializeField]
+    PlayerAttributes playerAttributesWithGear;
     #endregion
 
     #region LifeCycle
@@ -57,5 +63,32 @@ public class Player : MonoBehaviour
         playerValues.AddMana(potionStats.addMana);        
     }
 
+    /// <summary>
+    /// Calculates the Attribut Values with the gear applied
+    /// </summary>
+    public void CaclutlatePlayerAttributesWithGear()
+    {
+        playerAttributesWithGear.body = PlayerValues.PlayerAttributes1.body;
+    }
+
+    /// <summary>
+    /// Calculates the offensive and defensive Values with attributes and gear
+    /// </summary>
+    public void CalculateFightingValues()
+    {
+       
+    }
+
+    //The extra Armor through the body
+    public int ExtraArmor()
+    {
+        return Mathf.FloorToInt(Player.Instance.PlayerValues.PlayerAttributes1.body / Player.Instance.PlayerValues.PlayerAttributes1.attributAddThreshold);
+    }
+
+    //The extra Armor through the body
+    public int ExtraAttackWithoutWeapon()
+    {     
+            return Mathf.FloorToInt(Player.Instance.PlayerValues.PlayerAttributes1.body / Player.Instance.PlayerValues.PlayerAttributes1.attributAddThreshold);
+    }
     #endregion
 }

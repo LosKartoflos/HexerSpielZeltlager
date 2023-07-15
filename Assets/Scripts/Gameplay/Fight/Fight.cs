@@ -19,7 +19,7 @@ namespace Hexerspiel.Fight
         public static PlayerCharacterValues player = new PlayerCharacterValues();
         [SerializeField]
         public static MonsterCharacter enemy = new MonsterCharacter();
-        public static int round = 1;
+       // public static int round = 1;
         #endregion
 
         #region Accessors
@@ -37,17 +37,17 @@ namespace Hexerspiel.Fight
 
         }
 
-        public void FightARound()
-        {
-            if (enemy == null || player == null)
-            {
-                Debug.LogError("No enemay or player");
-                return;
-            }
+        //public void FightARound()
+        //{
+        //    if (enemy == null || player == null)
+        //    {
+        //        Debug.LogError("No enemay or player");
+        //        return;
+        //    }
 
 
                 
-        }
+        //}
 
 
         

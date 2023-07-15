@@ -10,5 +10,10 @@ namespace Hexerspiel.Items
     {
         protected override GearType gearType => GearType.armor;
         public  PlayerCharacterValues.DefensiveStats armorStats;
+        public CharacterType armorTypeMod;
+        public CharacterMovement armorMovementMod;
+
+        
+
     }
 }

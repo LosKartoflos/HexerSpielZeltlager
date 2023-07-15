@@ -1551,13 +1551,13 @@ MonoBehaviour:
   inventory: {fileID: 799964557}
   playerValues:
     basicStatsValue:
-      health: 100
+      health: 10
       healthMax: 150
       characterMovement: 0
       characterType: 0
     offensivStatsValue:
-      succesThreshold: 1
-      attackDice: 0
+      succesThreshold: 2
+      attackDice: 6
       damageType: 0
       weaponRange: 0
     defensiveStatsValue:
@@ -1570,13 +1570,19 @@ MonoBehaviour:
       xp: 0
       level: 0
     playerAttributes:
-      body: 0
-      mind: 0
-      charisma: 0
+      body: 2
+      mind: 2
+      charisma: 2
+      attributAddThreshold: 0
     spellLevel:
       lifeSpell: 0
       mindSpell: 0
       charismaSpell: 0
+  playerAttributesWithGear:
+    body: 0
+    mind: 0
+    charisma: 0
+    attributAddThreshold: 0
 --- !u!1 &1882530224
 GameObject:
   m_ObjectHideFlags: 0

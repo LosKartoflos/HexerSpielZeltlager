@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Hexerspiel.Dice;
 
 namespace Hexerspiel.Character.monster
 {
@@ -78,14 +79,14 @@ namespace Hexerspiel.Character.monster
         /// <param name="enemyType">type of enemy</param>
         /// <param name="enemyMovement">movement of enemy</param>
         /// <returns>first value is the combined applicable damage. The Second value is the modifier</returns>
-        public override int[] Attack(int extraThreshhold, int manipulationPoints, int extraDice, CharacterType enemyType, CharacterMovement enemyMovement)
+        public override int[] Attack(int extraThreshhold, int manipulationPoints, int extraDice, CharacterType enemyType, CharacterMovement enemyMovement, out RollInfos rollInfos)
         {
             int damage = 0;
             int bonusDamage = 0;
 
             //normal damage
 
-            damage = Dice.Instance.RollForSuccess((offensivStatsValue.attackDice + extraDice) < 1 ? 1 : (offensivStatsValue.attackDice + extraDice), (offensivStatsValue.succesThreshold < 1 ? 1 : offensivStatsValue.succesThreshold), extraThreshhold, manipulationPoints);
+            damage = Dice.Instance.RollForSuccess((offensivStatsValue.attackDice + extraDice) < 1 ? 1 : (offensivStatsValue.attackDice + extraDice), (offensivStatsValue.succesThreshold < 1 ? 1 : offensivStatsValue.succesThreshold), extraThreshhold, manipulationPoints, out rollInfos);
 
             //extra or minusdamge
             bonusDamage += CalculateBonusDamage(enemyType, enemyMovement, offensivStatsValue.weaponRange, offensivStatsValue.damageType);
