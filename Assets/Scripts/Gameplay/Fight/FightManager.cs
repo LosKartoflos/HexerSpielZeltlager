@@ -12,10 +12,13 @@ namespace Hexerspiel.Fight
 {
     public class FightManager : MonoBehaviour
     {
-        public enum FIGHT_ENDING { none, playerWon, enemyWon}
+        public enum FIGHT_ENDING { none, playerWon, enemyWon }
 
         #region Variables
+
         public static event Action<int> RoundFought = delegate { };
+        public static event Action<MonsterCharacter> PlayerWonEvent = delegate { };
+        public static event Action PlayerLostEvent = delegate { };
 
         int[] damageFromPlayer;
         int[] damageFromEnemy;
@@ -60,9 +63,22 @@ namespace Hexerspiel.Fight
 
         #region Functions
 
-        public void FightTest()
+        public void ProgressFight()
         {
-            FightARound();
+            FIGHT_ENDING end = FIGHT_ENDING.none;
+            end = FightARound();
+
+            //player won
+            if (end == FIGHT_ENDING.playerWon)
+            {
+                PlayerWon();
+            }
+
+            //enemy won
+            else if (end == FIGHT_ENDING.enemyWon)
+            {
+                PlayerLost();
+            }
         }
         /// <summary>
         /// A Round in a fight
@@ -70,7 +86,6 @@ namespace Hexerspiel.Fight
         /// <returns>if the fight is over because one contester is dead, returns false</returns>
         public FIGHT_ENDING FightARound()
         {
-            //to do: give back winner or if still fighting
             FIGHT_ENDING fighIsOver = FIGHT_ENDING.none;
             //player Attacks
 
@@ -80,7 +95,7 @@ namespace Hexerspiel.Fight
             Debug.Log(string.Format("Player attacks now. Enemy has {1}hp.", Fight.enemy.MonsterName, Fight.enemy.BasicStatsValue.health));
             int[] damageDealtByPlayer = Fight.player.Attack(0, extraPointsForPlayer, extraDiceForPlayer, Fight.enemy.BasicStatsValue.characterType, Fight.enemy.BasicStatsValue.characterMovement, out rollInfosPlayer);
             //add attribute Damage 
-            
+
 
             int finalDamagetToMonster = Fight.enemy.Defend(damageDealtByPlayer[0]);
             Debug.Log(string.Format("Player fought. Damge dealt {0}. Damaged modified {2}, Enemy has {1}hp.", damageDealtByPlayer[0], Fight.enemy.BasicStatsValue.health, damageDealtByPlayer[1]));
@@ -116,7 +131,7 @@ namespace Hexerspiel.Fight
                 Fight.player.OffensivStatsValue.damageType.ToString()
                 );
 
-                UI_Fight.Instance.UpdateAfterFight(round, playerInfo, "<b>Gegner:</b>\nIst besiegt");
+                UI_Fight.Instance.UpdateAfterFightRound(round, playerInfo, "<b>Gegner:</b>\nIst besiegt");
                 RoundFought(round);
                 return fighIsOver;
 
@@ -157,7 +172,7 @@ namespace Hexerspiel.Fight
                 Fight.enemy.OffensivStatsValue.damageType.ToString()
             );
 
-                UI_Fight.Instance.UpdateAfterFight(round, "<b>Spieler:</b>\nDu wurdest besiegt", enemyInfo);
+                UI_Fight.Instance.UpdateAfterFightRound(round, "<b>Spieler:</b>\nDu wurdest besiegt", enemyInfo);
                 RoundFought(round);
                 return fighIsOver = FIGHT_ENDING.enemyWon;
             }
@@ -202,7 +217,7 @@ namespace Hexerspiel.Fight
                 Fight.enemy.OffensivStatsValue.damageType.ToString()
             );
 
-            UI_Fight.Instance.UpdateAfterFight(round, playerInfo, enemyInfo);
+            UI_Fight.Instance.UpdateAfterFightRound(round, playerInfo, enemyInfo);
 
             //invoke event
             RoundFought(round);
@@ -248,6 +263,17 @@ namespace Hexerspiel.Fight
             malusPointsForEnemy = 0;
         }
 
+        private void PlayerWon()
+        {
+            
+            Player.Instance.RecieveLoot(Fight.enemy.MonsterStat);
+            PlayerWonEvent(Fight.enemy);
+        }
+
+        private void PlayerLost()
+        {
+            PlayerLostEvent();
+        }
         #endregion
     }
 }

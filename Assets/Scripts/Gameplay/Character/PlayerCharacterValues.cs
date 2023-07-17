@@ -74,8 +74,6 @@ namespace Hexerspiel.Character
             int damage = 0;
             int bonusDamage = 0;
 
-            //To Do: attribute einbeziehen
-
             //normal damage
             //Dice dice = new Dice();
             damage = Dice.Instance.RollForSuccess((offensivStatsValue.attackDice + extraDice) < 1 ? 1 : (offensivStatsValue.attackDice + extraDice), (offensivStatsValue.succesThreshold < 1 ? 1 : offensivStatsValue.succesThreshold), extraThreshhold, manipulationPoints, out rollInfos);
@@ -119,6 +117,11 @@ namespace Hexerspiel.Character
         public virtual float GetMana()
         {
             return playerStats.mana;
+        }
+
+        public void GetXp(int amount)
+        {
+            playerStats.xp = amount;
         }
 
         public override void Died()

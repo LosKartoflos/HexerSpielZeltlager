@@ -1,3 +1,5 @@
+using Hexerspiel.Character.monster;
+using Hexerspiel.Fight;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,6 +17,12 @@ public class UI_Fight : MonoBehaviour
     #region Variables
     private static UI_Fight instance;
 
+    [SerializeField]
+    FightManager fightManager;
+
+    [Header("Main Fight")]
+    [SerializeField]
+    private GameObject panel_fightInteractions;
     [SerializeField]
     Button bt_fight;
 
@@ -35,6 +43,32 @@ public class UI_Fight : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI label_playerInfo, label_enemyInfo, label_round;
+
+    [Header ("WinScreen")]
+    [SerializeField]
+    private GameObject panel_AfterFightWon;
+
+    [SerializeField]
+    private TextMeshProUGUI label_won_info;
+
+    [SerializeField]
+    private TextMeshProUGUI label_won_lastHit;
+
+    [SerializeField]
+    private Button bt_continue_won;
+
+    [Header("LooseScreen")]
+    [SerializeField]
+    private GameObject panel_AfterFightLoose;
+
+    [SerializeField]
+    private TextMeshProUGUI label_loose_info;
+
+    [SerializeField]
+    private Button bt_continue_loose;
+
+    [SerializeField]
+    private TextMeshProUGUI label_loose_lastHit;
 
 
 
@@ -59,6 +93,7 @@ public class UI_Fight : MonoBehaviour
         //Test potionuse
 
         bt_usePotion.onClick.AddListener(DrinkTestpotion);
+        bt_fight.onClick.AddListener(fightManager.ProgressFight);
 
         //if (bt_usePotion == null)
         //{
@@ -66,20 +101,43 @@ public class UI_Fight : MonoBehaviour
         //}
         //else
         //    bt_fight.onClick.AddListener(DrinkTestpotion);
+
+        panel_AfterFightLoose.SetActive(false);
+        panel_AfterFightWon.SetActive(false);
+        panel_fightInteractions.SetActive(true);
     }
 
     private void OnEnable()
     {
-
+        FightManager.PlayerWonEvent += WinScreen;
+        FightManager.PlayerLostEvent += LooseScreen;
     }
     #endregion
 
     #region Functions
-    public void UpdateAfterFight(int round, string playerInfo, string enemyInfo)
+    public void UpdateAfterFightRound(int round, string playerInfo, string enemyInfo)
     {
         label_round.text = "Runde: " + round.ToString();
         label_playerInfo.text = playerInfo;
         label_enemyInfo.text = enemyInfo;
+    }
+
+    public void WinScreen(MonsterCharacter monster)
+    {
+        panel_fightInteractions.SetActive(false);
+        panel_AfterFightWon.SetActive(true);
+
+        label_won_lastHit.text = label_playerInfo.text;
+        label_won_info.text = "Ihr habt " + monster.MonsterName + " besiegt!\n\n" + Player.Instance.CollectedLoot;
+    }
+
+    public void LooseScreen()
+    {
+        panel_fightInteractions.SetActive(false);
+        panel_AfterFightLoose.SetActive(true);
+
+        label_loose_lastHit.text = label_enemyInfo.text;
+        label_loose_info.text = "Leider seid ihr gestorben. Versucht es später noch einmal!";
     }
     public void DrinkTestpotion()
     {

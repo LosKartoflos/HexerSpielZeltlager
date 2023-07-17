@@ -26,8 +26,12 @@ MonoBehaviour:
     herbs: 1
     meat: 1
     magicEssence: 1
-    dropedGear: []
-    dropedQuestItems: []
+    dropedGear:
+    - {fileID: 11400000, guid: 83c1066c99bf566428b0a8370a130516, type: 2}
+    droppedPotion:
+    - {fileID: 11400000, guid: 73023c6e79efbba458b9eececf9d630d, type: 2}
+    dropedQuestItems:
+    - {fileID: 11400000, guid: 9a01f365493dc77469a93823b0ef23ad, type: 2}
   offensivStats:
     succesThreshold: 2
     attackDice: 4

@@ -165,7 +165,7 @@ namespace Hexerspiel.Character
             return true;
         }
 
-        public bool ChanageMeat(int amount)
+        public bool ChangeMeat(int amount)
         {
             MiscItems miscItems;
             miscItems.herbs = 0;
@@ -180,7 +180,7 @@ namespace Hexerspiel.Character
             return true;
         }
 
-        public bool ChanageMagicessence(int amount)
+        public bool ChangeMagicessence(int amount)
         {
             MiscItems miscItems;
             miscItems.herbs = 0;
@@ -195,7 +195,7 @@ namespace Hexerspiel.Character
             return true;
         }
 
-        public bool ChanageHerbs(int amount)
+        public bool ChangeHerbs(int amount)
         {
             MiscItems miscItems;
             miscItems.herbs = amount;

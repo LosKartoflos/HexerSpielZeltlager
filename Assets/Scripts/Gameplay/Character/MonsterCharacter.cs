@@ -25,6 +25,7 @@ namespace Hexerspiel.Character.monster
             public int herbs, meat, magicEssence;
             //these items are only droped the first time they beat the monster
             public List<SO_gear> dropedGear;
+            public List<SO_potion> droppedPotion;
             public List<SO_questItem> dropedQuestItems;
 
         }

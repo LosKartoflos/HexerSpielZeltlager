@@ -14,7 +14,7 @@ namespace Hexerspiel.Character
 
         public List<SO_questItem> QuestItemsList { get => questItemsList; }
 
-        public void GetPotion(SO_questItem newQuestitem)
+        public void GetQuestItem(SO_questItem newQuestitem)
         {
             questItemsList.Add(newQuestitem);
         }
@@ -63,7 +63,7 @@ namespace Hexerspiel.Character
 
             if (Player.Instance.Inventory.BasicInventory.ChangeGold(-itemToBuy.valueBuy))
             {
-                GetPotion(itemToBuy);
+                GetQuestItem(itemToBuy);
                 Debug.Log("Buy " + itemToBuy.name + " for " + itemToBuy.valueBuy.ToString());
                 return true;
             }
