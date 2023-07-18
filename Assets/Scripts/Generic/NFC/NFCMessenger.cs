@@ -91,7 +91,6 @@ public class NFCMessenger : MonoBehaviour
                     TextRecord textRecord = (TextRecord)record;
                     nfcTagID = textRecord.text;//(string.Format(TEXT_RECORD_FORMAT, NDEFRecordType.TEXT, textRecord.text, textRecord.languageCode, textRecord.textEncoding));
                     tagInfoEvent(nfcTagID);
-                    NFCManager.nfcTagMessage = nfcTagID;
                     SceneManager.LoadScene("NFCEvaluationScene");
                     break;
                 default:

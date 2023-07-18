@@ -9,20 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ced5e7fe17edc1841aceea631c5a7da7, type: 3}
-  m_Name: Armor
+  m_Script: {fileID: 11500000, guid: 01b98ed72e2712248a586f05935f8908, type: 3}
+  m_Name: zielwasser
   m_EditorClassIdentifier: 
-  itemName: armor
+  itemName: 
   itemImage: {fileID: 0}
-  valueBuy: 140
-  valueSell: 40
-  attributeBuffs:
-    body: 1
-    mind: 1
-    charisma: 1
-  spellLevelBuff:
-    lifeSpell: 1
-    mindSpell: 1
-    charismaSpell: 1
-  armorStats:
-    armor: 0
+  valueBuy: 100
+  valueSell: 10
+  potionStats:
+    diceManipulation:
+      addDice: 5
+      substractDiceFromEnemy: 3
+      addablePoints: 0
+      subtractablePointsFromEnemy: 0
+    addMana: 0
+    addLife: 0

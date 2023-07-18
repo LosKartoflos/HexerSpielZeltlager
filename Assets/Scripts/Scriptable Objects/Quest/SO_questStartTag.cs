@@ -7,6 +7,7 @@ using UnityEngine;
 namespace Hexerspiel.nfcTags
 {
     //Starts a qeust with an NFC Tag
+    [CreateAssetMenu(fileName = "qst_", menuName = "Hexer_ScriptableObjects/NFCTags/Quest Start")]
     public class SO_questStartTag : SO_nfcTag
     {
         public const NFCType nfcType = NFCType.questStart;

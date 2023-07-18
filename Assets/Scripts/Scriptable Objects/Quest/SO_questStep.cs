@@ -107,6 +107,10 @@ namespace Hexerspiel.Quests
             else
                 return null;
         }
+
+        public abstract SO_questStep GetNextStepIfSolved();
+
+
     }
 
 }

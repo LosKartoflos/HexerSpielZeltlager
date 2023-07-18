@@ -30,9 +30,13 @@ namespace Hexerspiel.UI
         #region LifeCycle
         private void Awake()
         {
-            instance = this;
-
-            DontDestroyOnLoad(this.gameObject);
+            if (instance == null)
+            {
+                instance = this; // In first scene, make us the singleton.
+                DontDestroyOnLoad(gameObject);
+            }
+            else if (instance != this)
+                Destroy(gameObject);
             bt_back.onClick.AddListener(LoadLastScene);
             newScene = SceneManager.GetActiveScene().name;
 

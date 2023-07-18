@@ -13,6 +13,11 @@ namespace Hexerspiel.Quests
         
         protected override QuestTarget QuestStepTarget { get { return QuestTarget.goToPlace; } }
 
+        public override SO_questStep GetNextStepIfSolved()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public override void TestIfStepIsSolved(SO_spots spotCurrent, SO_npc npcCurrent, out bool stepIsSolved, params ScriptableObject[] possibleSolution)
         {
             if (spotToGO == null)

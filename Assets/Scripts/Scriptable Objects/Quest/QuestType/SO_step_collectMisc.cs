@@ -13,6 +13,11 @@ namespace Hexerspiel.Quests
         public MiscItems miscItmesNeeded;
         protected override QuestTarget QuestStepTarget { get { return QuestTarget.collectMisc; } }
 
+        public override SO_questStep GetNextStepIfSolved()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public override void TestIfStepIsSolved(SO_spots spotCurrent, SO_npc npcCurrent, out bool stepIsSolved, params ScriptableObject[] possibleSolution)
         {
             if (Player.Instance.Inventory.BasicInventory == null)

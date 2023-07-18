@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static SO_nfcTag;
 
-[CreateAssetMenu(fileName = "NPC", menuName = "Hexer_ScriptableObjects/Spots and NPCs/Npc", order = 1)]
+[CreateAssetMenu(fileName = "npc_", menuName = "Hexer_ScriptableObjects/Spots and NPCs/Npc", order = 1)]
 public class SO_npc : ScriptableObject
 {
     public TagInfos npcInformation;

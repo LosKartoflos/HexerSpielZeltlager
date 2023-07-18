@@ -11,6 +11,12 @@ namespace Hexerspiel.Quests
     {
         protected override QuestTarget QuestStepTarget { get { return QuestTarget.goToNPC; } }
 
+        public override SO_questStep GetNextStepIfSolved()
+        {
+            return GetNextStepIfSolved();
+                //to do die aktuellen parameter besser einfangen
+        }
+
         public override void TestIfStepIsSolved(SO_spots spotCurrent, SO_npc npcCurrent, out bool stepIsSolved, params ScriptableObject[] possibleSolution)
         {
             if (npcToInteract == null)

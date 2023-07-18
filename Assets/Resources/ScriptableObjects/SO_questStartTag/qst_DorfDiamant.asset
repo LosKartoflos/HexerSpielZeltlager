@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb89b2d5d56032549853b9abd3cad3ea, type: 3}
-  m_Name: QuestItem_pokal
+  m_Script: {fileID: 11500000, guid: fe60354783db1284db55ab78764096e5, type: 3}
+  m_Name: qst_DorfDiamant
   m_EditorClassIdentifier: 
-  itemName: pokal
-  itemImage: {fileID: 0}
-  valueBuy: 0
-  valueSell: 0
+  nfcTagInfos:
+    id: 
+    name: 
+    image: 
+  firstQuestStep: {fileID: 0}

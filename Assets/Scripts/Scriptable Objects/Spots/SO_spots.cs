@@ -9,7 +9,7 @@ using UnityEngine.UI;
 namespace Hexerspiel.nfcTags
 {
     //um spot als Person zu nutzen muss man einfach nur einen npc  hinzufügen . Die monster sollten dann leer sein. Der kampf gegen einen NPC wird in der app getriggerd
-    [CreateAssetMenu(fileName = "Spot", menuName = "Hexer_ScriptableObjects/Spots and NPCs/spot", order = 1)]
+    [CreateAssetMenu(fileName = "sp_", menuName = "Hexer_ScriptableObjects/Spots and NPCs/spot", order = 1)]
     public class SO_spots : SO_nfcTag
     {
         public const NFCType nfcType = NFCType.questStart;

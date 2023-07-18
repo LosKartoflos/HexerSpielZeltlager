@@ -5,7 +5,7 @@ using System;
 namespace Hexerspiel
 {
     //Nfc Type
-    public enum NFCType { spot, shopItem, npc, questStart}
+    public enum NFCType { spot, shopItem, npc, questStart, questSolve}
 
     //Spells
 
@@ -22,8 +22,10 @@ namespace Hexerspiel
 
 
     //Quest
-    public enum QuestTarget { collectMisc, bringQuestItem, goToPlace, goToNPC,fightAgainst, social, multipleChoiceAttribute, multipleChoiceQuiz, freeEntry, baseStep }
+    public enum QuestTarget { collectMisc, bringQuestItem, goToPlace, goToNPC,fightAgainst, nfcTag, multipleChoiceAttribute, multipleChoiceQuiz, freeEntry, baseStep }
     public enum SocialInteraktionType { threaten, charm, debate }
+
+    public enum RighAnswer { a,b,c,d}
 
     //npc
     //public enum NPCTrade { yes}

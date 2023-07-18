@@ -24,7 +24,7 @@ namespace Hexerspiel.Character
         {
             [Range(1, 6)]
             public int succesThreshold;
-            [Range(1, 10)]
+            [Range(1, 100)]
             public int attackDice;
             public DamageType damageType;
             public WeaponRange weaponRange;
@@ -34,7 +34,7 @@ namespace Hexerspiel.Character
         [Serializable]
         public struct DefensiveStats
         {
-            [Range(1, 10)]
+            [Range(0, 100)]
             public int armor;
         }
 
