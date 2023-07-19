@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Hexerspiel.UI
 {
-    public class RecievePanel : MonoBehaviour
+    public class PopPup : MonoBehaviour
     {
 
         #region Variables

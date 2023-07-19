@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 825fa593f842d424c9a7b298ac53a22a, type: 3}
-  m_Name: qso_makeBackflip
+  m_Name: makeBackflip
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    id: 
-    name: 
+    name: Ihr habt einen Backflip gemacht
     image: 
   questStepToSolve: {fileID: 0}

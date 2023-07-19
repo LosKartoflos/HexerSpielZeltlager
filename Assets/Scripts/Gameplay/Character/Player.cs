@@ -126,6 +126,18 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void GetGear(SO_gear gear, bool noteLoot = false)
+    {
+        if (gear != null)
+        {
+
+            Inventory.GearInventory.GetGear(gear);
+            if (noteLoot == true)
+                collectedLoot += "- " + gear.itemName + ("\n");
+
+        }
+    }
+
     public void GetQuestItems(List<SO_questItem> loot, bool noteLoot = false)
     {
         if (loot != null)
@@ -138,6 +150,13 @@ public class Player : MonoBehaviour
             }
         }
 
+    }
+
+    public void GetQuestItem(SO_questItem qi, bool noteLoot = false)
+    {
+        Inventory.QuestItemInventory.GetQuestItem(qi);
+        if (noteLoot == true)
+            collectedLoot += "- " + qi.itemName + ("\n");
     }
 
     public void GetPotions(List<SO_potion> loot, bool noteLoot = false)
@@ -153,6 +172,13 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void GetPotion(SO_potion po, bool noteLoot = false)
+    {
+        Inventory.PotionInventory.GetPotion(po);
+        if (noteLoot == true)
+            collectedLoot += "- " + po.itemName + ("\n");
+    }
+
     public void ChangeMisc(int herbs, int meat, int magiEssence, bool noteLoot = false)
     {
         Inventory.BasicInventory.ChangeHerbs(herbs);
@@ -161,8 +187,8 @@ public class Player : MonoBehaviour
 
         if (noteLoot == true)
         {
-            collectedLoot += string.Format("\nKräuter: {0}\nFleisch: {1}\nMagischEssenz: {2}\n",herbs, meat,magiEssence);
-        }          
+            collectedLoot += string.Format("\nKräuter: {0}\nFleisch: {1}\nMagischEssenz: {2}\n", herbs, meat, magiEssence);
+        }
     }
 
     public bool ChangeGold(int goldAmount, bool noteLoot = false)
@@ -178,7 +204,7 @@ public class Player : MonoBehaviour
     public void GetXp(int xpAmount, bool noteLoot = false)
     {
         playerValues.GetXp(xpAmount);
-        if (noteLoot )
+        if (noteLoot)
             collectedLoot += "XP: " + xpAmount;
     }
     #endregion

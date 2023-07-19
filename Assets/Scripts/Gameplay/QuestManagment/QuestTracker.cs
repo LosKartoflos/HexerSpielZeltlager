@@ -2,6 +2,7 @@ using Hexerspiel.nfcTags;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Hexerspiel.Quests
 {
@@ -14,6 +15,9 @@ namespace Hexerspiel.Quests
 
         private SO_spots currentSpot;
         private SO_npc currentNPC;
+
+        public static SO_questStartTag questStartTag;
+        public static SO_questSolveValidation questSolveValidation;
         
 
     #endregion
@@ -46,6 +50,18 @@ namespace Hexerspiel.Quests
             }
         }
 
+        public void CheckQuestSolverTag()
+        {
+            Debug.Log("CheckQuestSolverTag");
+            questSolveValidation = null;
+        }
+
+        public void StartQuestWihtTag()
+        {
+            Debug.Log("StartQuestWihtTag");
+            questStartTag = null;
+        }
+
         public void ResetCurrentParameter()
         {
             currentSpot = null;
@@ -63,6 +79,13 @@ namespace Hexerspiel.Quests
         {
             currentNPC = newNpc;
         }
+
+        public static void LoadQuestScene()
+        {
+            SceneManager.LoadScene("QuestScene");
+        }
+
+
         #endregion
     }
 

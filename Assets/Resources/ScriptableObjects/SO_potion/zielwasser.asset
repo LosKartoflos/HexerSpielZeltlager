@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01b98ed72e2712248a586f05935f8908, type: 3}
   m_Name: zielwasser
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Zielwasser
   itemImage: {fileID: 0}
   valueBuy: 100
   valueSell: 10

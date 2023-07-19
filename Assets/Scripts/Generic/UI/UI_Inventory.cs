@@ -106,7 +106,7 @@ namespace Hexerspiel.UI
         {
             Debug.Log("Creat RecievePanl with: " + text);
             GameObject newRecevieObject = Instantiate(recievePanelPrefab, recievePanel);
-            newRecevieObject.GetComponent<RecievePanel>().FillLabel(text);
+            newRecevieObject.GetComponent<PopPup>().FillLabel(text);
             recievePanels.Add(newRecevieObject);
 
         }

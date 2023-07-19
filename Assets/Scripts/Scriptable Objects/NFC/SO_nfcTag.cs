@@ -10,7 +10,7 @@ public abstract class SO_nfcTag: ScriptableObject
     [Serializable]
     public struct TagInfos
     {
-        public string id;
+        //public string id;
         public string name;
         public string image;
     }
