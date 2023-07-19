@@ -37,7 +37,7 @@ namespace Hexerspiel.UI
             }
             else if (instance != this)
                 Destroy(gameObject);
-            bt_back.onClick.AddListener(LoadLastScene);
+            bt_back.onClick.AddListener(MainManager.LoadMainScene);
             newScene = SceneManager.GetActiveScene().name;
 
 
@@ -53,15 +53,18 @@ namespace Hexerspiel.UI
             SceneManager.activeSceneChanged -= UpdateLastScene;
         }
 
+
+        
         #endregion
 
         #region Functions
+       
         private void UpdateLastScene(Scene current, Scene next)
         {
          
             lastScene = newScene;
             newScene = next.name;
-            Debug.Log("Lastscene  " + lastScene);
+           // Debug.Log("Lastscene  " + lastScene);
         }
 
         public void LoadLastScene()

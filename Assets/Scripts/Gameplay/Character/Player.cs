@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
 
     }
 
+
     private void OnEnable()
     {
         PotionInventory.PotionUsed += DrinkPotion;
@@ -107,7 +108,7 @@ public class Player : MonoBehaviour
         GetGear(loot.dropedGear, true);
         GetQuestItems(loot.dropedQuestItems, true);
         GetPotions(loot.droppedPotion, true);
-        GetMisc(loot.herbs, loot.meat, loot.magicEssence, true);
+        ChangeMisc(loot.herbs, loot.meat, loot.magicEssence, true);
         ChangeGold(loot.gold, true);
         GetXp(loot.xp, true);
     }
@@ -152,7 +153,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void GetMisc(int herbs, int meat, int magiEssence, bool noteLoot = false)
+    public void ChangeMisc(int herbs, int meat, int magiEssence, bool noteLoot = false)
     {
         Inventory.BasicInventory.ChangeHerbs(herbs);
         Inventory.BasicInventory.ChangeMeat(meat);

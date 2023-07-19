@@ -91,7 +91,6 @@ public class NFCMessenger : MonoBehaviour
                     TextRecord textRecord = (TextRecord)record;
                     nfcTagID = textRecord.text;//(string.Format(TEXT_RECORD_FORMAT, NDEFRecordType.TEXT, textRecord.text, textRecord.languageCode, textRecord.textEncoding));
                     tagInfoEvent(nfcTagID);
-                    SceneManager.LoadScene("NFCEvaluationScene");
                     break;
                 default:
                     Debug.LogError("NFC tag has wrong format");
@@ -103,10 +102,8 @@ public class NFCMessenger : MonoBehaviour
     }
 
     public void FakeNFCTag(string tag)
-    {   
- 
+    {
         tagInfoEvent(tag);
-        SceneManager.LoadScene("NFCEvaluationScene");
     }
     #endregion
 }

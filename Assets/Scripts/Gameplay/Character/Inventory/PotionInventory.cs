@@ -12,7 +12,7 @@ namespace Hexerspiel.Character
         public Dice.Manipulation diceManipulation;
         public float addMana, addLife;
 
-        
+
 
         public PotionStats(Dice.Manipulation diceManipulation, float addMana, float addLife)
         {
@@ -25,6 +25,7 @@ namespace Hexerspiel.Character
     public class PotionInventory : MonoBehaviour
     {
         public static event Action<PotionStats> PotionUsed = delegate { };
+        public static event Action<string> AlertPotionChanged = delegate { };
         [SerializeField]
         private List<SO_potion> potionList = new List<SO_potion>();
 
@@ -33,6 +34,7 @@ namespace Hexerspiel.Character
         public void GetPotion(SO_potion newPotion)
         {
             potionList.Add(newPotion);
+            AlertPotionChanged("Du hast " + newPotion.itemName + " erhalten!");
         }
 
         public PotionStats UsePotion(SO_potion usedPotion)
@@ -44,7 +46,7 @@ namespace Hexerspiel.Character
             }
             Debug.Log("potion not in inventory");
 
-            
+
             return new PotionStats();
         }
 
@@ -59,7 +61,7 @@ namespace Hexerspiel.Character
                 potionList.Remove(potionToDrop);
                 soldSuccesfull = true;
             }
-            
+
 
             return soldSuccesfull;
         }
@@ -71,6 +73,7 @@ namespace Hexerspiel.Character
             {
                 Player.Instance.Inventory.BasicInventory.ChangeGold(potionToSell.valueSell);
                 Debug.Log("Sell " + potionToSell.name + " for " + potionToSell.valueSell.ToString());
+                AlertPotionChanged("Du hast " + potionToSell.itemName + " für " + potionToSell.valueSell + " verkauft!");
                 return true;
             }
 
@@ -84,6 +87,7 @@ namespace Hexerspiel.Character
             {
                 GetPotion(potionToBuy);
                 Debug.Log("Buy " + potionToBuy.name + " for " + potionToBuy.valueBuy.ToString());
+                AlertPotionChanged("Du hast " + potionToBuy.itemName + " für " + potionToBuy.valueBuy + " gekauft!");
                 return true;
             }
             return false;

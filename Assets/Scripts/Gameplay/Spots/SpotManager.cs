@@ -2,6 +2,7 @@ using Hexerspiel.nfcTags;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Hexerspiel.spots
 {
@@ -42,6 +43,11 @@ namespace Hexerspiel.spots
         {
             currentStpot = null;
             Destroy(gameObject);
+        }
+
+        public static void LoadSpotScene()
+        {
+            SceneManager.LoadScene("SpotScene");
         }
         #endregion
     } 

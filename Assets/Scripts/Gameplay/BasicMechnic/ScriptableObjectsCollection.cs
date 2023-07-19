@@ -106,7 +106,7 @@ namespace Hexerspiel
 
             SceneManager.LoadScene("MainScene");
 
-            return null;
+            yield return null;
         }
         #endregion
     }

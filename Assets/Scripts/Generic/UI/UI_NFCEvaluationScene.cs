@@ -17,31 +17,36 @@ namespace Hexerspiel.UI
         [SerializeField]
         Button bt_accept, bt_rescan;
 
-        [SerializeField]
-        NFCManager nfcManager;
 
         #endregion
 
         #region Accessors
-        private void Awake()
-        {
-            EnableControls(false);
-            bt_rescan.onClick.AddListener(StartScanningAgain);
-           
-        }
-
-        private void OnEnable()
-        {
-            //NFCMessenger.tagInfoEvent += UpdateLabel;
-            //NFCReadControl.tagReadEvent += delegate { EnableControls(true); };
-        }
+       
         #endregion
 
         #region LifeCycle
         private void Start()
         {
-            UpdateLabel(NFCManager.nfcTagMessage);
             EnableControls(true);
+            UpdateLabel(NFCManager.nfcTagMessage);
+        }
+
+        private void Awake()
+        {
+            EnableControls(false);
+            bt_rescan.onClick.AddListener(StartScanningAgain);
+            bt_accept.onClick.AddListener(AcceptTag);
+
+        }
+
+        private void OnEnable()
+        {
+           
+        }
+
+        private void OnDisable()
+        {
+      
         }
         #endregion
 
@@ -54,12 +59,26 @@ namespace Hexerspiel.UI
 
         public void UpdateLabel(string nfcText)
         {
+            Debug.Log("Update Label " + nfcText);
             label_scanedInfo.text = nfcText;
+            if (NFCManager.Instance.ParsingSuccesfull)
+            {
+                bt_accept.interactable = true;
+            }
+            else
+            {
+                bt_accept.interactable = false;
+            }
         }
 
         public void StartScanningAgain()
         {
             SceneManager.LoadScene("NFCScanScene");
+        }
+
+        public void AcceptTag()
+        {
+            NFCManager.Instance.AcceptScanedTag();
         }
 
         #endregion

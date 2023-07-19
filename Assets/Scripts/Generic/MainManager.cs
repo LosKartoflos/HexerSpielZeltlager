@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainManager : MonoBehaviour
 {
@@ -28,6 +29,10 @@ public class MainManager : MonoBehaviour
     #endregion
 
     #region Functions
+    public static void LoadMainScene()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
     #endregion
 
 }

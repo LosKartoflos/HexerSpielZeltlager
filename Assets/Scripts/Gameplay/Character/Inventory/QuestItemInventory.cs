@@ -1,4 +1,5 @@
 using Hexerspiel.Items;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,12 +12,14 @@ namespace Hexerspiel.Character
 
         [SerializeField]
         private List<SO_questItem> questItemsList = new List<SO_questItem>();
+        public static event Action<string> AlertQuestItemChanged = delegate { };
 
         public List<SO_questItem> QuestItemsList { get => questItemsList; }
 
         public void GetQuestItem(SO_questItem newQuestitem)
         {
             questItemsList.Add(newQuestitem);
+            AlertQuestItemChanged("Du hast " + newQuestitem.itemName + " erhalten!");
         }
 
         public string UseQuestItem(SO_questItem usedItem)
@@ -65,6 +68,7 @@ namespace Hexerspiel.Character
             {
                 GetQuestItem(itemToBuy);
                 Debug.Log("Buy " + itemToBuy.name + " for " + itemToBuy.valueBuy.ToString());
+                AlertQuestItemChanged("Du hast " + itemToBuy.itemName + " für " + itemToBuy.valueBuy + " gekauft!");
                 return true;
             }
             return false;

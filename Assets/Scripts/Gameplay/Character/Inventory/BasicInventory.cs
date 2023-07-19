@@ -20,6 +20,7 @@ namespace Hexerspiel.Character
 
         [SerializeField]
         private BasicInventoryCounters amount = new BasicInventoryCounters();
+        public static event Action<string> AlertBasicInventoryChange = delegate { };
 
         public BasicInventory(BasicInventoryCounters amount)
         {
@@ -82,18 +83,35 @@ namespace Hexerspiel.Character
         /// <param name="inventoryCounters">the given ammount</param>
         /// <param name="manipulationAmount">delta</param>
         /// <returns></returns>
-        public static bool CheckIfManipulationIsPossible(BasicInventoryCounters inventoryCounters, BasicInventoryCounters manipulationAmount)
+        public bool CheckIfManipulationIsPossible(BasicInventoryCounters inventoryCounters, BasicInventoryCounters manipulationAmount)
         {
-            if (inventoryCounters.gold + manipulationAmount.gold < 0)
-                return false;
-            else if (manipulationAmount.miscItems.herbs + inventoryCounters.miscItems.herbs < 0)
-                return false;
-            else if (manipulationAmount.miscItems.magicEssence + inventoryCounters.miscItems.magicEssence < 0)
-                return false;
-            else if (manipulationAmount.miscItems.meat + inventoryCounters.miscItems.meat < 0)
-                return false;
+            bool state = true;
+            string alertText = "";
 
-            return true;
+            if (inventoryCounters.gold + manipulationAmount.gold < 0)
+            {
+                alertText += " Gold";
+                state = false;
+            }
+            if (manipulationAmount.miscItems.herbs + inventoryCounters.miscItems.herbs < 0)
+            {
+                alertText += " Kräuter";
+                state = false;
+            }
+            if (manipulationAmount.miscItems.magicEssence + inventoryCounters.miscItems.magicEssence < 0)
+            {
+                alertText += " Magische Essenz";
+                state = false;
+            }
+            if (manipulationAmount.miscItems.meat + inventoryCounters.miscItems.meat < 0)
+            {
+                alertText += " Fleisch";
+                state = false;
+            }
+
+            if (!state)
+                AlertNotEnough(alertText);
+            return state;
         }
 
         /// <summary>
@@ -105,10 +123,12 @@ namespace Hexerspiel.Character
         {
             if (!CheckIfManipulationIsPossible(amount, manipulationAmount))
             {
+
                 return false;
             }
 
             amount = ManipulationOutcome(amount, manipulationAmount);
+            AlertAmountChange(manipulationAmount);
 
             return true;
         }
@@ -208,6 +228,34 @@ namespace Hexerspiel.Character
             this.amount.miscItems.herbs += amount;
 
             return true;
+        }
+
+        private void AlertNotEnough(string tooLess)
+        {
+            AlertBasicInventoryChange("Du hast nicht genug:\n" + tooLess);
+        }
+
+        private void AlertAmountChange(BasicInventoryCounters manipulationAmount)
+        {
+            string changeText = "Transaktion: \n\n";
+
+            //money
+            if (manipulationAmount.gold > 0)
+                changeText += manipulationAmount.gold.ToString() + "erhalten\n";
+            else if (manipulationAmount.gold < 0)
+                changeText += manipulationAmount.gold.ToString() + "bezahlt\n";
+
+            //herbs
+            if (manipulationAmount.miscItems.herbs > 0)
+                changeText += manipulationAmount.miscItems.herbs.ToString() + "erhalten\n";
+            else if (manipulationAmount.miscItems.herbs < 0)
+                changeText += manipulationAmount.miscItems.herbs.ToString() + "abgegeben\n";
+
+            //meat
+            if (manipulationAmount.miscItems.meat > 0)
+                changeText += manipulationAmount.miscItems.meat.ToString() + "erhalten\n";
+            else if (manipulationAmount.miscItems.herbs < 0)
+                changeText += manipulationAmount.miscItems.meat.ToString() + "abgegeben\n";
         }
     }
 }

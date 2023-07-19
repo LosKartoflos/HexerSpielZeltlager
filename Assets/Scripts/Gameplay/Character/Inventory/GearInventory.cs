@@ -13,6 +13,8 @@ namespace Hexerspiel.Character
     {
         public static event Action EquipGearChanged = delegate { };
 
+        public static event Action<string> AlertGearChanged = delegate { };
+
         [SerializeField]
         private List<SO_armor> armorsCollected = new List<SO_armor>();
 
@@ -40,6 +42,8 @@ namespace Hexerspiel.Character
 
         public void GetGear(SO_gear newGear)
         {
+
+
             switch (newGear.GearType)
             {
                 case GearType.armor:
@@ -53,8 +57,12 @@ namespace Hexerspiel.Character
                     break;
                 case GearType.none:
                     Debug.LogError("No gear type for " + newGear.name);
+                    AlertGearChanged(newGear.name + " ist keine Gültige Ausrüstung!");
+                    return;
                     break;
             }
+
+            AlertGearChanged("Du hast " + newGear.itemName +" erhalten");
         }
 
         public void EquipGear(SO_gear newGear)
@@ -172,6 +180,7 @@ namespace Hexerspiel.Character
             {
                 Player.Instance.Inventory.BasicInventory.ChangeGold(gearToSell.valueSell);
                 Debug.Log("Sell " + gearToSell.name + " for " + gearToSell.valueSell.ToString());
+                AlertGearChanged("Du hast " + gearToSell.itemName + " für " + gearToSell.valueSell + " Gold verkauft!");
                 return true;
             }
 
@@ -185,6 +194,7 @@ namespace Hexerspiel.Character
             {
                 GetGear(gearTobuy);
                 Debug.Log("Buy " + gearTobuy.name + " for " + gearTobuy.valueBuy.ToString());
+                AlertGearChanged("Du hast " + gearTobuy.itemName + " für " + gearTobuy.valueBuy + " Gold gekauft!");
                 return true;
             }
             return false;
