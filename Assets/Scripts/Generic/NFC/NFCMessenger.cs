@@ -101,5 +101,12 @@ public class NFCMessenger : MonoBehaviour
 
         }
     }
+
+    public void FakeNFCTag(string tag)
+    {   
+ 
+        tagInfoEvent(tag);
+        SceneManager.LoadScene("NFCEvaluationScene");
+    }
     #endregion
 }

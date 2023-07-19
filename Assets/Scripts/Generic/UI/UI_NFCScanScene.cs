@@ -1,3 +1,5 @@
+using DigitsNFCToolkit;
+using DigitsNFCToolkit.JSON;
 using DigitsNFCToolkit.Samples;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +13,9 @@ public class UI_NFCScanScene : MonoBehaviour
 
     [SerializeField]
     TextMeshProUGUI label_scanning;
+
+    [SerializeField]
+    TMP_InputField inputFieldDebug;
     #endregion
 
     #region Accessors
@@ -21,6 +26,16 @@ public class UI_NFCScanScene : MonoBehaviour
     private void Awake()
     {
         instance = this;
+#if UNITY_ANDROID && !UNITY_EDITOR
+        inputFieldDebug.gameObject.SetActive(false);
+#endif
+    }
+
+    private void Start()
+    {
+#if UNITY_EDITOR
+        inputFieldDebug.onSubmit.AddListener(FakeNFCTAG);
+#endif
     }
 
     private void OnEnable()
@@ -33,6 +48,12 @@ public class UI_NFCScanScene : MonoBehaviour
     public void SetLabelToLoading()
     {
         label_scanning.text = "Verarbeitet Tag...";
+    }
+
+    public void FakeNFCTAG(string tag)
+    {
+        Debug.Log("Fake NFC tag: " + tag);
+        NFCMessenger.Instance.FakeNFCTag(tag);
     }
     #endregion
 }

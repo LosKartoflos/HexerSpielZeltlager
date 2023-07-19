@@ -12,6 +12,7 @@ public class NFCManager : MonoBehaviour
     #region Variables
     private static NFCManager instance;
 
+    
     public static string nfcTagMessage;
 
 
@@ -51,6 +52,7 @@ public class NFCManager : MonoBehaviour
     }
 
 
+
     private void OnEnable()
     {
         NFCMessenger.tagInfoEvent += ParseNFC;
@@ -72,6 +74,9 @@ public class NFCManager : MonoBehaviour
     /// <param name="nfcTag">nfc tag</param>
     public void ParseNFC(string nfcTag)
     {
+        nfcTagMessage = nfcTag;
+        Debug.Log("Recieved tag " + nfcTag + "to parse;");
+
         //spot is an object to be searched
         if (nfcTag.StartsWith(PrefixQuest.spot))
         {
