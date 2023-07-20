@@ -1,4 +1,5 @@
 using Hexerspiel.Character;
+using Hexerspiel.Quests;
 using Hexerspiel.UI;
 using System;
 using System.Collections;
@@ -83,6 +84,8 @@ namespace Hexerspiel.UI
             GearInventory.AlertGearChanged += ActivateAndFillRecievePanel;
             PotionInventory.AlertPotionChanged += ActivateAndFillRecievePanel;
             QuestItemInventory.AlertQuestItemChanged += ActivateAndFillRecievePanel;
+
+            QuestTracker.AlertQuesTracker += ActivateAndFillRecievePanel;
         }
 
         private void UnsubsrcibeEvents()
@@ -91,6 +94,8 @@ namespace Hexerspiel.UI
             GearInventory.AlertGearChanged -= ActivateAndFillRecievePanel;
             PotionInventory.AlertPotionChanged -= ActivateAndFillRecievePanel;
             QuestItemInventory.AlertQuestItemChanged -= ActivateAndFillRecievePanel;
+
+            QuestTracker.AlertQuesTracker -= ActivateAndFillRecievePanel;
         }
 
         //================================================================================

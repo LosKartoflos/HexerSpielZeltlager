@@ -1,5 +1,6 @@
 using Hexerspiel.Character;
 using Hexerspiel.nfcTags;
+using Hexerspiel.spots;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +16,7 @@ namespace Hexerspiel.Quests
 
         public override SO_questStep GetNextStepIfSolved()
         {
-            throw new System.NotImplementedException();
+            return GetNextStepIfSolved(SpotManager.currentStpot, NPCManager.currentNpc, null);
         }
 
         public override void TestIfStepIsSolved(SO_spots spotCurrent, SO_npc npcCurrent, out bool stepIsSolved, params ScriptableObject[] possibleSolution)

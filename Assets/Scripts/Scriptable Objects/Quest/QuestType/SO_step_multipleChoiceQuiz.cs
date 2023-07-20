@@ -6,11 +6,13 @@ namespace Hexerspiel.Quests
 {
 
     [CreateAssetMenu(fileName = "step_MultipleChoice", menuName = "Hexer_ScriptableObjects/QuestSteps/MultipleChoice")]
-    public class SO_step_multipleChoice : SO_questStep
+    public class SO_step_multipleChoiceQuiz : SO_questStep
     {
         public RighAnswer rightAnswer = RighAnswer.a;
         public string answerA, answerB, answerC, answerD;
 
+
+        protected override QuestTarget QuestStepTarget { get { return QuestTarget.multipleChoiceQuiz; } }
 
         public override SO_questStep GetNextStepIfSolved()
         {

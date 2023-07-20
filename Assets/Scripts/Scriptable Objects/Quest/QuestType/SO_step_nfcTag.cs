@@ -8,10 +8,9 @@ using UnityEngine;
 
 namespace Hexerspiel.Quests
 {
-    [CreateAssetMenu(fileName = "step_goToNPC", menuName = "Hexer_ScriptableObjects/QuestSteps/goToNPC")]
-    public class SO_step_goToNpc : SO_questStep
+    public class SO_step_nfcTag : SO_questStep
     {
-        protected override QuestTarget QuestStepTarget { get { return QuestTarget.goToNPC; } }
+        protected override QuestTarget QuestStepTarget { get { return QuestTarget.nfcTag; } }
 
         public override SO_questStep GetNextStepIfSolved()
         {
@@ -20,9 +19,9 @@ namespace Hexerspiel.Quests
 
         public override void TestIfStepIsSolved(SO_spots spotCurrent, SO_npc npcCurrent, out bool stepIsSolved, params ScriptableObject[] possibleSolution)
         {
-            if (npcToInteract == null)
+            if (QuestTracker.questSolveValidation == null)
             {
-                Debug.LogError("You forgot to add a npcToInteract in the bringQuest item Step: " + name);
+                Debug.LogError("You forgot to add a questSolveValidation in the bringQuest item Step: " + name);
                 stepIsSolved = false;
                 return;
 
@@ -34,8 +33,12 @@ namespace Hexerspiel.Quests
             if (!stepIsSolved)
                 return;
 
+            if (QuestTracker.questSolveValidation.questStepToSolve.stepName == this.stepName )
+            {
+                stepIsSolved = true;
+                return;
 
-
+            }
 
         }
     }

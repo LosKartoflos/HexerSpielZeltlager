@@ -979,7 +979,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7182c798be2892b47b5178eb8c716358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questItemsList: []
+  questItemsList:
+  - {fileID: 11400000, guid: 9a01f365493dc77469a93823b0ef23ad, type: 2}
 --- !u!114 &799964555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1544,6 +1545,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dded3be72f7cb4c3796e3b37902c9c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1649117078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1649117079}
+  - component: {fileID: 1649117080}
+  m_Layer: 0
+  m_Name: Tester
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1649117079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649117078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 446.11078, y: 846.1049, z: -6.4576535}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1649117080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649117078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f61e7ba391942c4f965ef499f1fa0ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questItem: {fileID: 0}
+  spotToGo: {fileID: 11400000, guid: 5a1daa041951bce4a86402709aa2fd5e, type: 2}
+  npc: {fileID: 0}
+  questStep: {fileID: 11400000, guid: 3fd9b3fd0842f664c886b29a350d1be8, type: 2}
+  weapon: {fileID: 0}
+  potion: {fileID: 0}
+  sO_QuestItem: {fileID: 0}
 --- !u!1 &1779949696
 GameObject:
   m_ObjectHideFlags: 0

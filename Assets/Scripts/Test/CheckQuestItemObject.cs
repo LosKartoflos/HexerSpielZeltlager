@@ -34,24 +34,24 @@ public class CheckQuestItemObject : MonoBehaviour
     private void Start()
     {
 
-        //SO_questStep nextStep;
+        SO_questStep nextStep;
 
         //PlayerCharacter.Instance.Inventory.GetItem(weapon);
 
-       Player.Instance.Inventory.PotionInventory.GetPotion(potion);
+       //Player.Instance.Inventory.PotionInventory.GetPotion(potion);
        //// PotionStats potionStats = PlayerCharacter.Instance.Inventory.PotionInventory.UsePotion(potion);
 
 
 
-       Player.Instance.Inventory.QuestItemInventory.BuyQuestItem(sO_QuestItem);
+       //Player.Instance.Inventory.QuestItemInventory.BuyQuestItem(sO_QuestItem);
 
        // PlayerCharacter.Instance.Inventory.QuestItemInventory.DropQuestItem(sO_QuestItem);
         // PlayerCharacter.Instance.Inventory.PotionInventory.SellPotion(potion);
 
         //  Debug.Log(potionStats.addMana);
 
-        //nextStep = questStep.GetNextStepIfSolved(spotToGo, npc, null);
+        nextStep = questStep.GetNextStepIfSolved();
 
-        //Debug.Log("next step:"+ nextStep);
+        Debug.Log("next step:"+ nextStep);
     }
 }

@@ -1,4 +1,5 @@
 using Hexerspiel.nfcTags;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ namespace Hexerspiel.Quests
         #region Variables
         private static QuestTracker instance;
 
+        [SerializeField]
         private SO_questStep[] questSteps = new SO_questStep[3];
 
         private SO_spots currentSpot;
@@ -18,14 +20,15 @@ namespace Hexerspiel.Quests
 
         public static SO_questStartTag questStartTag;
         public static SO_questSolveValidation questSolveValidation;
-        
 
-    #endregion
+        public static event Action<string> AlertQuesTracker = delegate { };
+
+        #endregion
 
         #region Accessors
         public static QuestTracker Instance { get => instance; }
         public SO_spots CurrentSpot { get => currentSpot; }
-        public SO_npc CurrentNPC { get => currentNPC;  }
+        public SO_npc CurrentNPC { get => currentNPC; }
         #endregion
 
         #region LifeCycle
@@ -44,9 +47,9 @@ namespace Hexerspiel.Quests
         #region Functions
         public void CheckQuests()
         {
-            foreach(SO_questStep questStep in questSteps)
+            foreach (SO_questStep questStep in questSteps)
             {
-               // if(questStep.TestIfStepIsSolved)
+                // if(questStep.TestIfStepIsSolved)
             }
         }
 
@@ -58,17 +61,36 @@ namespace Hexerspiel.Quests
 
         public void StartQuestWihtTag()
         {
+            //LoadQuestScene();
             Debug.Log("StartQuestWihtTag");
+            StartQuest(questStartTag.firstQuestStep);
+            
             questStartTag = null;
+        }
+
+        public void StartQuest(SO_questStep newQuest)
+        {
+            if (questSteps[0] == null)
+                questSteps[0] = newQuest;
+            else if (questSteps[1] == null)
+                questSteps[1] = newQuest;
+            else if (questSteps[2] == null)
+                questSteps[2] = newQuest;
+            else{
+                AlertQuesTracker("Du hast schon 3 Quests!\nDu musst einen abschlieﬂen oder abbrechen!");
+                return;
+            }
+
+            AlertQuesTracker("Du hast " + newQuest.stepName + " angenommen!");
         }
 
         public void ResetCurrentParameter()
         {
             currentSpot = null;
-            currentNPC = null; 
+            currentNPC = null;
         }
-        
-        
+
+
 
         public void SetCurrentSpot(SO_spots newSpot)
         {
