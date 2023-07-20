@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3093f82b4f8dfae469a39c781b60c3d0, type: 3}
-  m_Name: step_FindeBirte
+  m_Script: {fileID: 11500000, guid: 6352a066c47e8c34f87357d5f4a61131, type: 3}
+  m_Name: questReihe2_1
   m_EditorClassIdentifier: 
-  stepName: FindeBirte
-  image: 
+  stepName: questReihe2_1
+  image: Finde den Pokal
   questText: 
-  resolvedText: 
+  resolvedText: Du hast den Pokal
   xp: 0
   rewards:
     gold: 0
@@ -25,6 +25,7 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 11400000, guid: c3ce88032618325439e40e3707367424, type: 2}
+  nextQuestStep: {fileID: 11400000, guid: 505e378c4175d10458a3a28eedce34e3, type: 2}
   spotToGO: {fileID: 0}
-  npcToInteract: {fileID: 11400000, guid: dba3c81535926a54483e78d4f83925d2, type: 2}
+  npcToInteract: {fileID: 0}
+  questItemNeeded: {fileID: 11400000, guid: 36d2ba885474a864787add6b02f07cf9, type: 2}

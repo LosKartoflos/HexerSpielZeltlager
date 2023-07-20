@@ -37,6 +37,8 @@ namespace Hexerspiel.Quests
 
         protected virtual QuestTarget QuestStepTarget { get { return QuestTarget.baseStep; } }
 
+        
+
         public virtual void TestIfStepIsSolved(SO_spots spotCurrent, SO_npc npcCurrent, out bool stepIsSolved, params ScriptableObject[] possibleSolution)
         {
             stepIsSolved = false;
@@ -109,7 +111,7 @@ namespace Hexerspiel.Quests
         }
 
         public abstract SO_questStep GetNextStepIfSolved();
-
+        public abstract bool GetIfStepIsSolved();
 
     }
 

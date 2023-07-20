@@ -26,7 +26,6 @@ namespace Hexerspiel.spots
             if (instance == null)
             {
                 instance = this; // In first scene, make us the singleton.
-                DontDestroyOnLoad(gameObject);
             }
             else if (instance != this)
                 Destroy(gameObject);

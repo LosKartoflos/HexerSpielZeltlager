@@ -14,6 +14,13 @@ namespace Hexerspiel.Quests
         public MiscItems miscItmesNeeded;
         protected override QuestTarget QuestStepTarget { get { return QuestTarget.collectMisc; } }
 
+        public override bool GetIfStepIsSolved()
+        {
+            bool stepIsSolved = false;
+            TestIfStepIsSolved(SpotManager.currentStpot, NPCManager.currentNpc, out stepIsSolved, null);
+            return stepIsSolved;
+        }
+
         public override SO_questStep GetNextStepIfSolved()
         {
             return GetNextStepIfSolved(SpotManager.currentStpot, NPCManager.currentNpc, null);

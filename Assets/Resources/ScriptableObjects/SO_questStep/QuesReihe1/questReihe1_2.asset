@@ -10,22 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6352a066c47e8c34f87357d5f4a61131, type: 3}
-  m_Name: step_DorfDiamant
+  m_Name: questReihe1_2
   m_EditorClassIdentifier: 
-  stepName: BringQUest
-  image: 
+  stepName: questReihe1_2
+  image: FInde den Diamant
   questText: 
-  resolvedText: 
-  xp: 0
+  resolvedText: Du hast den Diamant
+  xp: 100
   rewards:
-    gold: 0
+    gold: 100
     miscItems:
-      herbs: 0
-      meat: 0
-      magicEssence: 0
-  dropedGear: []
+      herbs: 10
+      meat: 10
+      magicEssence: 10
+  dropedGear:
+  - {fileID: 11400000, guid: ba4e609a077aacb4fa0a694597eb8d32, type: 2}
   dropedQuestItems: []
-  nextQuestStep: {fileID: 11400000, guid: e0b9f612cee4e0e43bd6131c73847eab, type: 2}
-  spotToGO: {fileID: 11400000, guid: 5a1daa041951bce4a86402709aa2fd5e, type: 2}
+  nextQuestStep: {fileID: 11400000, guid: c3ce88032618325439e40e3707367424, type: 2}
+  spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}
   questItemNeeded: {fileID: 11400000, guid: 9a01f365493dc77469a93823b0ef23ad, type: 2}

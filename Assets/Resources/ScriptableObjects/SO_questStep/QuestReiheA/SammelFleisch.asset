@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3093f82b4f8dfae469a39c781b60c3d0, type: 3}
-  m_Name: step_FindeBirte
+  m_Script: {fileID: 11500000, guid: 21860df45ff9cd940bd5d07720a16000, type: 3}
+  m_Name: SammelFleisch
   m_EditorClassIdentifier: 
-  stepName: FindeBirte
+  stepName: SammelFleisch
   image: 
   questText: 
   resolvedText: 
@@ -25,6 +25,10 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 11400000, guid: c3ce88032618325439e40e3707367424, type: 2}
-  spotToGO: {fileID: 0}
-  npcToInteract: {fileID: 11400000, guid: dba3c81535926a54483e78d4f83925d2, type: 2}
+  nextQuestStep: {fileID: 0}
+  spotToGO: {fileID: 11400000, guid: 5a1daa041951bce4a86402709aa2fd5e, type: 2}
+  npcToInteract: {fileID: 0}
+  miscItmesNeeded:
+    herbs: 0
+    meat: 5
+    magicEssence: 0

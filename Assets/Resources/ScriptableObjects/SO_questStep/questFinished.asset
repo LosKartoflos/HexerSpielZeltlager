@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21860df45ff9cd940bd5d07720a16000, type: 3}
-  m_Name: step_SammelFleisch
+  m_Script: {fileID: 11500000, guid: 92cd217e4a9a6a446925be2bf5932eab, type: 3}
+  m_Name: questFinished
   m_EditorClassIdentifier: 
-  stepName: SammelFleisch
+  stepName: questFinished
   image: 
   questText: 
   resolvedText: 
@@ -26,9 +26,5 @@ MonoBehaviour:
   dropedGear: []
   dropedQuestItems: []
   nextQuestStep: {fileID: 0}
-  spotToGO: {fileID: 11400000, guid: 5a1daa041951bce4a86402709aa2fd5e, type: 2}
+  spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}
-  miscItmesNeeded:
-    herbs: 0
-    meat: 5
-    magicEssence: 0

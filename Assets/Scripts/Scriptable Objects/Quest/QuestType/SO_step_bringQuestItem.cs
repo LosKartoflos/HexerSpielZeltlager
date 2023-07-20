@@ -15,6 +15,13 @@ namespace Hexerspiel.Quests
         public SO_questItem questItemNeeded;
         protected override QuestTarget QuestStepTarget { get { return QuestTarget.bringQuestItem; } }
 
+        public override bool GetIfStepIsSolved()
+        {
+            bool stepIsSolved = false;
+            TestIfStepIsSolved(SpotManager.currentStpot, NPCManager.currentNpc, out stepIsSolved, Player.Instance.Inventory.QuestItemInventory.QuestItemsList.ToArray());
+                return stepIsSolved;
+        }
+
         public override SO_questStep GetNextStepIfSolved()
         {
             return GetNextStepIfSolved(SpotManager.currentStpot, NPCManager.currentNpc, Player.Instance.Inventory.QuestItemInventory.QuestItemsList.ToArray());
