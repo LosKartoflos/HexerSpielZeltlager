@@ -229,6 +229,8 @@ namespace Hexerspiel.Quests
                 questSteps[index] = null;
                 StartQuest(nextQuestStep[index]);
                 nextQuestStep[index] = null;
+                CheckIfStepsAreSovleable();
+                UI_QuestTracker.Instance.InitializeOnStartup();
             }
 
 
