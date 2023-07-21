@@ -12,7 +12,7 @@ namespace Hexerspiel.Quests
     public class SO_step_collectMisc : SO_questStep
     {
         public MiscItems miscItmesNeeded;
-        protected override QuestTarget QuestStepTarget { get { return QuestTarget.collectMisc; } }
+        public  override QuestTarget QuestStepTarget { get { return QuestTarget.collectMisc; } }
 
         public override bool GetIfStepIsSolved()
         {
@@ -24,6 +24,18 @@ namespace Hexerspiel.Quests
         public override SO_questStep GetNextStepIfSolved()
         {
             return GetNextStepIfSolved(SpotManager.currentStpot, NPCManager.currentNpc, null);
+        }
+
+        public override bool PayQuestPriceAndEndStep()
+        {
+            if (GetIfStepIsSolved() == false)
+            {
+                return false;
+            }
+            else
+            {
+                return Player.Instance.Inventory.BasicInventory.ControlledMiscManipulation(miscItmesNeeded);
+            }
         }
 
         public override void TestIfStepIsSolved(SO_spots spotCurrent, SO_npc npcCurrent, out bool stepIsSolved, params ScriptableObject[] possibleSolution)
@@ -48,7 +60,7 @@ namespace Hexerspiel.Quests
 
 
             //the conditions are fullfilled. Decrease the amount and step is solved.
-            Player.Instance.Inventory.BasicInventory.ControlledMiscManipulation(miscItmesNeeded);
+           
 
             stepIsSolved = true;
 

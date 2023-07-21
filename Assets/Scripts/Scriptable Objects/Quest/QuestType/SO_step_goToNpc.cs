@@ -11,7 +11,7 @@ namespace Hexerspiel.Quests
     [CreateAssetMenu(fileName = "step_goToNPC", menuName = "Hexer_ScriptableObjects/QuestSteps/goToNPC")]
     public class SO_step_goToNpc : SO_questStep
     {
-        protected override QuestTarget QuestStepTarget { get { return QuestTarget.goToNPC; } }
+        public override QuestTarget QuestStepTarget { get { return QuestTarget.goToNPC; } }
 
         public override bool GetIfStepIsSolved()
         {
@@ -23,6 +23,18 @@ namespace Hexerspiel.Quests
         public override SO_questStep GetNextStepIfSolved()
         {
             return GetNextStepIfSolved(SpotManager.currentStpot, NPCManager.currentNpc, null);
+        }
+
+        public override bool PayQuestPriceAndEndStep()
+        {
+            if (GetIfStepIsSolved() == false)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         public override void TestIfStepIsSolved(SO_spots spotCurrent, SO_npc npcCurrent, out bool stepIsSolved, params ScriptableObject[] possibleSolution)

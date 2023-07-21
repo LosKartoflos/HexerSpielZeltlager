@@ -1115,6 +1115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questItemsList:
   - {fileID: 11400000, guid: 9a01f365493dc77469a93823b0ef23ad, type: 2}
+  - {fileID: 11400000, guid: 36d2ba885474a864787add6b02f07cf9, type: 2}
 --- !u!114 &799964555
 MonoBehaviour:
   m_ObjectHideFlags: 0

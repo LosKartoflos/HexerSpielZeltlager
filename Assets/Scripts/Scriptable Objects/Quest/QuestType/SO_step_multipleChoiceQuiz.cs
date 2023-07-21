@@ -14,7 +14,7 @@ namespace Hexerspiel.Quests
         public string answerA, answerB, answerC, answerD;
 
 
-        protected override QuestTarget QuestStepTarget { get { return QuestTarget.multipleChoiceQuiz; } }
+        public override QuestTarget QuestStepTarget { get { return QuestTarget.multipleChoiceQuiz; } }
 
         public override SO_questStep GetNextStepIfSolved()
         {
@@ -26,6 +26,18 @@ namespace Hexerspiel.Quests
             bool stepIsSolved = false;
             TestIfStepIsSolved(SpotManager.currentStpot, NPCManager.currentNpc, out stepIsSolved, null);
             return stepIsSolved;
+        }
+
+        public override bool PayQuestPriceAndEndStep()
+        {
+            if (GetIfStepIsSolved() == false)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         public override void TestIfStepIsSolved(SO_spots spotCurrent, SO_npc npcCurrent, out bool stepIsSolved, params ScriptableObject[] possibleSolution)

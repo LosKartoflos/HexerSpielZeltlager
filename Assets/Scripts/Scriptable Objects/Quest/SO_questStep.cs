@@ -35,7 +35,7 @@ namespace Hexerspiel.Quests
         public SO_spots spotToGO;
         public SO_npc npcToInteract;
 
-        protected virtual QuestTarget QuestStepTarget { get { return QuestTarget.baseStep; } }
+        public virtual QuestTarget QuestStepTarget { get { return QuestTarget.baseStep; } }
 
         
 
@@ -112,6 +112,8 @@ namespace Hexerspiel.Quests
 
         public abstract SO_questStep GetNextStepIfSolved();
         public abstract bool GetIfStepIsSolved();
+
+        public abstract bool PayQuestPriceAndEndStep();
 
     }
 

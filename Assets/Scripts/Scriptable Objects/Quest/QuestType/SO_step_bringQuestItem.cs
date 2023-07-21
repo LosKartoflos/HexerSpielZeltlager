@@ -13,7 +13,7 @@ namespace Hexerspiel.Quests
     public class SO_step_bringQuestItem : SO_questStep
     {
         public SO_questItem questItemNeeded;
-        protected override QuestTarget QuestStepTarget { get { return QuestTarget.bringQuestItem; } }
+        public override QuestTarget QuestStepTarget { get { return QuestTarget.bringQuestItem; } }
 
         public override bool GetIfStepIsSolved()
         {
@@ -25,6 +25,18 @@ namespace Hexerspiel.Quests
         public override SO_questStep GetNextStepIfSolved()
         {
             return GetNextStepIfSolved(SpotManager.currentStpot, NPCManager.currentNpc, Player.Instance.Inventory.QuestItemInventory.QuestItemsList.ToArray());
+        }
+
+        public override bool PayQuestPriceAndEndStep()
+        {
+            if(GetIfStepIsSolved() == false)
+            {      
+                return false;
+            }
+            else
+            {
+               return Player.Instance.Inventory.QuestItemInventory.DropQuestItem(questItemNeeded);
+            }
         }
 
         public override void TestIfStepIsSolved(SO_spots spotCurrent, SO_npc npcCurrent, out bool stepIsSolved, params ScriptableObject[] possibleSolution)
