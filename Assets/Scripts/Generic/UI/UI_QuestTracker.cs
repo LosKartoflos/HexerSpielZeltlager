@@ -24,16 +24,19 @@ namespace Hexerspiel.UI
         private GameObject yesNoPopUPPrefab;
 
         [SerializeField]
+        private GameObject multipleChoicePrefab;
+
+        [SerializeField]
         private RectTransform popUpPanel;
 
-        
+
         #endregion
 
         #region Accessors
         public static UI_QuestTracker Instance { get => instance; }
         public UI_QuestItem[] QuestItems { get => uI_QuestItems; }
 
-       
+
 
         #endregion
 
@@ -65,7 +68,7 @@ namespace Hexerspiel.UI
 
         }
 
-     
+
         private void OnDestroy()
         {
             DestroyUI_QuesTracker();
@@ -113,6 +116,15 @@ namespace Hexerspiel.UI
             questInfoObject.GetComponent<UI_QuestInfo>().OpenAsInfoPanel(info, header);
         }
 
+        public void CreateInfoPopUpAcceptOnly(string info, string header)
+        {
+            GameObject questInfoObject = Instantiate(questInfoPrefab, popUpPanel, false);
+            questInfoObject.SetActive(false);
+            questInfoObject.SetActive(true);
+            Canvas.ForceUpdateCanvases();
+            questInfoObject.GetComponent<UI_QuestInfo>().OpenForAcceptOnly(info, header);
+        }
+
         public void CreateQuestStartPopUp(string info, string header)
         {
             GameObject questInfoObject = Instantiate(questInfoPrefab, popUpPanel, false);
@@ -136,13 +148,45 @@ namespace Hexerspiel.UI
 
         private void SolveQuest(int index)
         {
+
+
             QuestTracker.questToSolve = index;
 
-            GameObject yesNoPopUpObject = Instantiate(yesNoPopUPPrefab, popUpPanel, false);
-            yesNoPopUpObject.SetActive(false);
-            yesNoPopUpObject.SetActive(true);
-            Canvas.ForceUpdateCanvases();
-            yesNoPopUpObject.GetComponent<YesNoPopUP>().IntiatePopUp(QuestTracker.Instance.SolveQuestText(index), QuestTracker.solveRecieverID);
+
+            if (!QuestTracker.QuestSteps[index].CheckIfStepIsSolved())
+            {
+                QuestTracker.Instance.SolveTextByIdAlert(index);
+                return;
+            }
+
+            //multipleChoice
+            if (QuestTracker.QuestSteps[index].QuestStepTarget == QuestTarget.multipleChoiceQuiz || QuestTracker.QuestSteps[index].QuestStepTarget == QuestTarget.multipleChoiceAttribute)
+            {
+                GameObject mulitpleChoiceObject = Instantiate(multipleChoicePrefab, popUpPanel, false);
+                mulitpleChoiceObject.SetActive(false);
+                mulitpleChoiceObject.SetActive(true);
+                Canvas.ForceUpdateCanvases();
+                //noch nicht gelöst
+                
+                if (QuestTracker.QuestSteps[index].QuestStepTarget == QuestTarget.multipleChoiceQuiz)
+                    mulitpleChoiceObject.GetComponent<MultipleChoicePopUp>().IntiatePopUp(QuestTracker.Instance.QuestSolvedText(index), QuestTracker.multipleChoiceReciever, ((SO_step_multipleChoiceQuiz)QuestTracker.QuestSteps[index]).answersTexts);
+
+                else if (QuestTracker.QuestSteps[index].QuestStepTarget == QuestTarget.multipleChoiceAttribute)
+                {
+                    mulitpleChoiceObject.GetComponent<MultipleChoicePopUp>().IntiatePopUp(QuestTracker.Instance.QuestSolvedText(index), QuestTracker.multipleChoiceReciever, ((SO_step_mulitpleChoiceAttribute)QuestTracker.QuestSteps[index]).answers);
+                }
+            }
+            //other
+            else
+            {
+                GameObject yesNoPopUpObject = Instantiate(yesNoPopUPPrefab, popUpPanel, false);
+                yesNoPopUpObject.SetActive(false);
+                yesNoPopUpObject.SetActive(true);
+                Canvas.ForceUpdateCanvases();
+                yesNoPopUpObject.GetComponent<YesNoPopUP>().IntiatePopUp(QuestTracker.Instance.QuestSolvedText(index), QuestTracker.solveRecieverID);
+            }
+
+
 
         }
 

@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3093f82b4f8dfae469a39c781b60c3d0, type: 3}
-  m_Name: step_goToNPC_bettler
+  m_Script: {fileID: 11500000, guid: 098602e90339e4a4a8f54421a8c63d25, type: 3}
+  m_Name: step_MultipleChoice
   m_EditorClassIdentifier: 
-  stepName: FInde den Bettler
+  stepName: Die Frage
   image: 
-  questText: "Der bettle h\xE4ng wo ab. FInde den Bettler"
+  questText: Was ist 8+8
   resolvedText: 
   xp: 0
   rewards:
@@ -25,6 +25,11 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 11400000, guid: dd781db621c8d8840bcbe2afa8cf4c79, type: 2}
+  nextQuestStep: {fileID: 11400000, guid: 1245e00d7a8339942ad153da6b982cfb, type: 2}
   spotToGO: {fileID: 0}
-  npcToInteract: {fileID: 11400000, guid: e2a5254f3febd93469e594506aa85eee, type: 2}
+  npcToInteract: {fileID: 0}
+  rightAnswer: 1
+  answersTexts:
+  - 8
+  - 16
+  - 32

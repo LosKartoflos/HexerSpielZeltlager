@@ -55,7 +55,7 @@ namespace Hexerspiel.UI
             Debug.Log("enable buttos");
             bt_info.interactable = true;
             bt_abort.interactable = true;
-            bt_solve.interactable = false;
+            bt_solve.interactable = true;
         }
 
         public void EnableBTSolve(bool state)

@@ -1,3 +1,4 @@
+using Hexerspiel;
 using Hexerspiel.Character;
 using Hexerspiel.Items;
 using System;
@@ -207,5 +208,27 @@ public class Player : MonoBehaviour
         if (noteLoot)
             collectedLoot += "XP: " + xpAmount;
     }
-    #endregion
+
+    public int ReturnAttributeValue(AttributeTypes attribute)
+    {
+        switch (attribute)
+        {
+            case AttributeTypes.Nichts:
+                return 0;
+                break;
+            case AttributeTypes.Körper:
+                return playerValues.PlayerAttributes1.body;
+                break;
+            case AttributeTypes.Geist:
+                return playerValues.PlayerAttributes1.mind;
+                break;
+            case AttributeTypes.Charisma:
+                return playerValues.PlayerAttributes1.charisma;
+                break;
+            
+        }
+
+        return 0;
+        #endregion
+    }
 }

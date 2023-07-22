@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7534d5d4d65e996498086679b3511241, type: 3}
+  m_Name: step_MultipleChoiceAttribute
+  m_EditorClassIdentifier: 
+  stepName: "Mach die T\xFCr auf"
+  image: 
+  questText: "\xD6ffne die T\xFCr vor dir!"
+  resolvedText: Du hast einen Weg gefunden!
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear: []
+  dropedQuestItems: []
+  nextQuestStep: {fileID: 0}
+  spotToGO: {fileID: 0}
+  npcToInteract: {fileID: 0}
+  answers:
+  - Text: Nimm die Klinke
+    attribut: 0
+    level: 0
+    questStep: {fileID: 11400000, guid: 70508432aba44774399a7bf03daf1f56, type: 2}
+  - Text: Brich sie auf
+    attribut: 1
+    level: 3
+    questStep: {fileID: 11400000, guid: 273cabf3d94c25043ab3ef54c58b1570, type: 2}
+  - Text: Frag jemand ob sie aufmacht
+    attribut: 3
+    level: 2
+    questStep: {fileID: 11400000, guid: 41ccc193bac3efe4287f94167c9dadeb, type: 2}

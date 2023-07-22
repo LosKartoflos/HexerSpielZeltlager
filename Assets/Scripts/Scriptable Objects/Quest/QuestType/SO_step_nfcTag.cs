@@ -12,7 +12,7 @@ namespace Hexerspiel.Quests
     {
         public override QuestTarget QuestStepTarget { get { return QuestTarget.nfcTag; } }
 
-        public override bool GetIfStepIsSolved()
+        public override bool CheckIfStepIsSolved()
         {
             bool stepIsSolved = false;
             TestIfStepIsSolved(SpotManager.currentStpot, NPCManager.currentNpc, out stepIsSolved, null);
@@ -26,7 +26,7 @@ namespace Hexerspiel.Quests
 
         public override bool PayQuestPriceAndEndStep()
         {
-            if (GetIfStepIsSolved() == false)
+            if (CheckIfStepIsSolved() == false)
             {
                 return false;
             }

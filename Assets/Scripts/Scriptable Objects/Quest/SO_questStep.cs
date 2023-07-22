@@ -111,7 +111,7 @@ namespace Hexerspiel.Quests
         }
 
         public abstract SO_questStep GetNextStepIfSolved();
-        public abstract bool GetIfStepIsSolved();
+        public abstract bool CheckIfStepIsSolved();
 
         public abstract bool PayQuestPriceAndEndStep();
 

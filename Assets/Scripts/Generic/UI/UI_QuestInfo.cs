@@ -65,6 +65,20 @@ namespace Hexerspiel.UI
             bt_decline.onClick.AddListener(delegate { DecisionQuestAccept(false); Destroy(gameObject); });
         }
 
+        public void OpenForAcceptOnly(string info, string header)
+        {
+            label_header.text = header;
+            label_QuestInfo.text = info;
+
+            containerButtonInfo.SetActive(false);
+            containerButtonAccept.SetActive(true);
+
+            bt_decline.enabled = false;
+
+            bt_accept.onClick.AddListener(delegate {  Destroy(gameObject); });
+            
+        }
+
         #endregion
     }
 }

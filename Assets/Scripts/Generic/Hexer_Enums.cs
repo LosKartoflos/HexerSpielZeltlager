@@ -25,7 +25,9 @@ namespace Hexerspiel
     public enum QuestTarget { collectMisc, bringQuestItem, goToPlace, goToNPC,fightAgainst, nfcTag, multipleChoiceAttribute, multipleChoiceQuiz, freeEntry, baseStep }
     public enum SocialInteraktionType { threaten, charm, debate }
 
-    public enum RighAnswer { a,b,c,d}
+    public enum RighAnswer { a,b,c,d, none}
+
+    public enum AttributeTypes { Nichts, Körper, Geist, Charisma}
 
     //npc
     //public enum NPCTrade { yes}

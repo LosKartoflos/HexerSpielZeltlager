@@ -150,7 +150,7 @@ public class NFCManager : MonoBehaviour
                 questStartTagToBegin = newQuestStart;
                 parsingSuccesfull = true;
                 parsedTagTask = TagTask.questStart;
-                return "Du kannst Quest: " + newQuestStart.nfcTagInfos.name + " starten.";
+                return "Du hast Queststart: " + newQuestStart.nfcTagInfos.name + " gefunden.";
 
             }
         }

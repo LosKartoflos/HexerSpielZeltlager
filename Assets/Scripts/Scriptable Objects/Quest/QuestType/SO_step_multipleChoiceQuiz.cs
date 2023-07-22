@@ -11,26 +11,28 @@ namespace Hexerspiel.Quests
     public class SO_step_multipleChoiceQuiz : SO_questStep
     {
         public RighAnswer rightAnswer = RighAnswer.a;
-        public string answerA, answerB, answerC, answerD;
+        public List<string> answersTexts = new List<string>();
 
 
         public override QuestTarget QuestStepTarget { get { return QuestTarget.multipleChoiceQuiz; } }
 
+
+        //not needed
         public override SO_questStep GetNextStepIfSolved()
         {
-            throw new System.NotImplementedException();
+            return GetNextStepIfSolved(SpotManager.currentStpot, NPCManager.currentNpc, QuestTracker.givenAnswer);
         }
 
-        public override bool GetIfStepIsSolved()
+        public override bool CheckIfStepIsSolved()
         {
             bool stepIsSolved = false;
-            TestIfStepIsSolved(SpotManager.currentStpot, NPCManager.currentNpc, out stepIsSolved, null);
+            TestIfStepIsSolved(SpotManager.currentStpot, NPCManager.currentNpc, out stepIsSolved, QuestTracker.givenAnswer);
             return stepIsSolved;
         }
 
         public override bool PayQuestPriceAndEndStep()
         {
-            if (GetIfStepIsSolved() == false)
+            if (CheckIfStepIsSolved() == false)
             {
                 return false;
             }
@@ -42,7 +44,7 @@ namespace Hexerspiel.Quests
 
         public override void TestIfStepIsSolved(SO_spots spotCurrent, SO_npc npcCurrent, out bool stepIsSolved, params ScriptableObject[] possibleSolution)
         {
-            if (answerA == null)
+            if (answersTexts[0] == null)
             {
                 Debug.LogError("You forgot to add a Answer : " + name);
                 stepIsSolved = false;
@@ -65,7 +67,7 @@ namespace Hexerspiel.Quests
 
 
 
-            if ((SO_rightAnswer)possibleSolution[0] == new SO_rightAnswer(rightAnswer))
+            if (((SO_rightAnswer)possibleSolution[0]).givenAnswer == new SO_rightAnswer(rightAnswer).givenAnswer)
             {
                 stepIsSolved = true;
                 return;

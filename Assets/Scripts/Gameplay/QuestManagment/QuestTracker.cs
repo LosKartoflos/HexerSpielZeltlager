@@ -33,9 +33,17 @@ namespace Hexerspiel.Quests
         [SerializeField]
         private SO_questStep finishStep;
 
-        private SO_spots currentSpot;
-        private SO_npc currentNPC;
+        [SerializeField]
+        SO_spots testSpot;
 
+        [SerializeField]
+        SO_npc testNpc;
+
+
+        public static SO_spots currentSpot;
+        public static SO_npc currentNPC;
+
+        public static SO_rightAnswer givenAnswer;
         public static SO_questStartTag questStartTag;
         public static SO_questSolveValidation questSolveValidation;
 
@@ -46,9 +54,7 @@ namespace Hexerspiel.Quests
 
         public const string delteRecieverID = "deleteQuest";
         public const string solveRecieverID = "solveQuest";
-
-
-
+        public const string multipleChoiceReciever = "solveMultipleChoice";
 
         #endregion
 
@@ -75,12 +81,20 @@ namespace Hexerspiel.Quests
 
         }
 
+        private void Update()
+        {
+            currentSpot = testSpot;
+            currentNPC = testNpc;
+        }
+
+
         private void OnEnable()
         {
             SceneManager.sceneLoaded += OnSceneLoaded;
             UI_QuestInfo.DecisionQuestAccept += AcceptQuestCheck;
             YesNoPopUP.YES += AbortAccepted;
             YesNoPopUP.YES += QuestSolveAccepted;
+            MultipleChoicePopUp.ANSWERGIVEN += QuestSolveMultipleChoice;
 
         }
 
@@ -91,6 +105,7 @@ namespace Hexerspiel.Quests
             UI_QuestInfo.DecisionQuestAccept -= AcceptQuestCheck;
             YesNoPopUP.YES -= AbortAccepted;
             YesNoPopUP.YES -= QuestSolveAccepted;
+            MultipleChoicePopUp.ANSWERGIVEN -= QuestSolveMultipleChoice;
         }
 
 
@@ -154,7 +169,7 @@ namespace Hexerspiel.Quests
                 yield return new WaitForEndOfFrame();
             }
 
-            UI_QuestTracker.Instance.CreateQuestStartPopUp(questStartTag.firstQuestStep.questText + (GetSolveText(questStartTag.firstQuestStep)), questStartTag.firstQuestStep.stepName);
+            UI_QuestTracker.Instance.CreateQuestStartPopUp(questStartTag.firstQuestStep.questText + "\n\n" + (GetSolveText(questStartTag.firstQuestStep)), questStartTag.firstQuestStep.stepName);
 
             yield return null;
         }
@@ -182,7 +197,7 @@ namespace Hexerspiel.Quests
             if (CheckIfQuestIsAllreadyUsed(newQuest))
                 return;
 
-            
+
             if (questSteps[0] == null)
             {
                 questSteps[0] = newQuest;
@@ -219,18 +234,35 @@ namespace Hexerspiel.Quests
 
 
 
-            
-          //  AlertQuestTracker("Du hast " + newQuest.stepName + " angenommen!");
+
+            //  AlertQuestTracker("Du hast " + newQuest.stepName + " angenommen!");
         }
 
-
+        /// <summary>
+        /// weißt die nächsten questeps zu wenn lösbar. Wenn ein quest step zugewiesne ist gilt die aufgabe als gelöst
+        /// Ausnahme Multiplice choice. da kommt erst die wahl und free entry wird auch gerprüft
+        /// </summary>
         public void CheckIfStepsAreSovleable()
         {
             for (int i = 0; i < maximalQuestsTracked; i++)
             {
                 if (questSteps[i] != null)
                 {
-                    nextQuestStep[i] = questSteps[i].GetNextStepIfSolved();
+                    //für multiple choice muss der Step vorhanden sein, damit der solve button verfügbar ist, weil quasi erst im Dialog gesolved wird
+                    if (questSteps[i].QuestStepTarget == QuestTarget.multipleChoiceQuiz || QuestSteps[i].QuestStepTarget == QuestTarget.freeEntry)
+                    {
+                        nextQuestStep[i] = questSteps[i].nextQuestStep;
+                    }
+                    else if (QuestSteps[i].QuestStepTarget == QuestTarget.multipleChoiceAttribute)
+                    {
+                        if (((SO_step_mulitpleChoiceAttribute)questSteps[i]).answers.Count > 0)
+                            nextQuestStep[i] = ((SO_step_mulitpleChoiceAttribute)questSteps[i]).answers[0].questStep;
+                    }
+                    else
+                    {
+                        nextQuestStep[i] = questSteps[i].GetNextStepIfSolved();
+                    }
+
 
 
                 }
@@ -242,7 +274,7 @@ namespace Hexerspiel.Quests
         /// gets you the text for solving
         /// </summary>
         /// <returns></returns>
-        public string GetSolveTextById(int index)
+        public string GetSolveTextById(int index, bool onlyRemaining = false)
         {
             if (questSteps[index] == null)
             {
@@ -250,40 +282,84 @@ namespace Hexerspiel.Quests
                 return "no quest to text";
             }
 
-            string dialogText = GetSolveText(questSteps[index]);
+            string dialogText = GetSolveText(questSteps[index], onlyRemaining);
 
             return dialogText;
         }
 
-        private static string GetSolveText(SO_questStep questStep)
+        public void SolveTextByIdAlert(int index)
         {
+            // AlertQuestTracker(GetSolveTextById(index, true) );
+
+            QuestIsSolved(index);
+        }
+
+        private static string GetSolveText(SO_questStep questStep, bool onlyRemaining = false)
+        {
+
+            string npcOrPlaceTask = "";
+
+            if ((questStep.npcToInteract != null && questStep.npcToInteract != currentNPC))//(onlyRemaining && questStep.npcToInteract != null) || 
+            {
+                npcOrPlaceTask += "und gehe zu Person: " + questStep.npcToInteract.npcInformation.name;
+            }
+
+            else if ( (questStep.npcToInteract != null && questStep.npcToInteract == currentNPC))
+            {
+                npcOrPlaceTask += "Du bist bei Person " + questStep.npcToInteract.npcInformation.name;
+            }
+
+            if ((questStep.spotToGO != null && questStep.spotToGO != currentSpot))// || (onlyRemaining && questStep.spotToGO != null);
+            {
+                if (npcOrPlaceTask != "")
+                    npcOrPlaceTask += "\n";
+                npcOrPlaceTask += "und gehe zum Ort: " + questStep.spotToGO.nfcTagInfos.name;
+            }
+            else if (questStep.spotToGO != null && questStep.spotToGO == currentSpot)
+            {
+                if (npcOrPlaceTask != "")
+                    npcOrPlaceTask += "\n";
+                npcOrPlaceTask += "Du bist am Ort " + questStep.spotToGO.nfcTagInfos.name;
+            }
+
+
+            if (npcOrPlaceTask != "")
+                npcOrPlaceTask += " oder ";
+
+
             string dialogText = "";
             switch (questStep.QuestStepTarget)
             {
                 case QuestTarget.collectMisc:
-                    dialogText = string.Format("Gib {0} Kräuter, {1} Fleisch und {2} magische Essenzen ab.", ((SO_step_collectMisc)questStep).miscItmesNeeded.herbs, ((SO_step_collectMisc)questStep).miscItmesNeeded.meat, ((SO_step_collectMisc)questStep).miscItmesNeeded.magicEssence);
+                    dialogText = string.Format("Gib {0} Kräuter, {1} Fleisch und {2} magische Essenzen ab.", ((SO_step_collectMisc)questStep).miscItmesNeeded.herbs, ((SO_step_collectMisc)questStep).miscItmesNeeded.meat, ((SO_step_collectMisc)questStep).miscItmesNeeded.magicEssence) + "\n\n" + npcOrPlaceTask;
                     break;
                 case QuestTarget.bringQuestItem:
-                    dialogText = "Gib " + ((SO_step_bringQuestItem)questStep).questItemNeeded.itemName + " ab.";
+                    dialogText = "Gib " + ((SO_step_bringQuestItem)questStep).questItemNeeded.itemName + " ab." + "\n\n" + npcOrPlaceTask;
                     break;
                 case QuestTarget.goToPlace:
-                    dialogText = "Gehe zum Ort: " + ((SO_step_goToPlace)questStep).spotToGO.nfcTagInfos.name;
+                    dialogText = npcOrPlaceTask;// "Gehe zum Ort: " + ((SO_step_goToPlace)questStep).spotToGO.nfcTagInfos.name;
                     break;
                 case QuestTarget.goToNPC:
-                    dialogText = "Gehe zum Ort: " + ((SO_step_goToNpc)questStep).npcToInteract.npcInformation.name;
+                    dialogText = npcOrPlaceTask;//"Gehe zu Person: " + ((SO_step_goToNpc)questStep).npcToInteract.npcInformation.name;
                     break;
                 case QuestTarget.fightAgainst:
 
                     break;
                 case QuestTarget.nfcTag:
+                    dialogText = "Lasse dir die Aufgabe von der Spielleitung bestätigen." + "\n\n" + npcOrPlaceTask;
                     break;
                 case QuestTarget.multipleChoiceAttribute:
+                    dialogText = "Wähle eine Antwort!" + "\n\n" + npcOrPlaceTask;
                     break;
                 case QuestTarget.multipleChoiceQuiz:
+                    dialogText = "Wähle die richtige Antwort!" + "\n\n" + npcOrPlaceTask;
                     break;
                 case QuestTarget.freeEntry:
+                    dialogText = "Gib dir richtige Anwtort ein!" + "\n\n" + npcOrPlaceTask;
                     break;
                 case QuestTarget.baseStep:
+                    AlertQuestTracker("Das ist ein Base step. Das sollte nicht sein! Informiere die Spieleitung!");
+                    dialogText = ("Da stimmt was nicht. Hier ist ein BaseStep. Gehe zur Spielleitung!");
                     break;
             }
 
@@ -309,7 +385,7 @@ namespace Hexerspiel.Quests
         /// Returns the dialog to solve the quest
         /// </summary>
         /// <param name="index"></param>
-        public string SolveQuestText(int index)
+        public string QuestSolvedText(int index)
         {
 
             if (nextQuestStep[index] == null)
@@ -317,7 +393,7 @@ namespace Hexerspiel.Quests
                 return ("Du hast noch nicht alles um " + questSteps[index].stepName + "zu lösen");
             }
 
-            string dialogText = GetSolveText(questSteps[index]) + "\n... hast du erfüllt!\n\nMöchtest du den Schritt abschließen?" ;
+            string dialogText = GetSolveText(questSteps[index]) + "\n... hast du erfüllt!\n\nMöchtest du den Schritt abschließen?";
             return dialogText;
 
         }
@@ -331,6 +407,24 @@ namespace Hexerspiel.Quests
             QuestIsSolved(questToSolve);
         }
 
+        public void QuestSolveMultipleChoice(RighAnswer answerGiven, string recieverID)
+        {
+            Debug.Log("Multiple choice Answer given " + answerGiven);
+
+            if (recieverID != multipleChoiceReciever)
+                return;
+
+            givenAnswer = new SO_rightAnswer(answerGiven);
+
+            if (QuestSteps[questToSolve].QuestStepTarget == QuestTarget.multipleChoiceAttribute)
+            {
+                ((SO_step_mulitpleChoiceAttribute)QuestSteps[questToSolve]).CheckIfStepIsSolved();
+                Debug.Log(" QuestSolveMultipleChoice: " + nextQuestStep[questToSolve]);
+            }
+
+            QuestIsSolved(questToSolve);
+        }
+
         /// <summary>
         /// things to do when quest is solved
         /// </summary>
@@ -339,59 +433,82 @@ namespace Hexerspiel.Quests
         {
             Debug.Log("solve index " + index);
             //check if quest is solved
-            if (nextQuestStep[index] == null)
-            {
-                AlertQuestTracker("Etwas ist schiefgegangen beim lösen. Melde dich bei der Spielleitung");
-                return;
-            }
+            //if (nextQuestStep[index] == null)
+            //{
+            //    AlertQuestTracker("Etwas ist schiefgegangen beim lösen. Melde dich bei der Spielleitung");
+            //    return;
+            //}
             //check if can be payed solved
             if (!questSteps[index].PayQuestPriceAndEndStep())
             {
+                string notAtPlaceOrNPC = "";
+                if (questSteps[index].npcToInteract != null)
+                {
+                    if (questSteps[index].npcToInteract != currentNPC)
+                        notAtPlaceOrNPC += "\nund/oder dir bist nicht bei Person: " + questSteps[index].npcToInteract.npcInformation.name;
+                }
+
+                if (questSteps[index].spotToGO != null )
+                {
+                    if(questSteps[index].spotToGO != currentSpot)
+                    notAtPlaceOrNPC += "\nund/oder du bist nicht am Ort: " + questSteps[index].spotToGO.nfcTagInfos.name;
+                }
+
                 switch (questSteps[index].QuestStepTarget)
                 {
                     case QuestTarget.collectMisc:
-                        AlertQuestTracker("Dir fehlen Resourcen.");
+
+                        AlertQuestTracker("Dir fehlen Resourcen " + notAtPlaceOrNPC);
                         break;
                     case QuestTarget.bringQuestItem:
-                        AlertQuestTracker("Dir fehlt " + ((SO_step_bringQuestItem)questSteps[index]).questItemNeeded.itemName + ".");
+                        AlertQuestTracker("Dir fehlt " + ((SO_step_bringQuestItem)questSteps[index]).questItemNeeded.itemName + "." + notAtPlaceOrNPC);
                         break;
                     case QuestTarget.goToPlace:
-                        AlertQuestTracker("Dir bist nicht am Ort: " + ((SO_step_goToPlace)questSteps[index]).spotToGO.nfcTagInfos.name);
+                        AlertQuestTracker(notAtPlaceOrNPC);//"Dir bist nicht am Ort: " + ((SO_step_goToPlace)questSteps[index]).spotToGO.nfcTagInfos.name +;
                         break;
                     case QuestTarget.goToNPC:
-                        AlertQuestTracker("Dir bist nicht am Ort: " + ((SO_step_goToNpc)questSteps[index]).npcToInteract.npcInformation.name);
+                        AlertQuestTracker(notAtPlaceOrNPC);//"Dir bist nicht bei Person: " + ((SO_step_goToNpc)questSteps[index]).npcToInteract.npcInformation.name + 
                         break;
                     case QuestTarget.fightAgainst:
                         break;
                     case QuestTarget.nfcTag:
+                        AlertQuestTracker("Du brauchst die Bestätigung für " + ((SO_step_nfcTag)questSteps[index]).stepName + notAtPlaceOrNPC);
                         break;
                     case QuestTarget.multipleChoiceAttribute:
+                        AlertQuestTracker("Für diese Antwort ist dein verbundener Attribut wert zu niedrig!" + notAtPlaceOrNPC);
                         break;
                     case QuestTarget.multipleChoiceQuiz:
+                        AlertQuestTracker("Diese Antwort ist falsch!" + notAtPlaceOrNPC);
                         break;
                     case QuestTarget.freeEntry:
+                        AlertQuestTracker("Diese Antwort ist falsch!" + notAtPlaceOrNPC);
                         break;
                     case QuestTarget.baseStep:
-                        AlertQuestTracker("Das ist ein Base step. Das sollte nicht sein! Informiere die Spieleitung!");
+                        AlertQuestTracker("Das ist ein Base step. Das sollte nicht sein! Informiere die Spieleitung!" + notAtPlaceOrNPC);
                         break;
                 }
                 return;
             }
 
-            //if no resolve text, use generic
-            if (questSteps[index].resolvedText == "" || questSteps[index].resolvedText == null)
-            {
-                AlertQuestTracker("Du hast " + questSteps[index].stepName + " gelöst!");
-            }
-            //use resolve text
-            else
-            {
-                AlertQuestTracker(questSteps[index].resolvedText);
-            }
+            ////if no resolve text, use generic
+            //if (questSteps[index].resolvedText == "" || questSteps[index].resolvedText == null)
+            //{
+            //    AlertQuestTracker("Du hast " + questSteps[index].stepName + " gelöst!");
+            //}
+            ////use resolve text
+            //else
+            //{
+            //AlertQuestTracker(questSteps[index].resolvedText);
+
+
+
+            //}
 
             //last step 
             if (nextQuestStep[index] == finishStep)
             {
+                UI_QuestTracker.Instance.CreateInfoPopUpAcceptOnly(questSteps[index].resolvedText + "\n\n", "Quest Abgesschlossen");
+
                 //questSteps[index] = null;
                 //nextQuestStep[index] = null;
 
@@ -410,6 +527,8 @@ namespace Hexerspiel.Quests
             //load next step
             else
             {
+                UI_QuestTracker.Instance.CreateInfoPopUpAcceptOnly(questSteps[index].resolvedText + "\n\n" + nextQuestStep[index].questText + "\n\n" + GetSolveText(nextQuestStep[index]), nextQuestStep[index].stepName);
+
                 questSteps[index] = null;
                 StartQuest(nextQuestStep[index]);
                 nextQuestStep[index] = null;

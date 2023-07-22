@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stepName: Finde den Dorf Diamant
   image: 
-  questText: 
-  resolvedText: 
+  questText: Die Bewohne sind ab. Gibt im Dorf den Diamant ab
+  resolvedText: "Du bist so gro\xDFz\xFCgig"
   xp: 0
   rewards:
     gold: 0

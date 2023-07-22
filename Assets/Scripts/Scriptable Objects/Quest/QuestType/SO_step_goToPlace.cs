@@ -15,20 +15,20 @@ namespace Hexerspiel.Quests
         
         public override QuestTarget QuestStepTarget { get { return QuestTarget.goToPlace; } }
 
-        public override bool GetIfStepIsSolved()
+        public override bool CheckIfStepIsSolved()
         {
             bool stepIsSolved = false;
-            TestIfStepIsSolved(SpotManager.currentStpot, NPCManager.currentNpc, out stepIsSolved, null);
+            TestIfStepIsSolved(QuestTracker.currentSpot, QuestTracker.currentNPC, out stepIsSolved, null);
             return stepIsSolved;
         }
         public override SO_questStep GetNextStepIfSolved()
         {
-            return GetNextStepIfSolved(SpotManager.currentStpot, NPCManager.currentNpc, null);
+            return GetNextStepIfSolved(QuestTracker.currentSpot, QuestTracker.currentNPC, null);
         }
 
         public override bool PayQuestPriceAndEndStep()
         {
-            if (GetIfStepIsSolved() == false)
+            if (CheckIfStepIsSolved() == false)
             {
                 return false;
             }
