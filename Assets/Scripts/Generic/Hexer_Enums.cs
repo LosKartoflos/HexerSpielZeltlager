@@ -22,7 +22,7 @@ namespace Hexerspiel
 
 
     //Quest
-    public enum QuestTarget { collectMisc, bringQuestItem, goToPlace, goToNPC,fightAgainst, nfcTag, multipleChoiceAttribute, multipleChoiceQuiz, freeEntry, baseStep }
+    public enum QuestTarget { collectMisc, bringQuestItem, goToPlace, goToNPC,fightAgainst, nfcTag, multipleChoiceAttribute, multipleChoiceQuiz, freeEntry, baseStep, payGold }
     public enum SocialInteraktionType { threaten, charm, debate }
 
     public enum RighAnswer { a,b,c,d, none}

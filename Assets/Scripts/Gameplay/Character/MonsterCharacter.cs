@@ -33,6 +33,8 @@ namespace Hexerspiel.Character.monster
 
         #region Variables
 
+        public static event Action<string, DateTime> MonsterKilled = delegate { };
+
         private MonsterStats monsterStat;
 
         private string monsterName;
@@ -43,11 +45,13 @@ namespace Hexerspiel.Character.monster
         public string MonsterName { get => monsterName; }
         public Image ImagePath { get => monsterImage; }
 
+
         #endregion
 
         #region Accessors
         public MonsterCharacter(SO_Monster newMonster)
         {
+
             monsterStat = newMonster.monsterStats;
             basicStatsValue = newMonster.basicStats;
             defensiveStatsValue = newMonster.defensiveStats;
@@ -114,6 +118,9 @@ namespace Hexerspiel.Character.monster
         public override void Died()
         {
             //TO DO: apply xp give loot
+
+            MonsterKilled(monsterName, DateTime.Now);
+            
         }
 
 

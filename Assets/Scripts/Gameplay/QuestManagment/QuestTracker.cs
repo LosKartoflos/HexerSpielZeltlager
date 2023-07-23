@@ -101,7 +101,7 @@ namespace Hexerspiel.Quests
 
         }
 
-    
+
 
         private void OnDisable()
         {
@@ -153,7 +153,7 @@ namespace Hexerspiel.Quests
                 return false;
         }
 
-        public void StartQuestWithTag()
+        public void StartQuestFromOutside()
         {
             if (CheckIfQuestIsAllreadyUsed(questStartTag.firstQuestStep))
             {
@@ -163,6 +163,12 @@ namespace Hexerspiel.Quests
 
             LoadQuestScene();
             Debug.Log("StartQuestWihtTag");
+
+            if (questStartTag.firstQuestStep.QuestStepTarget == QuestTarget.fightAgainst)
+            {
+                ((SO_step_fight)questStartTag.firstQuestStep).timeQuestAccepted = DateTime.Now;
+            }
+
 
             StartCoroutine(WaitForUI_QuestTrackerToBeLoaded());
         }
@@ -201,6 +207,11 @@ namespace Hexerspiel.Quests
         {
             if (CheckIfQuestIsAllreadyUsed(newQuest))
                 return;
+
+            if (questStartTag.firstQuestStep.QuestStepTarget == QuestTarget.fightAgainst)
+            {
+                ((SO_step_fight)questStartTag.firstQuestStep).timeQuestAccepted = DateTime.Now;
+            }
 
 
             if (questSteps[0] == null)
@@ -309,7 +320,7 @@ namespace Hexerspiel.Quests
                 npcOrPlaceTask += "und gehe zu Person: " + questStep.npcToInteract.npcInformation.name;
             }
 
-            else if ( (questStep.npcToInteract != null && questStep.npcToInteract == currentNPC))
+            else if ((questStep.npcToInteract != null && questStep.npcToInteract == currentNPC))
             {
                 npcOrPlaceTask += "Du bist bei Person " + questStep.npcToInteract.npcInformation.name;
             }
@@ -348,7 +359,7 @@ namespace Hexerspiel.Quests
                     dialogText = npcOrPlaceTask;//"Gehe zu Person: " + ((SO_step_goToNpc)questStep).npcToInteract.npcInformation.name;
                     break;
                 case QuestTarget.fightAgainst:
-
+                    dialogText = ("Du musst gegen eine " + ((SO_step_fight)questStep).monsterToFight.monsterName + " nach " + ((SO_step_fight)questStep).timeQuestAccepted.ToString("HH:mm") + " Uhr gekämpft haben.");
                     break;
                 case QuestTarget.nfcTag:
                     dialogText = "Lasse dir die Aufgabe von der Spielleitung bestätigen." + "\n\n" + npcOrPlaceTask;
@@ -365,6 +376,9 @@ namespace Hexerspiel.Quests
                 case QuestTarget.baseStep:
                     AlertQuestTracker("Das ist ein Base step. Das sollte nicht sein! Informiere die Spieleitung!");
                     dialogText = ("Da stimmt was nicht. Hier ist ein BaseStep. Gehe zur Spielleitung!");
+                    break;
+                case QuestTarget.payGold:
+                    dialogText = "Bezahle " + ((SO_step_payGold)questStep).goldToPay + " Gold!" + "\n\n" + npcOrPlaceTask;
                     break;
             }
 
@@ -466,13 +480,13 @@ namespace Hexerspiel.Quests
                 if (questSteps[index].npcToInteract != null)
                 {
                     if (questSteps[index].npcToInteract != currentNPC)
-                        notAtPlaceOrNPC += "\nund/oder dir bist nicht bei Person: " + questSteps[index].npcToInteract.npcInformation.name;
+                        notAtPlaceOrNPC += "\nund/oder du bist nicht bei Person: " + questSteps[index].npcToInteract.npcInformation.name;
                 }
 
-                if (questSteps[index].spotToGO != null )
+                if (questSteps[index].spotToGO != null)
                 {
-                    if(questSteps[index].spotToGO != currentSpot)
-                    notAtPlaceOrNPC += "\nund/oder du bist nicht am Ort: " + questSteps[index].spotToGO.nfcTagInfos.name;
+                    if (questSteps[index].spotToGO != currentSpot)
+                        notAtPlaceOrNPC += "\nund/oder du bist nicht am Ort: " + questSteps[index].spotToGO.nfcTagInfos.name;
                 }
 
                 switch (questSteps[index].QuestStepTarget)
@@ -491,6 +505,7 @@ namespace Hexerspiel.Quests
                         AlertQuestTracker(notAtPlaceOrNPC);//"Dir bist nicht bei Person: " + ((SO_step_goToNpc)questSteps[index]).npcToInteract.npcInformation.name + 
                         break;
                     case QuestTarget.fightAgainst:
+                        AlertQuestTracker("Du musst gegen eine " + ((SO_step_fight)questSteps[index]).monsterToFight.monsterName + " nach " + ((SO_step_fight)questSteps[index]).timeQuestAccepted.ToString("HH:mm") + " Uhr gekämpft haben.");
                         break;
                     case QuestTarget.nfcTag:
                         AlertQuestTracker("Du brauchst die Bestätigung für " + ((SO_step_nfcTag)questSteps[index]).stepName + notAtPlaceOrNPC);
@@ -506,6 +521,9 @@ namespace Hexerspiel.Quests
                         break;
                     case QuestTarget.baseStep:
                         AlertQuestTracker("Das ist ein Base step. Das sollte nicht sein! Informiere die Spieleitung!" + notAtPlaceOrNPC);
+                        break;
+                    case QuestTarget.payGold:
+                        AlertQuestTracker("Dir fehlt " + ((SO_step_payGold)questSteps[index]).goldToPay + " Gold ." + notAtPlaceOrNPC);
                         break;
                 }
                 return;

@@ -1,5 +1,6 @@
 using Hexerspiel;
 using Hexerspiel.Character;
+using Hexerspiel.Character.monster;
 using Hexerspiel.Items;
 using System;
 using System.Collections;
@@ -55,15 +56,32 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         PotionInventory.PotionUsed += DrinkPotion;
+        MonsterCharacter.MonsterKilled += AddToMonsterKilledList;
     }
+
+
+
     private void OnDisable()
     {
         PotionInventory.PotionUsed -= DrinkPotion;
+        MonsterCharacter.MonsterKilled -= AddToMonsterKilledList;
     }
 
     #endregion
 
     #region Functions
+
+    private void AddToMonsterKilledList(string monsterName, DateTime deathTime)
+    {
+        if (playerValues.killedMonsters.ContainsKey(monsterName))
+        {
+            playerValues.killedMonsters[monsterName] = deathTime;
+        }
+        else
+            playerValues.killedMonsters.Add(monsterName, deathTime);
+
+    }
+
     /// <summary>
     /// use a potion outside of fight
     /// </summary>
@@ -225,7 +243,7 @@ public class Player : MonoBehaviour
             case AttributeTypes.Charisma:
                 return playerValues.PlayerAttributes1.charisma;
                 break;
-            
+
         }
 
         return 0;

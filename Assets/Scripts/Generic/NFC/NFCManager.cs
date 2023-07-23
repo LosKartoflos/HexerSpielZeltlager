@@ -221,7 +221,7 @@ public class NFCManager : MonoBehaviour
                 break;
             case TagTask.questStart:
                 QuestTracker.questStartTag = questStartTagToBegin;
-                QuestTracker.Instance.StartQuestWithTag();
+                QuestTracker.Instance.StartQuestFromOutside();
                 break;
             case TagTask.questSolve:
                 QuestTracker.questSolveValidation = questSolveValidation;
