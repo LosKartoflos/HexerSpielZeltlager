@@ -27,6 +27,9 @@ namespace Hexerspiel.UI
         private GameObject multipleChoicePrefab;
 
         [SerializeField]
+        private GameObject freeEntryPrefab;
+
+        [SerializeField]
         private RectTransform popUpPanel;
 
 
@@ -146,14 +149,18 @@ namespace Hexerspiel.UI
 
         }
 
+        /// <summary>
+        /// wir aufgerunfen wenn der Lösen Button gedrückt wird
+        /// </summary>
+        /// <param name="index"></param>
         private void SolveQuest(int index)
         {
 
 
-            QuestTracker.questToSolve = index;
+            QuestTracker.questToSolveIndex = index;
 
-
-            if (!QuestTracker.QuestSteps[index].CheckIfStepIsSolved())
+            //QuestTracker.QuestSteps[index]???
+            if (!QuestTracker.QuestSteps[index].CheckIfStepIsSolved() && QuestTracker.QuestSteps[index].QuestStepTarget != QuestTarget.freeEntry)
             {
                 QuestTracker.Instance.SolveTextByIdAlert(index);
                 return;
@@ -167,14 +174,25 @@ namespace Hexerspiel.UI
                 mulitpleChoiceObject.SetActive(true);
                 Canvas.ForceUpdateCanvases();
                 //noch nicht gelöst
-                
+
                 if (QuestTracker.QuestSteps[index].QuestStepTarget == QuestTarget.multipleChoiceQuiz)
-                    mulitpleChoiceObject.GetComponent<MultipleChoicePopUp>().IntiatePopUp(QuestTracker.Instance.QuestSolvedText(index), QuestTracker.multipleChoiceReciever, ((SO_step_multipleChoiceQuiz)QuestTracker.QuestSteps[index]).answersTexts);
+                    mulitpleChoiceObject.GetComponent<MultipleChoicePopUp>().IntiatePopUp(QuestTracker.Instance.QuestSolvedText(index), QuestTracker.multipleChoiceRecieverID, ((SO_step_multipleChoiceQuiz)QuestTracker.QuestSteps[index]).answersTexts);
 
                 else if (QuestTracker.QuestSteps[index].QuestStepTarget == QuestTarget.multipleChoiceAttribute)
                 {
-                    mulitpleChoiceObject.GetComponent<MultipleChoicePopUp>().IntiatePopUp(QuestTracker.Instance.QuestSolvedText(index), QuestTracker.multipleChoiceReciever, ((SO_step_mulitpleChoiceAttribute)QuestTracker.QuestSteps[index]).answers);
+                    mulitpleChoiceObject.GetComponent<MultipleChoicePopUp>().IntiatePopUp(QuestTracker.Instance.QuestSolvedText(index), QuestTracker.multipleChoiceRecieverID, ((SO_step_mulitpleChoiceAttribute)QuestTracker.QuestSteps[index]).answers);
                 }
+            }
+            //free entry
+            else if (QuestTracker.QuestSteps[index].QuestStepTarget == QuestTarget.freeEntry)
+            {
+                GameObject freeEntryObject = Instantiate(freeEntryPrefab, popUpPanel, false);
+                freeEntryObject.SetActive(false);
+                freeEntryObject.SetActive(true);
+                Canvas.ForceUpdateCanvases();
+
+                freeEntryObject.GetComponent<FreeEntryPopUp>().IntiatePopUp(((SO_step_FreeEntry)QuestTracker.QuestSteps[index]).shortQuestion + "\n gib die Lösung ein!", QuestTracker.freeEntryRecieverID);
+
             }
             //other
             else

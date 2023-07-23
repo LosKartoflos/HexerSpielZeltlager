@@ -43,6 +43,7 @@ namespace Hexerspiel.Quests
         public static SO_spots currentSpot;
         public static SO_npc currentNPC;
 
+        public static string freeEntry;
         public static SO_rightAnswer givenAnswer;
         public static SO_questStartTag questStartTag;
         public static SO_questSolveValidation questSolveValidation;
@@ -50,11 +51,12 @@ namespace Hexerspiel.Quests
         public static event Action<string> AlertQuestTracker = delegate { };
 
         public static int questToDelete = 0;
-        public static int questToSolve = 0;
+        public static int questToSolveIndex = 0;
 
         public const string delteRecieverID = "deleteQuest";
         public const string solveRecieverID = "solveQuest";
-        public const string multipleChoiceReciever = "solveMultipleChoice";
+        public const string multipleChoiceRecieverID = "solveMultipleChoice";
+        public const string freeEntryRecieverID = "freeEntry";
 
         #endregion
 
@@ -95,9 +97,11 @@ namespace Hexerspiel.Quests
             YesNoPopUP.YES += AbortAccepted;
             YesNoPopUP.YES += QuestSolveAccepted;
             MultipleChoicePopUp.ANSWERGIVEN += QuestSolveMultipleChoice;
+            FreeEntryPopUp.SubmitAnswer += QuestSolveFreeEntry;
 
         }
 
+    
 
         private void OnDisable()
         {
@@ -106,6 +110,7 @@ namespace Hexerspiel.Quests
             YesNoPopUP.YES -= AbortAccepted;
             YesNoPopUP.YES -= QuestSolveAccepted;
             MultipleChoicePopUp.ANSWERGIVEN -= QuestSolveMultipleChoice;
+            FreeEntryPopUp.SubmitAnswer -= QuestSolveFreeEntry;
         }
 
 
@@ -355,7 +360,7 @@ namespace Hexerspiel.Quests
                     dialogText = "Wähle die richtige Antwort!" + "\n\n" + npcOrPlaceTask;
                     break;
                 case QuestTarget.freeEntry:
-                    dialogText = "Gib dir richtige Anwtort ein!" + "\n\n" + npcOrPlaceTask;
+                    dialogText = ((SO_step_FreeEntry)questStep).shortQuestion + " Gib die richtige Anwtort ein!" + "\n\n" + npcOrPlaceTask;
                     break;
                 case QuestTarget.baseStep:
                     AlertQuestTracker("Das ist ein Base step. Das sollte nicht sein! Informiere die Spieleitung!");
@@ -404,25 +409,41 @@ namespace Hexerspiel.Quests
             if (recieverID != solveRecieverID)
                 return;
 
-            QuestIsSolved(questToSolve);
+            QuestIsSolved(questToSolveIndex);
+        }
+
+        private void QuestSolveFreeEntry(string answerText, string recieverID)
+        {
+            if (recieverID != freeEntryRecieverID)
+                return;
+
+            freeEntry = answerText;
+
+            Debug.Log(" QuestSolveFreeEntry " + answerText);
+            if (QuestSteps[questToSolveIndex].QuestStepTarget == QuestTarget.freeEntry)
+            {
+                ((SO_step_FreeEntry)QuestSteps[questToSolveIndex]).CheckIfStepIsSolved();
+            }
+
+            QuestIsSolved(questToSolveIndex);
         }
 
         public void QuestSolveMultipleChoice(RighAnswer answerGiven, string recieverID)
         {
             Debug.Log("Multiple choice Answer given " + answerGiven);
 
-            if (recieverID != multipleChoiceReciever)
+            if (recieverID != multipleChoiceRecieverID)
                 return;
 
             givenAnswer = new SO_rightAnswer(answerGiven);
 
-            if (QuestSteps[questToSolve].QuestStepTarget == QuestTarget.multipleChoiceAttribute)
+            if (QuestSteps[questToSolveIndex].QuestStepTarget == QuestTarget.multipleChoiceAttribute)
             {
-                ((SO_step_mulitpleChoiceAttribute)QuestSteps[questToSolve]).CheckIfStepIsSolved();
-                Debug.Log(" QuestSolveMultipleChoice: " + nextQuestStep[questToSolve]);
+                ((SO_step_mulitpleChoiceAttribute)QuestSteps[questToSolveIndex]).CheckIfStepIsSolved();
+                Debug.Log(" QuestSolveMultipleChoice: " + nextQuestStep[questToSolveIndex]);
             }
 
-            QuestIsSolved(questToSolve);
+            QuestIsSolved(questToSolveIndex);
         }
 
         /// <summary>

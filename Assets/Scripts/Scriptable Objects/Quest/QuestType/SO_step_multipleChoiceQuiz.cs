@@ -20,13 +20,13 @@ namespace Hexerspiel.Quests
         //not needed
         public override SO_questStep GetNextStepIfSolved()
         {
-            return GetNextStepIfSolved(SpotManager.currentStpot, NPCManager.currentNpc, QuestTracker.givenAnswer);
+            return GetNextStepIfSolved(QuestTracker.currentSpot, QuestTracker.currentNPC, QuestTracker.givenAnswer);
         }
 
         public override bool CheckIfStepIsSolved()
         {
             bool stepIsSolved = false;
-            TestIfStepIsSolved(SpotManager.currentStpot, NPCManager.currentNpc, out stepIsSolved, QuestTracker.givenAnswer);
+            TestIfStepIsSolved(QuestTracker.currentSpot, QuestTracker.currentNPC, out stepIsSolved, QuestTracker.givenAnswer);
             return stepIsSolved;
         }
 

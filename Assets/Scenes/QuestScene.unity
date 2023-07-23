@@ -1074,6 +1074,7 @@ MonoBehaviour:
   questInfoPrefab: {fileID: 5334479157590680745, guid: 7e3f151fcdee7fe4d98f7532921ecaf0, type: 3}
   yesNoPopUPPrefab: {fileID: 6384883092754752167, guid: 8850691f0d97b304680962b1f83f52ea, type: 3}
   multipleChoicePrefab: {fileID: 6384883092754752167, guid: a3ad860ed343efa45926d5cd4c4aa5b4, type: 3}
+  freeEntryPrefab: {fileID: 6384883092754752167, guid: d65a1c1f7e26e824db457dce48b7ac68, type: 3}
   popUpPanel: {fileID: 970579494}
 --- !u!1 &1139312336
 GameObject:
