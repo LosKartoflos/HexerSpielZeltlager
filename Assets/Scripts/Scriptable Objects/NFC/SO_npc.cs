@@ -1,5 +1,6 @@
 using Hexerspiel.Character;
 using Hexerspiel.Character.monster;
+using Hexerspiel.Items;
 using Hexerspiel.nfcTags;
 using Hexerspiel.Quests;
 using System.Collections;
@@ -20,6 +21,15 @@ public class SO_npc : ScriptableObject
     //public int friendshipLevel;
 
     public SO_Monster npcInFight;
+
+
+    public List<SO_gear> gearToSell = new List<SO_gear>();
+
+
+    public List<SO_potion> potionToSell = new List<SO_potion>();
+
+
+    public List<SO_questItem> questItemToSell = new List<SO_questItem>();
 
     //public SO_socialInteractionOutcome socialThreaten;
     //public SO_socialInteractionOutcome socialCharm;
