@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "Metalr\xFCstung"
   m_EditorClassIdentifier: 
   itemName: "Metalr\xFCstung"
-  itemImage: {fileID: 0}
+  itemImage: armor_3
   valueBuy: 500
   valueSell: 100
   attributeBuffs:

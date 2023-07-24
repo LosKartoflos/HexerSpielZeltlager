@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 7422858738648994397}
   - component: {fileID: 1569269262299253602}
   - component: {fileID: 886874254104112024}
-  - component: {fileID: 6279047938448209515}
+  - component: {fileID: 1541982281514943485}
   m_Layer: 5
   m_Name: UIObjectItem
   m_TagString: Untagged
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6279047938448209515
+--- !u!114 &1541982281514943485
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,19 +166,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4433670939324520712}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7911a31cbcc0a44fbb5024168f6424c, type: 3}
+  m_Script: {fileID: 11500000, guid: c0bb498ee96163b42a9e1efce47d5954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  label_Header: {fileID: 0}
-  bt_previous: {fileID: 0}
-  bt_next: {fileID: 0}
-  label_page: {fileID: 0}
-  contentContainer: {fileID: 0}
-  uiObjectPrefab: {fileID: 4433670939324520712}
-  bt_look: {fileID: 0}
-  bt_sell: {fileID: 0}
-  bt_drop: {fileID: 0}
-  bt_sellOrUse: {fileID: 0}
+  itemAttached: {fileID: 0}
+  label_item: {fileID: 8050062179238481901}
+  image: {fileID: 6400229747746992102}
+  button: {fileID: 725277404591424864}
+  highlight: {fileID: 4765636411249475232}
 --- !u!1 &4559709175605082656
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,7 +240,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Schwert
+  m_text: '-'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0f8e6c2674747b64c99cf0095e6d2fdc, type: 2}
   m_sharedMaterial: {fileID: -3726593756443591824, guid: 0f8e6c2674747b64c99cf0095e6d2fdc, type: 2}
@@ -272,7 +267,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 24
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

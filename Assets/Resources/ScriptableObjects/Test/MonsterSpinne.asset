@@ -16,11 +16,11 @@ MonoBehaviour:
   monsterImage: {fileID: 0}
   basicStats:
     health: 20
-    healthMax: 0
+    healthMax: 20
     characterMovement: 0
     characterType: 0
   monsterStats:
-    level: 2
+    level: 10
     gold: 10
     xp: 10
     herbs: 1

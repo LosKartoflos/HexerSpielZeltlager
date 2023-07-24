@@ -20,7 +20,9 @@ namespace Hexerspiel.Items
         public RegenBuffs regenBuffs;
         public PlayerCharacterValues.SpellLevel spellLevelBuff;
         protected virtual GearType gearType => GearType.none;
-        public GearType GearType { get => gearType;}
+        public GearType GearType { get => gearType; }
+
+        public override ItemType Type { get { return ItemType.gear; } }
 
     }
 }

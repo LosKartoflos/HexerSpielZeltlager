@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: questReihe1_1
   m_EditorClassIdentifier: 
   stepName: questReihe1_1
-  image: Finde den Pokal
+  image: 
   questText: In einem brunnen liegt ein Pokal. Finde ihn!
   resolvedText: Du hast den Pokal
   xp: 0

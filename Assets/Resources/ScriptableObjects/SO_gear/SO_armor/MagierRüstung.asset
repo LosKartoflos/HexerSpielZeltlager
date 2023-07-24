@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ced5e7fe17edc1841aceea631c5a7da7, type: 3}
-  m_Name: lederruestung
+  m_Name: "MagierR\xFCstung"
   m_EditorClassIdentifier: 
-  itemName: "Lederr\xFCstung"
-  itemImage: armor_2
-  valueBuy: 140
-  valueSell: 40
+  itemName: "Metalr\xFCstung"
+  itemImage: armor_1
+  valueBuy: 500
+  valueSell: 100
   attributeBuffs:
     body: 1
     mind: 1
@@ -26,6 +26,6 @@ MonoBehaviour:
     mindSpell: 1
     charismaSpell: 1
   armorStats:
-    armor: 0
+    armor: 4
   armorTypeMod: 0
   armorMovementMod: 0

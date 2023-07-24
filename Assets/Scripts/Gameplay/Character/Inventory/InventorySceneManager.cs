@@ -2,6 +2,7 @@ using Hexerspiel.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Hexerspiel.Character
 {
@@ -26,6 +27,10 @@ namespace Hexerspiel.Character
         #endregion
 
         #region Functions
+        public static void LoadScene()
+        {
+            SceneManager.LoadScene("InventoryScene");
+        }
         #endregion
     }
 
