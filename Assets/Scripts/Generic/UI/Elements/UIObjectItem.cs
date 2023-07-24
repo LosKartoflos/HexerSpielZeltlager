@@ -95,6 +95,18 @@ namespace Hexerspiel.UI
             }
         }
 
+        public void SetupObjecItem(SO_item itemAttached, string imageName)
+        {
+            SetHighlight(false);
+            this.itemAttached = itemAttached;
+            this.image.sprite = image.sprite = Resources.Load<Sprite>("Images/Items/" + imageName);
+        }
+
+        public void DeleteItem()
+        {
+            Destroy(gameObject);
+        }
+
         #endregion
     }
 
