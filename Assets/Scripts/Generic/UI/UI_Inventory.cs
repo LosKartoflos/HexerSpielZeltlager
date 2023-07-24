@@ -1,7 +1,3 @@
-using Hexerspiel.Character;
-using Hexerspiel.Quests;
-using Hexerspiel.UI;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,122 +6,44 @@ using UnityEngine.UI;
 
 namespace Hexerspiel.UI
 {
+
     public class UI_Inventory : MonoBehaviour
     {
 
         #region Variables
-        private static UI_Inventory instance;
-
-        [Header("Inventory")]
+        [Header("Header")]
         [SerializeField]
-        private CanvasGroup inventoryPanel;
+        TextMeshProUGUI label_Header;
 
-        [Header("Recieve Panel")]
         [SerializeField]
-        private GameObject recievePanelPrefab;
-        [SerializeField]
-        private RectTransform recievePanel;
-        private Button bt_closeRecievePanel;
+        Button bt_previous, bt_next;
 
-        private List<GameObject> recievePanels = new List<GameObject>();
+        [SerializeField]
+        TextMeshProUGUI label_page;
+
+        [Header("Content")]
+
+        [SerializeField]
+        RectTransform contentContainer;
+
+        [SerializeField]
+        GameObject uiObjectPrefab;
+
+        [Header("Footer")]
+        [SerializeField]
+        Button bt_look, bt_sell, bt_drop, bt_sellOrUse;
+
+
         #endregion
 
         #region Accessors
-        public static UI_Inventory Instance { get => instance; }
-
         #endregion
 
         #region LifeCycle
-        private void Awake()
-        {
-            if (instance == null)
-            {
-                instance = this; // In first scene, make us the singleton.
-                DontDestroyOnLoad(gameObject);
-            }
-            else if (instance != this)
-                Destroy(gameObject);
-
-
-
-
-        }
-
-        private void OnEnable()
-        {
-            SubsrcibeEvents();
-        }
-
-        private void OnDisable()
-        {
-            UnsubsrcibeEvents();
-        }
-
-        private void Start()
-        {
-            AssignButtons();
-
-            UI_Tools.SetCanvasGroup(inventoryPanel, false);
-        }
         #endregion
 
         #region Functions
-        //================================================================================
-        //General
-        //================================================================================
-        private void AssignButtons()
-        {
-
-        }
-
-        private void SubsrcibeEvents()
-        {
-            BasicInventory.AlertBasicInventoryChange += ActivateAndFillRecievePanel;
-            GearInventory.AlertGearChanged += ActivateAndFillRecievePanel;
-            PotionInventory.AlertPotionChanged += ActivateAndFillRecievePanel;
-            QuestItemInventory.AlertQuestItemChanged += ActivateAndFillRecievePanel;
-
-            QuestTracker.AlertQuestTracker += ActivateAndFillRecievePanel;
-        }
-
-        private void UnsubsrcibeEvents()
-        {
-            BasicInventory.AlertBasicInventoryChange -= ActivateAndFillRecievePanel;
-            GearInventory.AlertGearChanged -= ActivateAndFillRecievePanel;
-            PotionInventory.AlertPotionChanged -= ActivateAndFillRecievePanel;
-            QuestItemInventory.AlertQuestItemChanged -= ActivateAndFillRecievePanel;
-
-            QuestTracker.AlertQuestTracker -= ActivateAndFillRecievePanel;
-        }
-
-        //================================================================================
-        //Inventory
-        //================================================================================
-
-
-        //================================================================================
-        //Recieve Panel
-        //================================================================================
-
-        public void ActivateAndFillRecievePanel(string text)
-        {
-            Debug.Log("Creat RecievePanl with: " + text);
-            GameObject newRecevieObject = Instantiate(recievePanelPrefab, recievePanel);
-            newRecevieObject.GetComponent<PopPup>().FillLabel(text);
-            recievePanels.Add(newRecevieObject);
-
-        }
-
-        public void DestroyAllRecievePanel()
-        {
-            if(recievePanels.Count > 0)
-            {
-                foreach(GameObject go in recievePanels)
-                {
-                    Destroy(go);
-                }
-            }
-        }
         #endregion
     }
+
 }

@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 64418381}
   - component: {fileID: 64418384}
   m_Layer: 5
-  m_Name: InventoryCanvas
+  m_Name: AlertCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -292,7 +292,7 @@ RectTransform:
   m_Children:
   - {fileID: 1227541902}
   - {fileID: 2134391218}
-  m_Father: {fileID: 799964559}
+  m_Father: {fileID: 323348046}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -660,6 +660,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2028314981}
+  - {fileID: 64418380}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1180,8 +1181,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 64418380}
+  m_Children: []
   m_Father: {fileID: 1815538865}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1416,7 +1416,7 @@ GameObject:
   - component: {fileID: 1227541906}
   - component: {fileID: 1227541905}
   m_Layer: 5
-  m_Name: inventoryPanel
+  m_Name: AlterPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1554,6 +1554,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishStep: {fileID: 11400000, guid: c3ce88032618325439e40e3707367424, type: 2}
+  testSpot: {fileID: 0}
+  testNpc: {fileID: 0}
 --- !u!1 &1283433688
 GameObject:
   m_ObjectHideFlags: 0
