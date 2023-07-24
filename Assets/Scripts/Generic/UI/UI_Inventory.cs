@@ -1,3 +1,5 @@
+using Hexerspiel.Character;
+using Hexerspiel.Items;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -43,6 +45,22 @@ namespace Hexerspiel.UI
         #endregion
 
         #region Functions
+        public void FillArmor()
+        {
+
+        }
+
+        public void CreateObjectItem(SO_item newItem)
+        {
+            GameObject contentItem = Instantiate(uiObjectPrefab, contentContainer, false);
+
+            //Setup
+            contentItem.GetComponent<UIObjectItem>().SetupObjecItem(newItem, newItem.itemImage);
+
+            //Highlight
+           if (contentContainer.childCount == 1)
+                contentItem.GetComponent<UIObjectItem>().SetHighlight(true);
+        }
         #endregion
     }
 
