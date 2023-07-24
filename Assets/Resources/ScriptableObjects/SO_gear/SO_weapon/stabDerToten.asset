@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57833ce9fb886704dbe6e929774a58e7, type: 3}
+  m_Name: stabDerToten
+  m_EditorClassIdentifier: 
+  itemName: 
+  itemImage: {fileID: 0}
+  valueBuy: 0
+  valueSell: 0
+  attributeBuffs:
+    body: 0
+    mind: 0
+    charisma: 0
+    attributAddThreshold: 0
+  spellLevelBuff:
+    lifeSpell: 0
+    mindSpell: 0
+    charismaSpell: 0
+  weaponStats:
+    succesThreshold: 0
+    attackDice: 0
+    damageType: 0
+    weaponRange: 0
