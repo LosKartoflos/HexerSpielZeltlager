@@ -208,10 +208,8 @@ namespace Hexerspiel.Quests
             if (CheckIfQuestIsAllreadyUsed(newQuest))
                 return;
 
-            if (questStartTag.firstQuestStep.QuestStepTarget == QuestTarget.fightAgainst)
-            {
-                ((SO_step_fight)questStartTag.firstQuestStep).timeQuestAccepted = DateTime.Now;
-            }
+
+            int indexUsed = -1;
 
 
             if (questSteps[0] == null)
@@ -219,24 +217,31 @@ namespace Hexerspiel.Quests
                 questSteps[0] = newQuest;
                 nextQuestStep[0] = null;
                 stepsDoneForQuestlineIndex0.Add(newQuest);
-
+                indexUsed = 0;
             }
             else if (questSteps[1] == null)
             {
                 questSteps[1] = newQuest;
                 nextQuestStep[1] = null;
                 stepsDoneForQuestlineIndex1.Add(newQuest);
+                indexUsed = 1;
             }
             else if (questSteps[2] == null)
             {
                 questSteps[2] = newQuest;
                 nextQuestStep[2] = null;
                 stepsDoneForQuestlineIndex2.Add(newQuest);
+                indexUsed = 2;
             }
             else
             {
                 AlertQuestTracker("Du hast schon 3 Quests!\nDu musst eine abschließen oder abbrechen!");
                 return;
+            }
+
+            if  (questSteps[indexUsed].QuestStepTarget == QuestTarget.fightAgainst)
+            {
+                ((SO_step_fight)questSteps[indexUsed]).timeQuestAccepted = DateTime.Now;
             }
 
             allreadyUsedSteps.Add(newQuest);
@@ -412,7 +417,11 @@ namespace Hexerspiel.Quests
                 return ("Du hast noch nicht alles um " + questSteps[index].stepName + "zu lösen");
             }
 
-            string dialogText = GetSolveText(questSteps[index]) + "\n... hast du erfüllt!\n\nMöchtest du den Schritt abschließen?";
+            string dialogText = GetSolveText(questSteps[index]);
+
+            if (QuestSteps[index].QuestStepTarget != QuestTarget.multipleChoiceQuiz && QuestSteps[index].QuestStepTarget != QuestTarget.multipleChoiceAttribute && QuestSteps[index].QuestStepTarget != QuestTarget.freeEntry)
+                dialogText += "\n... hast du erfüllt!\n\nMöchtest du den Schritt abschließen?";
+
             return dialogText;
 
         }

@@ -69,6 +69,8 @@ namespace Hexerspiel.Quests
 
             nextQuestStep = null;
 
+
+
             switch (QuestTracker.givenAnswer.givenAnswer)
             {
                 case RighAnswer.a:
