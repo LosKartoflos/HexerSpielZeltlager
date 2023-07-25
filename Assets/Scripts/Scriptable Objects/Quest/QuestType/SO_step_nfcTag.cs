@@ -8,6 +8,7 @@ using UnityEngine;
 
 namespace Hexerspiel.Quests
 {
+    [CreateAssetMenu(fileName = "step_NFC", menuName = "Hexer_ScriptableObjects/QuestSteps/Solve with nfc.")]
     public class SO_step_nfcTag : SO_questStep
     {
         public override QuestTarget QuestStepTarget { get { return QuestTarget.nfcTag; } }

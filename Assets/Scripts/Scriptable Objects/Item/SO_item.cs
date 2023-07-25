@@ -16,5 +16,14 @@ namespace Hexerspiel.Items
         public ItemType ItemType { get => itemType; }
 
         public virtual ItemType Type { get { return ItemType.none; } }
+
+        public virtual string GetDescription()
+        {
+            return "It's a item";
+        }
+        public virtual string GetDescriptionShort()
+        {
+            return "It's a item";
+        }
     }
 }

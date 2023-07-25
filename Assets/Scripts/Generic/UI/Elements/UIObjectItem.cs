@@ -13,7 +13,9 @@ namespace Hexerspiel.UI
     {
 
         #region Variables
+        //disable other items
         public static event Action<int> ItemSelected = delegate { };
+        //for inventory to check
         public static event Action<SO_item> RecieveSelectedItem = delegate { };
         public static event Action<ItemType> TypeSelected = delegate { };
 
