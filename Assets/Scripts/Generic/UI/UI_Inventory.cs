@@ -1,5 +1,6 @@
 using Hexerspiel.Character;
 using Hexerspiel.Items;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,8 @@ namespace Hexerspiel.UI
 
 
         #region Variables
+        public static event Action<string> AlertLookUp = delegate { };
+
         [Header("Header")]
         [SerializeField]
         TextMeshProUGUI label_Header;
@@ -23,11 +26,6 @@ namespace Hexerspiel.UI
         [SerializeField]
         Button bt_close;
 
-        [SerializeField]
-        Button bt_previous, bt_next;
-
-        [SerializeField]
-        TextMeshProUGUI label_page;
 
         [Header("Content")]
 
@@ -47,6 +45,8 @@ namespace Hexerspiel.UI
         [SerializeField]
         Button bt_look, bt_sell, bt_drop, bt_sellOrUse;
 
+        private SO_item currentitemSelected;
+
         private ItemType menuOpendForItem = ItemType.none;
         private GearType menuOpenedForGear = GearType.none;
 
@@ -60,10 +60,23 @@ namespace Hexerspiel.UI
         #endregion
 
         #region LifeCycle
+
+
+        private void OnEnable()
+        {
+            UIObjectItem.RecieveSelectedItem += ItemSelected;
+
+        }
+
+        private void OnDisable()
+        {
+            UIObjectItem.RecieveSelectedItem -= ItemSelected;
+        }
         private void Start()
         {
             closeOverlay();
 
+            //assign Equip button
             bt_close.onClick.AddListener(closeOverlay);
             armorEquip.Button.onClick.AddListener(delegate { OpenOverlay(ItemType.gear, GearType.armor); });
             weaponEquip.Button.onClick.AddListener(delegate { OpenOverlay(ItemType.gear, GearType.weapon); });
@@ -71,6 +84,7 @@ namespace Hexerspiel.UI
             potionEquip.Button.onClick.AddListener(delegate { OpenOverlay(ItemType.potion); });
             questItemEquip.Button.onClick.AddListener(delegate { OpenOverlay(ItemType.quest); });
 
+            //style equip buttons
             if (Player.Instance.Inventory.GearInventory.ArmorEquiped != null)
                 armorEquip.ChangeAppreance(Player.Instance.Inventory.GearInventory.ArmorEquiped.itemName, Player.Instance.Inventory.GearInventory.ArmorEquiped.GetDescriptionShort(), Player.Instance.Inventory.GearInventory.ArmorEquiped.itemImage);
             else
@@ -89,12 +103,31 @@ namespace Hexerspiel.UI
             potionEquip.ChangeAppreance(null, null);
             questItemEquip.ChangeAppreance(null, null);
 
+            //add listener to normal buttons
+
+            bt_look.onClick.AddListener(delegate { lookAtItem(currentitemSelected); });
 
         }
         #endregion
 
         #region Functions
+        public void ItemSelected(SO_item newItem)
+        {
+            currentitemSelected = newItem;
+        }
 
+        //bt effects
+
+
+        public void lookAtItem(SO_item itemToLook)
+        {
+            if (currentitemSelected != null)
+                AlertLookUp(itemToLook.itemName + "\n\n" + itemToLook.GetDescription());
+            else
+                AlertLookUp("kein Item ausgewählt");
+        }
+
+        //Fill and open ui
         public void OpenOverlay(ItemType itemType, GearType gearType = GearType.none)
         {
             menuOpendForItem = itemType;
@@ -218,11 +251,10 @@ namespace Hexerspiel.UI
 
             if (select && highlightFirstEquipped == false)
             {
-                Debug.Log("highlightFirstEquipped" + highlightFirstEquipped);
                 highlightFirstEquipped = true;
                 contentItem.GetComponent<UIObjectItem>().SelectElement();
             }
-                
+
             //Highlight
             //if (contentContainer.childCount == 1)
             //    contentItem.GetComponent<UIObjectItem>().SetHighlight(true);
