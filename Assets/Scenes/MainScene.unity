@@ -1133,7 +1133,30 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a8318a33938cff44f94985a838d4ddc8, type: 2}
   - {fileID: 11400000, guid: 833901f89fa200747a31829358068e0f, type: 2}
   - {fileID: 11400000, guid: 6d4ca8f793ef93843bfb5dee9930301a, type: 2}
+  - {fileID: 11400000, guid: 6d4ca8f793ef93843bfb5dee9930301a, type: 2}
+  - {fileID: 11400000, guid: 6d4ca8f793ef93843bfb5dee9930301a, type: 2}
+  - {fileID: 11400000, guid: 6d4ca8f793ef93843bfb5dee9930301a, type: 2}
+  - {fileID: 11400000, guid: 6d4ca8f793ef93843bfb5dee9930301a, type: 2}
+  - {fileID: 11400000, guid: 6d4ca8f793ef93843bfb5dee9930301a, type: 2}
+  - {fileID: 11400000, guid: 6d4ca8f793ef93843bfb5dee9930301a, type: 2}
+  - {fileID: 11400000, guid: 6d4ca8f793ef93843bfb5dee9930301a, type: 2}
+  - {fileID: 11400000, guid: 6d4ca8f793ef93843bfb5dee9930301a, type: 2}
+  - {fileID: 11400000, guid: 6d4ca8f793ef93843bfb5dee9930301a, type: 2}
+  - {fileID: 11400000, guid: 6d4ca8f793ef93843bfb5dee9930301a, type: 2}
+  - {fileID: 11400000, guid: 6d4ca8f793ef93843bfb5dee9930301a, type: 2}
+  - {fileID: 11400000, guid: 6d4ca8f793ef93843bfb5dee9930301a, type: 2}
+  - {fileID: 11400000, guid: 6d4ca8f793ef93843bfb5dee9930301a, type: 2}
+  - {fileID: 11400000, guid: 6d4ca8f793ef93843bfb5dee9930301a, type: 2}
+  - {fileID: 11400000, guid: 6d4ca8f793ef93843bfb5dee9930301a, type: 2}
+  - {fileID: 11400000, guid: 6d4ca8f793ef93843bfb5dee9930301a, type: 2}
+  - {fileID: 11400000, guid: 6d4ca8f793ef93843bfb5dee9930301a, type: 2}
+  - {fileID: 11400000, guid: 6d4ca8f793ef93843bfb5dee9930301a, type: 2}
+  - {fileID: 11400000, guid: 6d4ca8f793ef93843bfb5dee9930301a, type: 2}
+  - {fileID: 11400000, guid: 6d4ca8f793ef93843bfb5dee9930301a, type: 2}
   amuletCollected:
+  - {fileID: 11400000, guid: 83c1066c99bf566428b0a8370a130516, type: 2}
+  - {fileID: 11400000, guid: 83c1066c99bf566428b0a8370a130516, type: 2}
+  - {fileID: 11400000, guid: 83c1066c99bf566428b0a8370a130516, type: 2}
   - {fileID: 11400000, guid: 83c1066c99bf566428b0a8370a130516, type: 2}
   weaponsCollected: []
   armorEquiped: {fileID: 0}
@@ -1764,6 +1787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dded3be72f7cb4c3796e3b37902c9c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  headerBar: 0
 --- !u!1 &1274530618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1943,6 +1967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dded3be72f7cb4c3796e3b37902c9c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  headerBar: 1
 --- !u!1 &1560447053
 GameObject:
   m_ObjectHideFlags: 0
@@ -2794,3 +2819,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dded3be72f7cb4c3796e3b37902c9c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  headerBar: 0

@@ -3,15 +3,18 @@
 namespace DigitsNFCToolkit.Samples
 {
     [RequireComponent(typeof(RectTransform))]
-    public class SafeArea: MonoBehaviour
+    public class SafeArea : MonoBehaviour
     {
         private RectTransform rectTransform;
         private Rect lastSafeArea;
         private bool initialized;
 
+        [SerializeField]
+        bool headerBar = false;
+
         private void Awake()
         {
-            if(!initialized)
+            if (!initialized)
             { Initialize(); }
         }
 
@@ -25,11 +28,11 @@ namespace DigitsNFCToolkit.Samples
 
         private void OnRectTransformDimensionsChange()
         {
-            if(!initialized)
+            if (!initialized)
             { Initialize(); }
 
             Rect safeArea = Screen.safeArea;
-            if(lastSafeArea != safeArea)
+            if (lastSafeArea != safeArea)
             {
                 ApplySafeArea(safeArea);
             }
@@ -47,6 +50,8 @@ namespace DigitsNFCToolkit.Samples
             anchorMax.y /= Screen.height;
             rectTransform.anchorMin = anchorMin;
             rectTransform.anchorMax = anchorMax;
+            if (!headerBar)
+                rectTransform.offsetMax = new Vector2(rectTransform.offsetMax.x, -150);
         }
     }
 }

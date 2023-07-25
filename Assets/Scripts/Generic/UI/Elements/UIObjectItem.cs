@@ -27,7 +27,7 @@ namespace Hexerspiel.UI
         Image image;
 
         [SerializeField]
-        Button button;
+        Button button, close;
 
         [SerializeField]
         GameObject highlight;
@@ -113,7 +113,8 @@ namespace Hexerspiel.UI
             this.itemAttached = itemAttached;
             if (imageName != "")
                 this.image.sprite = image.sprite = Resources.Load<Sprite>("Images/Items/" + imageName);
-            this.image.sprite = image.sprite = Resources.Load<Sprite>("Images/Items/default");
+            else
+                this.image.sprite = image.sprite = Resources.Load<Sprite>("Images/Items/defaultIcons/defaultItem");
 
             label_item.text = itemAttached.itemName;
 
@@ -123,6 +124,7 @@ namespace Hexerspiel.UI
         {
             Destroy(gameObject);
         }
+
 
 
         #endregion
