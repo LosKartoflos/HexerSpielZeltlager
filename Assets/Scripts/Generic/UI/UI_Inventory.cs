@@ -18,6 +18,17 @@ namespace Hexerspiel.UI
 
         #region Variables
         public static event Action<string> AlertLookUp = delegate { };
+        [Header("Misc")]
+        [SerializeField]
+        TextMeshProUGUI label_gold;
+        [SerializeField]
+        TextMeshProUGUI label_herbs, label_meat, label_magicEssence;
+
+        [SerializeField]
+        Button bt_eatHerb, bt_eatMeat, bt_useMagicEssence;
+
+
+
 
         [Header("Header")]
         [SerializeField]
@@ -36,24 +47,31 @@ namespace Hexerspiel.UI
         GameObject uiObjectPrefab;
 
         [SerializeField]
-        ItemEquipElement armorEquip, weaponEquip, amuletEquip, potionEquip, questItemEquip;
+        ItemEquipElement armorEquip, weaponEquip, amuletEquip, potionEquip, questItemEquip, shopItem;
 
         [SerializeField]
         GameObject overlay;
 
         [Header("Footer")]
         [SerializeField]
-        Button bt_look, bt_sell, bt_drop, bt_sellOrUse;
+        Button bt_look, bt_sell, bt_drop, bt_buy, bt_equip, bt_use;
 
-        private SO_item currentitemSelected;
+        [SerializeField]
+        Button bt_sellHerb, bt_sellMeat, bt_sellEssence;
+
+        private UIObjectItem currentitemSelected;
 
         private ItemType menuOpendForItem = ItemType.none;
         private GearType menuOpenedForGear = GearType.none;
 
+        private ItemType itemTypeselectedByObjectItem = ItemType.none;
+        private GearType gearTypeSelectedByObjectItem = GearType.none;
+
         private UiInventoryMode inventoryMode = UiInventoryMode.overview;
 
         bool highlightFirstEquipped = false;
-
+        public static bool atShop = false;
+        public static List<SO_item> shopItemList = new List<SO_item>();
         #endregion
 
         #region Accessors
@@ -64,17 +82,20 @@ namespace Hexerspiel.UI
 
         private void OnEnable()
         {
-            UIObjectItem.RecieveSelectedItem += ItemSelected;
+            UIObjectItem.RecieveSelectedUIObjectItem += UIObjectItemSelected;
 
         }
 
         private void OnDisable()
         {
-            UIObjectItem.RecieveSelectedItem -= ItemSelected;
+            UIObjectItem.RecieveSelectedUIObjectItem -= UIObjectItemSelected;
         }
         private void Start()
         {
             closeOverlay();
+
+
+            shopItem.gameObject.SetActive(atShop);
 
             //assign Equip button
             bt_close.onClick.AddListener(closeOverlay);
@@ -83,8 +104,69 @@ namespace Hexerspiel.UI
             amuletEquip.Button.onClick.AddListener(delegate { OpenOverlay(ItemType.gear, GearType.amulet); });
             potionEquip.Button.onClick.AddListener(delegate { OpenOverlay(ItemType.potion); });
             questItemEquip.Button.onClick.AddListener(delegate { OpenOverlay(ItemType.quest); });
+            shopItem.Button.onClick.AddListener(delegate { OpenOverlay(ItemType.none); });
 
             //style equip buttons
+            UpdateAppreance();
+            UpdateMisc();
+
+            //add listener to normal buttons
+
+            bt_look.onClick.AddListener(delegate { lookAtItem(currentitemSelected.ItemAttached); });
+            bt_drop.onClick.AddListener(delegate { DropItem(currentitemSelected.ItemAttached); });
+            bt_sell.onClick.AddListener(delegate { SellItem(currentitemSelected.ItemAttached); });
+            bt_buy.onClick.AddListener(delegate { BuyItem(currentitemSelected.ItemAttached); });
+            bt_equip.onClick.AddListener(delegate { EquipItem(currentitemSelected.ItemAttached); });
+            bt_use.onClick.AddListener(delegate { UseItem(currentitemSelected.ItemAttached); });
+
+
+        }
+        #endregion
+
+        #region Functions
+        //UI setup
+        public void GearSetup()
+        {
+            bt_look.gameObject.SetActive(true);
+            bt_sell.gameObject.SetActive(atShop);
+            bt_drop.gameObject.SetActive(true);
+            bt_buy.gameObject.SetActive(false);
+            bt_equip.gameObject.SetActive(true);
+            bt_use.gameObject.SetActive(false);
+        }
+
+        public void PotionSetup()
+        {
+            bt_look.gameObject.SetActive(true);
+            bt_sell.gameObject.SetActive(atShop);
+            bt_drop.gameObject.SetActive(true);
+            bt_buy.gameObject.SetActive(false);
+            bt_equip.gameObject.SetActive(false);
+            bt_use.gameObject.SetActive(true);
+        }
+
+        public void QuestItemSetup()
+        {
+            bt_look.gameObject.SetActive(true);
+            bt_sell.gameObject.SetActive(false);
+            bt_drop.gameObject.SetActive(false);
+            bt_buy.gameObject.SetActive(false);
+            bt_equip.gameObject.SetActive(false);
+            bt_use.gameObject.SetActive(false);
+        }
+
+        public void ShopSetup()
+        {
+            bt_look.gameObject.SetActive(true);
+            bt_sell.gameObject.SetActive(false);
+            bt_drop.gameObject.SetActive(false);
+            bt_buy.gameObject.SetActive(true);
+            bt_equip.gameObject.SetActive(false);
+            bt_use.gameObject.SetActive(false);
+        }
+
+        void UpdateAppreance()
+        {
             if (Player.Instance.Inventory.GearInventory.ArmorEquiped != null)
                 armorEquip.ChangeAppreance(Player.Instance.Inventory.GearInventory.ArmorEquiped.itemName, Player.Instance.Inventory.GearInventory.ArmorEquiped.GetDescriptionShort(), Player.Instance.Inventory.GearInventory.ArmorEquiped.itemImage);
             else
@@ -102,18 +184,161 @@ namespace Hexerspiel.UI
 
             potionEquip.ChangeAppreance(null, null);
             questItemEquip.ChangeAppreance(null, null);
-
-            //add listener to normal buttons
-
-            bt_look.onClick.AddListener(delegate { lookAtItem(currentitemSelected); });
-
+            shopItem.ChangeAppreance(null, null);
         }
-        #endregion
 
-        #region Functions
-        public void ItemSelected(SO_item newItem)
+        public void UpdateMisc()
+        {
+            label_gold.text = Player.Instance.Inventory.BasicInventory.Amount.gold.ToString();
+            label_herbs.text = Player.Instance.Inventory.BasicInventory.Amount.miscItems.herbs.ToString();
+            label_meat.text = Player.Instance.Inventory.BasicInventory.Amount.miscItems.meat.ToString();
+            label_magicEssence.text = Player.Instance.Inventory.BasicInventory.Amount.miscItems.magicEssence.ToString();
+        }
+        //Actions
+        public void UIObjectItemSelected(UIObjectItem newItem)
         {
             currentitemSelected = newItem;
+            itemTypeselectedByObjectItem = newItem.ItemAttached.ItemType;
+
+            if (newItem.ItemAttached.ItemType == ItemType.gear)
+            {
+                gearTypeSelectedByObjectItem = ((SO_gear)newItem.ItemAttached).GearType;
+            }
+            else
+            {
+                gearTypeSelectedByObjectItem = GearType.none;
+            }
+        }
+
+
+
+        public void DropItem(SO_item itemToProcess)
+        {
+            switch (menuOpendForItem)
+            {
+                case ItemType.potion:
+                    Player.Instance.Inventory.PotionInventory.DropPotion((SO_potion)itemToProcess);
+                    break;
+                case ItemType.gear:
+                    switch (menuOpenedForGear)
+                    {
+                        case GearType.armor:
+                            Player.Instance.Inventory.GearInventory.DropGear((SO_armor)itemToProcess);
+                            break;
+                        case GearType.weapon:
+                            Player.Instance.Inventory.GearInventory.DropGear((SO_weapon)itemToProcess);
+                            break;
+                        case GearType.amulet:
+                            Player.Instance.Inventory.GearInventory.DropGear((SO_amulet)itemToProcess);
+                            break;
+                    }
+                    break;
+                case ItemType.quest:
+                    Player.Instance.Inventory.QuestItemInventory.DropQuestItem((SO_questItem)itemToProcess);
+                    break;
+
+            }
+
+            currentitemSelected.DeleteItem();
+        }
+
+        public void BuyItem(SO_item itemToProcess)
+        {
+
+            switch (itemTypeselectedByObjectItem)
+            {
+                case ItemType.potion:
+                    Player.Instance.Inventory.PotionInventory.BuyPotion((SO_potion)itemToProcess);
+                    break;
+                case ItemType.gear:
+                    switch (gearTypeSelectedByObjectItem)
+                    {
+                        case GearType.armor:
+                            Player.Instance.Inventory.GearInventory.BuyGear((SO_armor)itemToProcess);
+                            break;
+                        case GearType.weapon:
+                            Player.Instance.Inventory.GearInventory.BuyGear((SO_weapon)itemToProcess);
+                            break;
+                        case GearType.amulet:
+                            Player.Instance.Inventory.GearInventory.BuyGear((SO_amulet)itemToProcess);
+                            break;
+                    }
+                    break;
+                case ItemType.quest:
+                    Player.Instance.Inventory.QuestItemInventory.BuyQuestItem((SO_questItem)itemToProcess);
+
+                    break;
+
+            }
+            //AlertLookUp("Du hast für " + itemToProcess.valueBuy + " Gold " + itemToProcess.itemName + "gekauft.");
+            shopItemList.Remove(itemToProcess);
+            currentitemSelected.DeleteItem();
+        }
+
+        public void SellItem(SO_item itemToProcess)
+        {
+            switch (menuOpendForItem)
+            {
+                case ItemType.potion:
+                    Player.Instance.Inventory.PotionInventory.SellPotion((SO_potion)itemToProcess);
+                    currentitemSelected.DeleteItem();
+                    break;
+                case ItemType.gear:
+                    switch (menuOpenedForGear)
+                    {
+                        case GearType.armor:
+                            Player.Instance.Inventory.GearInventory.SellGear((SO_armor)itemToProcess);
+                            break;
+                        case GearType.weapon:
+                            Player.Instance.Inventory.GearInventory.SellGear((SO_weapon)itemToProcess);
+                            break;
+                        case GearType.amulet:
+                            Player.Instance.Inventory.GearInventory.SellGear((SO_amulet)itemToProcess);
+                            break;
+
+                    }
+                    currentitemSelected.DeleteItem();
+                    break;
+
+            }
+
+        }
+
+        public void EquipItem(SO_item itemToProcess)
+        {
+            switch (menuOpendForItem)
+            {
+
+                case ItemType.gear:
+                    switch (menuOpenedForGear)
+                    {
+                        case GearType.armor:
+                            Player.Instance.Inventory.GearInventory.EquipGear((SO_armor)itemToProcess);
+                            break;
+                        case GearType.weapon:
+                            Player.Instance.Inventory.GearInventory.EquipGear((SO_weapon)itemToProcess);
+                            break;
+                        case GearType.amulet:
+                            Player.Instance.Inventory.GearInventory.EquipGear((SO_amulet)itemToProcess);
+                            break;
+                    }
+                    break;
+
+            }
+        }
+        public void UseItem(SO_item itemToProcess)
+        {
+            switch (menuOpendForItem)
+            {
+                case ItemType.potion:
+                    Player.Instance.Inventory.PotionInventory.UsePotion((SO_potion)itemToProcess);
+                    currentitemSelected.DeleteItem();
+                    break;
+
+
+            }
+
+
         }
 
         //bt effects
@@ -141,8 +366,10 @@ namespace Hexerspiel.UI
             {
                 case ItemType.potion:
                     FillPotion();
+                    PotionSetup();
                     break;
                 case ItemType.gear:
+                    GearSetup();
                     switch (gearType)
                     {
                         case GearType.armor:
@@ -160,16 +387,34 @@ namespace Hexerspiel.UI
                     }
                     break;
                 case ItemType.quest:
+                    QuestItemSetup();
                     FillQuestItem();
                     break;
                 case ItemType.misc:
                     Debug.LogError("No menue for misc");
                     break;
                 case ItemType.none:
-                    Debug.LogError("No menue for none");
+                    ShopSetup();
+                    FillShoptItem();
                     break;
             }
         }
+
+        private void FillShoptItem()
+        {
+            if (shopItemList.Count == 0)
+            {
+                return;
+            }
+            List<SO_item> sortedList = shopItemList.OrderBy(o => (int)o.ItemType).ToList();
+
+            foreach (SO_item item in sortedList)
+            {
+                if (item != null)
+                    CreateObjectItem(item);
+            }
+        }
+
         public void FillArmor()
         {
             if (Player.Instance.Inventory.GearInventory.ArmorsCollected.Count == 0)
@@ -262,12 +507,16 @@ namespace Hexerspiel.UI
 
         public void closeOverlay()
         {
+            UpdateAppreance();
+            UpdateMisc();
             overlay.SetActive(false);
 
             while (contentContainer.childCount > 0)
             {
                 DestroyImmediate(contentContainer.GetChild(0).gameObject);
             }
+
+
         }
         #endregion
     }

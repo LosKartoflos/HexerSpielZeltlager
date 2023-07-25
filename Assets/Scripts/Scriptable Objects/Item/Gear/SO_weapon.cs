@@ -28,7 +28,7 @@ namespace Hexerspiel.Items
 
         public override string GetDescription()
         {
-            return string.Format("Schadenstype: {0}\nReichweite: {1}\nAngriffswürfel: {2}\nTrefferwert{3}", weaponStats.damageType, weaponStats.weaponRange,weaponStats.attackDice,weaponStats.succesThreshold);
+            return string.Format("Schadenstype: {0}\nReichweite: {1}\nAngriffswürfel: {2}\nTrefferwert{3}\n{4}\n{5}", weaponStats.damageType, weaponStats.weaponRange,weaponStats.attackDice,weaponStats.succesThreshold, GetAttributText(), ValueText());
         }
 
         public override string GetDescriptionShort()

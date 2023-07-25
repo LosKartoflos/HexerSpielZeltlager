@@ -15,7 +15,7 @@ namespace Hexerspiel.Items
 
         public override string GetDescription()
         {
-            return string.Format("Für dich:\nExtra Würfel: {0}\nWürfelmodifikator:{1}\n\nFür Gegner:\nWürfel Abzug: {2}\nNegativer Würfelmod.:{3}", diceManipulation.addDice, diceManipulation.addablePoints, diceManipulation.substractDiceFromEnemy, diceManipulation.subtractablePointsFromEnemy);
+            return string.Format("Für dich:\nExtra Würfel: {0}\nWürfelmodifikator:{1}\n\nFür Gegner:\nWürfel Abzug: {2}\nNegativer Würfelmod.:{3}\n{4}\n{5}", diceManipulation.addDice, diceManipulation.addablePoints, diceManipulation.substractDiceFromEnemy, diceManipulation.subtractablePointsFromEnemy, GetAttributText(), ValueText());
         }
 
         public override string GetDescriptionShort()

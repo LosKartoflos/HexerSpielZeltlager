@@ -16,7 +16,7 @@ namespace Hexerspiel.UI
         //disable other items
         public static event Action<int> ItemSelected = delegate { };
         //for inventory to check
-        public static event Action<SO_item> RecieveSelectedItem = delegate { };
+        public static event Action<UIObjectItem> RecieveSelectedUIObjectItem = delegate { };
         public static event Action<ItemType> TypeSelected = delegate { };
 
         [SerializeField]
@@ -35,6 +35,8 @@ namespace Hexerspiel.UI
         GameObject highlight;
 
         bool selected = false;
+
+        public SO_item ItemAttached { get => itemAttached;  }
 
         public UIObjectItem(SO_item itemAttached, Image image)
         {
@@ -84,7 +86,7 @@ namespace Hexerspiel.UI
                 return;
 
             ItemSelected(gameObject.GetInstanceID());
-            RecieveSelectedItem(itemAttached);
+            RecieveSelectedUIObjectItem(this);
 
             InventorySceneManager.currentObjectItem = this;
 

@@ -25,5 +25,10 @@ namespace Hexerspiel.Items
         {
             return "It's a item";
         }
+
+        public string ValueText()
+        {
+            return "Kaufwert: " + valueBuy + " | Verkaufswert: " + valueSell;
+        }
     }
 }

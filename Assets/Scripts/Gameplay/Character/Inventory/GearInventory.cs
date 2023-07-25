@@ -35,10 +35,10 @@ namespace Hexerspiel.Character
 
         public List<SO_armor> ArmorsCollected { get => armorsCollected; }
         public List<SO_amulet> AmuletCollected { get => amuletCollected; }
-        public List<SO_weapon> WeaponsCollected { get => weaponsCollected;  }
-        public SO_armor ArmorEquiped { get => armorEquiped;}
-        public SO_amulet AmuletEquipped { get => amuletEquipped;  }
-        public SO_weapon WeaponEquipped { get => weaponEquipped;  }
+        public List<SO_weapon> WeaponsCollected { get => weaponsCollected; }
+        public SO_armor ArmorEquiped { get => armorEquiped; }
+        public SO_amulet AmuletEquipped { get => amuletEquipped; }
+        public SO_weapon WeaponEquipped { get => weaponEquipped; }
 
         public void GetGear(SO_gear newGear)
         {
@@ -62,7 +62,7 @@ namespace Hexerspiel.Character
                     break;
             }
 
-            AlertGearChanged("Du hast " + newGear.itemName +" erhalten");
+            AlertGearChanged("Du hast " + newGear.itemName + " erhalten");
         }
 
         public void EquipGear(SO_gear newGear)
@@ -71,19 +71,28 @@ namespace Hexerspiel.Character
             {
                 case GearType.armor:
                     if (armorsCollected.Contains((SO_armor)newGear))
+                    {
                         armorEquiped = (SO_armor)newGear;
+                        AlertGearChanged("Du hast " + newGear.itemName + " ausgerüstet!");
+                    }
                     else
                         Debug.Log("You do not own " + newGear.itemName);
                     break;
                 case GearType.weapon:
                     if (weaponsCollected.Contains((SO_weapon)newGear))
+                    {
                         weaponEquipped = (SO_weapon)newGear;
+                        AlertGearChanged("Du hast " + newGear.itemName + " ausgerüstet!");
+                    }
                     else
                         Debug.Log("You do not own " + newGear.itemName);
                     break;
                 case GearType.amulet:
                     if (amuletCollected.Contains((SO_amulet)newGear))
+                    {
                         amuletEquipped = (SO_amulet)newGear;
+                        AlertGearChanged("Du hast " + newGear.itemName + " ausgerüstet!");
+                    }
                     else
                         Debug.Log("You do not own " + newGear.itemName);
                     break;
@@ -91,6 +100,7 @@ namespace Hexerspiel.Character
                     Debug.LogError("No gear type for " + newGear.itemName);
                     break;
             }
+
 
             EquipGearChanged();
         }

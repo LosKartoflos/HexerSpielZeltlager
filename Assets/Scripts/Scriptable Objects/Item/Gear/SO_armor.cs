@@ -15,7 +15,7 @@ namespace Hexerspiel.Items
 
         public override string GetDescription()
         {
-            return string.Format("Rüstungswert: {0}\nRüstungstyp: {1}\nBewegungsstil: {2}", armorStats.armor, armorTypeMod.ToString(), armorMovementMod.ToString());
+            return string.Format("Rüstungswert: {0}\nRüstungstyp: {1}\nBewegungsstil: {2}\n{3}\n{4}", armorStats.armor, armorTypeMod.ToString(), armorMovementMod.ToString(), GetAttributText(), ValueText());
         }
 
         public override string GetDescriptionShort()
