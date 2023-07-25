@@ -11,5 +11,14 @@ namespace Hexerspiel.Items
         protected override ItemType itemType => ItemType.quest;
 
         public override ItemType Type { get { return ItemType.quest; } }
+
+        public override string GetDescription()
+        {
+            return "Du kannst dammit eine QuestLösen.";
+        }
+        public override string GetDescriptionShort()
+        {
+            return "Questlösung";
+        }
     }
 }
