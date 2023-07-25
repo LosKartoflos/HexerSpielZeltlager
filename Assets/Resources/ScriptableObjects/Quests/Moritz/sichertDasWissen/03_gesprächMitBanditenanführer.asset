@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 098602e90339e4a4a8f54421a8c63d25, type: 3}
+  m_Name: "03_gespr\xE4chMitBanditenanf\xFChrer"
+  m_EditorClassIdentifier: 
+  stepName: "Gespr\xE4ch mit dem Banditenanf\xFChrer"
+  image: 
+  questText: "Nachdem ihr mit Nachdruck nachfragt entgegnet er euch: \"Meinetwegen
+    meinetwegen. Ja gut, wir haben es eingesteckt als niemand geguckt hat. Wir brauchen
+    es f\xFCr unsere Abenteuer gegen Monster. Wir haben Probleme wie wir die Medusa
+    besiegen k\xF6nnten. Wenn ihr uns helft, geben wir das Buch zur\xFCck. Wisst
+    ihr denn, was Medusa so besonders macht? Ich hab geh\xF6rt es passiert irgendwas,
+    wenn man ihr in die Augen schaut, wisst ihr was dann passiert?"
+  resolvedText: "Na das ist ja einfach, dann schauen wir einfach nicht in die Augen
+    hahah. Hast du geglaubt, wir geben dir einfach so das Buch? Idiot! Nun stirb,
+    das Wissen m\xFCssen wir sichern."
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear: []
+  dropedQuestItems: []
+  nextQuestStep: {fileID: 0}
+  spotToGO: {fileID: 0}
+  npcToInteract: {fileID: 0}
+  rightAnswer: 3
+  answersTexts:
+  - Man wird zu Edelstein
+  - Man wird zu Sand
+  - Man wird zu Glas
+  - Man wird zu Stein

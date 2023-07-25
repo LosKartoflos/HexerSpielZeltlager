@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "frauM\xFCller"
   m_EditorClassIdentifier: 
   npcInformation:
-    name: 
+    name: "Frau M\xFCller"
     image: 
   attribute:
     body: 0
@@ -22,3 +22,6 @@ MonoBehaviour:
     attributAddThreshold: 0
   questList: []
   npcInFight: {fileID: 0}
+  gearToSell: []
+  potionToSell: []
+  questItemToSell: []

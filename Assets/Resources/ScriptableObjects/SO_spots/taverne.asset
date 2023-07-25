@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: taverne
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: 
+    name: Taverne
     image: 
   reward:
     xp: 0

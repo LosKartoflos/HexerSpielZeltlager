@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "spinnenh\xF6hle"
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: 
+    name: "Spinnenh\xF6hle"
     image: 
   reward:
     xp: 0

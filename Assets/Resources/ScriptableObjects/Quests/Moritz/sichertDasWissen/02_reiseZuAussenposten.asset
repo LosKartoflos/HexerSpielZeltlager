@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92cd217e4a9a6a446925be2bf5932eab, type: 3}
+  m_Name: 02_reiseZuAussenposten
+  m_EditorClassIdentifier: 
+  stepName: Reise zu Aussenposten
+  image: 
+  questText: "Vielen Dank. aber das Buch \xFCber Monsterkunde ist weg, wahrscheinlich
+    haben es die Banditen geklaut als sie die Chance dazu hatten mit dem offen Fenster,
+    diese Halunken. Sie k\xF6nnten es brauchen f\xFCr Ihre K\xE4mpfe. Geht zum Banditenaussenposten
+    und sucht nach dem Anf\xFCherer"
+  resolvedText: "Ihr trefft den Banditenanf\xFChrer: \"Soso. Wir sollen eurer s\xFC\xDFes
+    Buch geklaut haben? l\xE4cherlich!\""
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear: []
+  dropedQuestItems: []
+  nextQuestStep: {fileID: 11400000, guid: ccaefd87f8a3adb438d375722bfe92fa, type: 2}
+  spotToGO: {fileID: 11400000, guid: 8eccca5ef4ee3bc4daef2e0f75dd1b44, type: 2}
+  npcToInteract: {fileID: 0}

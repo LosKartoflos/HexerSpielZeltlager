@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: aussenposten
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: 
+    name: Aussenposten
     image: 
   reward:
     xp: 0
