@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fd1d26e7bd01b34185d0cc43564db08, type: 3}
+  m_Name: "\xDCberfahrt_Start"
+  m_EditorClassIdentifier: 
+  stepName: "\xDCberfahrt_Start"
+  image: 
+  questText: "Guten Tag,  seid ihr auch auf der Suche nach einer spannenden Meeresfahrt?
+    Nein, oh ich verstehe. Ihr seid dabei, den Wald von Untoten zu befreien, sehr
+    lobenswert. Ich br\xE4uchte ein bisschen Verst\xE4rkung. Bei der Lichtung s\xFCdlich
+    von mir ist ein Recruiting Aushang f\xFCr Wachen. Da ich leider nicht so gut
+    Lesen kann w\xE4re es Super falls ihr mir sagen k\xF6nntet, wie teuer die Verst\xE4rkung
+    wird. Ich habe noch Platz f\xFCr 395 kg. Ich will so viel Kampfkraft wie M\xF6glich."
+  resolvedText: 
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear: []
+  dropedQuestItems: []
+  nextQuestStep: {fileID: 11400000, guid: 4d90d78c10f77d14e99cbc484267e442, type: 2}
+  spotToGO: {fileID: 0}
+  npcToInteract: {fileID: 0}
+  shortQuestion: "Wie teuer ist die Verst\xE4rkung"
+  answer: 200

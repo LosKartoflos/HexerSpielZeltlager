@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3093f82b4f8dfae469a39c781b60c3d0, type: 3}
-  m_Name: Stadtausbau!_DieAufgabe
+  m_Name: Rehragout_Start
   m_EditorClassIdentifier: 
-  stepName: Stadtausbau!_DieAufgabe
+  stepName: Rehragout_Start
   image: 
-  questText: "Damit unser kleines Dorf weiter wachsen kann brauchen wir Material.
-    Sucht in der n\xE4he vom S\xE4gewerk nach Gideon. Er ist verantwortlich f\xFCr
-    den Ausbau."
-  resolvedText: 
+  questText: "Guten Tag, ich h\xE4tte eine Aufgabe f\xFCr euch und w\xFCrde euch
+    daf\xFCr entlohnen. Bitte besorgt mir das Rezept f\xFCr das Legend\xE4re Rehragout
+    von unserem Chefkoch. "
+  resolvedText: 'Das ist eine besondere Quest. '
   xp: 0
   rewards:
     gold: 0
@@ -27,6 +27,6 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 11400000, guid: 54ee21da2bdca2f4aac6486113a05568, type: 2}
+  nextQuestStep: {fileID: 11400000, guid: aac348ec60b026f498531340692e2f0a, type: 2}
   spotToGO: {fileID: 0}
-  npcToInteract: {fileID: 11400000, guid: fbe5a9c11a2cc264791782a819d20827, type: 2}
+  npcToInteract: {fileID: 11400000, guid: 43e475f876534a5488ec84b33ad279e8, type: 2}

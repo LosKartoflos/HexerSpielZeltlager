@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe60354783db1284db55ab78764096e5, type: 3}
-  m_Name: StadtAusbau!
+  m_Name: GottfriedsTagebuch
   m_EditorClassIdentifier: 
   nfcTagInfos:
     name: 
     image: 
-  firstQuestStep: {fileID: 11400000, guid: 8163e4415074cd94ead0784cee5abeba, type: 2}
+  firstQuestStep: {fileID: 11400000, guid: c1086f0f81c91b341be491745bd57346, type: 2}

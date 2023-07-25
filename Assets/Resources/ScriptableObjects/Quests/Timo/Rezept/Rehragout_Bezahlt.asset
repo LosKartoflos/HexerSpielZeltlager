@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7534d5d4d65e996498086679b3511241, type: 3}
-  m_Name: Stadtausbau!_Start
+  m_Name: Rehragout_Bezahlt
   m_EditorClassIdentifier: 
-  stepName: Stadtausbau!_Start
+  stepName: Rehragout_Bezahlt
   image: 
-  questText: "Hey, ihr da! Wir ihr sicher mitbekommen habt, ist unser Dorf in letzter
-    Zeit deutlich gewachsen. Ich h\xE4tte da etwas, was euch st\xE4rker macht. "
-  resolvedText: Mhh interessante Wahl!
+  questText: Wir sehen uns bestimmt bald wieder.
+  resolvedText: 
   xp: 0
   rewards:
     gold: 0
@@ -30,11 +29,11 @@ MonoBehaviour:
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}
   answers:
-  - Text: "Ihr f\xFChlt euch Stark genug und nehmt an."
-    attribut: 1
-    level: 6
-    questStep: {fileID: 11400000, guid: 468299e931cadee469396216403ef085, type: 2}
-  - Text: Belohnung anschauen gehen.
-    attribut: 1
+  - Text: "Auf Wiedersehen, sch\xF6nen Tag noch"
+    attribut: 0
     level: 0
-    questStep: {fileID: 11400000, guid: fc6126fe115802c4d9eb961aff16501c, type: 2}
+    questStep: {fileID: 11400000, guid: 0986aec5a0acc8548b3dcec1f4d6fe13, type: 2}
+  - Text: "Wir br\xE4uchten noch das Rezept!"
+    attribut: 1
+    level: 4
+    questStep: {fileID: 11400000, guid: 4d3d760ebf795e345b93936ae0aa2661, type: 2}

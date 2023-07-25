@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92cd217e4a9a6a446925be2bf5932eab, type: 3}
-  m_Name: Stadtausbau!_BelohnungAnschauen
+  m_Script: {fileID: 11500000, guid: a82a38a3539a90d4aadde7b53422d716, type: 3}
+  m_Name: GottfriedsTagebuch_Nr3
   m_EditorClassIdentifier: 
-  stepName: Stadtausbau!_BelohnungAnschauen
+  stepName: GottfriedsTagebuch_Nr3
   image: 
-  questText: "Schau zum Wimpel, diese Waffe k\xF6nnte deine sein."
-  resolvedText: Das ist eine Streitaxt mit diesen Werten
+  questText: "Du hast 2/3 Skeletton get\xF6tet. Nur noch eines!"
+  resolvedText: 
   xp: 0
   rewards:
     gold: 0
@@ -25,6 +25,7 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 11400000, guid: 468299e931cadee469396216403ef085, type: 2}
-  spotToGO: {fileID: 11400000, guid: 71f239b9b6b87604f995bccaf64693b9, type: 2}
+  nextQuestStep: {fileID: 11400000, guid: c3ce88032618325439e40e3707367424, type: 2}
+  spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}
+  monsterToFight: {fileID: 0}
