@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "spinnenk\xF6nigin"
   m_EditorClassIdentifier: 
   npcInformation:
-    name: 
+    name: "Spinnenk\xF6nigin"
     image: 
   attribute:
     body: 0
@@ -22,3 +22,6 @@ MonoBehaviour:
     attributAddThreshold: 0
   questList: []
   npcInFight: {fileID: 0}
+  gearToSell: []
+  potionToSell: []
+  questItemToSell: []

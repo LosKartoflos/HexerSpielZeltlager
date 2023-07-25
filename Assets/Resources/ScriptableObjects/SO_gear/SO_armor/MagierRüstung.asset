@@ -9,24 +9,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57833ce9fb886704dbe6e929774a58e7, type: 3}
-  m_Name: stabDesUmejon
+  m_Script: {fileID: 11500000, guid: ced5e7fe17edc1841aceea631c5a7da7, type: 3}
+  m_Name: "MagierR\xFCstung"
   m_EditorClassIdentifier: 
-  itemName: 
-  itemImage: {fileID: 0}
-  valueBuy: 0
-  valueSell: 0
+  itemName: "Metalr\xFCstung"
+  itemImage: armor_1
+  valueBuy: 500
+  valueSell: 100
   attributeBuffs:
-    body: 0
-    mind: 0
-    charisma: 0
+    body: 1
+    mind: 1
+    charisma: 1
     attributAddThreshold: 0
   spellLevelBuff:
-    lifeSpell: 0
-    mindSpell: 0
-    charismaSpell: 0
-  weaponStats:
-    succesThreshold: 0
-    attackDice: 0
-    damageType: 0
-    weaponRange: 0
+    lifeSpell: 1
+    mindSpell: 1
+    charismaSpell: 1
+  armorStats:
+    armor: 4
+  armorTypeMod: 0
+  armorMovementMod: 0

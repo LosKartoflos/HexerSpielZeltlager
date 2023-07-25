@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: banditenaussenposten
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: 
+    name: Banditenaussenposten
     image: 
   reward:
     xp: 0

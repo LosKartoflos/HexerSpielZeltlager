@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: friedhof
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: 
+    name: Friedhof
     image: 
   reward:
     xp: 0

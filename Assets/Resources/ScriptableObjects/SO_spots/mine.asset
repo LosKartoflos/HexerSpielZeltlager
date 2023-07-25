@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: mine
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: 
+    name: Mine
     image: 
   reward:
     xp: 0

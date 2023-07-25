@@ -29,4 +29,4 @@ MonoBehaviour:
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}
   shortQuestion: Was ist 8+8+8+8?
-  answer: 32
+  answer: "d\xF6nertasche"

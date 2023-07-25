@@ -41,7 +41,7 @@ namespace Hexerspiel.Quests
         {
             if (npcToInteract == null)
             {
-                Debug.LogError("You forgot to add a npcToInteract in the bringQuest item Step: " + name);
+                Debug.LogError("You forgot to add a npcToInteract in the npcstep item Step: " + name);
                 stepIsSolved = false;
                 return;
 

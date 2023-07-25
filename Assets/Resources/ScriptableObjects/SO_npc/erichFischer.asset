@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: erichFischer
   m_EditorClassIdentifier: 
   npcInformation:
-    name: 
+    name: Eicher Fischer
     image: 
   attribute:
     body: 0
@@ -22,3 +22,6 @@ MonoBehaviour:
     attributAddThreshold: 0
   questList: []
   npcInFight: {fileID: 0}
+  gearToSell: []
+  potionToSell: []
+  questItemToSell: []

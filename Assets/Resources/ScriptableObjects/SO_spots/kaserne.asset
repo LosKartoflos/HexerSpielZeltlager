@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: kaserne
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: 
+    name: Kaserne
     image: 
   reward:
     xp: 0

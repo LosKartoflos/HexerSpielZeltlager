@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: lederruestung
   m_EditorClassIdentifier: 
   itemName: "Lederr\xFCstung"
-  itemImage: {fileID: 0}
+  itemImage: armor_2
   valueBuy: 140
   valueSell: 40
   attributeBuffs:

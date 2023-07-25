@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7534d5d4d65e996498086679b3511241, type: 3}
+  m_Name: 01_umejonThranduil
+  m_EditorClassIdentifier: 
+  stepName: Umejon Thranduil
+  image: 
+  questText: "Ich, Umejon Thranduil, H\xFCter dieses Grabes, besch\xFCtze diesen
+    seit \xFCber 400 Jahren. Vor langer Zeit nahm ich einen Lehrling in der Kunst
+    der Magie auf. Argoroth war sein Name. Er war ein eifriger Sch\xFCler, begabt
+    und durchaus talentiert, aber auch k\xFChl und manchmal grausam. Er interessierte
+    sich sehr f\xFCr den Kristall.  Der Kern unserer Magie war die abgeleitete Kraft
+    des Kristalls des Balad-D\xFBr, welchem dieses Grab gewidmet ist. Dieser Kristall
+    wurde den M\xF6nchen dieser Grabesst\xE4tte vor \xC4onen von unserem Gott selbst
+    geschenkt, um Gutes in der Welt zu tun. In geringen Mengen kann seine Macht Gro\xDFes
+    bewirken. Wie auch immer, Argoroth lernte 40 Jahre bei mir, bis er eines Nachts
+    den Kristall stahl und davon rannte.  Ich verfolgte ihn bis in die Berge von
+    Korom, doch verlor seine Spur\u2026. Die Leute sagen, er extrahierte die Gesamte
+    Macht des Kristalls und wurde zu einem Monster, daraufhin zersplitterte er den
+    Kristall in 3 Teile und verteilte sie in unserem Land. Meiner Recherche nach
+    ist einer der Splitter in der H\xF6hle der Riesenspinne in der N\xE4he von Meierwind.
+    Rettet den Kristall mithilfe meines alten Stabs! krumpf "
+  resolvedText: 
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear: []
+  dropedQuestItems:
+  - {fileID: 11400000, guid: 04acc636cbd82b642a7dc7ba03552a71, type: 2}
+  nextQuestStep: {fileID: 11400000, guid: 19d125d9c5391754bab429783bb7416f, type: 2}
+  spotToGO: {fileID: 0}
+  npcToInteract: {fileID: 0}
+  answers:
+  - Text: Nehmt diesen Stab und rettet die Kristalle!
+    attribut: 0
+    level: 0
+    questStep: {fileID: 11400000, guid: 19d125d9c5391754bab429783bb7416f, type: 2}

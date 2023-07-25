@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b178ddf166764488506b4101f18bbc, type: 3}
   m_Name: "amuletDes\xC4ltestenrats"
   m_EditorClassIdentifier: 
-  itemName: 
-  itemImage: {fileID: 0}
+  itemName: "Amulett des \xC4ltestenrats"
+  itemImage: "Amulett des \xC4ltestenrats.png"
   valueBuy: 0
   valueSell: 0
   attributeBuffs:

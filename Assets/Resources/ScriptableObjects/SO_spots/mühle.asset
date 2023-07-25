@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: "m\xFChle"
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    id: 
-    name: "m\xFChle"
+    name: "M\xFChle"
     image: 
   reward:
     xp: 0

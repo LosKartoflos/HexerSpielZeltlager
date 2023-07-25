@@ -9,5 +9,7 @@ namespace Hexerspiel.Items
     public class SO_questItem : SO_item
     {
         protected override ItemType itemType => ItemType.quest;
+
+        public override ItemType Type { get { return ItemType.quest; } }
     }
 }

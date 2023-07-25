@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: helger
   m_EditorClassIdentifier: 
   npcInformation:
-    name: 
+    name: Helger
     image: 
   attribute:
     body: 0

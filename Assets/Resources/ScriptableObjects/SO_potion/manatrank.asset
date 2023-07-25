@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: manatrank
   m_EditorClassIdentifier: 
   itemName: 
-  itemImage: {fileID: 0}
+  itemImage: 
   valueBuy: 100
   valueSell: 10
   potionStats:
