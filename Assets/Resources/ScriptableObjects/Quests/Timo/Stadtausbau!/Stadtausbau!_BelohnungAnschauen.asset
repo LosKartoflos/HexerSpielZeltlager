@@ -25,6 +25,6 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 11400000, guid: 06db6b8a9f14a294fa8c2458865e2d88, type: 2}
+  nextQuestStep: {fileID: 11400000, guid: 468299e931cadee469396216403ef085, type: 2}
   spotToGO: {fileID: 11400000, guid: 71f239b9b6b87604f995bccaf64693b9, type: 2}
-  npcToInteract: {fileID: 11400000, guid: b3ba4793d7a565042a188dc1baa88703, type: 2}
+  npcToInteract: {fileID: 0}

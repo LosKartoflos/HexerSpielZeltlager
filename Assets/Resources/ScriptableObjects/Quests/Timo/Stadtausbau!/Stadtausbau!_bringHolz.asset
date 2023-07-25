@@ -9,14 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fd1d26e7bd01b34185d0cc43564db08, type: 3}
-  m_Name: Stadtausbau!_holzsammeln
+  m_Script: {fileID: 11500000, guid: 6352a066c47e8c34f87357d5f4a61131, type: 3}
+  m_Name: Stadtausbau!_bringHolz
   m_EditorClassIdentifier: 
-  stepName: Stadtausbau!_holzsammeln
+  stepName: Stadtausbau!_BringHolz
   image: 
-  questText: "Schade ich h\xE4tte gerne mit ihnen Gesch\xE4fte gemacht. Sammelt ein
-    1kg holz und bringt es zu Helger."
-  resolvedText: 
+  questText: Bringe das Gekaufte Holz zu Helger
+  resolvedText: "Vielen Dank f\xFCrs schleppen vom Holz."
   xp: 0
   rewards:
     gold: 0
@@ -24,11 +23,9 @@ MonoBehaviour:
       herbs: 0
       meat: 0
       magicEssence: 0
-  dropedGear:
-  - {fileID: 11400000, guid: a62b212a4a05bf840a31ad0dddeeb079, type: 2}
+  dropedGear: []
   dropedQuestItems: []
   nextQuestStep: {fileID: 11400000, guid: c3ce88032618325439e40e3707367424, type: 2}
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 11400000, guid: b3ba4793d7a565042a188dc1baa88703, type: 2}
-  shortQuestion: "Wiegt euer gesameltes Holz bei Helger, dann bekommt ihr die L\xF6sung."
-  answer: 1337
+  questItemNeeded: {fileID: 11400000, guid: 4853fd0a6bbb49a4d8e6c961a7c4d736, type: 2}
