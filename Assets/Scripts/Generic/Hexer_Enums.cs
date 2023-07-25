@@ -13,12 +13,12 @@ namespace Hexerspiel
     //Objects
     public enum ItemType { potion, gear, quest, misc, none }
     public enum GearType { armor, weapon, amulet, none }
-    public enum WeaponRange { close, distant }
-    public enum DamageType { normal, magical }
+    public enum WeaponRange { Nahkampf, Fernkampf }
+    public enum DamageType { Normal, Magisch }
 
     //Character
-    public enum CharacterType { normal, thickend, magical }
-    public enum CharacterMovement { ground, air }
+    public enum CharacterType { Normal, Dickhäutig, Magisch }
+    public enum CharacterMovement { Boden, Fliegend }
 
 
     //Quest

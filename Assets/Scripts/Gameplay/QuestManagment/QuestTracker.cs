@@ -21,6 +21,9 @@ namespace Hexerspiel.Quests
         private static SO_questStep[] nextQuestStep = new SO_questStep[maximalQuestsTracked];
 
         [SerializeField]
+        public static SO_questStep nextQuestStepMultipleChoice;
+
+        [SerializeField]
         private static List<SO_questStep> allreadyUsedSteps = new List<SO_questStep>();
 
         [SerializeField]
@@ -52,6 +55,7 @@ namespace Hexerspiel.Quests
 
         public static int questToDelete = 0;
         public static int questToSolveIndex = 0;
+        
 
         public const string delteRecieverID = "deleteQuest";
         public const string solveRecieverID = "solveQuest";
@@ -551,7 +555,8 @@ namespace Hexerspiel.Quests
 
 
             //}
-
+            if (questSteps[index].QuestStepTarget == QuestTarget.multipleChoiceAttribute)
+                nextQuestStep[index] = nextQuestStepMultipleChoice;
             //last step 
             if (nextQuestStep[index] == finishStep)
             {
@@ -578,6 +583,8 @@ namespace Hexerspiel.Quests
                 UI_QuestTracker.Instance.CreateInfoPopUpAcceptOnly(questSteps[index].resolvedText + "\n\n" + nextQuestStep[index].questText + "\n\n" + GetSolveText(nextQuestStep[index]), nextQuestStep[index].stepName);
 
                 questSteps[index] = null;
+               
+
                 StartQuest(nextQuestStep[index]);
                 nextQuestStep[index] = null;
                 CheckIfStepsAreSovleable();

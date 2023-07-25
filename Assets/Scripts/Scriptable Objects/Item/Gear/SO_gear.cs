@@ -24,5 +24,15 @@ namespace Hexerspiel.Items
 
         public override ItemType Type { get { return ItemType.gear; } }
 
+        public virtual string GetDescription()
+        {
+            return "It's a gear";
+        }
+        public virtual string GetDescriptionShort()
+        {
+            return "It's a gear";
+        }
+
+
     }
 }

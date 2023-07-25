@@ -173,6 +173,7 @@ MonoBehaviour:
   label_item: {fileID: 8050062179238481901}
   image: {fileID: 6400229747746992102}
   button: {fileID: 725277404591424864}
+  close: {fileID: 0}
   highlight: {fileID: 4765636411249475232}
 --- !u!1 &4559709175605082656
 GameObject:
@@ -242,8 +243,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '-'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0f8e6c2674747b64c99cf0095e6d2fdc, type: 2}
-  m_sharedMaterial: {fileID: -3726593756443591824, guid: 0f8e6c2674747b64c99cf0095e6d2fdc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
