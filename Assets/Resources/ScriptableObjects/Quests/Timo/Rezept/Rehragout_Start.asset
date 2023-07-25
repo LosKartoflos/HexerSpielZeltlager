@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3093f82b4f8dfae469a39c781b60c3d0, type: 3}
+  m_Name: Rehragout_Start
+  m_EditorClassIdentifier: 
+  stepName: Rehragout_Start
+  image: 
+  questText: "Guten Tag, ich h\xE4tte eine Aufgabe f\xFCr euch und w\xFCrde euch
+    daf\xFCr entlohnen. Bitte besorgt mir das Rezept f\xFCr das Legend\xE4re Rehragout
+    von unserem Chefkoch. "
+  resolvedText: 'Das ist eine besondere Quest. '
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear: []
+  dropedQuestItems: []
+  nextQuestStep: {fileID: 11400000, guid: aac348ec60b026f498531340692e2f0a, type: 2}
+  spotToGO: {fileID: 0}
+  npcToInteract: {fileID: 11400000, guid: 43e475f876534a5488ec84b33ad279e8, type: 2}

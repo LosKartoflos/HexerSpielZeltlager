@@ -9,14 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a82a38a3539a90d4aadde7b53422d716, type: 3}
-  m_Name: "\xDCberfahrt_Fische"
+  m_Script: {fileID: 11500000, guid: ce5eff85bbf556a4e8247450cab3cbb8, type: 3}
+  m_Name: Rehragout_EssenZahlen
   m_EditorClassIdentifier: 
-  stepName: 
+  stepName: Rehragout_EssenZahlen
   image: 
-  questText: "Habt vielen Dank, jetzt br\xE4uchte ich nur noch 1 Fische, das w\xE4re
-    dann alles."
-  resolvedText: 
+  questText: Das macht dann 10 Gold.
+  resolvedText: Vielen Dank. Ich hoffe es hat geschmeckt.
   xp: 0
   rewards:
     gold: 0
@@ -26,7 +25,7 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 11400000, guid: c3ce88032618325439e40e3707367424, type: 2}
+  nextQuestStep: {fileID: 11400000, guid: 9cc247b2d3a5b3c45a805e29561c6c8d, type: 2}
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}
-  monsterToFight: {fileID: 0}
+  goldToPay: 10

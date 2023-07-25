@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7534d5d4d65e996498086679b3511241, type: 3}
+  m_Name: Rehragout_RezeptBrauchen
+  m_EditorClassIdentifier: 
+  stepName: Rehragout_RezeptBrauchen
+  image: 
+  questText: "Oh ihr habt also auch Interesse an meinem Rezep. Ich w\xFCrde es euch
+    verkaufen f\xFCr 500.000 Gold."
+  resolvedText: Naja, wenn das so ist. Auf Wiedersehen.
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear: []
+  dropedQuestItems: []
+  nextQuestStep: {fileID: 0}
+  spotToGO: {fileID: 0}
+  npcToInteract: {fileID: 0}
+  answers:
+  - Text: Oh, das ist uns zu teuer! Auf Wiedersehen
+    attribut: 0
+    level: 0
+    questStep: {fileID: 11400000, guid: 0986aec5a0acc8548b3dcec1f4d6fe13, type: 2}
+  - Text: 'Auf Wiedersehen(Das Rezept probieren zu stehlen) '
+    attribut: 1
+    level: 3
+    questStep: {fileID: 11400000, guid: 885297ca82ef8ca47981f7393688882e, type: 2}

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7534d5d4d65e996498086679b3511241, type: 3}
+  m_Name: Rehragout_CheckLeiter
+  m_EditorClassIdentifier: 
+  stepName: Rehragout_CheckLeiter
+  image: 
+  questText: "Schaue, ob einer der K\xF6che Zeit f\xFCr die Spezial Quest hat."
+  resolvedText: 
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear: []
+  dropedQuestItems: []
+  nextQuestStep: {fileID: 0}
+  spotToGO: {fileID: 0}
+  npcToInteract: {fileID: 0}
+  answers:
+  - Text: "Einer der K\xF6che hat Zeit!"
+    attribut: 3
+    level: 2
+    questStep: {fileID: 11400000, guid: 0e03099d974945140bc7c7b48c63bcbf, type: 2}
+  - Text: Keiner hat Zeit Scanne Bene oder Frank
+    attribut: 0
+    level: 0
+    questStep: {fileID: 11400000, guid: 4d3d760ebf795e345b93936ae0aa2661, type: 2}
