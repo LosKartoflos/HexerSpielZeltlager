@@ -9,24 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57833ce9fb886704dbe6e929774a58e7, type: 3}
+  m_Script: {fileID: 11500000, guid: fb89b2d5d56032549853b9abd3cad3ea, type: 3}
   m_Name: stabDesUmejon
   m_EditorClassIdentifier: 
   itemName: Stab des Umejon
-  itemImage: Einfacher Zauberstab.png
+  itemImage: 
   valueBuy: 0
   valueSell: 0
-  attributeBuffs:
-    body: 0
-    mind: 0
-    charisma: 0
-    attributAddThreshold: 0
-  spellLevelBuff:
-    lifeSpell: 0
-    mindSpell: 0
-    charismaSpell: 0
-  weaponStats:
-    succesThreshold: 0
-    attackDice: 0
-    damageType: 1
-    weaponRange: 1
