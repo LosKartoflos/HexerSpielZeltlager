@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3093f82b4f8dfae469a39c781b60c3d0, type: 3}
   m_Name: Stadtausbau!_DieAufgabe
   m_EditorClassIdentifier: 
-  stepName: 
+  stepName: Stadtausbau!_DieAufgabe
   image: 
-  questText: 
+  questText: "Damit unser kleines Dorf weiter wachsen kann brauchen wir Material.
+    Sucht in der n\xE4he vom S\xE4gewerk nach Gideon. Er ist verantwortlich f\xFCr
+    den Ausbau."
   resolvedText: 
   xp: 0
   rewards:
@@ -25,6 +27,6 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 0}
+  nextQuestStep: {fileID: 11400000, guid: 54ee21da2bdca2f4aac6486113a05568, type: 2}
   spotToGO: {fileID: 0}
-  npcToInteract: {fileID: 0}
+  npcToInteract: {fileID: 11400000, guid: fbe5a9c11a2cc264791782a819d20827, type: 2}

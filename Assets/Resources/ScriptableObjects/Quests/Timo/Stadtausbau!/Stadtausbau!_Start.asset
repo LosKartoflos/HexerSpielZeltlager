@@ -16,7 +16,7 @@ MonoBehaviour:
   image: 
   questText: "Hey, ihr da! Wir ihr sicher mitbekommen habt, ist unser Dorf in letzter
     Zeit deutlich gewachsen. Ich h\xE4tte da etwas, was euch st\xE4rker macht. "
-  resolvedText: 
+  resolvedText: Mhh interessante Wahl!
   xp: 0
   rewards:
     gold: 0
@@ -26,15 +26,15 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 0}
+  nextQuestStep: {fileID: 11400000, guid: fc6126fe115802c4d9eb961aff16501c, type: 2}
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}
   answers:
   - Text: "Ihr f\xFChlt euch Stark genug und nehmt an."
     attribut: 1
     level: 6
-    questStep: {fileID: 11400000, guid: fc6126fe115802c4d9eb961aff16501c, type: 2}
+    questStep: {fileID: 11400000, guid: 468299e931cadee469396216403ef085, type: 2}
   - Text: Belohnung anschauen gehen.
     attribut: 1
     level: 0
-    questStep: {fileID: 0}
+    questStep: {fileID: 11400000, guid: fc6126fe115802c4d9eb961aff16501c, type: 2}
