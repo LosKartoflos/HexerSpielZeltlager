@@ -86,6 +86,7 @@ namespace Hexerspiel.UI
             QuestItemInventory.AlertQuestItemChanged += ActivateAndFillRecievePanel;
 
             QuestTracker.AlertQuestTracker += ActivateAndFillRecievePanel;
+            UI_Inventory.AlertLookUp += ActivateAndFillRecievePanel;
         }
 
         private void UnsubsrcibeEvents()
