@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe60354783db1284db55ab78764096e5, type: 3}
-  m_Name: StadtAusbau!
+  m_Script: {fileID: 11500000, guid: 825fa593f842d424c9a7b298ac53a22a, type: 3}
+  m_Name: "\xDCberfahrt_Aushang"
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: 
+    name: Aushang
     image: 
-  firstQuestStep: {fileID: 11400000, guid: 8163e4415074cd94ead0784cee5abeba, type: 2}
+  questStepToSolve: {fileID: 11400000, guid: b2d81f8745c4ddb4aac744451a588557, type: 2}
