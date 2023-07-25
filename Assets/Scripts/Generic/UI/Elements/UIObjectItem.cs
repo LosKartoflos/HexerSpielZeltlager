@@ -1,3 +1,4 @@
+using Hexerspiel.Character;
 using Hexerspiel.Items;
 using System;
 using System.Collections;
@@ -14,6 +15,7 @@ namespace Hexerspiel.UI
         #region Variables
         public static event Action<int> ItemSelected = delegate { };
         public static event Action<SO_item> RecieveSelectedItem = delegate { };
+        public static event Action<ItemType> TypeSelected = delegate { };
 
         [SerializeField]
         SO_item itemAttached;
@@ -47,7 +49,7 @@ namespace Hexerspiel.UI
         public UIObjectItem(SO_item itemAttached, string imageName)
         {
             this.itemAttached = itemAttached;
-            this.image.sprite = image.sprite = Resources.Load<Sprite>("Images/Items/" + imageName );
+            this.image.sprite = image.sprite = Resources.Load<Sprite>("Images/Items/" + imageName);
         }
 
 
@@ -57,6 +59,11 @@ namespace Hexerspiel.UI
         #endregion
 
         #region LifeCycle
+        private void Start()
+        {
+            button.onClick.AddListener(SelectElement);
+        }
+
         private void OnEnable()
         {
             UIObjectItem.ItemSelected += RecieveItemSelected;
@@ -77,6 +84,10 @@ namespace Hexerspiel.UI
             ItemSelected(gameObject.GetInstanceID());
             RecieveSelectedItem(itemAttached);
 
+            InventorySceneManager.currentObjectItem = this;
+
+            TypeSelected(itemAttached.ItemType);
+
             SetHighlight(true);
 
             selected = true;
@@ -91,6 +102,7 @@ namespace Hexerspiel.UI
         {
             if (otherId != gameObject.GetInstanceID() && selected)
             {
+                selected = false;
                 SetHighlight(false);
             }
         }
@@ -99,13 +111,19 @@ namespace Hexerspiel.UI
         {
             SetHighlight(false);
             this.itemAttached = itemAttached;
-            this.image.sprite = image.sprite = Resources.Load<Sprite>("Images/Items/" + imageName);
+            if (imageName != "")
+                this.image.sprite = image.sprite = Resources.Load<Sprite>("Images/Items/" + imageName);
+            this.image.sprite = image.sprite = Resources.Load<Sprite>("Images/Items/default");
+
+            label_item.text = itemAttached.itemName;
+
         }
 
         public void DeleteItem()
         {
             Destroy(gameObject);
         }
+
 
         #endregion
     }

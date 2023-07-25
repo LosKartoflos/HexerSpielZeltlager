@@ -1,3 +1,4 @@
+using Hexerspiel.Character;
 using Hexerspiel.Character.monster;
 using Hexerspiel.Fight;
 using Hexerspiel.Quests;
@@ -10,7 +11,7 @@ using UnityEngine.UI;
 public class UI_MainScene : MonoBehaviour
 {
     [SerializeField]
-    Button bt_fight, bt_scan, bt_quest;
+    Button bt_fight, bt_scan, bt_quest, bt_inventory;
 
     [SerializeField]
     SO_Monster monsterTest;
@@ -19,6 +20,7 @@ public class UI_MainScene : MonoBehaviour
     {
         bt_fight.onClick.AddListener(delegate { Fight.StartFightingScene(monsterTest); });
         bt_scan.onClick.AddListener(delegate { NFCManager.StartScanning(); });
-        bt_quest.onClick.AddListener(delegate {QuestTracker.LoadQuestScene(); });
+        bt_quest.onClick.AddListener(delegate { QuestTracker.LoadQuestScene(); });
+        bt_inventory.onClick.AddListener(delegate { InventorySceneManager.LoadScene(); });
     }
 }

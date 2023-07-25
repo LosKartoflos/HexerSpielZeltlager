@@ -15,5 +15,6 @@ namespace Hexerspiel.Items
         protected virtual ItemType itemType => ItemType.none;
         public ItemType ItemType { get => itemType; }
 
+        public virtual ItemType Type { get { return ItemType.none; } }
     }
 }

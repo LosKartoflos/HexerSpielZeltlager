@@ -42,7 +42,7 @@ namespace Hexerspiel.Quests
         {
             if (spotToGO == null)
             {
-                Debug.LogError("You forgot to add a PLaceTog in the bringQuest item Step: " + name);
+                Debug.LogError("You forgot to add a PLaceTog in the spotstep Step: " + name);
                 stepIsSolved = false;
                 return;
 

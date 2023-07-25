@@ -13,16 +13,19 @@ MonoBehaviour:
   m_Name: bettler
   m_EditorClassIdentifier: 
   npcInformation:
-    id: 
     name: bettler
     image: 
   attribute:
     body: 0
     mind: 0
     charisma: 0
-  questList: []
-  friendshipLevel: 0
-  npcInFight: {fileID: 0}
-  socialThreaten: {fileID: 0}
-  socialCharm: {fileID: 0}
-  socialDebate: {fileID: 0}
+    attributAddThreshold: 0
+  questList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  npcInFight: {fileID: 11400000, guid: d6b485692bce9504a9eea1dd3a1c66da, type: 2}
+  gearToSell: []
+  potionToSell: []
+  questItemToSell: []

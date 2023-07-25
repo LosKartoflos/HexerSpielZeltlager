@@ -15,5 +15,7 @@ namespace Hexerspiel.Items
     {
         protected override ItemType itemType => ItemType.potion;
         public PotionStats potionStats;
+
+        public override ItemType Type { get { return ItemType.potion; } }
     }
 }
