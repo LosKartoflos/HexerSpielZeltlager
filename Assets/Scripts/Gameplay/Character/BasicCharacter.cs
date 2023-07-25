@@ -90,27 +90,27 @@ namespace Hexerspiel.Character
 
             switch (enemyType)
             {
-                case CharacterType.normal:
-                    if (ownDamageType == DamageType.magical)
+                case CharacterType.Normal:
+                    if (ownDamageType == DamageType.Magisch)
                         extraDamage += 1;
                     break;
-                case CharacterType.thickend:
-                    if (ownRange == WeaponRange.distant)
+                case CharacterType.Dickhäutig:
+                    if (ownRange == WeaponRange.Fernkampf)
                         extraDamage -= 1;
                     break;
-                case CharacterType.magical:
-                    if (ownDamageType == DamageType.normal)
+                case CharacterType.Magisch:
+                    if (ownDamageType == DamageType.Normal)
                         extraDamage -= 1;
                     break;
             }
 
             switch (enemyMovement)
             {
-                case CharacterMovement.ground:
+                case CharacterMovement.Boden:
                     extraDamage += 0;
                     break;
-                case CharacterMovement.air:
-                    if (ownRange == WeaponRange.close)
+                case CharacterMovement.Fliegend:
+                    if (ownRange == WeaponRange.Nahkampf)
                         extraDamage -= 1;
                     break;
             }
