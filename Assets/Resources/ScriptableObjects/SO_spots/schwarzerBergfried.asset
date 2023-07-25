@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: schwarzerBergfried
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: 
+    name: Schwarzer Bergfried
     image: 
   reward:
     xp: 0

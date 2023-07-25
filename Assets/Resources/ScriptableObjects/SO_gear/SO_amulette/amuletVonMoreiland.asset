@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b178ddf166764488506b4101f18bbc, type: 3}
   m_Name: amuletVonMoreiland
   m_EditorClassIdentifier: 
-  itemName: 
-  itemImage: {fileID: 0}
+  itemName: Amulett von Moreiland
+  itemImage: Amulett von Moreiland.png
   valueBuy: 0
   valueSell: 0
   attributeBuffs:

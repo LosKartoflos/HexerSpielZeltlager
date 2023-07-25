@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57833ce9fb886704dbe6e929774a58e7, type: 3}
   m_Name: stabDesLichts
   m_EditorClassIdentifier: 
-  itemName: 
-  itemImage: {fileID: 0}
+  itemName: Stab des Lichts
+  itemImage: Stab des Lichts.png
   valueBuy: 0
   valueSell: 0
   attributeBuffs:
@@ -28,5 +28,5 @@ MonoBehaviour:
   weaponStats:
     succesThreshold: 0
     attackDice: 0
-    damageType: 0
-    weaponRange: 0
+    damageType: 1
+    weaponRange: 1

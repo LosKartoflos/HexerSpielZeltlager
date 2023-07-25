@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: herrenhaus
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: 
+    name: Herrenhaus
     image: 
   reward:
     xp: 0

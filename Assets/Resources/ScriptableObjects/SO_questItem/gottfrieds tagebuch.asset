@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb89b2d5d56032549853b9abd3cad3ea, type: 3}
   m_Name: gottfrieds tagebuch
   m_EditorClassIdentifier: 
-  itemName: 
-  itemImage: {fileID: 0}
+  itemName: Gottfrieds Tagebuch
+  itemImage: 
   valueBuy: 0
   valueSell: 0

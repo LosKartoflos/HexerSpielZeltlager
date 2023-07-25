@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "s\xE4gewerk"
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: 
+    name: "S\xE4gewerk"
     image: 
   reward:
     xp: 0

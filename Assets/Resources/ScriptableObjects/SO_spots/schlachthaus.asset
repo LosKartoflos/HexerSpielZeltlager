@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: schlachthaus
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: 
+    name: Schlachthaus
     image: 
   reward:
     xp: 0
