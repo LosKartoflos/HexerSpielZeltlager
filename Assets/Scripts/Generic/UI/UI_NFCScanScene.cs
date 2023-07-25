@@ -15,7 +15,9 @@ public class UI_NFCScanScene : MonoBehaviour
     TextMeshProUGUI label_scanning;
 
     [SerializeField]
-    TMP_InputField inputFieldDebug;
+    public TMP_InputField inputFieldDebug;
+
+
     #endregion
 
     #region Accessors
@@ -26,16 +28,16 @@ public class UI_NFCScanScene : MonoBehaviour
     private void Awake()
     {
         instance = this;
-#if UNITY_ANDROID && !UNITY_EDITOR
-        inputFieldDebug.gameObject.SetActive(false);
-#endif
+//#if UNITY_ANDROID && !UNITY_EDITOR
+//        inputFieldDebug.gameObject.SetActive(false);
+//#endif
     }
 
     private void Start()
     {
-#if UNITY_EDITOR
+
         inputFieldDebug.onSubmit.AddListener(FakeNFCTAG);
-#endif
+
     }
 
     private void OnEnable()
