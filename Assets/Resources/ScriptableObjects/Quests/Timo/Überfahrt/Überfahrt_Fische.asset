@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a82a38a3539a90d4aadde7b53422d716, type: 3}
   m_Name: "\xDCberfahrt_Fische"
   m_EditorClassIdentifier: 
-  stepName: 
+  stepName: "\xDCberfahrt_Fische"
   image: 
   questText: "Habt vielen Dank, jetzt br\xE4uchte ich nur noch 1 Fische, das w\xE4re
     dann alles."
@@ -29,4 +29,4 @@ MonoBehaviour:
   nextQuestStep: {fileID: 11400000, guid: c3ce88032618325439e40e3707367424, type: 2}
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}
-  monsterToFight: {fileID: 0}
+  monsterToFight: {fileID: 11400000, guid: 8418d0fe1bdfc6e4093a7377cc99bd06, type: 2}

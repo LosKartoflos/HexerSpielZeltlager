@@ -12,10 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a82a38a3539a90d4aadde7b53422d716, type: 3}
   m_Name: Spionage_Start
   m_EditorClassIdentifier: 
-  stepName: 
+  stepName: Spionage_Start
   image: 
-  questText: 
-  resolvedText: 
+  questText: "In der stillen Abgeschiedenheit meines bescheidenen Zuhauses, fernab
+    der Stadt, lebe ich als Einsiedler, ein einsamer Geist inmitten der unerbittlichen
+    Wildnis. Die Skorpione, diese gef\xE4hrlichen und unberechenbaren Kreaturen,
+    sind mir eine bedrohliche Plage. Meine hilflose Lage, sie zu bek\xE4mpfen, l\xE4sst
+    mich nach L\xF6sungen suchen. W\xFCrdet ihr mir helfe etwas \xFCber ihre Armee
+    st\xE4rke herauszufinden."
+  resolvedText: Sehr gut, das ihr die Wache schon besiegt habt.
   xp: 0
   rewards:
     gold: 0
@@ -25,7 +30,7 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 0}
+  nextQuestStep: {fileID: 11400000, guid: 0727798520ec89845b61362aed3ad857, type: 2}
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}
-  monsterToFight: {fileID: 0}
+  monsterToFight: {fileID: 11400000, guid: 6a112e79ff44d0148b991e29bebed761, type: 2}

@@ -15,4 +15,4 @@ MonoBehaviour:
   nfcTagInfos:
     name: 
     image: 
-  firstQuestStep: {fileID: 0}
+  firstQuestStep: {fileID: 11400000, guid: 19ec2d8d3d204c04e82979191f8be622, type: 2}

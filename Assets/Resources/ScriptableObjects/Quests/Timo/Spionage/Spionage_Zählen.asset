@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd1d26e7bd01b34185d0cc43564db08, type: 3}
   m_Name: "Spionage_Z\xE4hlen"
   m_EditorClassIdentifier: 
-  stepName: 
+  stepName: "Spionage_Z\xE4hlen"
   image: 
-  questText: 
+  questText: "Jetzt k\xF6nnt ihr ungest\xF6rt die Armee z\xE4hlen. Findet die Skopion
+    Armee und berichtet den Einsiedler \xFCber die Anzahl. Findet die 8 CDs im Skorpion
+    Bereich."
   resolvedText: 
   xp: 0
   rewards:
@@ -25,8 +27,9 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 0}
+  nextQuestStep: {fileID: 11400000, guid: c3ce88032618325439e40e3707367424, type: 2}
   spotToGO: {fileID: 0}
-  npcToInteract: {fileID: 0}
-  shortQuestion: 
-  answer: 
+  npcToInteract: {fileID: 11400000, guid: 59e2846c19a0a474da406dee4d6c7f20, type: 2}
+  shortQuestion: "Gehe zur\xFCck zum Einsiedler und bereichte ihn \xFCber die Armee
+    st\xE4rke. (Zahl 3 stellen)"
+  answer: 424
