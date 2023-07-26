@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 098602e90339e4a4a8f54421a8c63d25, type: 3}
   m_Name: "03_baumr\xE4tsel"
   m_EditorClassIdentifier: 
-  stepName: 
+  stepName: "Baumr\xE4tsel"
   image: 
   questText: "Die G\xF6tter schauen sich die Welt von oben an, doch vergessen sie
     meist, wie viele B\xE4ume auf der Karte sind. Wie viele B\xE4ume sind auf der
