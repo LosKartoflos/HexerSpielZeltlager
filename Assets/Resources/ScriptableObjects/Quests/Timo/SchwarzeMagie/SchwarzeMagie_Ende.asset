@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a82a38a3539a90d4aadde7b53422d716, type: 3}
-  m_Name: Nachforschung_Start
+  m_Name: SchwarzeMagie_Ende
   m_EditorClassIdentifier: 
-  stepName: Nachforschung_Start
+  stepName: SchwarzeMagie_Ende
   image: 
-  questText: "Hallo, w\xFCrden Sie mir bei meinen Nachforschungen \xFCber die Orks
-    helfen? Du m\xFCsstest in den Norden gehen und einen Ork t\xF6ten. Du m\xFCsstest
-    dort auch eine Kleinigkeit f\xFCr mich erledigen."
-  resolvedText: Sehr gut, ein Ork weniger!
+  questText: "Besiegt f\xFCr mich einen Wolf."
+  resolvedText: "Es scheint mir als seid ihr w\xFCrdig. Gl\xFCckwunsch hier eine
+    Belohnung."
   xp: 0
   rewards:
     gold: 0
@@ -27,7 +26,7 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 11400000, guid: 7258bbb17ab06e94e85ef7c2ffa1ee76, type: 2}
+  nextQuestStep: {fileID: 11400000, guid: c3ce88032618325439e40e3707367424, type: 2}
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}
-  monsterToFight: {fileID: 11400000, guid: de4267172d17c0e42a12486a9b74ccd5, type: 2}
+  monsterToFight: {fileID: 11400000, guid: f5fabe52a148d1d4aa9616af34a47d67, type: 2}
