@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6352a066c47e8c34f87357d5f4a61131, type: 3}
+  m_Name: "05_buchZur\xFCckgeben"
+  m_EditorClassIdentifier: 
+  stepName: "Zur\xFCckbringen des Buches"
+  image: 
+  questText: "Ihr trefft Babsi und erz\xE4hlt ihr, dass ihr das Buch wieder gefunden
+    habt!"
+  resolvedText: "\u201CMein geliebtes Buch. Habt dank, hier nehmt diesen Stab, er
+    wird euch gute Dienste leisten\u201D"
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear:
+  - {fileID: 11400000, guid: 4fde859de03ac83469aaed46f3dc6ec0, type: 2}
+  dropedQuestItems: []
+  nextQuestStep: {fileID: 11400000, guid: c3ce88032618325439e40e3707367424, type: 2}
+  spotToGO: {fileID: 0}
+  npcToInteract: {fileID: 0}
+  questItemNeeded: {fileID: 11400000, guid: c58f69cb1ac64a24aaab639c2676ff24, type: 2}

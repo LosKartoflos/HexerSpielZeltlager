@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 825fa593f842d424c9a7b298ac53a22a, type: 3}
-  m_Name: argoroth_01
+  m_Name: spinnennetz
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: Argoroth Kristallsplitter 01
+    name: SpinnennetzSolve
     image: 
-  questStepToSolve: {fileID: 0}
+  questStepToSolve: {fileID: 11400000, guid: 4eb424c5f164ac043a2c7088c4d700b0, type: 2}

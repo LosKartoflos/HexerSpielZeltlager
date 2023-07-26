@@ -31,4 +31,4 @@ MonoBehaviour:
   nextQuestStep: {fileID: 0}
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}
-  monsterToFight: {fileID: 0}
+  monsterToFight: {fileID: 11400000, guid: 138045f8a590c504cbedcb5f7c0c1cba, type: 2}
