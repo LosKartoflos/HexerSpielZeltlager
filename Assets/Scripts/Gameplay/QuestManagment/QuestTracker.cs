@@ -144,8 +144,9 @@ namespace Hexerspiel.Quests
         public void CheckQuestSolverTag()
         {
             Debug.Log("CheckQuestSolverTag");
-            // questSolveValidation = null;
             LoadQuestScene();
+            
+
         }
 
         public bool CheckIfQuestIsAllreadyUsed(SO_questStep newQuest)
@@ -561,6 +562,8 @@ namespace Hexerspiel.Quests
                 nextQuestStep[index] = nextQuestStepMultipleChoice;
 
             Player.Instance.RecieveLootQuestStep(questSteps[index]);
+
+            questSolveValidation = null;
             //last step 
             if (nextQuestStep[index] == finishStep)
             {
