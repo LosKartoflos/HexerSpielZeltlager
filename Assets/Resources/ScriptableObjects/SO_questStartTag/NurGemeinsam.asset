@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 825fa593f842d424c9a7b298ac53a22a, type: 3}
-  m_Name: argoroth_01
+  m_Script: {fileID: 11500000, guid: fe60354783db1284db55ab78764096e5, type: 3}
+  m_Name: NurGemeinsam
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: Argoroth Kristallsplitter 01
+    name: 
     image: 
-  questStepToSolve: {fileID: 0}
+  firstQuestStep: {fileID: 11400000, guid: 1028d4225a17ec040a6ab852ab3e56d2, type: 2}

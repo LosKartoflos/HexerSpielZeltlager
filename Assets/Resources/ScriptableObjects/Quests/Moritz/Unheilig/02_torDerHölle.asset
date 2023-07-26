@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a41fdff46220274e9b34375195aac32, type: 3}
+  m_Name: "02_torDerH\xF6lle"
+  m_EditorClassIdentifier: 
+  stepName: "Tor zur H\xF6lle"
+  image: 
+  questText: "Begebt euch zum Tor der H\xF6lle, bzw zu einem Ort, der einem Tor zur
+    H\xF6lle \xE4hnlich sieht! Sucht dort nach einem Tag zum scannen!"
+  resolvedText: "Ihr habt den Kopf des alten Braumeisters gefunden! Bringt ihn nun
+    zum schwarzen Burgfried zur\xFCck!"
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear: []
+  dropedQuestItems:
+  - {fileID: 11400000, guid: ab35dc31b9e5fff4881380059e096cad, type: 2}
+  nextQuestStep: {fileID: 11400000, guid: 173bdb994046b054ba351075c29855a2, type: 2}
+  spotToGO: {fileID: 0}
+  npcToInteract: {fileID: 0}

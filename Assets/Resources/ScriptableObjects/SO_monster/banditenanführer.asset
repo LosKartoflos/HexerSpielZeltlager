@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee13194364c7a76459928be9ec285a84, type: 3}
+  m_Name: "banditenanf\xFChrer"
+  m_EditorClassIdentifier: 
+  monsterName: 
+  monsterImage: {fileID: 0}
+  basicStats:
+    health: 0
+    healthMax: 0
+    characterMovement: 0
+    characterType: 0
+  monsterStats:
+    level: 0
+    gold: 0
+    xp: 0
+    herbs: 0
+    meat: 0
+    magicEssence: 0
+    dropedGear: []
+    droppedPotion: []
+    dropedQuestItems: []
+  offensivStats:
+    succesThreshold: 0
+    attackDice: 0
+    damageType: 0
+    weaponRange: 0
+  defensiveStats:
+    armor: 0

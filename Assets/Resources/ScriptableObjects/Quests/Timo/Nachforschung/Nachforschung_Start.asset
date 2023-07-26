@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82a38a3539a90d4aadde7b53422d716, type: 3}
+  m_Name: Nachforschung_Start
+  m_EditorClassIdentifier: 
+  stepName: Nachforschung_Start
+  image: 
+  questText: "Hallo, w\xFCrden Sie mir bei meinen Nachforschungen \xFCber die Orks
+    helfen? Du m\xFCsstest in den Norden gehen und einen Ork t\xF6ten. Du m\xFCsstest
+    dort auch eine Kleinigkeit f\xFCr mich erledigen."
+  resolvedText: Sehr gut, ein Ork weniger!
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear: []
+  dropedQuestItems: []
+  nextQuestStep: {fileID: 11400000, guid: 7258bbb17ab06e94e85ef7c2ffa1ee76, type: 2}
+  spotToGO: {fileID: 0}
+  npcToInteract: {fileID: 0}
+  monsterToFight: {fileID: 11400000, guid: de4267172d17c0e42a12486a9b74ccd5, type: 2}
