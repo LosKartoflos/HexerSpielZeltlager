@@ -126,6 +126,7 @@ public class NFCManager : MonoBehaviour
                 spotToVisit = newSpot;
                 parsingSuccesfull = true;
                 parsedTagTask = TagTask.spot;
+                MainManager.Instance.ApplyCurrentSpot(newSpot);
                 return "Du betrittst " + newSpot.nfcTagInfos.name;
             }
         }
@@ -138,6 +139,7 @@ public class NFCManager : MonoBehaviour
                 npcToVisit = newNPC;
                 parsingSuccesfull = true;
                 parsedTagTask = TagTask.npc;
+                MainManager.Instance.ApplyCurrentNPC(newNPC);
                 return "Du begegnest " + newNPC.npcInformation.name;
             }
         }
@@ -205,15 +207,15 @@ public class NFCManager : MonoBehaviour
         return string.Format("{0} ist kein valider Tag!", nfcTag);
     }
 
-   
+
 
     public void AcceptScanedTag()
     {
         switch (parsedTagTask)
         {
             case TagTask.spot:
-                SpotManager.currentStpot = spotToVisit;
-                SpotManager.LoadSpotScene();
+                MainManager.Instance.ApplyCurrentSpot(spotToVisit);
+
                 break;
             case TagTask.npc:
                 NPCManager.currentNpc = npcToVisit;

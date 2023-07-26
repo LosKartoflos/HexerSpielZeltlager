@@ -26,27 +26,15 @@ MonoBehaviour:
     fightingGround: 0
     minLevel: 0
     maxLevel: 0
-    monsters: []
-    boss: {fileID: 0}
+    monsters:
+    - {fileID: 11400000, guid: 8418d0fe1bdfc6e4093a7377cc99bd06, type: 2}
+    - {fileID: 11400000, guid: 8418d0fe1bdfc6e4093a7377cc99bd06, type: 2}
+    - {fileID: 11400000, guid: 57b129364942d064981df6a98514077a, type: 2}
+    boss: {fileID: 11400000, guid: 149cf29d94c6b11489fb63b92abb8fc1, type: 2}
   shop:
-    shop: 0
-    basicItems: 0
-    tier1Gear: []
-    tier2Gear: []
-    tier3Gear: []
-    amuletOffer:
-      cheaper: 0
-      expensive: 0
-    armorOffer:
-      cheaper: 0
-      expensive: 0
-    potionOffer:
-      cheaper: 0
-      expensive: 0
-    weaponOffer:
-      cheaper: 0
-      expensive: 0
-    magicalOffer:
-      cheaper: 0
-      expensive: 0
+    tier1Gear:
+    - {fileID: 11400000, guid: 9bede2767d7ec124696549722d5fe1a1, type: 2}
+    - {fileID: 11400000, guid: 9a01f365493dc77469a93823b0ef23ad, type: 2}
+    - {fileID: 11400000, guid: 879191738af455848a0e56147979a328, type: 2}
+    - {fileID: 11400000, guid: 833901f89fa200747a31829358068e0f, type: 2}
   peopleAtPlace: []

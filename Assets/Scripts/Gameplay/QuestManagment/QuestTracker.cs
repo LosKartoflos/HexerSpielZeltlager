@@ -88,12 +88,7 @@ namespace Hexerspiel.Quests
 
         }
 
-        private void Update()
-        {
-            currentSpot = testSpot;
-            currentNPC = testNpc;
-        }
-
+  
 
         private void OnEnable()
         {
