@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92cd217e4a9a6a446925be2bf5932eab, type: 3}
   m_Name: 02_wegZurTaverne
   m_EditorClassIdentifier: 
-  stepName: 
+  stepName: Weg zur Taverne
   image: 
-  questText: 
-  resolvedText: 
+  questText: "Bringt nun einen Becher bzw ein Gef\xE4\xDF mit eingef\xE4rbtem Wasser
+    zur\xFCck in die Taverne zu Hilda!"
+  resolvedText: "Vielen Dank fromme Recken! Damit kann ich endlich wieder mehr Leute
+    einladen. Genie\xDFt ein paar k\xFChle Getr\xE4nke und gurgelt ein wenig!"
   xp: 0
   rewards:
     gold: 0
@@ -25,6 +27,6 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 0}
-  spotToGO: {fileID: 0}
+  nextQuestStep: {fileID: 11400000, guid: 22753c87381c01f45b12ac1be2a146d4, type: 2}
+  spotToGO: {fileID: 11400000, guid: ebb48ea450a19144e9bdb2b006a2d300, type: 2}
   npcToInteract: {fileID: 0}

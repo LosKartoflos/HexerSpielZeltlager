@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a41fdff46220274e9b34375195aac32, type: 3}
   m_Name: 03_gurgeln
   m_EditorClassIdentifier: 
-  stepName: 
+  stepName: Gurgeln
   image: 
-  questText: 
-  resolvedText: 
+  questText: Absolviert bei Hilda das Gurgel-Spiel!
+  resolvedText: "Sehr sch\xF6n! Ihr habt mir sehr geholfen, als Dank nehmt das!"
   xp: 0
   rewards:
     gold: 0
@@ -25,6 +25,6 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 0}
+  nextQuestStep: {fileID: 11400000, guid: c3ce88032618325439e40e3707367424, type: 2}
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}

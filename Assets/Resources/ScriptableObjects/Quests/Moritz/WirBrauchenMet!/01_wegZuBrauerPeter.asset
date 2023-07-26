@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3093f82b4f8dfae469a39c781b60c3d0, type: 3}
   m_Name: 01_wegZuBrauerPeter
   m_EditorClassIdentifier: 
-  stepName: 
+  stepName: Weg zu Brauer Peter
   image: 
-  questText: 
-  resolvedText: 
+  questText: "Die Wirtin braucht neues Met f\xFCr ihre Taverne, jedoch ist sie zu
+    alt, um es selbst zu tun, helft ihr ihr?  Dann bringt der Wirtin Hilda ihr Met
+    von der Brauerei direkt neben dem Vorort. "
+  resolvedText: Ihr habt Brauer Peter gefunden!
   xp: 0
   rewards:
     gold: 0
@@ -25,6 +27,6 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 0}
+  nextQuestStep: {fileID: 11400000, guid: 992fabb312b2fdd41bb5cc7fe5322e4c, type: 2}
   spotToGO: {fileID: 0}
-  npcToInteract: {fileID: 0}
+  npcToInteract: {fileID: 11400000, guid: 97b117578f896a04baa27b3a72e2bdbd, type: 2}
