@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee13194364c7a76459928be9ec285a84, type: 3}
   m_Name: Reh
   m_EditorClassIdentifier: 
-  monsterName: 
+  monsterName: Reh
   monsterImage: {fileID: 0}
   basicStats:
     health: 0

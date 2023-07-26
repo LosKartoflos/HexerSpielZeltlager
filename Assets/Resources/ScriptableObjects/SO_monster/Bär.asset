@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee13194364c7a76459928be9ec285a84, type: 3}
   m_Name: "B\xE4r"
   m_EditorClassIdentifier: 
-  monsterName: 
+  monsterName: "B\xE4r"
   monsterImage: {fileID: 0}
   basicStats:
     health: 0
