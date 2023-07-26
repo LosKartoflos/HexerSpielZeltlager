@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5eff85bbf556a4e8247450cab3cbb8, type: 3}
+  m_Name: 01_nosferatu
+  m_EditorClassIdentifier: 
+  stepName: Nosferatu der Nekromant
+  image: 
+  questText: "\u201COh ihr d\xFCsteren Abenteurer, findet das Tor zur H\xF6lle und
+    bringt mir den Kopf der alten Braumeisters\u201D"
+  resolvedText: 
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear: []
+  dropedQuestItems: []
+  nextQuestStep: {fileID: 11400000, guid: 6e027dd998b51f9449cd2b44a23e774b, type: 2}
+  spotToGO: {fileID: 0}
+  npcToInteract: {fileID: 0}
+  goldToPay: 0
