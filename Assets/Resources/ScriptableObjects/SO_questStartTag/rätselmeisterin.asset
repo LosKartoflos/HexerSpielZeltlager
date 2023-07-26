@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 825fa593f842d424c9a7b298ac53a22a, type: 3}
-  m_Name: glasscheiben
+  m_Script: {fileID: 11500000, guid: fe60354783db1284db55ab78764096e5, type: 3}
+  m_Name: "r\xE4tselmeisterin"
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: GlasscheibenSolve
+    name: 
     image: 
-  questStepToSolve: {fileID: 11400000, guid: 40699296560a76f48949fd4aab25519c, type: 2}
+  firstQuestStep: {fileID: 0}
