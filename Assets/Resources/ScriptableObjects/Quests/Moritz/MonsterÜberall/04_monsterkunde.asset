@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 098602e90339e4a4a8f54421a8c63d25, type: 3}
   m_Name: 04_monsterkunde
   m_EditorClassIdentifier: 
-  stepName: 
+  stepName: Monsterkunde
   image: 
-  questText: 
-  resolvedText: 
+  questText: Was passiert wenn man einer Hydra den Kopf abhaut!
+  resolvedText: Hier! Nehmt die Erfahrung als Belohnung!
   xp: 0
   rewards:
     gold: 0
@@ -25,8 +25,12 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 0}
+  nextQuestStep: {fileID: 11400000, guid: c3ce88032618325439e40e3707367424, type: 2}
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}
   rightAnswer: 0
-  answersTexts: []
+  answersTexts:
+  - "Ihr wachsen zwei neue K\xF6pfe"
+  - "K\xF6nig"
+  - "Der giftige Rauch der austritt t\xF6ten dich"
+  - Man wird zu Stein

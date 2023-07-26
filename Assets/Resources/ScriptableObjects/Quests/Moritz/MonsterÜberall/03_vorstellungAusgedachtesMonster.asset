@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a41fdff46220274e9b34375195aac32, type: 3}
   m_Name: 03_vorstellungAusgedachtesMonster
   m_EditorClassIdentifier: 
-  stepName: 
+  stepName: Vorstellung des Monsters
   image: 
-  questText: 
-  resolvedText: 
+  questText: Nun habt ihr einen Leiter gefunden. Stellt diesem euer Monster vor!
+  resolvedText: "\u201CEin wirklich au\xDFerordentliches Exemplar! Eine Frage h\xE4tte
+    ich aber noch!\u201D"
   xp: 0
   rewards:
     gold: 0
@@ -25,6 +26,6 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 0}
+  nextQuestStep: {fileID: 11400000, guid: 21aabb9208e568f409308a958f41917f, type: 2}
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}

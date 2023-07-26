@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: "g\xF6tterInNot"
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: 
+    name: "G\xF6tter in Not!"
     image: 
-  firstQuestStep: {fileID: 0}
+  firstQuestStep: {fileID: 11400000, guid: 406c34bd46b6c864eb2c86429d03e9b0, type: 2}

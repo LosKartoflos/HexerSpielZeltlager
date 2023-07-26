@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce5eff85bbf556a4e8247450cab3cbb8, type: 3}
   m_Name: 01_monsterkundler
   m_EditorClassIdentifier: 
-  stepName: 
+  stepName: Monsterkundler
   image: 
-  questText: 
+  questText: "Ihr trefft den Monsterkundler Fridolin Fromm: \u201CHabt ihr es gesehen?
+    Da war es, ich hab nur seinen Schweif noch gesehen? Ihr auch? Und ihr wisst,
+    welches Monster das ist? Malt es mir und zeigt es mir bei der M\xFChle.\u201D"
   resolvedText: 
   xp: 0
   rewards:
@@ -25,7 +27,7 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 0}
+  nextQuestStep: {fileID: 11400000, guid: 722b415735042194893916efd7994fd2, type: 2}
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}
   goldToPay: 0
