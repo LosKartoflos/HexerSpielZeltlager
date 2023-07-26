@@ -144,7 +144,8 @@ namespace Hexerspiel.Quests
         public void CheckQuestSolverTag()
         {
             Debug.Log("CheckQuestSolverTag");
-            questSolveValidation = null;
+            // questSolveValidation = null;
+            LoadQuestScene();
         }
 
         public bool CheckIfQuestIsAllreadyUsed(SO_questStep newQuest)

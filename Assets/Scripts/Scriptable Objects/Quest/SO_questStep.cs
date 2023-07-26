@@ -110,8 +110,8 @@ namespace Hexerspiel.Quests
                 return null;
         }
 
-        public int xpWhole, goldWhole, meatWhole, herbsWhole, magicEssnceWhole;
-        public List<SO_gear> gearWhole = new List<SO_gear>();
+        protected int xpWhole, goldWhole, meatWhole, herbsWhole, magicEssnceWhole;
+        protected List<SO_gear> gearWhole = new List<SO_gear>();
 
         public string GetLootTextWhole()
         {
