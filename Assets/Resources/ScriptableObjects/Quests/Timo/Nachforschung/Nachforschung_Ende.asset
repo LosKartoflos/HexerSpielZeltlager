@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd1d26e7bd01b34185d0cc43564db08, type: 3}
   m_Name: Nachforschung_Ende
   m_EditorClassIdentifier: 
-  stepName: 
+  stepName: Nachforschung_Ende
   image: 
-  questText: 
+  questText: Klingt logisch. Nur um sicherzustellen. Woher habt ihr diese Informationen?
   resolvedText: 
   xp: 0
   rewards:
@@ -25,8 +25,8 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 0}
+  nextQuestStep: {fileID: 11400000, guid: c3ce88032618325439e40e3707367424, type: 2}
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}
-  shortQuestion: 
-  answer: 
+  shortQuestion: "Gebe die Nummer ein, die auf der R\xFCckseite vom Orkaushang steht."
+  answer: 6283
