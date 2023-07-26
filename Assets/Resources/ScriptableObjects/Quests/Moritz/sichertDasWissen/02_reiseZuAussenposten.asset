@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92cd217e4a9a6a446925be2bf5932eab, type: 3}
   m_Name: 02_reiseZuAussenposten
   m_EditorClassIdentifier: 
-  stepName: Reise zu Aussenposten
+  stepName: Reise zu Banditenaussenposten
   image: 
   questText: "Vielen Dank. aber das Buch \xFCber Monsterkunde ist weg, wahrscheinlich
     haben es die Banditen geklaut als sie die Chance dazu hatten mit dem offen Fenster,

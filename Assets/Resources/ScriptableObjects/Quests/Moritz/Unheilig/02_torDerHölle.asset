@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a41fdff46220274e9b34375195aac32, type: 3}
-  m_Name: 03_spinnennetz
+  m_Name: "02_torDerH\xF6lle"
   m_EditorClassIdentifier: 
-  stepName: Spinnennetz
+  stepName: "Tor zur H\xF6lle"
   image: 
-  questText: Absolviert das Spinnennetzspiel um an der Spinne vorbeizuschleichen!
-  resolvedText: "Auf der Unterseite des Bauchs der Spinne seht ihr die Worte: \"S\xE4gewerk
-    am Berg Mamorth\" eingebrannt. Begebt euch dorthin, um den n\xE4chsten Kristallsplitter
-    zu finden!"
+  questText: "Begebt euch zum Tor der H\xF6lle, bzw zu einem Ort, der einem Tor zur
+    H\xF6lle \xE4hnlich sieht! Sucht dort nach einem Tag zum scannen!"
+  resolvedText: "Ihr habt den Kopf des alten Braumeisters gefunden! Bringt ihn nun
+    zum schwarzen Burgfried zur\xFCck!"
   xp: 0
   rewards:
     gold: 0
@@ -27,7 +27,7 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems:
-  - {fileID: 11400000, guid: d4426c8c138e186409c1e0e7380d672d, type: 2}
-  nextQuestStep: {fileID: 11400000, guid: 1293c362b5212084f846e980500c769b, type: 2}
+  - {fileID: 11400000, guid: ab35dc31b9e5fff4881380059e096cad, type: 2}
+  nextQuestStep: {fileID: 11400000, guid: 173bdb994046b054ba351075c29855a2, type: 2}
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}

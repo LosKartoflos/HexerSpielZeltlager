@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a41fdff46220274e9b34375195aac32, type: 3}
+  m_Name: 05_glasscheibenSammeln
+  m_EditorClassIdentifier: 
+  stepName: Glasscheiben Sammeln
+  image: 
+  questText: Absolviert das Glasscheiben Spiel!
+  resolvedText: "\"Na gut na gut na gut, hier ist der Kristallsplitter, aber lass
+    dir eins gesagt sein, Argoroth wird nicht dar\xFCber erfreut sein, er wird dich
+    holen und t\xF6ten. Um den letzten Splitter zu holen, musst du Argoroth besiegen.
+    Das wird aber nicht leicht werden, mittlerweile ist Argoroth durch die Kraft
+    des Kristalls ein unbesiegbares Monster, er hat den Kristallsplitter immer um
+    seinen Hals h\xE4ngen, das schaffst du eh nie ahahahahahahahahah!\""
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear: []
+  dropedQuestItems:
+  - {fileID: 11400000, guid: d4426c8c138e186409c1e0e7380d672d, type: 2}
+  nextQuestStep: {fileID: 11400000, guid: 9935708118f81cf488a989e216701378, type: 2}
+  spotToGO: {fileID: 0}
+  npcToInteract: {fileID: 0}

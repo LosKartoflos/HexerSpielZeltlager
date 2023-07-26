@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a41fdff46220274e9b34375195aac32, type: 3}
-  m_Name: 03_spinnennetz
+  m_Name: 03_gurgeln
   m_EditorClassIdentifier: 
-  stepName: Spinnennetz
+  stepName: 
   image: 
-  questText: Absolviert das Spinnennetzspiel um an der Spinne vorbeizuschleichen!
-  resolvedText: "Auf der Unterseite des Bauchs der Spinne seht ihr die Worte: \"S\xE4gewerk
-    am Berg Mamorth\" eingebrannt. Begebt euch dorthin, um den n\xE4chsten Kristallsplitter
-    zu finden!"
+  questText: 
+  resolvedText: 
   xp: 0
   rewards:
     gold: 0
@@ -26,8 +24,7 @@ MonoBehaviour:
       meat: 0
       magicEssence: 0
   dropedGear: []
-  dropedQuestItems:
-  - {fileID: 11400000, guid: d4426c8c138e186409c1e0e7380d672d, type: 2}
-  nextQuestStep: {fileID: 11400000, guid: 1293c362b5212084f846e980500c769b, type: 2}
+  dropedQuestItems: []
+  nextQuestStep: {fileID: 0}
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}
