@@ -73,7 +73,8 @@ namespace Hexerspiel.UI
             containerButtonInfo.SetActive(false);
             containerButtonAccept.SetActive(true);
 
-            bt_decline.enabled = false;
+
+            bt_decline.gameObject.SetActive(false);
 
             bt_accept.onClick.AddListener(delegate {  Destroy(gameObject); });
             

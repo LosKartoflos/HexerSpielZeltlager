@@ -97,7 +97,7 @@ namespace Hexerspiel.UI
                 }
                 else if (QuestTracker.QuestSteps[i] != null)
                 {
-                    QuestItems[i].FillHeader(QuestTracker.QuestSteps[i].stepName);
+                    QuestItems[i].FillHeader(QuestTracker.QuestSteps[i].stepName + " | " + QuestTracker.QuestSteps[i].GetShortLootText());
                     if (QuestTracker.NextQuestStep[i] == null)
                     {
                         QuestItems[i].EnableOnQuest();
@@ -183,8 +183,6 @@ namespace Hexerspiel.UI
             //free entry
             else if (QuestTracker.QuestSteps[index].QuestStepTarget == QuestTarget.freeEntry)
             {
-                
-
                 GameObject freeEntryObject = Instantiate(freeEntryPrefab, popUpPanel, false);
                 freeEntryObject.SetActive(false);
                 freeEntryObject.SetActive(true);

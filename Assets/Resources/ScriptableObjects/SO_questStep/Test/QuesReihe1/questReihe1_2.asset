@@ -16,9 +16,9 @@ MonoBehaviour:
   image: FInde den Diamant
   questText: 
   resolvedText: Du hast den Diamant
-  xp: 100
+  xp: 366
   rewards:
-    gold: 100
+    gold: 98
     miscItems:
       herbs: 10
       meat: 10

@@ -187,6 +187,11 @@ namespace Hexerspiel.UI
             shopItem.ChangeAppreance(null, null);
         }
 
+       public void UpdateOverlayHeader()
+        {
+            label_Header.text = Player.Instance.Inventory.BasicInventory.Amount.gold.ToString() + " Gold";
+        }
+
         public void UpdateMisc()
         {
             label_gold.text = Player.Instance.Inventory.BasicInventory.Amount.gold.ToString();
@@ -272,6 +277,7 @@ namespace Hexerspiel.UI
             }
             //AlertLookUp("Du hast für " + itemToProcess.valueBuy + " Gold " + itemToProcess.itemName + "gekauft.");
             shopItemList.Remove(itemToProcess);
+            UpdateOverlayHeader();
             currentitemSelected.DeleteItem();
         }
 
@@ -301,7 +307,7 @@ namespace Hexerspiel.UI
                     break;
 
             }
-
+            UpdateOverlayHeader();
         }
 
         public void EquipItem(SO_item itemToProcess)
@@ -355,6 +361,8 @@ namespace Hexerspiel.UI
         //Fill and open ui
         public void OpenOverlay(ItemType itemType, GearType gearType = GearType.none)
         {
+            UpdateOverlayHeader();
+
             menuOpendForItem = itemType;
             menuOpenedForGear = gearType;
 

@@ -55,7 +55,7 @@ namespace Hexerspiel.Quests
 
         public static int questToDelete = 0;
         public static int questToSolveIndex = 0;
-        
+
 
         public const string delteRecieverID = "deleteQuest";
         public const string solveRecieverID = "solveQuest";
@@ -68,6 +68,7 @@ namespace Hexerspiel.Quests
         public static QuestTracker Instance { get => instance; }
         public static SO_questStep[] QuestSteps { get => questSteps; }
         public static SO_questStep[] NextQuestStep { get => nextQuestStep; }
+        public SO_questStep FinishStep { get => finishStep; }
 
         //public SO_spots CurrentSpot { get => currentSpot; }
         //public SO_npc CurrentNPC { get => currentNPC; }
@@ -184,7 +185,7 @@ namespace Hexerspiel.Quests
                 yield return new WaitForEndOfFrame();
             }
 
-            UI_QuestTracker.Instance.CreateQuestStartPopUp(questStartTag.firstQuestStep.questText + "\n\n" + (GetSolveText(questStartTag.firstQuestStep)), questStartTag.firstQuestStep.stepName);
+            UI_QuestTracker.Instance.CreateQuestStartPopUp(questStartTag.firstQuestStep.questText + "\n\n" + (GetSolveText(questStartTag.firstQuestStep)) + "\n\n" + questStartTag.firstQuestStep.GetLootText() + "\n\n======================\n\n" + questStartTag.firstQuestStep.GetLootTextWhole(), questStartTag.firstQuestStep.stepName);
 
             yield return null;
         }
@@ -243,7 +244,7 @@ namespace Hexerspiel.Quests
                 return;
             }
 
-            if  (questSteps[indexUsed].QuestStepTarget == QuestTarget.fightAgainst)
+            if (questSteps[indexUsed].QuestStepTarget == QuestTarget.fightAgainst)
             {
                 ((SO_step_fight)questSteps[indexUsed]).timeQuestAccepted = DateTime.Now;
             }
@@ -404,7 +405,7 @@ namespace Hexerspiel.Quests
 
             string questText = "";
 
-            questText = questSteps[0].questText + "\n\n" + GetSolveTextById(0);
+            questText = questSteps[index].questText + "\n\n" + GetSolveTextById(index) + "\n\n" + questSteps[index].GetLootText();
 
             return questText;
         }
@@ -557,6 +558,8 @@ namespace Hexerspiel.Quests
             //}
             if (questSteps[index].QuestStepTarget == QuestTarget.multipleChoiceAttribute)
                 nextQuestStep[index] = nextQuestStepMultipleChoice;
+
+            Player.Instance.RecieveLootQuestStep(questSteps[index]);
             //last step 
             if (nextQuestStep[index] == finishStep)
             {
@@ -583,7 +586,7 @@ namespace Hexerspiel.Quests
                 UI_QuestTracker.Instance.CreateInfoPopUpAcceptOnly(questSteps[index].resolvedText + "\n\n" + nextQuestStep[index].questText + "\n\n" + GetSolveText(nextQuestStep[index]), nextQuestStep[index].stepName);
 
                 questSteps[index] = null;
-               
+
 
                 StartQuest(nextQuestStep[index]);
                 nextQuestStep[index] = null;

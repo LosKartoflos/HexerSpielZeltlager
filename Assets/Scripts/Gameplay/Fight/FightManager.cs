@@ -267,7 +267,7 @@ namespace Hexerspiel.Fight
         private void PlayerWon()
         {
             
-            Player.Instance.RecieveLoot(Fight.enemy.MonsterStat);
+            Player.Instance.RecieveLootMonster(Fight.enemy.MonsterStat);
             PlayerWonEvent(Fight.enemy);
         }
 

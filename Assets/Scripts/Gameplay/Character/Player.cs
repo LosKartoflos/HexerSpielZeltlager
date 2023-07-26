@@ -2,6 +2,7 @@ using Hexerspiel;
 using Hexerspiel.Character;
 using Hexerspiel.Character.monster;
 using Hexerspiel.Items;
+using Hexerspiel.Quests;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -121,7 +122,7 @@ public class Player : MonoBehaviour
     }
 
     //recieveLoot
-    public void RecieveLoot(MonsterStats loot)
+    public void RecieveLootMonster(MonsterStats loot)
     {
         collectedLoot = "Du hast erhalten: \n\n";
         GetGear(loot.dropedGear, true);
@@ -130,6 +131,27 @@ public class Player : MonoBehaviour
         ChangeMisc(loot.herbs, loot.meat, loot.magicEssence, true);
         ChangeGold(loot.gold, true);
         GetXp(loot.xp, true);
+    }
+
+    public void RecieveLootSpot(MonsterStats loot)
+    {
+        //collectedLoot = "Du hast erhalten: \n\n";
+        //GetGear(loot.dropedGear, true);
+        //GetQuestItems(loot.dropedQuestItems, true);
+        //GetPotions(loot.droppedPotion, true);
+        //ChangeMisc(loot.herbs, loot.meat, loot.magicEssence, true);
+        //ChangeGold(loot.gold, true);
+        //GetXp(loot.xp, true);
+    }
+
+    public void RecieveLootQuestStep(SO_questStep solvedStep)
+    {
+        collectedLoot = "Du hast erhalten: \n\n";
+        GetGear(solvedStep.dropedGear, true);
+        GetQuestItems(solvedStep.dropedQuestItems, true);
+        ChangeMisc(solvedStep.rewards.miscItems.herbs, solvedStep.rewards.miscItems.meat, solvedStep.rewards.miscItems.magicEssence, true);
+        ChangeGold(solvedStep.rewards.gold, true);
+        GetXp(solvedStep.xp, true);
     }
 
     public void GetGear(List<SO_gear> loot, bool noteLoot = false)

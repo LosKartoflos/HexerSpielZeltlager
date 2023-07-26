@@ -16,15 +16,17 @@ MonoBehaviour:
   image: 
   questText: In einem brunnen liegt ein Pokal. Finde ihn!
   resolvedText: Du hast den Pokal
-  xp: 0
+  xp: 77
   rewards:
-    gold: 0
+    gold: 133
     miscItems:
-      herbs: 0
-      meat: 0
-      magicEssence: 0
-  dropedGear: []
-  dropedQuestItems: []
+      herbs: 7
+      meat: 5
+      magicEssence: 4
+  dropedGear:
+  - {fileID: 11400000, guid: aba86078f0d0b114cb14ad89b9a8134f, type: 2}
+  dropedQuestItems:
+  - {fileID: 11400000, guid: 9a01f365493dc77469a93823b0ef23ad, type: 2}
   nextQuestStep: {fileID: 11400000, guid: 273cabf3d94c25043ab3ef54c58b1570, type: 2}
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}
