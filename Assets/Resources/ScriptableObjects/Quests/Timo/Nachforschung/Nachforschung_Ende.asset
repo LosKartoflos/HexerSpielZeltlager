@@ -16,9 +16,9 @@ MonoBehaviour:
   image: 
   questText: Klingt logisch. Nur um sicherzustellen. Woher habt ihr diese Informationen?
   resolvedText: 
-  xp: 0
+  xp: 90
   rewards:
-    gold: 0
+    gold: 30
     miscItems:
       herbs: 0
       meat: 0

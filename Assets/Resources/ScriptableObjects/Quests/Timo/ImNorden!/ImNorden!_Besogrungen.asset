@@ -17,9 +17,9 @@ MonoBehaviour:
   questText: "Guten Tag! Ich bin Erich. Ich habe vor nach Norden zufahren. W\xFCrdet
     ihr f\xFCr mich evt. einige Dinge besorgen?"
   resolvedText: Super vielen, Dank.
-  xp: 0
+  xp: 65
   rewards:
-    gold: 0
+    gold: 10
     miscItems:
       herbs: 0
       meat: 0
@@ -29,12 +29,6 @@ MonoBehaviour:
   nextQuestStep: {fileID: 11400000, guid: c3ce88032618325439e40e3707367424, type: 2}
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}
-  xpWhole: 0
-  goldWhole: 0
-  meatWhole: 0
-  herbsWhole: 0
-  magicEssnceWhole: 0
-  gearWhole: []
   miscItmesNeeded:
     herbs: 5
     meat: 10

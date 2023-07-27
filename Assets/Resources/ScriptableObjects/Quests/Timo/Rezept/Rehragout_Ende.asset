@@ -16,9 +16,9 @@ MonoBehaviour:
   image: 
   questText: "Gehe zur\xFCck zu Frau M\xFCller und \xFCbergebe ihr das Rezept"
   resolvedText: Viele Dank, hier ist deine Belohnung.
-  xp: 0
+  xp: 310
   rewards:
-    gold: 0
+    gold: 30
     miscItems:
       herbs: 0
       meat: 0

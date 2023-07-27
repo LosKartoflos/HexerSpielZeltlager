@@ -17,9 +17,9 @@ MonoBehaviour:
   questText: "Schade ich h\xE4tte gerne mit ihnen Gesch\xE4fte gemacht. Sammelt ein
     1kg holz und bringt es zu Helger."
   resolvedText: 
-  xp: 0
+  xp: 280
   rewards:
-    gold: 0
+    gold: 30
     miscItems:
       herbs: 0
       meat: 0

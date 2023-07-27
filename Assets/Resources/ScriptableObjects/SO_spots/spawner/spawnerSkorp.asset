@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: spawnerSkorp
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: spawnerSkorp
+    name: Spawner
     image: 
   reward:
     xp: 0
@@ -30,24 +30,5 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 6a112e79ff44d0148b991e29bebed761, type: 2}
     boss: {fileID: 0}
   shop:
-    shop: 0
-    basicItems: 0
     tier1Gear: []
-    tier2Gear: []
-    tier3Gear: []
-    amuletOffer:
-      cheaper: 0
-      expensive: 0
-    armorOffer:
-      cheaper: 0
-      expensive: 0
-    potionOffer:
-      cheaper: 0
-      expensive: 0
-    weaponOffer:
-      cheaper: 0
-      expensive: 0
-    magicalOffer:
-      cheaper: 0
-      expensive: 0
   peopleAtPlace: []
