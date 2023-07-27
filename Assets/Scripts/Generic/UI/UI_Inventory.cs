@@ -189,7 +189,13 @@ namespace Hexerspiel.UI
 
        public void UpdateOverlayHeader()
         {
-            label_Header.text = Player.Instance.Inventory.BasicInventory.Amount.gold.ToString() + " Gold";
+            string header = "Dein Geld: " + Player.Instance.Inventory.BasicInventory.Amount.gold.ToString() + " Gold";
+            
+            if(currentitemSelected != null)
+            {
+                header += "\nKauf: " + currentitemSelected.ItemAttached.valueBuy + "Gold | Verkauf: " + currentitemSelected.ItemAttached.valueSell + " Gold";
+            }
+            label_Header.text = header;
         }
 
         public void UpdateMisc()
@@ -213,6 +219,8 @@ namespace Hexerspiel.UI
             {
                 gearTypeSelectedByObjectItem = GearType.none;
             }
+
+            UpdateOverlayHeader();
         }
 
 

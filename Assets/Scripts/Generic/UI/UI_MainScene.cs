@@ -6,6 +6,7 @@ using Hexerspiel.spots;
 using Hexerspiel.UI;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,10 +14,16 @@ using UnityEngine.UI;
 public class UI_MainScene : MonoBehaviour
 {
     #region Variables
-    
+
 
     [SerializeField]
     ItemEquipElement bt_seePlace, bt_seeNpc, bt_scan, bt_quest, bt_inventory;
+
+    [SerializeField]
+    TextMeshProUGUI label_Attributs;
+
+    [SerializeField]
+    Bar xpBar;
 
     #endregion
 
@@ -28,6 +35,20 @@ public class UI_MainScene : MonoBehaviour
 
     #region Functions
 
+    private void Start()
+    {
+        label_Attributs.text = string.Format("Körper: {0} | Geist: {1} | Charisma: {2}\nW: {3} | ES: +{4} | MW: {6} | MP: {7}| R: {5}",
+            Player.Instance.PlayerValues.PlayerAttributes1.body.ToString(),
+             Player.Instance.PlayerValues.PlayerAttributes1.mind.ToString(),
+             Player.Instance.PlayerValues.PlayerAttributes1.charisma.ToString(),
+              Player.Instance.PlayerValues.OffensivStatsValue.attackDice.ToString(),
+               Player.Instance.PlayerValues.OffensivStatsValue.succesThreshold.ToString(),
+                Player.Instance.PlayerValues.DeffensiveStatsValue.armor.ToString(),
+                -1, -1);
+
+        xpBar.SetValues(Player.Instance.PlayerValues.PlayerStats1.xp, Player.Instance.XPForNextlevel() , " XP");
+        //xpBar.SetValues(7, 100, " XP");
+    }
 
     private void Update()
     {
