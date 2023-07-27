@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a41fdff46220274e9b34375195aac32, type: 3}
+  m_Name: "Fleischf\xFCrdieK\xFCche_02Trinken"
+  m_EditorClassIdentifier: 
+  stepName: Trinken
+  image: 
+  questText: "Wie geht es denn dem J\xE4ger? (erkl\xE4rt der K\xFCche den Zustand
+    des J\xE4gers) Trinkt alle eine Tasse Wasser vor den Augen der K\xFCche. Es w\xE4re
+    super, falls ihr dem J\xE4ger noch helfen k\xF6nntet. Ich habe geh\xF6rt, dass
+    beim Schlachthaus die Schafe erst geschoren worden sind. F\xFCr eine Tasse Wasser
+    oder Tee w\xFCrde er euch bestimmt einen Verband geben."
+  resolvedText: 
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear: []
+  dropedQuestItems: []
+  nextQuestStep: {fileID: 11400000, guid: 8eb752edf884a4d469d36143bb4c45f2, type: 2}
+  spotToGO: {fileID: 0}
+  npcToInteract: {fileID: 0}
