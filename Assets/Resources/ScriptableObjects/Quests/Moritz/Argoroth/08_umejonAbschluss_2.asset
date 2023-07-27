@@ -15,7 +15,8 @@ MonoBehaviour:
   stepName: Kristallsplitter Nr. 2
   image: 
   questText: '"Achso ihr habt noch mehr von den Splittern!"'
-  resolvedText: '"Habt ihr den dritten auch schon gefunden?"'
+  resolvedText: "\"Juchheeeeee!. Zum Dank schenke ich euch das Licht des Balad-D\xFBr,
+    krumpf\""
   xp: 0
   rewards:
     gold: 0
@@ -23,9 +24,10 @@ MonoBehaviour:
       herbs: 0
       meat: 0
       magicEssence: 0
-  dropedGear: []
+  dropedGear:
+  - {fileID: 11400000, guid: 9bede2767d7ec124696549722d5fe1a1, type: 2}
   dropedQuestItems: []
-  nextQuestStep: {fileID: 11400000, guid: 4aae0a05a384221418dad2dd7108a624, type: 2}
+  nextQuestStep: {fileID: 11400000, guid: c3ce88032618325439e40e3707367424, type: 2}
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}
   questItemNeeded: {fileID: 11400000, guid: d4426c8c138e186409c1e0e7380d672d, type: 2}

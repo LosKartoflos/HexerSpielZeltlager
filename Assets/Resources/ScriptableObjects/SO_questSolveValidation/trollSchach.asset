@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: trollSchach
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: 
+    name: Trollschach
     image: 
-  questStepToSolve: {fileID: 0}
+  questStepToSolve: {fileID: 11400000, guid: 360de3ee0622e2c4590067fa5dde9efa, type: 2}

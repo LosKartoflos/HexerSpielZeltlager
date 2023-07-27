@@ -31,6 +31,6 @@ MonoBehaviour:
   dropedGear: []
   dropedQuestItems:
   - {fileID: 11400000, guid: d4426c8c138e186409c1e0e7380d672d, type: 2}
-  nextQuestStep: {fileID: 11400000, guid: 9935708118f81cf488a989e216701378, type: 2}
+  nextQuestStep: {fileID: 11400000, guid: ef719f8e7e7eb774585faa2cb601d370, type: 2}
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}

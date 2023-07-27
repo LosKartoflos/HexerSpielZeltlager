@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: mollky
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: 
+    name: Mollky
     image: 
-  questStepToSolve: {fileID: 0}
+  questStepToSolve: {fileID: 11400000, guid: 5f3679f62115afe47b2addde20ae56ba, type: 2}
