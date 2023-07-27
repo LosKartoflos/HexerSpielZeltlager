@@ -15,12 +15,12 @@ MonoBehaviour:
   stepName: Suche nach Linda
   image: 
   questText: "Linda h\xE4lt sich vermutlich in der N\xE4he des Vororts auf!"
-  resolvedText: "\"Ach des war ein Dieb der vorhin so aufgeregt an mir vorbei gerannt
-    ist. Wenn ich das nur gewusst h\xE4tte h\xE4tte ich mir gemerkt wie er aussah!
+  resolvedText: "\"Ach, das war ein Dieb, der vorhin so aufgeregt an mir vorbei gerannt
+    ist? Wenn ich das nur gewusst h\xE4tte, h\xE4tte ich mir gemerkt, wie er aussah!
     Aber ich kann mich noch daran erinnern, dass er auf jeden Fall rote Haare hatte!
     Aber mehr ist mir leider nicht im Ged\xE4chtnis geblieben. Vielleicht hat Hilda
-    was gesehen, sie ist mir vorhin auf dem Weg hier her entgegengekommen und hat
-    gemeint, dass sie irgendwas im Dorf erledigen will."
+    was gesehen, sie ist mir vorhin auf dem Weg hierher entgegengekommen und hat
+    gemeint, dass sie irgendwas im Dorf erledigen will.\u201D "
   xp: 0
   rewards:
     gold: 0

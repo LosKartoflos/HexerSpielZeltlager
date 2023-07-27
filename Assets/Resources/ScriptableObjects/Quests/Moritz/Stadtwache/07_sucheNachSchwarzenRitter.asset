@@ -15,13 +15,13 @@ MonoBehaviour:
   stepName: Suche nach dem schwarzen Ritter
   image: 
   questText: Der schwarze Ritter wohnt in der dunklen Feste!
-  resolvedText: "\"Wie wagt ihr es mich zu st\xF6ren, ihr elendiges Fu\xDFvolk! Raus
+  resolvedText: "\"Wie wagt ihr es mich zu st\xF6ren, ihr elendes Fu\xDFvolk! Raus
     hier! WACHEN! Bringt die Versager nach drau\xDFen! Wer hat sie \xFCberhaupt reingelassen??
-    Ach ihr seid im Namen der Stadtwache unterwegs? Also er hatte als Accessoire
+    Ach, ihr seid im Namen der Stadtwache unterwegs? Also er hatte als Accessoire
     eine komische Kette mit Blumen dran getragen. Das sah ganz verr\xFCckt aus! Ich
-    hoffe ihr findet ihn, und verzeiht mir meinen anf\xE4nglichen Zorn! Kann ja keiner
-    wissen dass die Stadtwache euch schickt. Aber Versager und Fu\xDFvolk bleibt
-    ihr trotzdem und jetzt verzieht euch und lasst mir meine Ruhe!\" "
+    hoffe, ihr findet ihn, und verzeiht mir meinen anf\xE4nglichen Zorn! Kann ja
+    keiner wissen, dass die Stadtwache euch schickt. Aber Versager und Fu\xDFvolk
+    bleibt ihr trotzdem und jetzt verzieht euch und lasst mir meine Ruhe!\"  "
   xp: 0
   rewards:
     gold: 0
