@@ -12,6 +12,11 @@ namespace Hexerspiel.nfcTags
     {
         public const NFCType nfcType = NFCType.questStart;
         public SO_questStep firstQuestStep;
+
+        public SO_questStartTag(SO_questStep newStep)
+        {
+            firstQuestStep = newStep;
+        }
     }
 
 }

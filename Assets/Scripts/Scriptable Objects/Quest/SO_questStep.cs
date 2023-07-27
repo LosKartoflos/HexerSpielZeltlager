@@ -127,7 +127,7 @@ namespace Hexerspiel.Quests
 
             CollectWholeGear(nextQuestStep);
 
-            string basisReward = string.Format("Du erhälst für die Gesamte Reihe:\n{0} XP und {1} Gold\n{2} Fleisch {3} Kräuter {4} Mag. Essenz", xpWhole, goldWhole, meatWhole, herbsWhole, magicEssnceWhole);
+            string basisReward = string.Format("{0} XP und {1} Gold\n{2} Fleisch {3} Kräuter {4} Mag. Essenz", xpWhole, goldWhole, meatWhole, herbsWhole, magicEssnceWhole);
             string gearReward = "";
             foreach (SO_gear g in gearWhole)
             {
@@ -135,7 +135,7 @@ namespace Hexerspiel.Quests
             }
 
 
-            string final = "";
+            string final = "Du erhälst für die Gesamte Reihe:\n";
             if (xpWhole > 0 || goldWhole > 0 || meatWhole > 0 || herbsWhole > 0 || magicEssnceWhole > 0)
                 final += basisReward;
             if (gearWhole.Count > 0)
@@ -164,7 +164,7 @@ namespace Hexerspiel.Quests
 
         public string GetLootText()
         {
-            string basisReward = string.Format("======================\n\nDu erhälst für diese Aufgabe:\n{0} XP und {1} Gold\n{2} Fleisch {3} Kräuter {4} Mag. Essenz", xp, rewards.gold, rewards.miscItems.meat, rewards.miscItems.herbs, rewards.miscItems.magicEssence);
+            string basisReward = string.Format("{0} XP und {1} Gold\n{2} Fleisch {3} Kräuter {4} Mag. Essenz", xp, rewards.gold, rewards.miscItems.meat, rewards.miscItems.herbs, rewards.miscItems.magicEssence);
             string gearReward = "";
             foreach (SO_gear g in dropedGear)
             {
@@ -176,7 +176,7 @@ namespace Hexerspiel.Quests
                 itemReward += "\n" + g.itemName;
             }
 
-            string final = "";
+            string final = "======================\n\nDu erhälst für diese Aufgabe:\n";
             if (xp > 0 || rewards.gold > 0 || rewards.miscItems.meat > 0 || rewards.miscItems.herbs > 0 || rewards.miscItems.magicEssence > 0)
                 final += basisReward;
             if (dropedGear.Count > 0)

@@ -114,10 +114,14 @@ public class MainManager : MonoBehaviour
     {
         AlertLeft("Du bist nicht mehr bei " + QuestTracker.currentNPC.npcInformation.name);
         QuestTracker.currentNPC = null;
+        QuestTracker.questsOfferedByNPC = null;
+
+      
+
         if (QuestTracker.currentSpot == null || 0 == QuestTracker.currentSpot.shop.tier1Gear.Count)
             UI_Inventory.atShop = false;
 
-        if (SceneManager.GetActiveScene().name == "InventoryScene")
+        if (SceneManager.GetActiveScene().name == "NPCScene")
             MainManager.LoadMainScene();
 
     }
