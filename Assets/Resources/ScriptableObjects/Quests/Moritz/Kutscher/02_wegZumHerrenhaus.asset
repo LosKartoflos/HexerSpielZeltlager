@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92cd217e4a9a6a446925be2bf5932eab, type: 3}
+  m_Name: 02_wegZumHerrenhaus
+  m_EditorClassIdentifier: 
+  stepName: Weg zum Herrenhaus
+  image: 
+  questText: "Begebt euch nun zum Herrenhaus, um dem Stadtrat die L\xF6sung des Kutschen
+    R\xE4tsels zu \xFCbertragen!"
+  resolvedText: 
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear: []
+  dropedQuestItems: []
+  nextQuestStep: {fileID: 11400000, guid: bc34f9be25cfd5646b95e0ffba70d3dd, type: 2}
+  spotToGO: {fileID: 11400000, guid: eaef9a98b43bcc64c89e301d776ae414, type: 2}
+  npcToInteract: {fileID: 0}

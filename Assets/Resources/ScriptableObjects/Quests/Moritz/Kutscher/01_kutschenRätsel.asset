@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fd1d26e7bd01b34185d0cc43564db08, type: 3}
+  m_Name: "01_kutschenR\xE4tsel"
+  m_EditorClassIdentifier: 
+  stepName: Wer sitzt noch in der Kutsche
+  image: 
+  questText: "Der Stadtrat m\xF6chte wissen, wie gut die Kutsche in der Stadt ankommt!
+    Passt gut auf und lest genau: In der Kutsche sitzen am Anfang 2 Blondinen und
+    1 Br\xFCnette. An der n\xE4chsten Station steigen 3 Rothaarige dazu. An der zweiten
+    Station steigen zwei von den G\xE4sten, die von Anfang an drinnen waren wieder
+    aus. Danach hockt nur noch eine blonde Person in der Kutsche. An der dritten
+    Station kommt eine Gruppe junger Festival-G\xE4nger rein. Zwei mit blauen Haaren,
+    einer mit lila Haaren. Der blonden, die seit Anfang drinnen sa\xDF, namens Alice
+    Weidel wird das ganze zu bunt und sie steigt aus. An der vierten Station steigen
+    alle Personen aus, deren Haarfarbe es mehr als einmal gibt. Nachdem ihr jetzt
+    hoffentlich genau aufgepasst und gelesen habt k\xF6nnt ihr mir bestimmt verraten,
+    wie alt der Kutschenfahrer ist!"
+  resolvedText: "Mensch, ihr seid ja doch gar nicht so einfach in die Irre zu f\xFChren!"
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear: []
+  dropedQuestItems: []
+  nextQuestStep: {fileID: 11400000, guid: b590def0a10bbc54f9d221b10a737a51, type: 2}
+  spotToGO: {fileID: 0}
+  npcToInteract: {fileID: 0}
+  shortQuestion: 
+  answer: 69
