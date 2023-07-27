@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stepName: Bringe Umejon den Kristall
   image: 
-  questText: "Jetzt m\xFCsst ihr nur noch Umejon den Kristall wieder zur\xFCckgeben,
-    dann habt ihr es geschafft!"
+  questText: "Da euch die zwei Kristallsplitter reichen, m\xFCsst ihr nur noch Umejon
+    den Kristall wieder zur\xFCckgeben, dann habt ihr es geschafft! "
   resolvedText: '"Das war aber jetzt erst ein Kristallsplitter, ich habe doch gesagt
     ich brauche den ganzen Kristall wieder!"'
   xp: 0

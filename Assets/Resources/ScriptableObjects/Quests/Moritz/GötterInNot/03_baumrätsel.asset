@@ -18,9 +18,9 @@ MonoBehaviour:
     meist, wie viele B\xE4ume auf der Karte sind. Wie viele B\xE4ume sind auf der
     Karte?"
   resolvedText: "\u201CHabt Dank liebe Leute! Hier eure Belohnung!\u201C"
-  xp: 0
+  xp: 60
   rewards:
-    gold: 0
+    gold: 10
     miscItems:
       herbs: 0
       meat: 0

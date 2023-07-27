@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: reichsplanung
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: 
+    name: Reichsplanung
     image: 
-  questStepToSolve: {fileID: 0}
+  questStepToSolve: {fileID: 11400000, guid: 28624523a4efd17458e0fbbdefd975c3, type: 2}

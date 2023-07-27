@@ -18,9 +18,9 @@ MonoBehaviour:
     habt!"
   resolvedText: "\u201CMein geliebtes Buch. Habt dank, hier nehmt diesen Stab, er
     wird euch gute Dienste leisten\u201D"
-  xp: 0
+  xp: 130
   rewards:
-    gold: 0
+    gold: 20
     miscItems:
       herbs: 0
       meat: 0

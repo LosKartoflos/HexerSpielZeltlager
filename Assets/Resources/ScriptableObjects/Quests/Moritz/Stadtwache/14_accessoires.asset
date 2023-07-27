@@ -18,9 +18,9 @@ MonoBehaviour:
   resolvedText: "Klasse, damit habt ihr alles! Vielen Dank f\xFCr eure Hilfe! F\xFCr
     euren Anstrengungen werdet ihr reichlich belohnt! Vielen, vielen Dank im Namen
     vom ganzen Dorf!!! Ihr seid von nun an Helden!"
-  xp: 0
+  xp: 575
   rewards:
-    gold: 0
+    gold: 50
     miscItems:
       herbs: 0
       meat: 0

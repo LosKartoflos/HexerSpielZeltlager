@@ -16,9 +16,9 @@ MonoBehaviour:
   image: 
   questText: Was passiert wenn man einer Hydra den Kopf abhaut!
   resolvedText: Hier! Nehmt die Erfahrung als Belohnung!
-  xp: 0
+  xp: 105
   rewards:
-    gold: 0
+    gold: 20
     miscItems:
       herbs: 0
       meat: 0

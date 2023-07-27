@@ -20,9 +20,8 @@ MonoBehaviour:
     besiegen k\xF6nnten. Wenn ihr uns helft, geben wir das Buch zur\xFCck. Wisst
     ihr denn, was Medusa so besonders macht? Ich hab geh\xF6rt es passiert irgendwas,
     wenn man ihr in die Augen schaut, wisst ihr was dann passiert?"
-  resolvedText: "Na das ist ja einfach, dann schauen wir einfach nicht in die Augen
-    hahah. Hast du geglaubt, wir geben dir einfach so das Buch? Idiot! Nun stirb,
-    das Wissen m\xFCssen wir sichern."
+  resolvedText: 'Na das ist ja einfach, dann schauen wir einfach nicht in die Augen
+    hahah '
   xp: 0
   rewards:
     gold: 0
@@ -31,8 +30,9 @@ MonoBehaviour:
       meat: 0
       magicEssence: 0
   dropedGear: []
-  dropedQuestItems: []
-  nextQuestStep: {fileID: 11400000, guid: fe281e8d53e28214690119ae7d75376f, type: 2}
+  dropedQuestItems:
+  - {fileID: 11400000, guid: c58f69cb1ac64a24aaab639c2676ff24, type: 2}
+  nextQuestStep: {fileID: 11400000, guid: b16ae6cf72e36504b8ee1f7f61243dba, type: 2}
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}
   rightAnswer: 3
