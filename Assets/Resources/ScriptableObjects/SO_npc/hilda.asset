@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: hilda
   m_EditorClassIdentifier: 
   npcInformation:
-    name: 
+    name: Hilda
     image: 
   attribute:
     body: 0
