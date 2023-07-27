@@ -78,7 +78,7 @@ public class MainManager : MonoBehaviour
 
     public void DisableCurrentSpot()
     {
-        AlertLeft("Du hast " + QuestTracker.currentSpot + " verlassen");
+        AlertLeft("Du hast " + QuestTracker.currentSpot.nfcTagInfos.name + " verlassen");
         QuestTracker.currentSpot = null;
         UI_Inventory.atShop = false;
 

@@ -34,24 +34,24 @@ public class UI_MainScene : MonoBehaviour
         if (QuestTracker.currentSpot != null && SceneManager.GetActiveScene().name == "MainScene")
         {
             if (bt_seePlace.enabled == false)
-                bt_seePlace.enabled = true;
+                bt_seePlace.Button.interactable = true;
             bt_seePlace.ChangeAppreance("Gehe zu " + QuestTracker.currentSpot.nfcTagInfos.name, "Noch am ort für " + MainManager.timeRemainingAtSpot.ToString("0") + " Sek.");
         }
         else if (QuestTracker.currentSpot == null && SceneManager.GetActiveScene().name == "MainScene" && bt_seePlace.enabled)
         {
-            bt_seePlace.enabled = false;
+            bt_seePlace.Button.interactable = false;
             bt_seePlace.ChangeAppreance("Kein Ort vorhanden", "Scanne wieder einen Ort");
         }
 
         if (QuestTracker.currentNPC != null && SceneManager.GetActiveScene().name == "MainScene")
         {
             if (bt_seeNpc.enabled == false)
-                bt_seeNpc.enabled = true;
+                bt_seeNpc.Button.interactable = true;
             //bt_seePlace.ChangeAppreance("Gehe zu " + QuestTracker.currentSpot.nfcTagInfos.name, "Noch bei Person für " + MainManager.timeRemainingAtSpot.ToString());
         }
         else if (QuestTracker.currentNPC == null && SceneManager.GetActiveScene().name == "MainScene" && bt_seeNpc.enabled)
         {
-            bt_seeNpc.enabled = false;
+            bt_seeNpc.Button.interactable = false;
             bt_seeNpc.ChangeAppreance("Keine Person vorhanden", "Scanne wieder eine Person");
         }
 
