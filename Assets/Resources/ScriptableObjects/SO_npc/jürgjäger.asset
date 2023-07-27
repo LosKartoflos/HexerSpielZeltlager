@@ -22,6 +22,7 @@ MonoBehaviour:
     attributAddThreshold: 0
   questList:
   - {fileID: 11400000, guid: e9990f0bbdd2b0941ab2f0e2415e412e, type: 2}
+  - {fileID: 11400000, guid: f8955489d5244ea44a01dcc332b63c44, type: 2}
   npcInFight: {fileID: 0}
   gearToSell: []
   potionToSell: []
