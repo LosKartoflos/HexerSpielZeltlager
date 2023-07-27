@@ -423,7 +423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b60fc0abe27c2fd4084200d6b6add597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToStayInSec: 180
+  timeToStayInSec: 300
 --- !u!1 &439562168
 GameObject:
   m_ObjectHideFlags: 0
@@ -2100,8 +2100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishStep: {fileID: 11400000, guid: c3ce88032618325439e40e3707367424, type: 2}
-  testSpot: {fileID: 0}
-  testNpc: {fileID: 0}
 --- !u!1 &1283433688
 GameObject:
   m_ObjectHideFlags: 0

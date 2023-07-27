@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3093f82b4f8dfae469a39c781b60c3d0, type: 3}
+  m_Name: "Fleischf\xFCrdieK\xFCche_Start"
+  m_EditorClassIdentifier: 
+  stepName: "Fleisch f\xFCr die K\xFCche"
+  image: 
+  questText: "Hallo, ich bin J\xFCrg J\xE4ger. Ich war heute den ganzen Tag jagen.
+    Leider hat mich vorhin ein Wolf gebissen und jetzt kann ich nur noch humpeln.
+    W\xFCrdet ihr mein Jagdgut zum Koch Bene bringen?"
+  resolvedText: Super, vielen Dank.
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear: []
+  dropedQuestItems:
+  - {fileID: 11400000, guid: c837033b33e46d647be8673ecd1ae1f2, type: 2}
+  nextQuestStep: {fileID: 11400000, guid: 0a6c71d00255e5b4d91e818da5b464f3, type: 2}
+  spotToGO: {fileID: 0}
+  npcToInteract: {fileID: 11400000, guid: 43e475f876534a5488ec84b33ad279e8, type: 2}
