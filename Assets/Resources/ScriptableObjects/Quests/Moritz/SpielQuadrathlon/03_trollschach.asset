@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a41fdff46220274e9b34375195aac32, type: 3}
   m_Name: 03_trollschach
   m_EditorClassIdentifier: 
-  stepName: 
+  stepName: Trollschach
   image: 
-  questText: 
+  questText: 'Zweite Disziplin: Spielt eine Runde Trollschach gegen einen Leiter!'
   resolvedText: 
   xp: 0
   rewards:
@@ -25,6 +25,6 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 0}
+  nextQuestStep: {fileID: 11400000, guid: 5f3679f62115afe47b2addde20ae56ba, type: 2}
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}

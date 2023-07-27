@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: gschichtn
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: 
+    name: Gschichtn
     image: 
-  questStepToSolve: {fileID: 0}
+  questStepToSolve: {fileID: 11400000, guid: 69991cd9b99a07a4d8768a4fd39f53bd, type: 2}

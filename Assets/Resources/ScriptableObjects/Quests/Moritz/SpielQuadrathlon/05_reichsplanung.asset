@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a41fdff46220274e9b34375195aac32, type: 3}
   m_Name: 05_reichsplanung
   m_EditorClassIdentifier: 
-  stepName: 
+  stepName: Reichsplanung
   image: 
-  questText: 
-  resolvedText: 
-  xp: 0
+  questText: 'Letzte Disziplin: Spielt eine Runde Reichsplanung gegen einen Leiter!'
+  resolvedText: Ihr habt alles Geschafft! Hier, nehmt das Gold und die Erfahrung!
+  xp: 160
   rewards:
-    gold: 0
+    gold: 20
     miscItems:
       herbs: 0
       meat: 0
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 0}
+  nextQuestStep: {fileID: 11400000, guid: c3ce88032618325439e40e3707367424, type: 2}
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}

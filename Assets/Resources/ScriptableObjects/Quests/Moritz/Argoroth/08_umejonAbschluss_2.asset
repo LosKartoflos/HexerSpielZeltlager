@@ -17,9 +17,9 @@ MonoBehaviour:
   questText: '"Achso ihr habt noch mehr von den Splittern!"'
   resolvedText: "\"Juchheeeeee!. Zum Dank schenke ich euch das Licht des Balad-D\xFBr,
     krumpf\""
-  xp: 0
+  xp: 395
   rewards:
-    gold: 0
+    gold: 50
     miscItems:
       herbs: 0
       meat: 0

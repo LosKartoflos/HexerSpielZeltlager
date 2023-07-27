@@ -18,9 +18,9 @@ MonoBehaviour:
     und spielt bei ihm sein Spiel! "
   resolvedText: "Mensch, ihr versteht euch ja wirklich blind! Dann w\xFCrde ich euch
     ab jetzt begleiten und euch zur Hilfe stehen, falls ihr mich braucht!"
-  xp: 0
+  xp: 70
   rewards:
-    gold: 0
+    gold: 20
     miscItems:
       herbs: 0
       meat: 0
