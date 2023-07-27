@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: "monster\xDCberall"
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: 
+    name: "Monster \xDCberall!"
     image: 
-  firstQuestStep: {fileID: 0}
+  firstQuestStep: {fileID: 11400000, guid: c640ce2c07650034585e552ad0ebe46c, type: 2}

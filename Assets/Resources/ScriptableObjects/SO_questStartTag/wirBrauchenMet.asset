@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: wirBrauchenMet
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: 
+    name: Wir brauchen Met!
     image: 
-  firstQuestStep: {fileID: 0}
+  firstQuestStep: {fileID: 11400000, guid: 4915fc4cb962cc5418b44c2540a1c763, type: 2}
