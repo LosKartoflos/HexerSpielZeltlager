@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stepName: Weg zum Friedhof
   image: 
-  questText: Begebt euch zum Friedhof!
+  questText: Begebt euch zum Friedhof! Absolviert dort einen Quadrathlon gegen die
+    Leiter!
   resolvedText: 
   xp: 0
   rewards:
