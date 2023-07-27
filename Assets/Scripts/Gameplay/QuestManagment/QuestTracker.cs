@@ -24,7 +24,7 @@ namespace Hexerspiel.Quests
         public static SO_questStep nextQuestStepMultipleChoice;
 
         [SerializeField]
-        private static List<SO_questStep> allreadyUsedSteps = new List<SO_questStep>();
+        public static List<SO_questStep> allreadyUsedSteps = new List<SO_questStep>();
 
         [SerializeField]
         private static List<SO_questStep> stepsDoneForQuestlineIndex0 = new List<SO_questStep>();
@@ -35,12 +35,6 @@ namespace Hexerspiel.Quests
 
         [SerializeField]
         private SO_questStep finishStep;
-
-        [SerializeField]
-        SO_spots testSpot;
-
-        [SerializeField]
-        SO_npc testNpc;
 
 
         public static SO_spots currentSpot;
@@ -174,6 +168,26 @@ namespace Hexerspiel.Quests
 
 
             StartCoroutine(WaitForUI_QuestTrackerToBeLoaded());
+        }
+
+        public void StartQuestFromInside()
+        {
+            if (CheckIfQuestIsAllreadyUsed(questStartTag.firstQuestStep))
+            {
+                questStartTag = null;
+                return;
+            }
+
+
+            Debug.Log("StartQuestWihtTag");
+
+            if (questStartTag.firstQuestStep.QuestStepTarget == QuestTarget.fightAgainst)
+            {
+                ((SO_step_fight)questStartTag.firstQuestStep).timeQuestAccepted = DateTime.Now;
+            }
+
+            UI_QuestTracker.Instance.CreateQuestStartPopUp(questStartTag.firstQuestStep.questText + "\n\n" + (GetSolveText(questStartTag.firstQuestStep)) + "\n\n" + questStartTag.firstQuestStep.GetLootText() + "\n\n======================\n\n" + questStartTag.firstQuestStep.GetLootTextWhole(), questStartTag.firstQuestStep.stepName);
+
         }
 
         private IEnumerator WaitForUI_QuestTrackerToBeLoaded()

@@ -1313,7 +1313,7 @@ MonoBehaviour:
   button: {fileID: 942732307484695664}
   defaultName: Nimm eine Quest an
   defaultdescription: das gibt XP!
-  defaultImage: Images/Items/defaultIcons/defaultItem
+  defaultImage: Images/Items/defaultIcons/defaulQuestItem
 --- !u!224 &2886665817545746570
 RectTransform:
   m_ObjectHideFlags: 0

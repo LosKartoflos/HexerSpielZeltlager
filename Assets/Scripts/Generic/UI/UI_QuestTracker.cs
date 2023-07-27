@@ -32,6 +32,12 @@ namespace Hexerspiel.UI
         [SerializeField]
         private RectTransform popUpPanel;
 
+        [SerializeField]
+        private GameObject itemEquipElementPrefab;
+        [SerializeField]
+        private Transform newQuestContainer;
+
+        private GameObject lastOpendeNewQuest;
 
         #endregion
 
@@ -69,8 +75,20 @@ namespace Hexerspiel.UI
             uI_QuestItems[1].Bt_abort.onClick.AddListener(delegate { DeleteStep(1); });
             uI_QuestItems[2].Bt_abort.onClick.AddListener(delegate { DeleteStep(2); });
 
+            CreateQuestStarts();
         }
 
+        private void OnEnable()
+        {
+            UI_QuestInfo.DecisionQuestAccept += DestoryItem;
+        }
+
+        private void OnDisable()
+        {
+            UI_QuestInfo.DecisionQuestAccept -= DestoryItem;
+        }
+
+       
 
         private void OnDestroy()
         {
@@ -211,7 +229,53 @@ namespace Hexerspiel.UI
 
         }
 
+        private void CreateQuestStarts()
+        {
+            lastOpendeNewQuest = null;
+            if (QuestTracker.currentNPC == null)
+            {
+                newQuestContainer.transform.parent.gameObject.SetActive(false);
+                return;
+            }
+                
+            if (QuestTracker.questsOfferedByNPC == null || 0 == QuestTracker.questsOfferedByNPC.Count)
+            {
+                newQuestContainer.transform.parent.gameObject.SetActive(false);
+                return;
+            }
+            newQuestContainer.transform.parent.gameObject.SetActive(true);
 
+            int index = 0;
+            foreach(SO_questStep qs in QuestTracker.questsOfferedByNPC)
+            {
+                if (QuestTracker.allreadyUsedSteps.Contains(qs))
+                    Debug.Log(qs.stepName + " is allready used");
+                else
+                {
+                    GameObject newElement = Instantiate(itemEquipElementPrefab, newQuestContainer, false);
+                    newElement.SetActive(false);
+                    newElement.SetActive(true);
+                    newElement.GetComponent<ItemEquipElement>().ChangeAppreance(qs.stepName, qs.GetShortLootText(), "defaultIcons/defaulQuestItem");
+                    newElement.GetComponent<ItemEquipElement>().Button.onClick.AddListener(delegate
+                    {
+                        QuestTracker.questStartTag = new nfcTags.SO_questStartTag(qs);
+                        QuestTracker.Instance.StartQuestFromInside();
+                        lastOpendeNewQuest = newElement;
+                    });
+                    Canvas.ForceUpdateCanvases();
+                }
+            }
+
+        }
+
+        private void DestoryItem(bool decision)
+        {
+            if (!decision || lastOpendeNewQuest == null)
+                return;
+            Destroy(lastOpendeNewQuest);
+            lastOpendeNewQuest = null;
+
+        }
         #endregion
     }
 

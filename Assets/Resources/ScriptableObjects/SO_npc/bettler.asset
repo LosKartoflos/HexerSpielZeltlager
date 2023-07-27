@@ -20,12 +20,8 @@ MonoBehaviour:
     mind: 0
     charisma: 0
     attributAddThreshold: 0
-  questList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  npcInFight: {fileID: 11400000, guid: d6b485692bce9504a9eea1dd3a1c66da, type: 2}
+  questList: []
+  npcInFight: {fileID: 0}
   gearToSell: []
   potionToSell: []
   questItemToSell: []
