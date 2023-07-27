@@ -1,3 +1,4 @@
+using Hexerspiel.Character;
 using Hexerspiel.nfcTags;
 using Hexerspiel.Quests;
 using Hexerspiel.spots;
@@ -18,8 +19,10 @@ public class MainManager : MonoBehaviour
     double timeToStayInSec = 180;
 
     public static double timeRemainingAtSpot;
+    public static double timeRemainingAtNPC;
 
     public static DateTime spotEntered;
+    public static DateTime npcEntered;
 
     #endregion
 
@@ -49,11 +52,22 @@ public class MainManager : MonoBehaviour
             TimeSpan ts = DateTime.Now - spotEntered;
             timeRemainingAtSpot = timeToStayInSec - ts.TotalSeconds;
 
-
-
             if (timeRemainingAtSpot <= 0)
             {
                 DisableCurrentSpot();
+            }
+
+            
+        }
+
+        if(QuestTracker.currentNPC != null)
+        {
+            TimeSpan tsNPC = DateTime.Now - npcEntered;
+            timeRemainingAtNPC = timeToStayInSec - tsNPC.TotalSeconds;
+
+            if (timeRemainingAtNPC <= 0)
+            {
+                DisableCurrentNPC();
             }
         }
     }
@@ -80,7 +94,8 @@ public class MainManager : MonoBehaviour
     {
         AlertLeft("Du hast " + QuestTracker.currentSpot.nfcTagInfos.name + " verlassen");
         QuestTracker.currentSpot = null;
-        UI_Inventory.atShop = false;
+        if (QuestTracker.currentNPC == null ||( 0 == QuestTracker.currentNPC.gearToSell.Count && 0 == QuestTracker.currentNPC.potionToSell.Count && 0 == QuestTracker.currentNPC.questItemToSell.Count))
+            UI_Inventory.atShop = false;
 
         if (SceneManager.GetActiveScene().name == "InventoryScene")
             MainManager.LoadMainScene();
@@ -91,6 +106,20 @@ public class MainManager : MonoBehaviour
     public void ApplyCurrentNPC(SO_npc newNPC)
     {
         QuestTracker.currentNPC = newNPC;
+        NPCManager.LoadNPCScene();
+        npcEntered = DateTime.Now;
+    }
+
+    public void DisableCurrentNPC()
+    {
+        AlertLeft("Du bist nicht mehr bei " + QuestTracker.currentNPC.npcInformation.name);
+        QuestTracker.currentNPC = null;
+        if (QuestTracker.currentSpot == null || 0 == QuestTracker.currentSpot.shop.tier1Gear.Count)
+            UI_Inventory.atShop = false;
+
+        if (SceneManager.GetActiveScene().name == "InventoryScene")
+            MainManager.LoadMainScene();
+
     }
     #endregion
 

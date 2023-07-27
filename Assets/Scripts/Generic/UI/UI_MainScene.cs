@@ -35,7 +35,7 @@ public class UI_MainScene : MonoBehaviour
         {
             if (bt_seePlace.enabled == false)
                 bt_seePlace.Button.interactable = true;
-            bt_seePlace.ChangeAppreance("Gehe zu " + QuestTracker.currentSpot.nfcTagInfos.name, "Noch am ort für " + MainManager.timeRemainingAtSpot.ToString("0") + " Sek.");
+            bt_seePlace.ChangeAppreance("Gehe zu " + QuestTracker.currentSpot.nfcTagInfos.name, "Noch am Ort für " + MainManager.timeRemainingAtSpot.ToString("0") + " Sek.");
         }
         else if (QuestTracker.currentSpot == null && SceneManager.GetActiveScene().name == "MainScene" && bt_seePlace.enabled)
         {
@@ -47,7 +47,7 @@ public class UI_MainScene : MonoBehaviour
         {
             if (bt_seeNpc.enabled == false)
                 bt_seeNpc.Button.interactable = true;
-            //bt_seePlace.ChangeAppreance("Gehe zu " + QuestTracker.currentSpot.nfcTagInfos.name, "Noch bei Person für " + MainManager.timeRemainingAtSpot.ToString());
+            bt_seeNpc.ChangeAppreance("Besuche " + QuestTracker.currentNPC.npcInformation.name, "Noch bei Person für " + MainManager.timeRemainingAtNPC.ToString("0") + "Sek");
         }
         else if (QuestTracker.currentNPC == null && SceneManager.GetActiveScene().name == "MainScene" && bt_seeNpc.enabled)
         {

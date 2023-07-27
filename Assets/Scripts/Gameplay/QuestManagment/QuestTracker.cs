@@ -46,6 +46,7 @@ namespace Hexerspiel.Quests
         public static SO_spots currentSpot;
         public static SO_npc currentNPC;
 
+        public static List<SO_questStep> questsOfferedByNPC = new List<SO_questStep>();
         public static string freeEntry;
         public static SO_rightAnswer givenAnswer;
         public static SO_questStartTag questStartTag;

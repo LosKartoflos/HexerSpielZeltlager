@@ -215,11 +215,9 @@ public class NFCManager : MonoBehaviour
         {
             case TagTask.spot:
                 MainManager.Instance.ApplyCurrentSpot(spotToVisit);
-
                 break;
             case TagTask.npc:
-                NPCManager.currentNpc = npcToVisit;
-                NPCManager.LoadNPCScene();
+                MainManager.Instance.ApplyCurrentNPC(npcToVisit);
                 break;
             case TagTask.questStart:
                 QuestTracker.questStartTag = questStartTagToBegin;
