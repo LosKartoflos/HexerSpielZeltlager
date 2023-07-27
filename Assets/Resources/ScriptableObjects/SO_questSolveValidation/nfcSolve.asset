@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe60354783db1284db55ab78764096e5, type: 3}
-  m_Name: wirBrauchenMet
+  m_Script: {fileID: 11500000, guid: 825fa593f842d424c9a7b298ac53a22a, type: 3}
+  m_Name: nfcSolve
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: Wir brauchen Met!
+    name: SolveNfc
     image: 
-  firstQuestStep: {fileID: 11400000, guid: 4915fc4cb962cc5418b44c2540a1c763, type: 2}
+  questStepToSolve: {fileID: 11400000, guid: 680609bba92c746458ef75d6a7a871ad, type: 2}

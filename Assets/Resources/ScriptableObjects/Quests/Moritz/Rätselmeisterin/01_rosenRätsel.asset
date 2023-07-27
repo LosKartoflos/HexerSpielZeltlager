@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd1d26e7bd01b34185d0cc43564db08, type: 3}
   m_Name: "01_rosenR\xE4tsel"
   m_EditorClassIdentifier: 
-  stepName: 
+  stepName: "Rosenr\xE4tsel"
   image: 
-  questText: 
-  resolvedText: 
+  questText: "Im See der k\xF6niglichen Burg wachsen jedes Jahr im Mai wundersch\xF6ne
+    wei\xDFe Seerosen. Da der See aber nur sehr klein ist, haben immer nur 512 Seerosen
+    Platz. Das besondere an den Wasserpflanzen ist, dass sich die Anzahl der Blumen
+    in jeder Nacht verdoppeln. In der ersten Nacht werden aus einer Pflanze zwei
+    Pflanzen, usw. Nach wie vielen Tagen ist der See voll? (Antwort als Zahl eingeben)"
+  resolvedText: Sehr gut! Aber seid ihr auch der zweiten Fragen gewappnet?
   xp: 0
   rewards:
     gold: 0
@@ -25,8 +29,8 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 0}
+  nextQuestStep: {fileID: 11400000, guid: 513e05836983da24b89c135c51c97f15, type: 2}
   spotToGO: {fileID: 0}
   npcToInteract: {fileID: 0}
   shortQuestion: 
-  answer: 
+  answer: 10

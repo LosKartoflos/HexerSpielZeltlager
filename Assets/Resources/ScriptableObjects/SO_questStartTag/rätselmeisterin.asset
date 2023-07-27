@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: "r\xE4tselmeisterin"
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: 
+    name: "R\xE4tselmeisterIn"
     image: 
-  firstQuestStep: {fileID: 0}
+  firstQuestStep: {fileID: 11400000, guid: b13706e9f929cf54e8e21ad0c9b5694a, type: 2}
