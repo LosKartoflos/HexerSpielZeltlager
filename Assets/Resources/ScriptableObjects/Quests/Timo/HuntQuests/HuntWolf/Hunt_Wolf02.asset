@@ -17,9 +17,9 @@ MonoBehaviour:
   questText: "Ein Wolf scheint noch die W\xE4lder unsicher zuamchen. Findet und erlegt
     ihn."
   resolvedText: "Gl\xFCckwunsch, hier ist eure Belohnung."
-  xp: 0
+  xp: 80
   rewards:
-    gold: 0
+    gold: 20
     miscItems:
       herbs: 0
       meat: 0

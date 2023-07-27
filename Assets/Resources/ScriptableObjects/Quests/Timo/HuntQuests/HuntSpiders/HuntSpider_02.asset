@@ -16,9 +16,9 @@ MonoBehaviour:
   image: 
   questText: (1/2) Spinnen besiegt.
   resolvedText: 
-  xp: 0
+  xp: 80
   rewards:
-    gold: 0
+    gold: 20
     miscItems:
       herbs: 0
       meat: 0
