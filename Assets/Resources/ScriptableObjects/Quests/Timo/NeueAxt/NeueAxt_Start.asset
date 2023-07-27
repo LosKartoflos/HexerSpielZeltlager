@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stepName: Neue Axt
   image: 
-  questText: 
+  questText: "schn\xFCff...mir ist meine Lieblings-Axt kaputt gegangen. Jetzt muss
+    ich zur\xFCck zur Kaserne und mir eine neue schmieden lassen. W\xFCrdet ihr mir
+    dabei helfen? Ich kann leider nicht selber gehen, ich muss die gef\xE4llten B\xE4ume
+    s\xE4gen."
   resolvedText: 
   xp: 0
   rewards:
@@ -25,6 +28,6 @@ MonoBehaviour:
       magicEssence: 0
   dropedGear: []
   dropedQuestItems: []
-  nextQuestStep: {fileID: 0}
-  spotToGO: {fileID: 0}
-  npcToInteract: {fileID: 0}
+  nextQuestStep: {fileID: 11400000, guid: 5ef3ac1a6718e3746b8ecc2d30c5bfa7, type: 2}
+  spotToGO: {fileID: 11400000, guid: a195b7463b74fad4aa45517e161ebd3e, type: 2}
+  npcToInteract: {fileID: 11400000, guid: 221d15385ac243d4da77b2ccf9477930, type: 2}
