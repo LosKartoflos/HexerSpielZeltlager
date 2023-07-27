@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fd1d26e7bd01b34185d0cc43564db08, type: 3}
+  m_Name: 01_liederAusTaverne
+  m_EditorClassIdentifier: 
+  stepName: Lieder aus der Taverne
+  image: 
+  questText: "Als ihr euch der Taverne n\xE4hert, h\xF6rt ihr jemand ganz laut ein
+    Lied gr\xF6len. Euch kommt das Lied irgendwie bekannt vor. Euch f\xE4llt auf,
+    dass dieses Lied sogar im Zeltlager Liederbuch vertreten ist! Doch welches Lied
+    ist das denn? Geh\xF6rt habt ihr folgenden Bruchteil: \u201CSo ein oider Rittersmo
+    hatte sehr viel Eisen o, die meisten Ritter, i mu\xDF sag\u2019n, hat deshalb
+    der Blitz erschlog\u2019n\u201D"
+  resolvedText: Wow! Ihr seid ja sogar recht bewandert was Musikwissen angeht!
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear: []
+  dropedQuestItems: []
+  nextQuestStep: {fileID: 11400000, guid: 1def54dea2e4c734c9652e169d0eb871, type: 2}
+  spotToGO: {fileID: 0}
+  npcToInteract: {fileID: 0}
+  shortQuestion: 
+  answer: Die oiden Rittersleit
