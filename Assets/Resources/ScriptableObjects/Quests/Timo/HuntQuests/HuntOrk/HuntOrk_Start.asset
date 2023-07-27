@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82a38a3539a90d4aadde7b53422d716, type: 3}
+  m_Name: HuntOrk_Start
+  m_EditorClassIdentifier: 
+  stepName: Orkjagt
+  image: 
+  questText: "Willkommen tapfere Streiter, zu unserem entscheidenden Unterfangen!
+    Zwei Gegner stehen vor uns, m\xE4chtig und stark, doch gemeinsam k\xF6nnen wir
+    sie besiegen. Lasst uns Seite an Seite k\xE4mpfen, f\xFCreinander und f\xFCr
+    unser Ziel!. Besiegt 2 Orks."
+  resolvedText: Einer Noch!
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear: []
+  dropedQuestItems: []
+  nextQuestStep: {fileID: 11400000, guid: 02bff674b94670b47845164e982a160f, type: 2}
+  spotToGO: {fileID: 0}
+  npcToInteract: {fileID: 0}
+  monsterToFight: {fileID: 11400000, guid: de4267172d17c0e42a12486a9b74ccd5, type: 2}
