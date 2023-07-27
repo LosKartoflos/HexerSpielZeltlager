@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3093f82b4f8dfae469a39c781b60c3d0, type: 3}
+  m_Name: "05_sucheNachTotengr\xE4ber"
+  m_EditorClassIdentifier: 
+  stepName: "Suche nach dem Totengr\xE4ber"
+  image: 
+  questText: "W\xE4re naheliegend, dass der Totengr\xE4ber irgendwo in der N\xE4he
+    der Lichtung der Untoten haust! Schaut dort mal vorbei!"
+  resolvedText: "\"Wer seid ihr denn und was sucht ihr hier???  Achso ihr meint diesen
+    Verr\xFCckten der wie ein Irrer einfach \xFCber die Gr\xE4ber gerannt ist? So
+    eine unfassbare Respektlosigkeit! Wie kann er denn die Ehre der Toten so ignorieren!
+    Oh, ehm, tschuldigung! Ich rede mich ja schon wieder in Rage. Es tut mir leid.
+    Ich war leider so verwirrt von den Geschehnissen dass ich nichts wirklich gesehen
+    habe, was euch helfen k\xF6nnte. Wobei die Abdr\xFCcke auf der frischen Erde
+    sehen aus wie von so Badeschlappen und das Logo sieht aus als w\xE4ren es einfach
+    drei so komische Streifen. Keine Ahnung was das f\xFCr ein Logo ist, aber wahrscheinlich
+    ist er so ein Markenklamotten-Opfer! Schrecklich diese Gesellschaft. WIE KANN
+    MAN VERDAMMT NOCHMAL 100\u20AC F\xDCR SCHLAPPEN AUSGEBEN! Dieser Vinni macht
+    das auch immer, ganz komischer Typ! Naja ich rede schon wieder zu viel! Schaut
+    mal bei Gideon vorbei!"
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear: []
+  dropedQuestItems: []
+  nextQuestStep: {fileID: 11400000, guid: 2988d463b199cd44dae759412be096f0, type: 2}
+  spotToGO: {fileID: 0}
+  npcToInteract: {fileID: 11400000, guid: f4349de284ee7d041817b8642362aa63, type: 2}

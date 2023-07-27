@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 098602e90339e4a4a8f54421a8c63d25, type: 3}
+  m_Name: 14_accessoires
+  m_EditorClassIdentifier: 
+  stepName: Accessoires
+  image: 
+  questText: Welches Accessoire hat er denn getragen?
+  resolvedText: "Klasse, damit habt ihr alles! Vielen Dank f\xFCr eure Hilfe! F\xFCr
+    euren Anstrengungen werdet ihr reichlich belohnt! Vielen, vielen Dank im Namen
+    vom ganzen Dorf!!! Ihr seid von nun an Helden!"
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear: []
+  dropedQuestItems: []
+  nextQuestStep: {fileID: 11400000, guid: c3ce88032618325439e40e3707367424, type: 2}
+  spotToGO: {fileID: 0}
+  npcToInteract: {fileID: 0}
+  rightAnswer: 1
+  answersTexts:
+  - Haarband
+  - Blumenkette
+  - Bauchtasche
+  - Schal

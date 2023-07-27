@@ -10,22 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7eff250380e04514f8447090116ddedd, type: 3}
-  m_Name: birte
+  m_Name: hilda
   m_EditorClassIdentifier: 
   npcInformation:
-    name: Birte
+    name: 
     image: 
   attribute:
     body: 0
     mind: 0
     charisma: 0
     attributAddThreshold: 0
-  questList:
-  - {fileID: 11400000, guid: f8955489d5244ea44a01dcc332b63c44, type: 2}
-  - {fileID: 11400000, guid: 06db6b8a9f14a294fa8c2458865e2d88, type: 2}
-  npcInFight: {fileID: 11400000, guid: a0dc8b5452f4a154980a31f21aaf5e63, type: 2}
-  gearToSell:
-  - {fileID: 11400000, guid: 9bede2767d7ec124696549722d5fe1a1, type: 2}
+  questList: []
+  npcInFight: {fileID: 0}
+  gearToSell: []
   potionToSell: []
-  questItemToSell:
-  - {fileID: 11400000, guid: 9a01f365493dc77469a93823b0ef23ad, type: 2}
+  questItemToSell: []
