@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3093f82b4f8dfae469a39c781b60c3d0, type: 3}
+  m_Name: 06_sucheNachGideon
+  m_EditorClassIdentifier: 
+  stepName: Suche nach Gideon
+  image: 
+  questText: "Gideon h\xE4lt sich meist in der N\xE4he vom S\xE4gewerk auf!"
+  resolvedText: "\"Hallo Freunde, habt ihr auch diesen komischen Mann mit Turban
+    gesehen? Ach genau den sucht ihr? Naja also er hatte einen Turban auf, an mehr
+    kann ich mich nicht mehr erinnern! Aber vielleicht ist er auch beim schwarzen
+    Ritter vorbeigekommen! Fragt den mal nach Hinweisen! Aber seid vorsichtig und
+    benehmt euch, ihr wollt Volde..... ehm ich meine nat\xFCrlich den schwarzen Ritter
+    nicht entz\xFCrnen!\""
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear: []
+  dropedQuestItems: []
+  nextQuestStep: {fileID: 11400000, guid: 35267f7ae5fbb964f8459aa06ada37bf, type: 2}
+  spotToGO: {fileID: 0}
+  npcToInteract: {fileID: 11400000, guid: fbe5a9c11a2cc264791782a819d20827, type: 2}
