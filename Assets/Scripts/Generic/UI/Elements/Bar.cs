@@ -33,7 +33,7 @@ namespace Hexerspiel.UI
 
         public void SetBar(float noramlizedPercent = 1)
         {
-            bar.sizeDelta = new Vector2(noramlizedPercent * 950, bar.sizeDelta.y);
+            bar.sizeDelta = new Vector2(noramlizedPercent * 950, bar.sizeDelta.y); 
         }
 
         public void SetValues(float current, float max, string ending)
