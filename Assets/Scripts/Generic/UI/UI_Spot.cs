@@ -60,8 +60,8 @@ namespace Hexerspiel.UI
             }
             if (boss != null )
             {
-                bt_boss.Button.onClick.AddListener(delegate { SpotManager.Instance.StartFightWithRandomMonster(); });
-                bt_boss.ChangeAppreance("Kämpfe gegen den Boss", boss.monsterName);
+                bt_boss.Button.onClick.AddListener(delegate { SpotManager.Instance.StartFightWithBoss(); });
+                bt_boss.ChangeAppreance("Kämpfe gegen " + boss.monsterName,  "Es hat " + boss.offensivStats.attackDice + " Würfel und " + boss.basicStats.health + " Leben");
                 nothingToDoTest = false;
             }
             else

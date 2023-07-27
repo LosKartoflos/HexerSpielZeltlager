@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 825fa593f842d424c9a7b298ac53a22a, type: 3}
-  m_Name: Zeigesmir_Solve
+  m_Name: "\xDCberfahrtSolve"
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: Zeigesmir_Solve
+    name: Aushang
     image: 
-  questStepToSolve: {fileID: 11400000, guid: b8b840970cf810f4db8915f31a8702ba, type: 2}
+  questStepToSolve: {fileID: 11400000, guid: b2d81f8745c4ddb4aac744451a588557, type: 2}

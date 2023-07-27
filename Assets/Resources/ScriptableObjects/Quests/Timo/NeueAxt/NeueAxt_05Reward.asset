@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3093f82b4f8dfae469a39c781b60c3d0, type: 3}
+  m_Name: NeueAxt_05Reward
+  m_EditorClassIdentifier: 
+  stepName: Abgabe der Axt
+  image: 
+  questText: "Vielen Dank f\xFCr die Axt. Endlich kann ich wieder B\xE4ume f\xE4llen."
+  resolvedText: "Gl\xFCckwunsch, hier ist euer Reward."
+  xp: 0
+  rewards:
+    gold: 0
+    miscItems:
+      herbs: 0
+      meat: 0
+      magicEssence: 0
+  dropedGear:
+  - {fileID: 11400000, guid: ba4e609a077aacb4fa0a694597eb8d32, type: 2}
+  dropedQuestItems: []
+  nextQuestStep: {fileID: 11400000, guid: c3ce88032618325439e40e3707367424, type: 2}
+  spotToGO: {fileID: 0}
+  npcToInteract: {fileID: 11400000, guid: fbe5a9c11a2cc264791782a819d20827, type: 2}
