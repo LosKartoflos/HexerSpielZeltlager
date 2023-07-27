@@ -17,9 +17,9 @@ MonoBehaviour:
   questText: "Geht zum Vorort, beim Aussenposten k\xF6nnt ihr das Navigator Training
     absolvieren. Ihr werdet stark werden."
   resolvedText: 
-  xp: 0
+  xp: 100
   rewards:
-    gold: 0
+    gold: 20
     miscItems:
       herbs: 0
       meat: 0

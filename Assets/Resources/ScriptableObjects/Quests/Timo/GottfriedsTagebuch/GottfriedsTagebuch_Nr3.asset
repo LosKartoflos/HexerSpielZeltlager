@@ -16,9 +16,9 @@ MonoBehaviour:
   image: 
   questText: "Du hast 2/3 Skeletton get\xF6tet. Nur noch eines!"
   resolvedText: 
-  xp: 0
+  xp: 90
   rewards:
-    gold: 0
+    gold: 40
     miscItems:
       herbs: 0
       meat: 0

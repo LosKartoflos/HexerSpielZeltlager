@@ -18,9 +18,9 @@ MonoBehaviour:
     Armee und berichtet den Einsiedler \xFCber die Anzahl. Findet die 8 CDs im Skorpion
     Bereich."
   resolvedText: 
-  xp: 0
+  xp: 105
   rewards:
-    gold: 0
+    gold: 30
     miscItems:
       herbs: 0
       meat: 0

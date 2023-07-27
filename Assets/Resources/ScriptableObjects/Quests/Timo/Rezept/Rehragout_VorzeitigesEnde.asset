@@ -18,9 +18,9 @@ MonoBehaviour:
     mehr machen. m\xF6chtest du dir dein Belohnung holen oder eine etwas 20% gr\xF6\xDFere,
     falls du diese Quest abrichtst und einen anderen Weg w\xE4hlst."
   resolvedText: "Gl\xFCckwunsch du bekommst daf\xFCr XXX"
-  xp: 0
+  xp: 180
   rewards:
-    gold: 0
+    gold: 20
     miscItems:
       herbs: 0
       meat: 0
