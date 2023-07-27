@@ -45,18 +45,18 @@ namespace Hexerspiel.nfcTags
         [Serializable]
         public struct ShopParameters
         {
-            public bool shop;
-            public bool basicItems;
+            //public bool shop;
+            //public bool basicItems;
             //the tier is assigend globally or by time
-            public List<SO_gear> tier1Gear;
-            public List<SO_gear> tier2Gear;
-            public List<SO_gear> tier3Gear;
+            public List<SO_item> tier1Gear;
+            //public List<SO_gear> tier2Gear;
+            //public List<SO_gear> tier3Gear;
         
-            public OfferType amuletOffer;
-            public OfferType armorOffer;
-            public OfferType potionOffer;
-            public OfferType weaponOffer;
-            public OfferType magicalOffer;
+            //public OfferType amuletOffer;
+            //public OfferType armorOffer;
+            //public OfferType potionOffer;
+            //public OfferType weaponOffer;
+            //public OfferType magicalOffer;
         }
 
         public Reward reward;
