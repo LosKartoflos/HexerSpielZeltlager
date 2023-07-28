@@ -24,6 +24,8 @@ namespace Hexerspiel.Character
     [RequireComponent(typeof(Inventory))]
     public class PotionInventory : MonoBehaviour
     {
+        public static bool isLoaded = false;
+
         public static event Action<PotionStats> PotionUsed = delegate { };
         public static event Action<string> AlertPotionChanged = delegate { };
         [SerializeField]
@@ -31,10 +33,35 @@ namespace Hexerspiel.Character
 
         public List<SO_potion> PotionList { get => potionList; }
 
+        public void Saver()
+        {
+            ES3.Save("potionList", potionList, "gear.es3");
+
+        }
+
+
+        public void Loader()
+        {
+            if (isLoaded)
+                return;
+
+            isLoaded = true;
+
+            if (ES3.KeyExists("potionList", "gear.es3"))
+                potionList = (List<SO_potion>)ES3.Load("potionList", "gear.es3");
+        }
+
+
+        private void Awake()
+        {
+            Loader();
+        }
+
         public void GetPotion(SO_potion newPotion)
         {
             potionList.Add(newPotion);
             AlertPotionChanged("Du hast " + newPotion.itemName + " erhalten!");
+            Saver();
         }
 
         public PotionStats UsePotion(SO_potion usedPotion)
@@ -42,7 +69,11 @@ namespace Hexerspiel.Character
             if (DropPotion(usedPotion))
             {
                 PotionUsed(usedPotion.potionStats);
+                Saver();
+                AlertPotionChanged("Du hast " + usedPotion.itemName + " getrunken.\n\n " + usedPotion.GetDescription());
                 return usedPotion.potionStats;
+
+               
             }
             Debug.Log("potion not in inventory");
 
@@ -60,6 +91,7 @@ namespace Hexerspiel.Character
             {
                 potionList.Remove(potionToDrop);
                 soldSuccesfull = true;
+                Saver();
             }
 
 
@@ -74,6 +106,7 @@ namespace Hexerspiel.Character
                 Player.Instance.Inventory.BasicInventory.ChangeGold(potionToSell.valueSell);
                 Debug.Log("Sell " + potionToSell.name + " for " + potionToSell.valueSell.ToString());
                 AlertPotionChanged("Du hast " + potionToSell.itemName + " für " + potionToSell.valueSell + " verkauft!");
+                Saver();
                 return true;
             }
 
@@ -88,6 +121,7 @@ namespace Hexerspiel.Character
                 GetPotion(potionToBuy);
                 Debug.Log("Buy " + potionToBuy.name + " for " + potionToBuy.valueBuy.ToString());
                 AlertPotionChanged("Du hast " + potionToBuy.itemName + " für " + potionToBuy.valueBuy + " gekauft!");
+                Saver();
                 return true;
             }
             return false;

@@ -11,6 +11,8 @@ namespace Hexerspiel.Character
     [RequireComponent(typeof(Inventory))]
     public class GearInventory : MonoBehaviour
     {
+        public static bool isLoaded = false;
+
         public static event Action EquipGearChanged = delegate { };
 
         public static event Action<string> AlertGearChanged = delegate { };
@@ -40,6 +42,46 @@ namespace Hexerspiel.Character
         public SO_amulet AmuletEquipped { get => amuletEquipped; }
         public SO_weapon WeaponEquipped { get => weaponEquipped; }
 
+        public void Saver()
+        {
+            ES3.Save("armorsCollected", armorsCollected, "gear.es3");
+            ES3.Save("amuletCollected", amuletCollected, "gear.es3");
+            ES3.Save("weaponsCollected", weaponsCollected, "gear.es3");
+
+            ES3.Save("armorEquiped", armorEquiped, "gear.es3");
+            ES3.Save("amuletEquipped", amuletEquipped, "gear.es3");
+            ES3.Save("weaponEquipped", weaponEquipped, "gear.es3");
+        }
+
+
+        public void Loader()
+        {
+            if (isLoaded)
+                return;
+
+            isLoaded = true;
+
+            if (ES3.KeyExists("armorsCollected", "gear.es3"))
+                armorsCollected = (List<SO_armor>)ES3.Load("armorsCollected", "gear.es3");
+            if (ES3.KeyExists("amuletCollected", "gear.es3"))
+                amuletCollected = (List<SO_amulet>)ES3.Load("amuletCollected", "gear.es3");
+            if (ES3.KeyExists("weaponsCollected", "gear.es3"))
+                weaponsCollected = (List<SO_weapon>)ES3.Load("weaponsCollected", "gear.es3");
+
+            if (ES3.KeyExists("armorEquiped", "gear.es3"))
+                armorEquiped = (SO_armor)ES3.Load("armorEquiped", "gear.es3");
+            if (ES3.KeyExists("amuletEquipped", "gear.es3"))
+                amuletEquipped = (SO_amulet)ES3.Load("amuletEquipped", "gear.es3");
+            if (ES3.KeyExists("weaponEquipped", "gear.es3"))
+                weaponEquipped = (SO_weapon)ES3.Load("weaponEquipped", "gear.es3");
+
+        }
+
+        private void Awake()
+        {
+            Loader();
+        }
+
         public void GetGear(SO_gear newGear)
         {
             if (newGear == null)
@@ -65,7 +107,7 @@ namespace Hexerspiel.Character
                     return;
                     break;
             }
-
+            Saver();
             AlertGearChanged("Du hast " + newGear.itemName + " erhalten");
         }
 
@@ -104,7 +146,7 @@ namespace Hexerspiel.Character
                     Debug.LogError("No gear type for " + newGear.itemName);
                     break;
             }
-
+            Saver();
 
             EquipGearChanged();
         }
@@ -126,7 +168,7 @@ namespace Hexerspiel.Character
                     Debug.LogError("Nothing cannot be unequipped and you cannot divide by zero");
                     break;
             }
-
+            Saver();
             EquipGearChanged();
         }
 
@@ -137,6 +179,9 @@ namespace Hexerspiel.Character
             switch (gearToDrop.GearType)
             {
                 case GearType.armor:
+                    if ((SO_armor)gearToDrop == armorEquiped)
+                        UnequipGear(GearType.armor);
+
                     if (armorsCollected.Contains((SO_armor)gearToDrop))
                     {
                         armorsCollected.Remove((SO_armor)gearToDrop);
@@ -146,11 +191,13 @@ namespace Hexerspiel.Character
                     else
                         Debug.Log("You do not own " + gearToDrop.itemName);
 
-                    if ((SO_armor)gearToDrop == armorEquiped)
-                        UnequipGear(GearType.armor);
+                  
 
                     break;
                 case GearType.weapon:
+                    if ((SO_weapon)gearToDrop == weaponEquipped)
+                        UnequipGear(GearType.weapon);
+
                     if (weaponsCollected.Contains((SO_weapon)gearToDrop))
                     {
                         weaponsCollected.Remove((SO_weapon)gearToDrop);
@@ -159,11 +206,13 @@ namespace Hexerspiel.Character
                     else
                         Debug.Log("You do not own " + gearToDrop.itemName);
 
-                    if ((SO_weapon)gearToDrop == weaponEquipped)
-                        UnequipGear(GearType.armor);
+                  
 
                     break;
                 case GearType.amulet:
+                    if ((SO_amulet)gearToDrop == amuletEquipped)
+                        UnequipGear(GearType.amulet);
+
                     if (amuletCollected.Contains((SO_amulet)gearToDrop))
                     {
                         amuletCollected.Remove((SO_amulet)gearToDrop);
@@ -172,8 +221,7 @@ namespace Hexerspiel.Character
                     else
                         Debug.Log("You do not own " + gearToDrop.itemName);
 
-                    if ((SO_amulet)gearToDrop == amuletEquipped)
-                        UnequipGear(GearType.armor);
+                   
 
                     break;
                 case GearType.none:
@@ -184,6 +232,7 @@ namespace Hexerspiel.Character
             if (dropedSuccessfull)
                 EquipGearChanged();
 
+            Saver();
             return dropedSuccessfull;
         }
 
@@ -195,7 +244,8 @@ namespace Hexerspiel.Character
                 Player.Instance.Inventory.BasicInventory.ChangeGold(gearToSell.valueSell);
                 Debug.Log("Sell " + gearToSell.name + " for " + gearToSell.valueSell.ToString());
                 AlertGearChanged("Du hast " + gearToSell.itemName + " für " + gearToSell.valueSell + " Gold verkauft!");
-                return true;
+                Saver();
+                return true;         
             }
 
             return false;
@@ -209,6 +259,7 @@ namespace Hexerspiel.Character
                 GetGear(gearTobuy);
                 Debug.Log("Buy " + gearTobuy.name + " for " + gearTobuy.valueBuy.ToString());
                 AlertGearChanged("Du hast " + gearTobuy.itemName + " für " + gearTobuy.valueBuy + " Gold gekauft!");
+                Saver();
                 return true;
             }
             return false;

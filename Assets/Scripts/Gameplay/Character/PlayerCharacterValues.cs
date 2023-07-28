@@ -45,7 +45,9 @@ namespace Hexerspiel.Character
         [SerializeField]
         protected PlayerStats playerStats;
         [SerializeField]
-        protected PlayerAttributes playerAttributes;
+        protected PlayerAttributes playerAttributesComplete;
+        [SerializeField]
+        protected PlayerAttributes playerAttributesBasic;
         [SerializeField]
         protected SpellLevel spellLevel;
 
@@ -58,7 +60,7 @@ namespace Hexerspiel.Character
         //public Dictionary<NPC, Time> lastSocialInteraction = new Dictionary<NPC, Time>();
 
         public PlayerStats PlayerStats1 { get => playerStats; set => playerStats = value; }
-        public PlayerAttributes PlayerAttributes1 { get => playerAttributes; set => playerAttributes = value; }
+        public PlayerAttributes PlayerAttributesComplete { get => playerAttributesComplete; set => playerAttributesComplete = value; }
         public SpellLevel SpellLevel1 { get => spellLevel; set => spellLevel = value; }
 
         /// <summary>
@@ -104,6 +106,8 @@ namespace Hexerspiel.Character
         public virtual void SetMana(float manaAmount)
         {
             playerStats.mana = manaAmount;
+           
+
         }
 
         public virtual void AddMana(float manaAmount)
@@ -112,6 +116,8 @@ namespace Hexerspiel.Character
 
             if (playerStats.mana > playerStats.manaMax)
                 playerStats.mana = playerStats.manaMax;
+
+            Player.Instance.Saver();
         }
 
         public virtual float GetMana()
@@ -121,13 +127,17 @@ namespace Hexerspiel.Character
 
         public void GetXp(int amount)
         {
-            playerStats.xp = amount;
+            playerStats.xp += amount;
+            Player.Instance.Saver();
         }
 
         public override void Died()
         {
 
             SetLife(0);
+            SetMana(0);
+            GetXp(-10);
+            Player.Instance.Saver();
 
         }
     }

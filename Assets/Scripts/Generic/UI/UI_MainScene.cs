@@ -38,9 +38,9 @@ public class UI_MainScene : MonoBehaviour
     private void Start()
     {
         label_Attributs.text = string.Format("Körper: {0} | Geist: {1} | Charisma: {2}\nW: {3} | ES: +{4} | MW: {6} | MP: {7}| R: {5}",
-            Player.Instance.PlayerValues.PlayerAttributes1.body.ToString(),
-             Player.Instance.PlayerValues.PlayerAttributes1.mind.ToString(),
-             Player.Instance.PlayerValues.PlayerAttributes1.charisma.ToString(),
+            Player.Instance.PlayerValues.PlayerAttributesComplete.body.ToString(),
+             Player.Instance.PlayerValues.PlayerAttributesComplete.mind.ToString(),
+             Player.Instance.PlayerValues.PlayerAttributesComplete.charisma.ToString(),
               Player.Instance.PlayerValues.OffensivStatsValue.attackDice.ToString(),
                Player.Instance.PlayerValues.OffensivStatsValue.succesThreshold.ToString(),
                 Player.Instance.PlayerValues.DeffensiveStatsValue.armor.ToString(),

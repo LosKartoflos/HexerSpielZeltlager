@@ -17,7 +17,7 @@ namespace Hexerspiel.Character
     /// </summary>
     public class BasicInventory : MonoBehaviour
     {
-
+        public static bool allreadyLoaded = false;
         [SerializeField]
         private BasicInventoryCounters amount = new BasicInventoryCounters();
         public static event Action<string> AlertBasicInventoryChange = delegate { };
@@ -57,8 +57,30 @@ namespace Hexerspiel.Character
             amount.miscItems.meat = 0;
         }
 
+
+
         public BasicInventoryCounters Amount { get => amount; }
 
+        public void Saver()
+        {
+            ES3.Save("amount", amount);
+        }
+
+        public void Loader()
+        {
+            if (allreadyLoaded)
+                return;
+            allreadyLoaded = true;
+
+
+            if (ES3.KeyExists("amount"))
+                amount = (BasicInventoryCounters)ES3.Load("amount");
+        }
+
+        private void Awake()
+        {
+            Loader();
+        }
 
         /// <summary>
         /// Just changes the given amount by the given ManipulatioAmmount. can slide into minus. check before
@@ -130,6 +152,8 @@ namespace Hexerspiel.Character
             amount = ManipulationOutcome(amount, manipulationAmount);
             AlertAmountChange(manipulationAmount);
 
+            Saver();
+
             return true;
         }
 
@@ -181,6 +205,7 @@ namespace Hexerspiel.Character
                 return false;
 
             this.amount.gold += amount;
+            Saver();
 
             return true;
         }
@@ -196,7 +221,7 @@ namespace Hexerspiel.Character
                 return false;
 
             this.amount.miscItems.meat += amount;
-
+            Saver();
             return true;
         }
 
@@ -211,7 +236,7 @@ namespace Hexerspiel.Character
                 return false;
 
             this.amount.miscItems.magicEssence += amount;
-
+            Saver();
             return true;
         }
 
@@ -226,7 +251,7 @@ namespace Hexerspiel.Character
                 return false;
 
             this.amount.miscItems.herbs += amount;
-
+            Saver();
             return true;
         }
 

@@ -53,7 +53,7 @@ namespace Hexerspiel.Generic
             if (SceneManager.GetActiveScene().name == "MainScene")
             {
                 SaveEvent();
-                Debug.Log("Save");
+               // Debug.Log("Save");
             }
                
         }

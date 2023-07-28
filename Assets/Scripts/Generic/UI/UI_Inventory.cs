@@ -167,20 +167,22 @@ namespace Hexerspiel.UI
 
         void UpdateAppreance()
         {
+            if (Player.Instance.Inventory.GearInventory.AmuletEquipped != null)
+                amuletEquip.ChangeAppreance(Player.Instance.Inventory.GearInventory.AmuletEquipped.itemName, Player.Instance.Inventory.GearInventory.AmuletEquipped.GetDescriptionShort(), Player.Instance.Inventory.GearInventory.AmuletEquipped.itemImage);
+            else
+                amuletEquip.ChangeAppreance(null, "Lege ein Amulett an!");
+
             if (Player.Instance.Inventory.GearInventory.ArmorEquiped != null)
                 armorEquip.ChangeAppreance(Player.Instance.Inventory.GearInventory.ArmorEquiped.itemName, Player.Instance.Inventory.GearInventory.ArmorEquiped.GetDescriptionShort(), Player.Instance.Inventory.GearInventory.ArmorEquiped.itemImage);
             else
-                armorEquip.ChangeAppreance(null, null);
+                armorEquip.ChangeAppreance(null, "Rüste dich!");
 
             if (Player.Instance.Inventory.GearInventory.WeaponEquipped != null)
                 weaponEquip.ChangeAppreance(Player.Instance.Inventory.GearInventory.WeaponEquipped.itemName, Player.Instance.Inventory.GearInventory.WeaponEquipped.GetDescriptionShort(), Player.Instance.Inventory.GearInventory.WeaponEquipped.itemImage);
             else
-                weaponEquip.ChangeAppreance(null, null);
+                weaponEquip.ChangeAppreance(null, "Schnapp dir eine Waffe!");
 
-            if (Player.Instance.Inventory.GearInventory.AmuletEquipped != null)
-                amuletEquip.ChangeAppreance(Player.Instance.Inventory.GearInventory.AmuletEquipped.itemName, Player.Instance.Inventory.GearInventory.AmuletEquipped.GetDescriptionShort(), Player.Instance.Inventory.GearInventory.AmuletEquipped.itemImage);
-            else
-                amuletEquip.ChangeAppreance(null, null);
+           
 
             potionEquip.ChangeAppreance(null, null);
             questItemEquip.ChangeAppreance(null, null);

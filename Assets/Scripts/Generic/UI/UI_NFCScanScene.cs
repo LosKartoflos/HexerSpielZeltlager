@@ -28,9 +28,11 @@ public class UI_NFCScanScene : MonoBehaviour
     private void Awake()
     {
         instance = this;
-//#if UNITY_ANDROID && !UNITY_EDITOR
-//        inputFieldDebug.gameObject.SetActive(false);
-//#endif
+#if UNITY_ANDROID && !UNITY_EDITOR
+        inputFieldDebug.gameObject.SetActive(false);
+#elif !UNITY_ANDROID && UNITY_EDITOR
+        inputFieldDebug.gameObject.SetActive(trues);
+#endif
     }
 
     private void Start()

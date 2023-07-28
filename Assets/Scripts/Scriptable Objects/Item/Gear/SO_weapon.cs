@@ -15,12 +15,12 @@ namespace Hexerspiel.Items
         {
             if(weaponStats.damageType == DamageType.Magisch)
             {
-                return Mathf.FloorToInt(Player.Instance.PlayerValues.PlayerAttributes1.mind / Player.Instance.PlayerValues.PlayerAttributes1.attributAddThreshold);
+                return Mathf.FloorToInt(Player.Instance.PlayerValues.PlayerAttributesComplete.mind / Player.Instance.PlayerValues.PlayerAttributesComplete.attributAddThreshold);
             }
             
             else if (weaponStats.damageType == DamageType.Normal)
             {
-                return Mathf.FloorToInt(Player.Instance.PlayerValues.PlayerAttributes1.body / Player.Instance.PlayerValues.PlayerAttributes1.attributAddThreshold);
+                return Mathf.FloorToInt(Player.Instance.PlayerValues.PlayerAttributesComplete.body / Player.Instance.PlayerValues.PlayerAttributesComplete.attributAddThreshold);
             }
 
             return 0;

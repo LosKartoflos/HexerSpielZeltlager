@@ -9,6 +9,7 @@ namespace Hexerspiel.Character
     [RequireComponent(typeof(Inventory))]
     public class QuestItemInventory : MonoBehaviour
     {
+        public static bool isLoaded = false;
 
         [SerializeField]
         private List<SO_questItem> questItemsList = new List<SO_questItem>();
@@ -16,16 +17,41 @@ namespace Hexerspiel.Character
 
         public List<SO_questItem> QuestItemsList { get => questItemsList; }
 
+        public void Saver()
+        {
+            ES3.Save("questItemsList", questItemsList, "gear.es3");
+
+        }
+
+
+        public void Loader()
+        {
+            if (isLoaded)
+                return;
+
+            isLoaded = true;
+
+            if (ES3.KeyExists("questItemsList", "gear.es3"))
+                questItemsList = (List<SO_questItem>)ES3.Load("questItemsList", "gear.es3");
+        }
+
+        private void Awake()
+        {
+            Loader();
+        }
+
         public void GetQuestItem(SO_questItem newQuestitem)
         {
             questItemsList.Add(newQuestitem);
             AlertQuestItemChanged("Du hast " + newQuestitem.itemName + " erhalten!");
+            Saver();
         }
 
         public string UseQuestItem(SO_questItem usedItem)
         {
             if (DropQuestItem(usedItem))
             {
+                Saver();
                 return usedItem.name;
             }
             Debug.Log("no fitting Item in inventory");
@@ -41,6 +67,7 @@ namespace Hexerspiel.Character
             if (questItemsList.Contains(itemToDrop))
             {
                 questItemsList.Remove(itemToDrop);
+                Saver();
                 dropedSuccessfull = true;
             }
 
@@ -69,6 +96,7 @@ namespace Hexerspiel.Character
                 GetQuestItem(itemToBuy);
                 Debug.Log("Buy " + itemToBuy.name + " for " + itemToBuy.valueBuy.ToString());
                 AlertQuestItemChanged("Du hast " + itemToBuy.itemName + " für " + itemToBuy.valueBuy + " gekauft!");
+                Saver();
                 return true;
             }
             return false;

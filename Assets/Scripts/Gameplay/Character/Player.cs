@@ -13,7 +13,7 @@ using static Hexerspiel.Character.PlayerCharacterValues;
 public class Player : MonoBehaviour
 {
 
-
+    public static bool isLoaded = false;
     #region Variables
     private static Player instance;
 
@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     public static Player Instance { get => instance; }
 
     public Inventory Inventory { get => inventory; set => inventory = value; }
-    public PlayerCharacterValues PlayerValues { get => playerValues; set => playerValues = value; }
+    public PlayerCharacterValues PlayerValues { get => playerValues; }
     public string CollectedLoot { get => collectedLoot; }
 
     private string collectedLoot = "";
@@ -39,6 +39,23 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     PlayerAttributes playerAttributesWithGear;
+
+    public void Saver()
+    {
+        ES3.Save<PlayerCharacterValues>("playerValues", playerValues, "playerValues.es3");
+    }
+
+
+    public void Loader()
+    {
+        if (isLoaded)
+            return;
+
+        isLoaded = true;
+
+        if (ES3.KeyExists("playerValues", "playerValues.es3"))
+            playerValues = (PlayerCharacterValues)ES3.Load("playerValues", "playerValues.es3");
+    }
     #endregion
 
     #region LifeCycle
@@ -52,7 +69,7 @@ public class Player : MonoBehaviour
         else if (instance != this)
             Destroy(gameObject);
 
-
+        Loader();
     }
 
 
@@ -88,6 +105,8 @@ public class Player : MonoBehaviour
         else
             playerValues.killedMonsters.Add(monsterName, deathTime);
 
+        Saver();
+
     }
 
     /// <summary>
@@ -105,7 +124,7 @@ public class Player : MonoBehaviour
     /// </summary>
     public void CaclutlatePlayerAttributesWithGear()
     {
-        playerAttributesWithGear.body = PlayerValues.PlayerAttributes1.body;
+        playerAttributesWithGear.body = PlayerValues.PlayerAttributesComplete.body;
     }
 
     /// <summary>
@@ -119,13 +138,13 @@ public class Player : MonoBehaviour
     //The extra Armor through the body
     public int ExtraArmor()
     {
-        return Mathf.FloorToInt(Player.Instance.PlayerValues.PlayerAttributes1.body / Player.Instance.PlayerValues.PlayerAttributes1.attributAddThreshold);
+        return Mathf.FloorToInt(Player.Instance.PlayerValues.PlayerAttributesComplete.body / Player.Instance.PlayerValues.PlayerAttributesComplete.attributAddThreshold);
     }
 
     //The extra Armor through the body
     public int ExtraAttackWithoutWeapon()
     {
-        return Mathf.FloorToInt(Player.Instance.PlayerValues.PlayerAttributes1.body / Player.Instance.PlayerValues.PlayerAttributes1.attributAddThreshold);
+        return Mathf.FloorToInt(Player.Instance.PlayerValues.PlayerAttributesComplete.body / Player.Instance.PlayerValues.PlayerAttributesComplete.attributAddThreshold);
     }
 
     //recieveLoot
@@ -254,6 +273,8 @@ public class Player : MonoBehaviour
         playerValues.GetXp(xpAmount);
         if (noteLoot)
             collectedLoot += "XP: " + xpAmount;
+
+        Saver();
     }
 
     public int ReturnAttributeValue(AttributeTypes attribute)
@@ -264,13 +285,13 @@ public class Player : MonoBehaviour
                 return 0;
                 break;
             case AttributeTypes.Körper:
-                return playerValues.PlayerAttributes1.body;
+                return playerValues.PlayerAttributesComplete.body;
                 break;
             case AttributeTypes.Geist:
-                return playerValues.PlayerAttributes1.mind;
+                return playerValues.PlayerAttributesComplete.mind;
                 break;
             case AttributeTypes.Charisma:
-                return playerValues.PlayerAttributes1.charisma;
+                return playerValues.PlayerAttributesComplete.charisma;
                 break;
 
         }

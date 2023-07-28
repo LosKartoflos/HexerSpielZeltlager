@@ -6,6 +6,7 @@ using Hexerspiel.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -103,6 +104,21 @@ public class MainManager : MonoBehaviour
     #endregion
 
     #region Functions
+    public void DeletSafes()
+    {
+        foreach (var directory in Directory.GetDirectories(Application.persistentDataPath))
+        {
+            DirectoryInfo data_dir = new DirectoryInfo(directory);
+            data_dir.Delete(true);
+        }
+
+        foreach (var file in Directory.GetFiles(Application.persistentDataPath))
+        {
+            FileInfo file_info = new FileInfo(file);
+            file_info.Delete();
+        }
+    }
+
     public static void LoadMainScene()
     {
         SceneManager.LoadScene("MainScene");
