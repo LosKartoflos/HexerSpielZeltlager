@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Silberschwert
   itemImage: Silberschwert
-  valueBuy: 0
-  valueSell: 0
+  valueBuy: 52
+  valueSell: 22
   attributeBuffs:
     body: 0
     mind: 0

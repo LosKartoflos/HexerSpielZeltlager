@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: amuletDesWuerfelns
   m_EditorClassIdentifier: 
   itemName: "Amulet des W\xFCrfelns"
-  itemImage: {fileID: 0}
-  valueBuy: 200
-  valueSell: 30
+  itemImage: 
+  valueBuy: 70
+  valueSell: 40
   attributeBuffs:
     body: 0
     mind: 0
     charisma: 0
     attributAddThreshold: 0
+  regenBuffs:
+    manaRegen: 0
+    healthRegen: 0
   spellLevelBuff:
     lifeSpell: 0
     mindSpell: 0

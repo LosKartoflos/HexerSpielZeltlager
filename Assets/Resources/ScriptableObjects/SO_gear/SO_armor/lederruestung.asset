@@ -14,13 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: "Lederr\xFCstung"
   itemImage: armor_2
-  valueBuy: 140
-  valueSell: 40
+  valueBuy: 25
+  valueSell: 0
   attributeBuffs:
     body: 1
     mind: 1
     charisma: 1
     attributAddThreshold: 0
+  regenBuffs:
+    manaRegen: 0
+    healthRegen: 0
   spellLevelBuff:
     lifeSpell: 1
     mindSpell: 1

@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: eisendolch
   m_EditorClassIdentifier: 
   itemName: Eisendolch
-  itemImage: Eisendolch.png
-  valueBuy: 0
+  itemImage: Eisendolch
+  valueBuy: 28
   valueSell: 0
   attributeBuffs:
     body: 0
     mind: 0
     charisma: 0
     attributAddThreshold: 0
+  regenBuffs:
+    manaRegen: 0
+    healthRegen: 0
   spellLevelBuff:
     lifeSpell: 0
     mindSpell: 0

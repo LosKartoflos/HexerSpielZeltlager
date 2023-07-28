@@ -13,20 +13,23 @@ MonoBehaviour:
   m_Name: "amuletDes\xC4ltestenrats"
   m_EditorClassIdentifier: 
   itemName: "Amulett des \xC4ltestenrats"
-  itemImage: "Amulett des \xC4ltestenrats.png"
-  valueBuy: 0
-  valueSell: 0
+  itemImage: "Amulett des \xC4ltestenrats"
+  valueBuy: 70
+  valueSell: 40
   attributeBuffs:
-    body: 0
-    mind: 0
-    charisma: 0
+    body: 2
+    mind: 1
+    charisma: 2
     attributAddThreshold: 0
+  regenBuffs:
+    manaRegen: 0
+    healthRegen: 0
   spellLevelBuff:
     lifeSpell: 0
     mindSpell: 0
     charismaSpell: 0
   diceManipulation:
-    addDice: 0
+    addDice: 2
     substractDiceFromEnemy: 0
     addablePoints: 0
     subtractablePointsFromEnemy: 0

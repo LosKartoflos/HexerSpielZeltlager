@@ -16,9 +16,9 @@ MonoBehaviour:
   image: 
   questText: Besiegt Orks (1/2).
   resolvedText: 
-  xp: 0
+  xp: 90
   rewards:
-    gold: 0
+    gold: 20
     miscItems:
       herbs: 0
       meat: 0

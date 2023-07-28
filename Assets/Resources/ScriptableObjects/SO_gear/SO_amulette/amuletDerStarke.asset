@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: amuletDerStarke
   m_EditorClassIdentifier: 
   itemName: "Amulet der St\xE4rke"
-  itemImage: {fileID: 0}
-  valueBuy: 200
-  valueSell: 30
+  itemImage: 
+  valueBuy: 70
+  valueSell: 40
   attributeBuffs:
     body: 5
-    mind: 0
-    charisma: 0
+    mind: 1
+    charisma: 1
     attributAddThreshold: 0
+  regenBuffs:
+    manaRegen: 0
+    healthRegen: 0
   spellLevelBuff:
     lifeSpell: 0
     mindSpell: 0

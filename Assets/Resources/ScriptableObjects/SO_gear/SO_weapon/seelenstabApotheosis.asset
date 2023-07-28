@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: seelenstabApotheosis
   m_EditorClassIdentifier: 
   itemName: Seelenstab Apotheosis
-  itemImage: Seelenstab Apotheosis.png
-  valueBuy: 0
-  valueSell: 0
+  itemImage: Seelenstab Apotheosis
+  valueBuy: 92
+  valueSell: 62
   attributeBuffs:
     body: 0
     mind: 0
     charisma: 0
     attributAddThreshold: 0
+  regenBuffs:
+    manaRegen: 0
+    healthRegen: 0
   spellLevelBuff:
     lifeSpell: 0
     mindSpell: 0

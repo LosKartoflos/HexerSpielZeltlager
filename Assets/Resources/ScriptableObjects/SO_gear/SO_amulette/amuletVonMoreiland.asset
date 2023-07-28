@@ -13,20 +13,23 @@ MonoBehaviour:
   m_Name: amuletVonMoreiland
   m_EditorClassIdentifier: 
   itemName: Amulett von Moreiland
-  itemImage: Amulett von Moreiland.png
-  valueBuy: 0
-  valueSell: 0
+  itemImage: Amulett von Moreiland
+  valueBuy: 70
+  valueSell: 40
   attributeBuffs:
-    body: 0
-    mind: 0
-    charisma: 0
+    body: 1
+    mind: 1
+    charisma: 3
     attributAddThreshold: 0
+  regenBuffs:
+    manaRegen: 0
+    healthRegen: 0
   spellLevelBuff:
     lifeSpell: 0
     mindSpell: 0
     charismaSpell: 0
   diceManipulation:
-    addDice: 0
+    addDice: 1
     substractDiceFromEnemy: 0
-    addablePoints: 0
+    addablePoints: 1
     subtractablePointsFromEnemy: 0

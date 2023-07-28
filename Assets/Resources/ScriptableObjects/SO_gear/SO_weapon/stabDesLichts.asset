@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: stabDesLichts
   m_EditorClassIdentifier: 
   itemName: Stab des Lichts
-  itemImage: Stab des Lichts.png
-  valueBuy: 0
+  itemImage: Stab des Lichts
+  valueBuy: 22
   valueSell: 0
   attributeBuffs:
     body: 0
     mind: 0
     charisma: 0
     attributAddThreshold: 0
+  regenBuffs:
+    manaRegen: 0
+    healthRegen: 0
   spellLevelBuff:
     lifeSpell: 0
     mindSpell: 0

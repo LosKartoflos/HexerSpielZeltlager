@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: kristall des balad-dur
   m_EditorClassIdentifier: 
   itemName: "Kristall des Balad-D\xFBr"
-  itemImage: Kristall.png
+  itemImage: Kristall
   valueBuy: 0
   valueSell: 0

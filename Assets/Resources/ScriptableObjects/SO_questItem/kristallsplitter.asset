@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: kristallsplitter
   m_EditorClassIdentifier: 
   itemName: Kristallsplitter
-  itemImage: Seelstein.png
+  itemImage: Seelstein
   valueBuy: 0
   valueSell: 0

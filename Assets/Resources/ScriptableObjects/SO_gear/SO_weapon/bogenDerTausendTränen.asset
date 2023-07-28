@@ -13,20 +13,23 @@ MonoBehaviour:
   m_Name: "bogenDerTausendTr\xE4nen"
   m_EditorClassIdentifier: 
   itemName: "Bogen der tausend Tr\xE4nen"
-  itemImage: "Bogen der tausend Tr\xE4nen.png"
-  valueBuy: 0
-  valueSell: 0
+  itemImage: "Bogen der tausend Tr\xE4nen"
+  valueBuy: 148
+  valueSell: 118
   attributeBuffs:
     body: 0
     mind: 0
     charisma: 0
     attributAddThreshold: 0
+  regenBuffs:
+    manaRegen: 0
+    healthRegen: 0
   spellLevelBuff:
     lifeSpell: 0
     mindSpell: 0
     charismaSpell: 0
   weaponStats:
-    succesThreshold: 0
-    attackDice: 0
+    succesThreshold: 2
+    attackDice: 1
     damageType: 0
     weaponRange: 1
