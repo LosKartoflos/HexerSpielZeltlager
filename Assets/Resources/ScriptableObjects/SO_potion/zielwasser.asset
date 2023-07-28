@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: zielwasser
   m_EditorClassIdentifier: 
   itemName: Zielwasser
-  itemImage: {fileID: 0}
-  valueBuy: 100
-  valueSell: 10
+  itemImage: 
+  valueBuy: 10
+  valueSell: 2
   potionStats:
     diceManipulation:
       addDice: 5

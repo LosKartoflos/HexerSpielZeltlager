@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   itemImage: 
-  valueBuy: 100
-  valueSell: 10
+  valueBuy: 5
+  valueSell: 1
   potionStats:
     diceManipulation:
       addDice: 0
