@@ -16,9 +16,9 @@ MonoBehaviour:
   image: 
   questText: Bringe das Gekaufte Holz zu Helger
   resolvedText: "Vielen Dank f\xFCrs schleppen vom Holz."
-  xp: 0
+  xp: 280
   rewards:
-    gold: 0
+    gold: 30
     miscItems:
       herbs: 0
       meat: 0
