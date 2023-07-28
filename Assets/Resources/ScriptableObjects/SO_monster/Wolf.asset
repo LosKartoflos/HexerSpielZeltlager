@@ -15,8 +15,8 @@ MonoBehaviour:
   monsterName: Wolf
   monsterImage: {fileID: 0}
   basicStats:
-    health: 0
-    healthMax: 0
+    health: 50
+    healthMax: 50
     characterMovement: 0
     characterType: 0
   monsterStats:

@@ -15,8 +15,8 @@ MonoBehaviour:
   monsterName: Zombie
   monsterImage: {fileID: 0}
   basicStats:
-    health: 0
-    healthMax: 0
+    health: 65
+    healthMax: 65
     characterMovement: 0
     characterType: 0
   monsterStats:
@@ -30,7 +30,7 @@ MonoBehaviour:
     droppedPotion: []
     dropedQuestItems: []
   offensivStats:
-    succesThreshold: 0
+    succesThreshold: 2
     attackDice: 0
     damageType: 0
     weaponRange: 0

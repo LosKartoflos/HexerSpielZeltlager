@@ -15,8 +15,8 @@ MonoBehaviour:
   monsterName: Skelett
   monsterImage: {fileID: 0}
   basicStats:
-    health: 0
-    healthMax: 0
+    health: 45
+    healthMax: 45
     characterMovement: 0
     characterType: 0
   monsterStats:
@@ -33,6 +33,6 @@ MonoBehaviour:
     succesThreshold: 0
     attackDice: 0
     damageType: 0
-    weaponRange: 0
+    weaponRange: 1
   defensiveStats:
     armor: 0
