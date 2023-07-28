@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private PlayerCharacterValues playerValues;
+
+    public static int xpPerLevel = 100;
     #endregion
 
     #region Accessors
@@ -71,6 +73,11 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Functions
+
+    public  int XPForNextlevel()
+    {
+        return xpPerLevel  + (xpPerLevel * playerValues.PlayerStats1.level - 1) /2;
+    }
 
     private void AddToMonsterKilledList(string monsterName, DateTime deathTime)
     {

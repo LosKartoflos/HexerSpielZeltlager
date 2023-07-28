@@ -23,8 +23,7 @@ MonoBehaviour:
       herbs: 7
       meat: 5
       magicEssence: 4
-  dropedGear:
-  - {fileID: 11400000, guid: aba86078f0d0b114cb14ad89b9a8134f, type: 2}
+  dropedGear: []
   dropedQuestItems:
   - {fileID: 11400000, guid: 9a01f365493dc77469a93823b0ef23ad, type: 2}
   nextQuestStep: {fileID: 11400000, guid: 273cabf3d94c25043ab3ef54c58b1570, type: 2}

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: quadrathlon
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: 
+    name: Quadrathlon
     image: 
-  firstQuestStep: {fileID: 0}
+  firstQuestStep: {fileID: 11400000, guid: 21a0fd148784e684e9531d5dc2dd235d, type: 2}

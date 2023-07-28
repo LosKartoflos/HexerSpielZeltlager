@@ -1,3 +1,4 @@
+using Hexerspiel.Generic;
 using Hexerspiel.nfcTags;
 using Hexerspiel.UI;
 using System;
@@ -12,6 +13,8 @@ namespace Hexerspiel.Quests
     {
         #region Variables
         private static QuestTracker instance;
+
+        public static bool hasLoaded = false;
 
         public const int maximalQuestsTracked = 3;
 
@@ -40,6 +43,8 @@ namespace Hexerspiel.Quests
         public static SO_spots currentSpot;
         public static SO_npc currentNPC;
 
+        public SO_npc currentNpcWatcher;
+
         public static List<SO_questStep> questsOfferedByNPC = new List<SO_questStep>();
         public static string freeEntry;
         public static SO_rightAnswer givenAnswer;
@@ -57,6 +62,54 @@ namespace Hexerspiel.Quests
         public const string multipleChoiceRecieverID = "solveMultipleChoice";
         public const string freeEntryRecieverID = "freeEntry";
 
+        public void Saver()
+        {
+            ES3.Save("questSteps", questSteps);
+            ES3.Save("nextQuestStep", nextQuestStep);
+            ES3.Save("allreadyUsedSteps", allreadyUsedSteps);
+            ES3.Save("stepsDoneForQuestlineIndex0", stepsDoneForQuestlineIndex0);
+            ES3.Save("stepsDoneForQuestlineIndex1", stepsDoneForQuestlineIndex1);
+            ES3.Save("stepsDoneForQuestlineIndex2", stepsDoneForQuestlineIndex2);
+
+            ES3.Save("currentSpot", currentSpot);
+            ES3.Save("currentNPC", currentNPC);
+            ES3.Save("stepsDoneForQuestlineIndex2", stepsDoneForQuestlineIndex2);
+
+            Debug.Log("Saver QuestTracker");
+
+        }
+
+        public void Loader()
+        {
+
+            if (hasLoaded)
+                return;
+
+            hasLoaded = true;
+            if (ES3.KeyExists("questSteps"))
+                questSteps = (SO_questStep[])ES3.Load("questSteps");
+            if (ES3.KeyExists("nextQuestStep"))
+                nextQuestStep = (SO_questStep[])ES3.Load("nextQuestStep");
+            if (ES3.KeyExists("allreadyUsedSteps"))
+                allreadyUsedSteps = (List<SO_questStep>)ES3.Load("allreadyUsedSteps");
+            if (ES3.KeyExists("allreadyUsedSteps"))
+                allreadyUsedSteps = (List<SO_questStep>)ES3.Load("allreadyUsedSteps");
+            if (ES3.KeyExists("stepsDoneForQuestlineIndex0"))
+                stepsDoneForQuestlineIndex0 = (List<SO_questStep>)ES3.Load("stepsDoneForQuestlineIndex0");
+            if (ES3.KeyExists("stepsDoneForQuestlineIndex1"))
+                stepsDoneForQuestlineIndex1 = (List<SO_questStep>)ES3.Load("stepsDoneForQuestlineIndex1");
+            if (ES3.KeyExists("stepsDoneForQuestlineIndex2"))
+                stepsDoneForQuestlineIndex2 = (List<SO_questStep>)ES3.Load("stepsDoneForQuestlineIndex2");
+            if (ES3.KeyExists("currentSpot"))
+                currentSpot =(SO_spots)ES3.Load("currentSpot");
+            if (ES3.KeyExists("currentNPC"))
+                currentNPC = (SO_npc)ES3.Load("currentNPC");
+            if (ES3.KeyExists("stepsDoneForQuestlineIndex2"))
+                stepsDoneForQuestlineIndex2 = (List<SO_questStep>)ES3.Load("stepsDoneForQuestlineIndex2");
+
+
+            Debug.Log("Loader QuesTracker");
+        }
         #endregion
 
         #region Accessors
@@ -79,11 +132,18 @@ namespace Hexerspiel.Quests
             }
             else if (instance != this)
                 Destroy(gameObject);
-
+            Loader();
 
         }
 
-  
+        private void Update()
+        {
+            currentNpcWatcher = currentNPC;
+        }
+
+
+
+
 
         private void OnEnable()
         {
@@ -93,6 +153,8 @@ namespace Hexerspiel.Quests
             YesNoPopUP.YES += QuestSolveAccepted;
             MultipleChoicePopUp.ANSWERGIVEN += QuestSolveMultipleChoice;
             FreeEntryPopUp.SubmitAnswer += QuestSolveFreeEntry;
+
+            SaveManagment.SaveEvent += Saver;
 
         }
 
@@ -106,6 +168,8 @@ namespace Hexerspiel.Quests
             YesNoPopUP.YES -= QuestSolveAccepted;
             MultipleChoicePopUp.ANSWERGIVEN -= QuestSolveMultipleChoice;
             FreeEntryPopUp.SubmitAnswer -= QuestSolveFreeEntry;
+
+            SaveManagment.SaveEvent -= Saver;
         }
 
 
@@ -118,9 +182,14 @@ namespace Hexerspiel.Quests
             // Debug.Log("scene loaded " + scene.name);
             if (scene.name == "QuestScene")
             {
+               
+
                 CheckIfStepsAreSovleable();
                 UI_QuestTracker.Instance.InitializeOnStartup();
+                
             }
+
+           
         }
 
         public void CheckQuests()
@@ -270,6 +339,7 @@ namespace Hexerspiel.Quests
                 UI_QuestTracker.Instance.InitializeOnStartup();
             }
 
+            Saver();
 
 
 
@@ -428,7 +498,7 @@ namespace Hexerspiel.Quests
         /// <param name="index"></param>
         public string QuestSolvedText(int index)
         {
-
+            CheckIfStepsAreSovleable();
             if (nextQuestStep[index] == null)
             {
                 return ("Du hast noch nicht alles um " + questSteps[index].stepName + "zu lösen");
@@ -608,7 +678,7 @@ namespace Hexerspiel.Quests
                 UI_QuestTracker.Instance.InitializeOnStartup();
             }
 
-
+            Saver();
             //to do: destroy if solved always!
 
         }
@@ -641,6 +711,8 @@ namespace Hexerspiel.Quests
                 IterateCurrentUsedStepFromListToDeleteFromUsedList(stepsDoneForQuestlineIndex2);
 
             DeleteStep(index);
+
+            Saver();
         }
 
         private void IterateCurrentUsedStepFromListToDeleteFromUsedList(List<SO_questStep> listToCheck)
@@ -683,6 +755,8 @@ namespace Hexerspiel.Quests
             }
 
             UI_QuestTracker.Instance.QuestItems[index].SetToDisabled();
+
+            Saver();
         }
 
         //public void ResetCurrentParameter()
