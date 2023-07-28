@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: amuletDerHeiligen
   m_EditorClassIdentifier: 
   itemName: Amulett der Heiligen
-  itemImage: Amulett der Heiligen.png
+  itemImage: Amulett der Heiligen
   valueBuy: 0
   valueSell: 0
   attributeBuffs:
@@ -21,6 +21,9 @@ MonoBehaviour:
     mind: 0
     charisma: 0
     attributAddThreshold: 0
+  regenBuffs:
+    manaRegen: 0
+    healthRegen: 0
   spellLevelBuff:
     lifeSpell: 0
     mindSpell: 0

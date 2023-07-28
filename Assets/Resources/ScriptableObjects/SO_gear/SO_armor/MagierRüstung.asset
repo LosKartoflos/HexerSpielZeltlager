@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ced5e7fe17edc1841aceea631c5a7da7, type: 3}
   m_Name: "MagierR\xFCstung"
   m_EditorClassIdentifier: 
-  itemName: "Metalr\xFCstung"
+  itemName: "Magier R\xFCstung"
   itemImage: armor_1
   valueBuy: 500
   valueSell: 100
@@ -21,6 +21,9 @@ MonoBehaviour:
     mind: 1
     charisma: 1
     attributAddThreshold: 0
+  regenBuffs:
+    manaRegen: 0
+    healthRegen: 0
   spellLevelBuff:
     lifeSpell: 1
     mindSpell: 1

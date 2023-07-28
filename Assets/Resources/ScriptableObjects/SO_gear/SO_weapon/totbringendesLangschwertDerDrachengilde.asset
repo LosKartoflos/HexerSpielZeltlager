@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: totbringendesLangschwertDerDrachengilde
   m_EditorClassIdentifier: 
   itemName: Totbringendes Langschwert der Drachengilde
-  itemImage: Totbringendes Langschwert der Drachengilde.png
+  itemImage: Totbringendes Langschwert der Drachengilde
   valueBuy: 0
   valueSell: 0
   attributeBuffs:
@@ -21,6 +21,9 @@ MonoBehaviour:
     mind: 0
     charisma: 0
     attributAddThreshold: 0
+  regenBuffs:
+    manaRegen: 0
+    healthRegen: 0
   spellLevelBuff:
     lifeSpell: 0
     mindSpell: 0
