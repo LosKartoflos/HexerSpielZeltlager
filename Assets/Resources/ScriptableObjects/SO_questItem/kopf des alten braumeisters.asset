@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: kopf des alten braumeisters
   m_EditorClassIdentifier: 
   itemName: Kopf des alten Braumeisters
-  itemImage: Kopf des alten Braumeisters.png
+  itemImage: Kopf des alten Braumeisters
   valueBuy: 0
   valueSell: 0
