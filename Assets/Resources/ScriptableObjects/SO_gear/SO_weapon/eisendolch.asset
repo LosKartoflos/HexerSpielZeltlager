@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Eisendolch
   itemImage: Eisendolch
-  valueBuy: 0
+  valueBuy: 28
   valueSell: 0
   attributeBuffs:
     body: 0

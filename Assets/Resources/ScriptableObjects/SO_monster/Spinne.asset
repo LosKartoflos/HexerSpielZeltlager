@@ -15,24 +15,24 @@ MonoBehaviour:
   monsterName: Spinne
   monsterImage: {fileID: 0}
   basicStats:
-    health: 0
-    healthMax: 0
+    health: 40
+    healthMax: 40
     characterMovement: 0
-    characterType: 0
+    characterType: 2
   monsterStats:
     level: 0
-    gold: 0
-    xp: 0
+    gold: 5
+    xp: 15
     herbs: 0
-    meat: 0
+    meat: 1
     magicEssence: 0
     dropedGear: []
     droppedPotion: []
     dropedQuestItems: []
   offensivStats:
-    succesThreshold: 0
-    attackDice: 0
-    damageType: 0
+    succesThreshold: 3
+    attackDice: 3
+    damageType: 1
     weaponRange: 0
   defensiveStats:
     armor: 0

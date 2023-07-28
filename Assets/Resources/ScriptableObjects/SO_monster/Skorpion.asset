@@ -15,24 +15,24 @@ MonoBehaviour:
   monsterName: Skorpion
   monsterImage: {fileID: 0}
   basicStats:
-    health: 0
-    healthMax: 0
+    health: 90
+    healthMax: 90
     characterMovement: 0
     characterType: 0
   monsterStats:
     level: 0
-    gold: 0
-    xp: 0
+    gold: 5
+    xp: 30
     herbs: 0
-    meat: 0
+    meat: 2
     magicEssence: 0
     dropedGear: []
     droppedPotion: []
     dropedQuestItems: []
   offensivStats:
-    succesThreshold: 0
-    attackDice: 0
+    succesThreshold: 4
+    attackDice: 4
     damageType: 0
     weaponRange: 0
   defensiveStats:
-    armor: 0
+    armor: 1

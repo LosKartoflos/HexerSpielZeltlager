@@ -29,24 +29,8 @@ MonoBehaviour:
     monsters: []
     boss: {fileID: 0}
   shop:
-    shop: 0
-    basicItems: 0
-    tier1Gear: []
-    tier2Gear: []
-    tier3Gear: []
-    amuletOffer:
-      cheaper: 0
-      expensive: 0
-    armorOffer:
-      cheaper: 0
-      expensive: 0
-    potionOffer:
-      cheaper: 0
-      expensive: 0
-    weaponOffer:
-      cheaper: 0
-      expensive: 0
-    magicalOffer:
-      cheaper: 0
-      expensive: 0
+    tier1Gear:
+    - {fileID: 11400000, guid: 13915010f8e3d0c45be57b1022630842, type: 2}
+    - {fileID: 11400000, guid: 544c588d0902bbd46b8da456de8f1a12, type: 2}
+    - {fileID: 11400000, guid: fb9ef85b8857bcd4ca8bc6ff900c9b20, type: 2}
   peopleAtPlace: []

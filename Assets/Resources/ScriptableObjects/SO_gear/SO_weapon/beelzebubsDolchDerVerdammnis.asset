@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Beelzebubs Dolch der Verdammnis
   itemImage: Beelzebubs Dolch der Verdammnis
-  valueBuy: 0
-  valueSell: 0
+  valueBuy: 118
+  valueSell: 88
   attributeBuffs:
     body: 0
     mind: 0
@@ -29,7 +29,7 @@ MonoBehaviour:
     mindSpell: 0
     charismaSpell: 0
   weaponStats:
-    succesThreshold: 0
+    succesThreshold: 5
     attackDice: 0
     damageType: 1
     weaponRange: 0

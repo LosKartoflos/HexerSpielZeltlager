@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Totbringendes Langschwert der Drachengilde
   itemImage: Totbringendes Langschwert der Drachengilde
-  valueBuy: 0
-  valueSell: 0
+  valueBuy: 92
+  valueSell: 62
   attributeBuffs:
     body: 0
     mind: 0
