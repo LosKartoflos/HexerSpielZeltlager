@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee13194364c7a76459928be9ec285a84, type: 3}
+  m_Name: "B\xF6seFeenK\xF6nigin"
+  m_EditorClassIdentifier: 
+  monsterName: "B\xF6se Feen K\xF6nigin"
+  monsterImage: {fileID: 0}
+  basicStats:
+    health: 300
+    healthMax: 0
+    characterMovement: 1
+    characterType: 2
+  monsterStats:
+    level: 8
+    gold: 100
+    xp: 450
+    herbs: 0
+    meat: 0
+    magicEssence: 5
+    dropedGear:
+    - {fileID: 11400000, guid: 13915010f8e3d0c45be57b1022630842, type: 2}
+    droppedPotion: []
+    dropedQuestItems: []
+  offensivStats:
+    succesThreshold: 2
+    attackDice: 7
+    damageType: 1
+    weaponRange: 0
+  defensiveStats:
+    armor: 0

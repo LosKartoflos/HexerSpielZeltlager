@@ -30,7 +30,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 8418d0fe1bdfc6e4093a7377cc99bd06, type: 2}
     - {fileID: 11400000, guid: 8418d0fe1bdfc6e4093a7377cc99bd06, type: 2}
     - {fileID: 11400000, guid: 57b129364942d064981df6a98514077a, type: 2}
-    boss: {fileID: 11400000, guid: 149cf29d94c6b11489fb63b92abb8fc1, type: 2}
+    boss: {fileID: 11400000, guid: ec1cdb7c9f86b6841a032f06441ebe24, type: 2}
   shop:
     tier1Gear:
     - {fileID: 11400000, guid: 9bede2767d7ec124696549722d5fe1a1, type: 2}

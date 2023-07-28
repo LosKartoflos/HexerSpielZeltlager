@@ -27,7 +27,7 @@ MonoBehaviour:
     minLevel: 0
     maxLevel: 0
     monsters: []
-    boss: {fileID: 0}
+    boss: {fileID: 11400000, guid: 859220eb0104b0d4e86dc2eee48ef9a2, type: 2}
   shop:
     tier1Gear:
     - {fileID: 11400000, guid: 13915010f8e3d0c45be57b1022630842, type: 2}
