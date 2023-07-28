@@ -30,5 +30,8 @@ MonoBehaviour:
     boss: {fileID: 0}
   shop:
     tier1Gear:
-    - {fileID: 0}
+    - {fileID: 11400000, guid: 7153bbde3a94a5c49991aea8cf7bffa0, type: 2}
+    - {fileID: 11400000, guid: ba4e609a077aacb4fa0a694597eb8d32, type: 2}
+    - {fileID: 11400000, guid: 833901f89fa200747a31829358068e0f, type: 2}
+    - {fileID: 11400000, guid: 65d5f3233a9dc3745b3be052c2a99560, type: 2}
   peopleAtPlace: []

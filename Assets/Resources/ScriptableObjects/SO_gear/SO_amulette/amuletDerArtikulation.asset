@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: amuletDerArtikulation
   m_EditorClassIdentifier: 
   itemName: Amulett der Artikulation
-  itemImage: Amulett der Artikulation.png
+  itemImage: Amulett der Artikulation
   valueBuy: 0
   valueSell: 0
   attributeBuffs:
@@ -21,6 +21,9 @@ MonoBehaviour:
     mind: 0
     charisma: 0
     attributAddThreshold: 0
+  regenBuffs:
+    manaRegen: 0
+    healthRegen: 0
   spellLevelBuff:
     lifeSpell: 0
     mindSpell: 0
