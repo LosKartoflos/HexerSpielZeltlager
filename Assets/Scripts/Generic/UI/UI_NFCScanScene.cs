@@ -31,7 +31,7 @@ public class UI_NFCScanScene : MonoBehaviour
 #if UNITY_ANDROID && !UNITY_EDITOR
         inputFieldDebug.gameObject.SetActive(false);
 #elif !UNITY_ANDROID && UNITY_EDITOR
-        inputFieldDebug.gameObject.SetActive(trues);
+        inputFieldDebug.gameObject.SetActive(true);
 #endif
     }
 

@@ -39,13 +39,13 @@ namespace Hexerspiel.Character
         }
 
         [SerializeField]
-        protected BasicStats basicStatsValue;
+        public BasicStats basicStatsValue;
 
         [SerializeField]
-        protected OffensivStats offensivStatsValue;
+        public OffensivStats offensivStatsValue;
 
         [SerializeField]
-        protected DefensiveStats defensiveStatsValue;
+        public DefensiveStats defensiveStatsValue;
 
 
         public BasicStats BasicStatsValue { get => basicStatsValue; set => basicStatsValue = value; }

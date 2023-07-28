@@ -31,22 +31,28 @@ public class UI_MainScene : MonoBehaviour
     #endregion
 
     #region LifeCycle
-    #endregion
-
-    #region Functions
+    private void Awake()
+    {
+        bt_scan.Button.onClick.AddListener(delegate { NFCManager.StartScanning(); });
+        bt_quest.Button.onClick.AddListener(delegate { QuestTracker.LoadQuestScene(); });
+        bt_inventory.Button.onClick.AddListener(delegate { InventorySceneManager.LoadScene(); });
+        bt_seeNpc.Button.onClick.AddListener(delegate { NPCManager.LoadNPCScene(); });
+        bt_seePlace.Button.onClick.AddListener(delegate { SpotManager.LoadSpotScene(); });
+    }
 
     private void Start()
     {
-        label_Attributs.text = string.Format("Körper: {0} | Geist: {1} | Charisma: {2}\nW: {3} | ES: +{4} | MW: {6} | MP: {7}| R: {5}",
+        label_Attributs.text = string.Format("Körper: {0} | Geist: {1} | Charisma: {2}\nW: {3} | ES: +{4} | RÜ: {5} | HR: {6} | MR: {7}| ",
             Player.Instance.PlayerValues.PlayerAttributesComplete.body.ToString(),
              Player.Instance.PlayerValues.PlayerAttributesComplete.mind.ToString(),
              Player.Instance.PlayerValues.PlayerAttributesComplete.charisma.ToString(),
               Player.Instance.PlayerValues.OffensivStatsValue.attackDice.ToString(),
                Player.Instance.PlayerValues.OffensivStatsValue.succesThreshold.ToString(),
                 Player.Instance.PlayerValues.DeffensiveStatsValue.armor.ToString(),
-                -1, -1);
+                Player.Instance.PlayerValues.playerStats.healthRegen,
+                Player.Instance.PlayerValues.playerStats.manaRegen);
 
-        xpBar.SetValues(Player.Instance.PlayerValues.PlayerStats1.xp, Player.Instance.XPForNextlevel() , " XP");
+
         //xpBar.SetValues(7, 100, " XP");
     }
 
@@ -76,20 +82,20 @@ public class UI_MainScene : MonoBehaviour
             bt_seeNpc.ChangeAppreance("Keine Person vorhanden", "Scanne wieder eine Person");
         }
 
+        if (Player.Instance != null)
+            xpBar.SetValues(Player.Instance.PlayerValues.PlayerStats1.xp, Player.Instance.XPForNextlevel(), " XP");
 
     }
     #endregion
 
+    #region Functions
+
+
+    #endregion
+
 
     // Start is called before the first frame update
-    private void Awake()
-    {
-        bt_scan.Button.onClick.AddListener(delegate { NFCManager.StartScanning(); });
-        bt_quest.Button.onClick.AddListener(delegate { QuestTracker.LoadQuestScene(); });
-        bt_inventory.Button.onClick.AddListener(delegate { InventorySceneManager.LoadScene(); });
-        bt_seeNpc.Button.onClick.AddListener(delegate { NPCManager.LoadNPCScene(); });
-        bt_seePlace.Button.onClick.AddListener(delegate { SpotManager.LoadSpotScene(); });
-    }
+
 
 
 }

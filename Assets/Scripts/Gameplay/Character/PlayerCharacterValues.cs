@@ -43,13 +43,13 @@ namespace Hexerspiel.Character
 
 
         [SerializeField]
-        protected PlayerStats playerStats;
+        public PlayerStats playerStats;
         [SerializeField]
-        protected PlayerAttributes playerAttributesComplete;
+        public PlayerAttributes playerAttributesComplete;
         [SerializeField]
-        protected PlayerAttributes playerAttributesBasic;
+        public PlayerAttributes playerAttributesBasic;
         [SerializeField]
-        protected SpellLevel spellLevel;
+        public SpellLevel spellLevel;
 
 
 
@@ -134,8 +134,8 @@ namespace Hexerspiel.Character
         public override void Died()
         {
 
-            SetLife(0);
-            SetMana(0);
+            Player.Instance.SetLifeForPlayerOutsideFight(0);
+            Player.Instance.SetManaForPlayerOutsideFight(0);
             GetXp(-10);
             Player.Instance.Saver();
 

@@ -28,6 +28,11 @@ namespace Hexerspiel.UI
         private Button bt_closeRecievePanel;
 
         private List<GameObject> recievePanels = new List<GameObject>();
+
+        [Header("Level Up")]
+        [SerializeField]
+        private GameObject levelUpPrefab;
+
         #endregion
 
         #region Accessors
@@ -89,7 +94,11 @@ namespace Hexerspiel.UI
             UI_Inventory.AlertLookUp += ActivateAndFillRecievePanel;
 
             MainManager.AlertLeft += ActivateAndFillRecievePanel;
+
+            Player.levelUPEvent += CreateLevelUpPopUp;
         }
+
+       
 
         private void UnsubsrcibeEvents()
         {
@@ -102,8 +111,16 @@ namespace Hexerspiel.UI
             UI_Inventory.AlertLookUp -= ActivateAndFillRecievePanel;
 
             MainManager.AlertLeft -= ActivateAndFillRecievePanel;
+            Player.levelUPEvent -= CreateLevelUpPopUp;
         }
 
+
+        private void CreateLevelUpPopUp(int obj)
+        {
+            GameObject newLevelUPopUP = Instantiate(levelUpPrefab, recievePanel);
+            newLevelUPopUP.GetComponent<LevelUpPopUp>().FillLabel();
+            recievePanels.Add(newLevelUPopUP);
+        }
         //================================================================================
         //Inventory
         //================================================================================
@@ -118,6 +135,7 @@ namespace Hexerspiel.UI
             Debug.Log("Creat RecievePanl with: " + text);
             GameObject newRecevieObject = Instantiate(recievePanelPrefab, recievePanel);
             newRecevieObject.GetComponent<PopPup>().FillLabel(text);
+            newRecevieObject.transform.SetAsLastSibling();
             recievePanels.Add(newRecevieObject);
 
         }

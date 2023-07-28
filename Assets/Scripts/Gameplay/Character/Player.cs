@@ -6,6 +6,7 @@ using Hexerspiel.Quests;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using static Hexerspiel.Character.monster.MonsterCharacter;
 using static Hexerspiel.Character.PlayerCharacterValues;
@@ -17,37 +18,53 @@ public class Player : MonoBehaviour
     #region Variables
     private static Player instance;
 
+    public static event Action<int> levelUPEvent = delegate { };
+
     [SerializeField]
     private Inventory inventory;
 
     [SerializeField]
     private PlayerCharacterValues playerValues;
 
-    public static int xpPerLevel = 100;
+    public static int xpPerBase = 100;
+    public static int xpPerLevel = 25;
+
+    public static int startLive = 50;
+    public static int livePerLevel = 10;
+
+    public static int startmana = 10;
+    public static int manaPerlevel = 2;
+
+
+    public Dictionary<DateTime, float> lastHealhtEvent = new Dictionary<DateTime, float>();
+
+    public Dictionary<DateTime, float> lastManaEvent = new Dictionary<DateTime, float>();
     #endregion
 
     #region Accessors
     public static Player Instance { get => instance; }
 
     public Inventory Inventory { get => inventory; set => inventory = value; }
-    public PlayerCharacterValues PlayerValues { get => playerValues; }
+    public PlayerCharacterValues PlayerValues { get => playerValues; set => playerValues = value; }
     public string CollectedLoot { get => collectedLoot; }
 
     private string collectedLoot = "";
 
-    [Header("Calculated Values with Gear")]
-
-    [SerializeField]
-    PlayerAttributes playerAttributesWithGear;
+    private int lastXp = 0;
 
     public void Saver()
     {
         ES3.Save<PlayerCharacterValues>("playerValues", playerValues, "playerValues.es3");
+        if (lastHealhtEvent != null)
+            ES3.Save<Dictionary<DateTime, float>>("lastHealtEvent", lastHealhtEvent, "playerValues.es3");
+        if (lastManaEvent != null)
+            ES3.Save<Dictionary<DateTime, float>>("lastManaEvent", lastManaEvent, "playerValues.es3");
     }
 
 
     public void Loader()
     {
+
         if (isLoaded)
             return;
 
@@ -55,6 +72,19 @@ public class Player : MonoBehaviour
 
         if (ES3.KeyExists("playerValues", "playerValues.es3"))
             playerValues = (PlayerCharacterValues)ES3.Load("playerValues", "playerValues.es3");
+        if (ES3.KeyExists("lastHealtEvent", "playerValues.es3"))
+        {
+            Debug.Log("loads key");
+            lastHealhtEvent = (Dictionary<DateTime, float>)ES3.Load("lastHealtEvent", "playerValues.es3");
+        }
+
+        if (ES3.KeyExists("lastManaEvent", "playerValues.es3"))
+            lastManaEvent = (Dictionary<DateTime, float>)ES3.Load("lastManaEvent", "playerValues.es3");
+
+
+        CalculateAllPlayerValues();
+        playerValues.basicStatsValue.health = GetLifeSinceLastLifeEvent();
+        playerValues.playerStats.mana = GetManaSinceLastManaEvent();
     }
     #endregion
 
@@ -70,12 +100,37 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
 
         Loader();
+        lastXp = playerValues.playerStats.xp;
     }
 
+
+    private void Update()
+    {
+        if (playerValues.playerStats.xp >= xpPerBase)
+            CheckForLevelUp();
+
+        if (playerValues.GetLife() < playerValues.BasicStatsValue.healthMax)
+        {
+            playerValues.basicStatsValue.health = GetLifeSinceLastLifeEvent();
+        }
+
+        if (playerValues.GetMana() < playerValues.playerStats.manaMax)
+        {
+            playerValues.playerStats.mana = GetManaSinceLastManaEvent();
+        }
+
+        if (Input.GetKeyUp("k"))
+        {
+            Debug.Log("k up");
+            SetLifeForPlayerOutsideFight(5);
+        }
+    }
 
     private void OnEnable()
     {
         PotionInventory.PotionUsed += DrinkPotion;
+        GearInventory.EquipGearChanged += delegate { CalculateAllPlayerValues(); };
+
         MonsterCharacter.MonsterKilled += AddToMonsterKilledList;
     }
 
@@ -84,6 +139,7 @@ public class Player : MonoBehaviour
     private void OnDisable()
     {
         PotionInventory.PotionUsed -= DrinkPotion;
+        GearInventory.EquipGearChanged -= delegate { CalculateAllPlayerValues(); };
         MonsterCharacter.MonsterKilled -= AddToMonsterKilledList;
     }
 
@@ -91,9 +147,49 @@ public class Player : MonoBehaviour
 
     #region Functions
 
-    public  int XPForNextlevel()
+    public float GetLifeSinceLastLifeEvent()
     {
-        return xpPerLevel  + (xpPerLevel * playerValues.PlayerStats1.level - 1) /2;
+        if (lastHealhtEvent == null || lastHealhtEvent.Count == 0)
+            return playerValues.basicStatsValue.healthMax;
+
+        float newLife = 0;
+        TimeSpan ts = DateTime.Now - lastHealhtEvent.Keys.First();
+        newLife = MathF.Floor(lastHealhtEvent.Values.First() + ((float)ts.TotalSeconds / 60 * playerValues.playerStats.healthRegen));
+        if (newLife > playerValues.basicStatsValue.healthMax)
+            newLife = playerValues.basicStatsValue.healthMax;
+
+        return newLife;
+
+
+
+    }
+
+    public float GetManaSinceLastManaEvent()
+    {
+        if (lastManaEvent == null || lastManaEvent.Count == 0)
+            return playerValues.playerStats.manaMax;
+
+        float newMana = 0;
+        TimeSpan ts = DateTime.Now - lastManaEvent.Keys.First();
+        newMana = MathF.Floor(lastManaEvent.Values.First() + ((float)ts.TotalSeconds / 60 * playerValues.playerStats.manaRegen));
+        if (newMana > playerValues.playerStats.manaMax)
+            newMana = playerValues.playerStats.manaMax;
+
+        return newMana;
+
+
+
+    }
+
+    public int XPForNextlevel()
+    {
+        int xpNeeded = 0;
+        for (int i = 0; i < playerValues.playerStats.level; i++)
+        {
+            xpNeeded += xpPerBase + (xpPerLevel * (i));
+        }
+
+        return xpNeeded;
     }
 
     private void AddToMonsterKilledList(string monsterName, DateTime deathTime)
@@ -115,36 +211,183 @@ public class Player : MonoBehaviour
     /// <param name="potion">potion to use</param>
     public void DrinkPotion(PotionStats potionStats)
     {
-        playerValues.AddLife(potionStats.addLife);
-        playerValues.AddMana(potionStats.addMana);
+        SetLifeForPlayerOutsideFight(playerValues.GetLife() + potionStats.addLife);
+        SetManaForPlayerOutsideFight(playerValues.GetMana() + potionStats.addMana);
+
+        Saver();
+    }
+
+    public void CheckForLevelUp()
+    {
+        if (playerValues.playerStats.xp >= XPForNextlevel())
+        {
+            while (playerValues.playerStats.xp >= XPForNextlevel())
+            {
+                LevelUp();
+            }
+
+        }
+    }
+    public void LevelUp()
+    {
+        playerValues.playerStats.level += 1;
+        levelUPEvent(playerValues.playerStats.level);
+    }
+
+    public void AddBody()
+    {
+        playerValues.playerAttributesBasic.body += 1;
+        CalculateAllPlayerValues();
+
+    }
+
+    public void AddCharisma()
+    {
+        playerValues.playerAttributesBasic.charisma += 1;
+        CalculateAllPlayerValues();
+
+    }
+
+    public void AddMind()
+    {
+        playerValues.playerAttributesBasic.charisma += 1;
+        CalculateAllPlayerValues();
+
+    }
+
+    public void CalculateAllPlayerValues()
+    {
+        CalculateCompleteAttributs();
+
+        AttackandDefenseValue();
+
+        CacluteHealthAndMana();
+
+        Saver();
+    }
+
+
+    /// <summary>
+    /// Calculates the offensive and defensive Values with attributes and gear
+    /// </summary>
+    public void AttackandDefenseValue()
+    {
+        //defense
+        if (Inventory.GearInventory.ArmorEquiped == null)
+        {
+            playerValues.defensiveStatsValue.armor = ExtraArmor();
+            playerValues.basicStatsValue.characterMovement = CharacterMovement.Boden;
+            playerValues.basicStatsValue.characterType = CharacterType.Normal;
+        }
+        else if (Inventory.GearInventory.ArmorEquiped != null)
+        {
+            playerValues.defensiveStatsValue.armor = Inventory.GearInventory.ArmorEquiped.armorStats.armor + ExtraArmor();
+            playerValues.basicStatsValue.characterMovement = Inventory.GearInventory.ArmorEquiped.armorMovementMod;
+            playerValues.basicStatsValue.characterType = Inventory.GearInventory.ArmorEquiped.armorTypeMod;
+        }
+
+        //attack
+        if (Inventory.GearInventory.WeaponEquipped != null)
+        {
+            playerValues.offensivStatsValue.attackDice = ExtraAttackWithoutWeapon();
+            playerValues.offensivStatsValue.succesThreshold = 4;
+            playerValues.offensivStatsValue.damageType = DamageType.Normal;
+            playerValues.offensivStatsValue.weaponRange = WeaponRange.Nahkampf;
+        }
+        else if (Inventory.GearInventory.WeaponEquipped)
+        {
+            if (Inventory.GearInventory.WeaponEquipped.weaponStats.damageType == DamageType.Magisch)
+                playerValues.offensivStatsValue.attackDice = ExtraAttackWithMagicWeapon() + Inventory.GearInventory.WeaponEquipped.weaponStats.attackDice;
+            if (Inventory.GearInventory.WeaponEquipped.weaponStats.damageType == DamageType.Normal)
+                playerValues.offensivStatsValue.attackDice = Inventory.GearInventory.WeaponEquipped.weaponStats.attackDice;
+
+            playerValues.offensivStatsValue.succesThreshold = Inventory.GearInventory.WeaponEquipped.weaponStats.succesThreshold;
+            playerValues.offensivStatsValue.damageType = Inventory.GearInventory.WeaponEquipped.weaponStats.damageType;
+            playerValues.offensivStatsValue.weaponRange = Inventory.GearInventory.WeaponEquipped.weaponStats.weaponRange;
+        }
+    }
+
+    public void CacluteHealthAndMana()
+    {
+        playerValues.basicStatsValue.healthMax = startLive + livePerLevel * (playerValues.playerStats.level - 1) + playerValues.playerAttributesComplete.body;
+        playerValues.playerStats.healthRegen = playerValues.playerStats.level + playerValues.playerAttributesComplete.body;
+        Debug.LogError(playerValues.playerStats.healthRegen + " = " + playerValues.playerStats.level + " + " + playerValues.playerAttributesComplete.body);
+
+
+        playerValues.playerStats.manaMax = startmana + manaPerlevel * (playerValues.playerStats.level - 1) + playerValues.playerAttributesComplete.body;
+        playerValues.playerStats.manaRegen = playerValues.playerStats.level + playerValues.playerAttributesComplete.body;
     }
 
     /// <summary>
     /// Calculates the Attribut Values with the gear applied
     /// </summary>
-    public void CaclutlatePlayerAttributesWithGear()
+    public void CalculateCompleteAttributs()
     {
-        playerAttributesWithGear.body = PlayerValues.PlayerAttributesComplete.body;
+        playerValues.playerAttributesComplete.body = playerValues.playerAttributesBasic.body;
+        playerValues.playerAttributesComplete.mind = playerValues.playerAttributesBasic.mind;
+        playerValues.playerAttributesComplete.charisma = playerValues.playerAttributesBasic.charisma;
+
+        playerValues.playerAttributesComplete.attributAddThreshold = playerValues.playerAttributesBasic.attributAddThreshold;
+
+        if (Inventory.GearInventory.WeaponEquipped != null)
+        {
+            playerValues.playerAttributesComplete.body += Inventory.GearInventory.WeaponEquipped.attributeBuffs.body;
+            playerValues.playerAttributesComplete.mind += Inventory.GearInventory.WeaponEquipped.attributeBuffs.mind;
+            playerValues.playerAttributesComplete.charisma += Inventory.GearInventory.WeaponEquipped.attributeBuffs.charisma;
+        }
+        if (Inventory.GearInventory.ArmorEquiped != null)
+        {
+            playerValues.playerAttributesComplete.body += Inventory.GearInventory.ArmorEquiped.attributeBuffs.body;
+            playerValues.playerAttributesComplete.mind += Inventory.GearInventory.ArmorEquiped.attributeBuffs.mind;
+            playerValues.playerAttributesComplete.charisma += Inventory.GearInventory.ArmorEquiped.attributeBuffs.charisma;
+        }
+        if (Inventory.GearInventory.AmuletEquipped != null)
+        {
+            playerValues.playerAttributesComplete.body += Inventory.GearInventory.AmuletEquipped.attributeBuffs.body;
+            playerValues.playerAttributesComplete.mind += Inventory.GearInventory.AmuletEquipped.attributeBuffs.mind;
+            playerValues.playerAttributesComplete.charisma += Inventory.GearInventory.AmuletEquipped.attributeBuffs.charisma;
+        }
+
     }
 
-    /// <summary>
-    /// Calculates the offensive and defensive Values with attributes and gear
-    /// </summary>
-    public void CalculateFightingValues()
+    public void SetLifeForPlayerOutsideFight(float lifeAmount)
     {
+        Debug.Log("SetLifeForPlayerOutsideFight");
 
+        playerValues.SetLife(lifeAmount);
+        if (lastHealhtEvent != null)
+            lastHealhtEvent.Clear();
+        lastHealhtEvent.Add(DateTime.Now, lifeAmount);
+        Saver();
+    }
+
+    public void SetManaForPlayerOutsideFight(float manaAmount)
+    {
+        playerValues.SetMana(manaAmount);
+        if (lastManaEvent != null)
+            lastManaEvent.Clear();
+        lastManaEvent.Add(DateTime.Now, manaAmount);
+        Saver();
     }
 
     //The extra Armor through the body
     public int ExtraArmor()
     {
-        return Mathf.FloorToInt(Player.Instance.PlayerValues.PlayerAttributesComplete.body / Player.Instance.PlayerValues.PlayerAttributesComplete.attributAddThreshold);
+        CalculateCompleteAttributs();
+        return Mathf.FloorToInt((float)PlayerValues.PlayerAttributesComplete.body / (float)PlayerValues.PlayerAttributesComplete.attributAddThreshold);
     }
 
     //The extra Armor through the body
     public int ExtraAttackWithoutWeapon()
     {
-        return Mathf.FloorToInt(Player.Instance.PlayerValues.PlayerAttributesComplete.body / Player.Instance.PlayerValues.PlayerAttributesComplete.attributAddThreshold);
+        CalculateCompleteAttributs();
+        return Mathf.FloorToInt((float)PlayerValues.PlayerAttributesComplete.body / (float)PlayerValues.PlayerAttributesComplete.attributAddThreshold);
+    }
+
+    public int ExtraAttackWithMagicWeapon()
+    {
+        CalculateCompleteAttributs();
+        return Mathf.FloorToInt((float)PlayerValues.PlayerAttributesComplete.mind / (float)PlayerValues.PlayerAttributesComplete.attributAddThreshold);
     }
 
     //recieveLoot

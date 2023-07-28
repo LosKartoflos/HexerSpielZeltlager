@@ -158,8 +158,17 @@ namespace Hexerspiel.Quests
             gearWhole.AddRange(nexStep.dropedGear);
 
             //Solange aufrufen bis an der Wuzrel
-            if (nexStep.nextQuestStep != null || nexStep.nextQuestStep != QuestTracker.Instance.FinishStep)
+            if (nexStep.QuestStepTarget == QuestTarget.multipleChoiceAttribute && nexStep.nextQuestStep != QuestTracker.Instance.FinishStep)
+            {
+                if (((SO_step_mulitpleChoiceAttribute)nexStep).answers[0].questStep != null || ((SO_step_mulitpleChoiceAttribute)nexStep).answers[0].questStep != QuestTracker.Instance.FinishStep)
+                    CollectWholeGear(((SO_step_mulitpleChoiceAttribute)nexStep).answers[0].questStep);
+            }
+
+            else if (nexStep.nextQuestStep != null || nexStep.nextQuestStep != QuestTracker.Instance.FinishStep)
+            {
                 CollectWholeGear(nexStep.nextQuestStep);
+            }
+
         }
 
         public string GetLootText()
