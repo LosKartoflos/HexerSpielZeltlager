@@ -30,9 +30,9 @@ MonoBehaviour:
     droppedPotion: []
     dropedQuestItems: []
   offensivStats:
-    succesThreshold: 0
-    attackDice: 0
+    succesThreshold: 4
+    attackDice: 4
     damageType: 0
     weaponRange: 0
   defensiveStats:
-    armor: 0
+    armor: 1
