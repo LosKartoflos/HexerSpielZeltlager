@@ -17,9 +17,9 @@ MonoBehaviour:
   questText: "Habt vielen Dank, jetzt br\xE4uchte ich nur noch 1 Fische, das w\xE4re
     dann alles."
   resolvedText: 
-  xp: 0
+  xp: 10
   rewards:
-    gold: 0
+    gold: 75
     miscItems:
       herbs: 0
       meat: 0

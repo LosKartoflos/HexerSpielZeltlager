@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: spawnerOrkSkel
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: spawnerOrkSkel
+    name: Spawner
     image: 
   reward:
     xp: 0
@@ -39,24 +39,5 @@ MonoBehaviour:
     - {fileID: 11400000, guid: f5fabe52a148d1d4aa9616af34a47d67, type: 2}
     boss: {fileID: 0}
   shop:
-    shop: 0
-    basicItems: 0
     tier1Gear: []
-    tier2Gear: []
-    tier3Gear: []
-    amuletOffer:
-      cheaper: 0
-      expensive: 0
-    armorOffer:
-      cheaper: 0
-      expensive: 0
-    potionOffer:
-      cheaper: 0
-      expensive: 0
-    weaponOffer:
-      cheaper: 0
-      expensive: 0
-    magicalOffer:
-      cheaper: 0
-      expensive: 0
   peopleAtPlace: []

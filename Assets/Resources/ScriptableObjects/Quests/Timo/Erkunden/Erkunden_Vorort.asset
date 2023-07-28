@@ -16,9 +16,9 @@ MonoBehaviour:
   image: 
   questText: Der letzte Ort ist der Vorort. Beim letzen mal habe ich mich da verlaufen.
   resolvedText: "(3/3) Gl\xFCckwunsch hier ist deine Belohnung."
-  xp: 0
+  xp: 135
   rewards:
-    gold: 0
+    gold: 40
     miscItems:
       herbs: 0
       meat: 0

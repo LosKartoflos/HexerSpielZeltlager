@@ -17,9 +17,9 @@ MonoBehaviour:
   questText: Wie schwer ist ein einfaches Kettenhemd mit kurzen Armen?
   resolvedText: "\u201CDas habt ihr sehr gut gemacht, habt Dank. Daf\xFCr erhaltet
     ihr mein altes Amulett\u201D"
-  xp: 0
+  xp: 60
   rewards:
-    gold: 0
+    gold: 10
     miscItems:
       herbs: 0
       meat: 0

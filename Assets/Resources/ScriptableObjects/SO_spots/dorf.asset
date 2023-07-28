@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: dorf
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: Dorf
+    name: Das Dorf
     image: 
   reward:
     xp: 0

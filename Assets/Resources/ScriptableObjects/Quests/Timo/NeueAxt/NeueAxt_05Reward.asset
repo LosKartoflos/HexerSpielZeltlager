@@ -16,9 +16,9 @@ MonoBehaviour:
   image: 
   questText: "Vielen Dank f\xFCr die Axt. Endlich kann ich wieder B\xE4ume f\xE4llen."
   resolvedText: "Gl\xFCckwunsch, hier ist euer Reward."
-  xp: 0
+  xp: 245
   rewards:
-    gold: 0
+    gold: 40
     miscItems:
       herbs: 0
       meat: 0

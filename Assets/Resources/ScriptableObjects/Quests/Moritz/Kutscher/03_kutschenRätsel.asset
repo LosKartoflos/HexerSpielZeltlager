@@ -19,9 +19,9 @@ MonoBehaviour:
     Kutschfahrt noch in der Kutsche?
   resolvedText: "Ich bin stolz auf euch! Danke f\xFCr die \"schnell\" Studie. Jetzt
     wei\xDF ich dass sich die Kutsche doch lohnt!"
-  xp: 0
+  xp: 80
   rewards:
-    gold: 0
+    gold: 10
     miscItems:
       herbs: 0
       meat: 0

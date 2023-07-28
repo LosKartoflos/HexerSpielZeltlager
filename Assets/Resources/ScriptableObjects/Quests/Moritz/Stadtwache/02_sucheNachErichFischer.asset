@@ -15,12 +15,12 @@ MonoBehaviour:
   stepName: Suche nach Erich Fischer
   image: 
   questText: "Erich Fischer h\xE4lt sich wom\xF6glich an der Azurk\xFCste auf! Vielleicht
-    hat der einen Hinweis f\xFCr euch!"
-  resolvedText: "Ja also ich habe eine auff\xE4llige Person vorhin an mir vorbeirennen
+    hat er einen Hinweis f\xFCr euch!"
+  resolvedText: "Ja, also ich habe eine auff\xE4llige Person vorhin an mir vorbeirennen
     sehen! Der war ganz komisch gekleidet, aber ich kann mich leider nur noch daran
     erinnern, dass er einen Anzug mit einer Fliege getragen hat! Hoffentlich hilft
-    euch das weiter! Vielleicht wei\xDF Linda noch was, die m\xFCsste sich in der
-    N\xE4he des Vorortes aufhalten!"
+    euch das weiter! Vielleicht wei\xDF Linda noch was, sie m\xFCsste sich in der
+    N\xE4he des Vorortes aufhalten! "
   xp: 0
   rewards:
     gold: 0

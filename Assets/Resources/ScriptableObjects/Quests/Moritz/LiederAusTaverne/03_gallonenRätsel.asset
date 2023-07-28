@@ -19,9 +19,9 @@ MonoBehaviour:
     hat f\xE4llt ihm das schwerer als gedacht. Helft ihm und l\xF6st das R\xE4tsel,
     erkl\xE4rt dann dem Leiter die L\xF6sung!"
   resolvedText: Sehr gut! Als Belohnung bekommt ihr etwas Erfahrung!
-  xp: 0
+  xp: 60
   rewards:
-    gold: 0
+    gold: 10
     miscItems:
       herbs: 0
       meat: 0

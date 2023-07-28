@@ -16,9 +16,9 @@ MonoBehaviour:
   image: 
   questText: 
   resolvedText: 
-  xp: 0
+  xp: 180
   rewards:
-    gold: 0
+    gold: 30
     miscItems:
       herbs: 0
       meat: 0

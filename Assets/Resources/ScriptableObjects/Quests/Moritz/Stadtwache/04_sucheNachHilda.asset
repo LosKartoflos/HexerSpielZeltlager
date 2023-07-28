@@ -16,13 +16,13 @@ MonoBehaviour:
   image: 
   questText: "Hilda h\xE4lt sich nach der Beschreibung von Linda vermutlich im Dorf
     auf!"
-  resolvedText: "\"Ihr meint diesen Mann der vorhin hin und her gerannt ist? Der
-    hatte auf jeden Fall eine unfassbar kurze Hose an. Ich glaube das ist so neumodischer
-    Quatsch. Irgendjemand hat es mir letzthin \xFCbersetzt weil ich der englischen
-    Sprache nicht m\xE4chtig bin und hat gemeint dass es so viel wie \"Hei\xDFe Hose\"
-    bedeutet. Versteh ich nicht wie man so einen Quatsch tragen kann aber jeder wie
-    er mag! Habt ihr schonmal den Totengr\xE4ber gefragt? Vielleicht hat der dem
-    Dieb schon ein Grab gebuddelt und ihn begraben!\""
+  resolvedText: "\"Ihr meint diesen Mann, der vorhin hin und her gerannt ist? Der
+    hatte auf jeden Fall eine unfassbar kurze Hose an. Ich glaube, das ist so neumodischer
+    Quatsch. Irgendjemand hat es mir letzthin \xFCbersetzt, weil ich der englischen
+    Sprache nicht m\xE4chtig bin und gemeint, dass es so viel wie \"Hei\xDFe Hose\"
+    bedeutet. Ich verstehe nicht, wie man so einen Quatsch tragen kann, aber jeder
+    wie er mag! Habt ihr schonmal den Totengr\xE4ber gefragt? Vielleicht hat er dem
+    Dieb schon ein Grab gebuddelt und ihn begraben!\" "
   xp: 0
   rewards:
     gold: 0

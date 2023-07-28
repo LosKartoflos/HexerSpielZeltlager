@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stepName: Suche nach Gideon
   image: 
-  questText: "Gideon h\xE4lt sich meist in der N\xE4he vom S\xE4gewerk auf!"
+  questText: "Gideon h\xE4lt sich meistens in der N\xE4he vom S\xE4gewerk auf! "
   resolvedText: "\"Hallo Freunde, habt ihr auch diesen komischen Mann mit Turban
-    gesehen? Ach genau den sucht ihr? Naja also er hatte einen Turban auf, an mehr
+    gesehen? Ach, genau den sucht ihr? Naja, also er hatte einen Turban auf, an mehr
     kann ich mich nicht mehr erinnern! Aber vielleicht ist er auch beim schwarzen
     Ritter vorbeigekommen! Fragt den mal nach Hinweisen! Aber seid vorsichtig und
-    benehmt euch, ihr wollt Volde..... ehm ich meine nat\xFCrlich den schwarzen Ritter
-    nicht entz\xFCrnen!\""
+    benehmt euch, ihr wollt Volde..... Ehm, ich meine nat\xFCrlich den schwarzen
+    Ritter nicht entz\xFCrnen!\""
   xp: 0
   rewards:
     gold: 0

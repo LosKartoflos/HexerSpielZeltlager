@@ -17,9 +17,9 @@ MonoBehaviour:
   questText: Gebt Nosferatu den Kopf des Braumeisters und ihr bekommt seinen magischen
     Dolch!
   resolvedText: "Ihr habt den Dolch bekommen und der H\xF6lle geradeso entkommen!"
-  xp: 0
+  xp: 165
   rewards:
-    gold: 0
+    gold: 30
     miscItems:
       herbs: 0
       meat: 0

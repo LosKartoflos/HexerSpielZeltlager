@@ -16,9 +16,9 @@ MonoBehaviour:
   image: 
   questText: "Geht zur\xFCck zum J\xE4ger und verbandagiert ihn."
   resolvedText: "Vielen Dank. Jetzt werde ich es sp\xE4ter nach Hause schaffen."
-  xp: 0
+  xp: 280
   rewards:
-    gold: 0
+    gold: 50
     miscItems:
       herbs: 0
       meat: 0

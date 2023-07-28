@@ -13,14 +13,16 @@ MonoBehaviour:
   m_Name: hilda
   m_EditorClassIdentifier: 
   npcInformation:
-    name: 
+    name: Hilda
     image: 
   attribute:
     body: 0
     mind: 0
     charisma: 0
     attributAddThreshold: 0
-  questList: []
+  questList:
+  - {fileID: 11400000, guid: 06db6b8a9f14a294fa8c2458865e2d88, type: 2}
+  - {fileID: 11400000, guid: 9f6f8a08c3d70544997d5a1f42fab5fd, type: 2}
   npcInFight: {fileID: 0}
   gearToSell: []
   potionToSell: []

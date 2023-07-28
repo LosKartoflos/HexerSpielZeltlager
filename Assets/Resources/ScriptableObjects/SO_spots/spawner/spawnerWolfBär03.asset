@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f017f47934f0c4442aadca36a99193c0, type: 3}
+  m_Name: "spawnerWolfB\xE4r03"
+  m_EditorClassIdentifier: 
+  nfcTagInfos:
+    name: Spawner
+    image: 
+  reward:
+    xp: 0
+    gold: 0
+    herbs: 0
+    meat: 0
+    magicEssence: 0
+    items: []
+  fightingGround:
+    fightingGround: 0
+    minLevel: 0
+    maxLevel: 0
+    monsters:
+    - {fileID: 11400000, guid: f5fabe52a148d1d4aa9616af34a47d67, type: 2}
+    - {fileID: 11400000, guid: a0dc8b5452f4a154980a31f21aaf5e63, type: 2}
+    boss: {fileID: 0}
+  shop:
+    tier1Gear: []
+  peopleAtPlace: []

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: spawnerSpinne70
   m_EditorClassIdentifier: 
   nfcTagInfos:
-    name: spawnerSpinne70
+    name: Spawner
     image: 
   reward:
     xp: 0
@@ -39,24 +39,5 @@ MonoBehaviour:
     - {fileID: 11400000, guid: b791f675d6945a64b8933496c5328cd0, type: 2}
     boss: {fileID: 0}
   shop:
-    shop: 0
-    basicItems: 0
     tier1Gear: []
-    tier2Gear: []
-    tier3Gear: []
-    amuletOffer:
-      cheaper: 0
-      expensive: 0
-    armorOffer:
-      cheaper: 0
-      expensive: 0
-    potionOffer:
-      cheaper: 0
-      expensive: 0
-    weaponOffer:
-      cheaper: 0
-      expensive: 0
-    magicalOffer:
-      cheaper: 0
-      expensive: 0
   peopleAtPlace: []

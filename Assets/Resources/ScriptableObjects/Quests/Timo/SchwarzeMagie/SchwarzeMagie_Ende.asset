@@ -17,9 +17,9 @@ MonoBehaviour:
   questText: "Besiegt f\xFCr mich einen Wolf."
   resolvedText: "Es scheint mir als seid ihr w\xFCrdig. Gl\xFCckwunsch hier eine
     Belohnung."
-  xp: 0
+  xp: 165
   rewards:
-    gold: 0
+    gold: 20
     miscItems:
       herbs: 0
       meat: 0
