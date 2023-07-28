@@ -119,11 +119,7 @@ public class Player : MonoBehaviour
             playerValues.playerStats.mana = GetManaSinceLastManaEvent();
         }
 
-        if (Input.GetKeyUp("k"))
-        {
-            Debug.Log("k up");
-            SetLifeForPlayerOutsideFight(5);
-        }
+        
     }
 
     private void OnEnable()
