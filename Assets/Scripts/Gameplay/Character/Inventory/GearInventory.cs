@@ -42,7 +42,11 @@ namespace Hexerspiel.Character
 
         public void GetGear(SO_gear newGear)
         {
-
+            if (newGear == null)
+            {
+                Debug.LogError("Das newGear ist leer");
+            }
+              
 
             switch (newGear.GearType)
             {

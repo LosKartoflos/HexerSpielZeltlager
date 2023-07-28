@@ -12,11 +12,13 @@ using UnityEngine.SceneManagement;
 public class MainManager : MonoBehaviour
 {
     #region Variables
+    public static bool mainManagerHasLoaded = false;
+
     private static MainManager instance;
 
     public static event Action<string> AlertLeft = delegate { };
     [SerializeField]
-    double timeToStayInSec = 180;
+    double timeToStayInSec = 300;
 
     public static double timeRemainingAtSpot;
     public static double timeRemainingAtNPC;
@@ -24,6 +26,25 @@ public class MainManager : MonoBehaviour
     public static DateTime spotEntered;
     public static DateTime npcEntered;
 
+    public void Saver()
+    {
+        ES3.Save("spotEntered", spotEntered);
+        ES3.Save("npcEntered", npcEntered);
+
+        Debug.Log("Save MainManager");
+    }
+
+    public void Loader()
+    {
+        if (ES3.KeyExists("spotEntered"))
+            spotEntered = (DateTime)ES3.Load("spotEntered");
+        if (ES3.KeyExists("npcEntered"))
+            npcEntered = (DateTime)ES3.Load("npcEntered");
+
+        mainManagerHasLoaded = true;
+
+        Debug.Log("Load MainManager");
+    }
     #endregion
 
     #region Accessors
@@ -43,10 +64,14 @@ public class MainManager : MonoBehaviour
         }
         else if (instance != this)
             Destroy(gameObject);
+
+        Loader();
     }
 
     private void Update()
     {
+        if(QuestTracker.hasLoaded && mainManagerHasLoaded )
+
         if (QuestTracker.currentSpot != null)
         {
             TimeSpan ts = DateTime.Now - spotEntered;
@@ -55,12 +80,13 @@ public class MainManager : MonoBehaviour
             if (timeRemainingAtSpot <= 0)
             {
                 DisableCurrentSpot();
+
             }
 
-            
+
         }
 
-        if(QuestTracker.currentNPC != null)
+        if (QuestTracker.currentNPC != null)
         {
             TimeSpan tsNPC = DateTime.Now - npcEntered;
             timeRemainingAtNPC = timeToStayInSec - tsNPC.TotalSeconds;
@@ -68,6 +94,7 @@ public class MainManager : MonoBehaviour
             if (timeRemainingAtNPC <= 0)
             {
                 DisableCurrentNPC();
+
             }
         }
     }
@@ -86,6 +113,8 @@ public class MainManager : MonoBehaviour
         QuestTracker.currentSpot = newSpot;
         SpotManager.LoadSpotScene();
         spotEntered = DateTime.Now;
+        QuestTracker.Instance.Saver();
+        Saver();
     }
 
 
@@ -94,11 +123,13 @@ public class MainManager : MonoBehaviour
     {
         AlertLeft("Du hast " + QuestTracker.currentSpot.nfcTagInfos.name + " verlassen");
         QuestTracker.currentSpot = null;
-        if (QuestTracker.currentNPC == null ||( 0 == QuestTracker.currentNPC.gearToSell.Count && 0 == QuestTracker.currentNPC.potionToSell.Count && 0 == QuestTracker.currentNPC.questItemToSell.Count))
+        if (QuestTracker.currentNPC == null || (0 == QuestTracker.currentNPC.gearToSell.Count && 0 == QuestTracker.currentNPC.potionToSell.Count && 0 == QuestTracker.currentNPC.questItemToSell.Count))
             UI_Inventory.atShop = false;
 
         if (SceneManager.GetActiveScene().name == "InventoryScene")
             MainManager.LoadMainScene();
+        QuestTracker.Instance.Saver();
+        Saver();
 
     }
 
@@ -108,20 +139,24 @@ public class MainManager : MonoBehaviour
         QuestTracker.currentNPC = newNPC;
         NPCManager.LoadNPCScene();
         npcEntered = DateTime.Now;
+
+        QuestTracker.Instance.Saver();
+        Saver();
     }
 
     public void DisableCurrentNPC()
     {
         AlertLeft("Du bist nicht mehr bei " + QuestTracker.currentNPC.npcInformation.name);
         QuestTracker.currentNPC = null;
-        QuestTracker.questsOfferedByNPC = null;    
+        QuestTracker.questsOfferedByNPC = null;
 
         if (QuestTracker.currentSpot == null || 0 == QuestTracker.currentSpot.shop.tier1Gear.Count)
             UI_Inventory.atShop = false;
 
         if (SceneManager.GetActiveScene().name == "NPCScene")
             MainManager.LoadMainScene();
-
+        QuestTracker.Instance.Saver();
+        Saver();
     }
     #endregion
 
