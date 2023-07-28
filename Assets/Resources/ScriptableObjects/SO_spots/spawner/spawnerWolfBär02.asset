@@ -24,7 +24,7 @@ MonoBehaviour:
     items: []
   fightingGround:
     fightingGround: 0
-    minLevel: 0
+    minLevel: 5
     maxLevel: 0
     monsters:
     - {fileID: 11400000, guid: a0dc8b5452f4a154980a31f21aaf5e63, type: 2}
