@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: "Magier R\xFCstung"
   itemImage: armor_1
-  valueBuy: 500
-  valueSell: 100
+  valueBuy: 40
+  valueSell: 10
   attributeBuffs:
     body: 1
     mind: 1
@@ -30,5 +30,5 @@ MonoBehaviour:
     charismaSpell: 1
   armorStats:
     armor: 4
-  armorTypeMod: 0
+  armorTypeMod: 2
   armorMovementMod: 0

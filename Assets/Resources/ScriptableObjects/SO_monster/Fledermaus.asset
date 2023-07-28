@@ -15,23 +15,23 @@ MonoBehaviour:
   monsterName: Fledermaus
   monsterImage: {fileID: 0}
   basicStats:
-    health: 0
-    healthMax: 0
-    characterMovement: 0
+    health: 30
+    healthMax: 30
+    characterMovement: 1
     characterType: 0
   monsterStats:
-    level: 0
-    gold: 0
-    xp: 0
-    herbs: 0
+    level: 2
+    gold: 5
+    xp: 20
+    herbs: 1
     meat: 0
     magicEssence: 0
     dropedGear: []
     droppedPotion: []
     dropedQuestItems: []
   offensivStats:
-    succesThreshold: 0
-    attackDice: 0
+    succesThreshold: 3
+    attackDice: 3
     damageType: 0
     weaponRange: 0
   defensiveStats:

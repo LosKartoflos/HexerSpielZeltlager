@@ -14,13 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: "Metalr\xFCstung"
   itemImage: armor_3
-  valueBuy: 500
-  valueSell: 100
+  valueBuy: 55
+  valueSell: 25
   attributeBuffs:
     body: 1
     mind: 1
     charisma: 1
     attributAddThreshold: 0
+  regenBuffs:
+    manaRegen: 0
+    healthRegen: 0
   spellLevelBuff:
     lifeSpell: 1
     mindSpell: 1

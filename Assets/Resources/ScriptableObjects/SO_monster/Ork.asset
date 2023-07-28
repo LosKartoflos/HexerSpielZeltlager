@@ -15,14 +15,14 @@ MonoBehaviour:
   monsterName: Ork
   monsterImage: {fileID: 0}
   basicStats:
-    health: 0
-    healthMax: 0
+    health: 75
+    healthMax: 75
     characterMovement: 0
     characterType: 0
   monsterStats:
-    level: 0
-    gold: 0
-    xp: 0
+    level: 5
+    gold: 5
+    xp: 30
     herbs: 0
     meat: 0
     magicEssence: 0
@@ -30,9 +30,9 @@ MonoBehaviour:
     droppedPotion: []
     dropedQuestItems: []
   offensivStats:
-    succesThreshold: 0
-    attackDice: 0
+    succesThreshold: 2
+    attackDice: 2
     damageType: 0
     weaponRange: 0
   defensiveStats:
-    armor: 0
+    armor: 2

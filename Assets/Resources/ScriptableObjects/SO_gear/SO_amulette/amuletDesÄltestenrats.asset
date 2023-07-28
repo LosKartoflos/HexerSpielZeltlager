@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: "Amulett des \xC4ltestenrats"
   itemImage: "Amulett des \xC4ltestenrats"
-  valueBuy: 0
-  valueSell: 0
+  valueBuy: 70
+  valueSell: 40
   attributeBuffs:
-    body: 0
-    mind: 0
-    charisma: 0
+    body: 2
+    mind: 1
+    charisma: 2
     attributAddThreshold: 0
   regenBuffs:
     manaRegen: 0
@@ -29,7 +29,7 @@ MonoBehaviour:
     mindSpell: 0
     charismaSpell: 0
   diceManipulation:
-    addDice: 0
+    addDice: 2
     substractDiceFromEnemy: 0
     addablePoints: 0
     subtractablePointsFromEnemy: 0

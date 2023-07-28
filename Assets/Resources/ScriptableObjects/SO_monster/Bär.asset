@@ -15,23 +15,24 @@ MonoBehaviour:
   monsterName: "B\xE4r"
   monsterImage: {fileID: 0}
   basicStats:
-    health: 0
-    healthMax: 0
+    health: 100
+    healthMax: 100
     characterMovement: 0
     characterType: 0
   monsterStats:
-    level: 0
-    gold: 0
-    xp: 0
-    herbs: 0
-    meat: 0
+    level: 5
+    gold: 5
+    xp: 30
+    herbs: 1
+    meat: 2
     magicEssence: 0
     dropedGear: []
-    droppedPotion: []
+    droppedPotion:
+    - {fileID: 11400000, guid: d9881e63a0b135e4895a736651c6fb67, type: 2}
     dropedQuestItems: []
   offensivStats:
-    succesThreshold: 0
-    attackDice: 0
+    succesThreshold: 2
+    attackDice: 1
     damageType: 0
     weaponRange: 0
   defensiveStats:
