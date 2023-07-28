@@ -23,5 +23,7 @@ MonoBehaviour:
   questList: []
   npcInFight: {fileID: 0}
   gearToSell: []
-  potionToSell: []
+  potionToSell:
+  - {fileID: 11400000, guid: 977505d03c8f5d34d8535a4bb1e01458, type: 2}
+  - {fileID: 11400000, guid: d9881e63a0b135e4895a736651c6fb67, type: 2}
   questItemToSell: []

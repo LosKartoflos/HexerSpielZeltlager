@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Stab der Toten
   itemImage: Stab der Toten
-  valueBuy: 0
-  valueSell: 0
+  valueBuy: 70
+  valueSell: 40
   attributeBuffs:
     body: 0
     mind: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Stab des Lichts
   itemImage: Stab des Lichts
-  valueBuy: 0
+  valueBuy: 22
   valueSell: 0
   attributeBuffs:
     body: 0

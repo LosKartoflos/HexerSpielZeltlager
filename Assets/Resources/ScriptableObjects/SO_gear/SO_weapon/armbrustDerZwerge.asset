@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Armbrust der Zwerge
   itemImage: Armbrust der Zwerge
-  valueBuy: 0
-  valueSell: 0
+  valueBuy: 38
+  valueSell: 8
   attributeBuffs:
     body: 0
     mind: 0
@@ -29,7 +29,7 @@ MonoBehaviour:
     mindSpell: 0
     charismaSpell: 0
   weaponStats:
-    succesThreshold: 0
+    succesThreshold: 3
     attackDice: 0
     damageType: 0
     weaponRange: 1

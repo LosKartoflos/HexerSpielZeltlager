@@ -25,7 +25,8 @@ MonoBehaviour:
       herbs: 0
       meat: 0
       magicEssence: 0
-  dropedGear: []
+  dropedGear:
+  - {fileID: 11400000, guid: f8cb5396cc3b5f84b93f854303076dd3, type: 2}
   dropedQuestItems: []
   nextQuestStep: {fileID: 11400000, guid: c3ce88032618325439e40e3707367424, type: 2}
   spotToGO: {fileID: 0}
