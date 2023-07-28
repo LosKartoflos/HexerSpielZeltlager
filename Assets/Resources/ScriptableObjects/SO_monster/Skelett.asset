@@ -21,8 +21,8 @@ MonoBehaviour:
     characterType: 0
   monsterStats:
     level: 0
-    gold: 0
-    xp: 0
+    gold: 5
+    xp: 20
     herbs: 0
     meat: 0
     magicEssence: 0

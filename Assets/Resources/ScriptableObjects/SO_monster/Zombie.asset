@@ -21,10 +21,10 @@ MonoBehaviour:
     characterType: 0
   monsterStats:
     level: 0
-    gold: 0
-    xp: 0
+    gold: 5
+    xp: 25
     herbs: 0
-    meat: 0
+    meat: 1
     magicEssence: 0
     dropedGear: []
     droppedPotion: []
