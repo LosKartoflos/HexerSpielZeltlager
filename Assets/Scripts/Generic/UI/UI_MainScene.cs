@@ -43,14 +43,14 @@ public class UI_MainScene : MonoBehaviour
     private void Start()
     {
         label_Attributs.text = string.Format("Körper: {0} | Geist: {1} | Charisma: {2}\nW: {3} | ES: +{4} | RÜ: {5} | HR: {6} | MR: {7}| ",
-            Player.Instance.PlayerValues.PlayerAttributesComplete.body.ToString(),
-             Player.Instance.PlayerValues.PlayerAttributesComplete.mind.ToString(),
-             Player.Instance.PlayerValues.PlayerAttributesComplete.charisma.ToString(),
-              Player.Instance.PlayerValues.OffensivStatsValue.attackDice.ToString(),
-               Player.Instance.PlayerValues.OffensivStatsValue.succesThreshold.ToString(),
-                Player.Instance.PlayerValues.DeffensiveStatsValue.armor.ToString(),
-                Player.Instance.PlayerValues.playerStats.healthRegen,
-                Player.Instance.PlayerValues.playerStats.manaRegen);
+            Player.Instance.PlayerValues.PlayerAttributesComplete.body.ToString("0"),
+             Player.Instance.PlayerValues.PlayerAttributesComplete.mind.ToString("0"),
+             Player.Instance.PlayerValues.PlayerAttributesComplete.charisma.ToString("0"),
+              Player.Instance.PlayerValues.OffensivStatsValue.attackDice.ToString("0"),
+               Player.Instance.PlayerValues.OffensivStatsValue.succesThreshold.ToString("0"),
+                Player.Instance.PlayerValues.DeffensiveStatsValue.armor.ToString("0"),
+                Player.Instance.PlayerValues.playerStats.healthRegen.ToString("0"),
+                Player.Instance.PlayerValues.playerStats.manaRegen.ToString("0"));
 
 
         //xpBar.SetValues(7, 100, " XP");
