@@ -22,6 +22,40 @@ namespace Hexerspiel.UI
         [SerializeField]
         FightManager fightManager;
 
+        [Header("player info")]
+        public Bar health_player;
+        public Bar mana_player;
+        public TextMeshProUGUI info_dice_player, info_succes_player, info_extraDice_player, info_diceMode_player, info_armor_player;
+        public List<GameObject> damageType_player = new List<GameObject>();
+        public List<GameObject> movementType_player = new List<GameObject>();
+        public List<GameObject> chacterType_player = new List<GameObject>();
+        public List<GameObject> range_player = new List<GameObject>();
+
+
+
+        [Header("player roll")]
+
+        public TextMeshProUGUI roll_dice_player;
+        public TextMeshProUGUI roll_succes_player, roll_diceMod_player, roll_succesMod_player, roll_succesTotal_player, roll_extraDamage_player, roll_monsterArmor_player, roll_finalDamage_player;
+
+        [Header("enemy info")]
+        public Bar health_enemy;
+        public TextMeshProUGUI monsterNAme;
+        public TextMeshProUGUI info_dice_enemy, info_succes_enemy, info_extraDice_enemy, info_diceMode_enemy, info_armor_enemy;
+        public List<GameObject> damageType_enemy = new List<GameObject>();
+        public List<GameObject> movementType_enemy = new List<GameObject>();
+        public List<GameObject> chacterType_enemy = new List<GameObject>();
+        public List<GameObject> range_enemy = new List<GameObject>();
+
+
+        [Header("enemy roll")]
+
+        public TextMeshProUGUI roll_dice_enemy;
+        public TextMeshProUGUI roll_succes_enemy, roll_diceMod_enemy, roll_succesMod_enemy, roll_succesTotal_enemy, roll_extraDamage_enemy, roll_playerArmor_enemy, roll_finalDamage_enemy;
+
+
+
+
         [Header("Main Fight")]
         [SerializeField]
         private GameObject panel_fightInteractions;
@@ -37,8 +71,8 @@ namespace Hexerspiel.UI
         [SerializeField]
         GameObject bt_usePotionGO;
 
-        [SerializeField]
-        Button bt_ChangeEquipment;
+        //[SerializeField]
+        //Button bt_ChangeEquipment;
 
         [SerializeField]
         Button bt_useSpell;
@@ -109,6 +143,8 @@ namespace Hexerspiel.UI
             panel_AfterFightLoose.SetActive(false);
             panel_AfterFightWon.SetActive(false);
             panel_fightInteractions.SetActive(true);
+
+            
         }
 
         private void OnEnable()

@@ -78,7 +78,7 @@ namespace Hexerspiel.Character
 
             //normal damage
             //Dice dice = new Dice();
-            damage = Dice.Instance.RollForSuccess((offensivStatsValue.attackDice + extraDice) < 1 ? 1 : (offensivStatsValue.attackDice + extraDice), (offensivStatsValue.succesThreshold < 1 ? 1 : offensivStatsValue.succesThreshold), extraThreshhold, manipulationPoints, out rollInfos);
+            damage = Dice.Instance.RollForSuccess((offensivStatsValue.attackDice + extraDice ) < 1 ? 1 : (offensivStatsValue.attackDice + extraDice), (offensivStatsValue.succesThreshold < 1 ? 1 : offensivStatsValue.succesThreshold), extraThreshhold, manipulationPoints, out rollInfos);
 
             //extra or minusdamge
             bonusDamage += CalculateBonusDamage(enemyType, enemyMovement, offensivStatsValue.weaponRange, offensivStatsValue.damageType);
