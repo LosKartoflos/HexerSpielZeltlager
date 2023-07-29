@@ -24,7 +24,7 @@ MonoBehaviour:
     items: []
   fightingGround:
     fightingGround: 0
-    minLevel: 0
+    minLevel: 4
     maxLevel: 0
     monsters:
     - {fileID: 11400000, guid: de3dbcd090d9b4d4781dc4d9eb57e121, type: 2}
@@ -39,24 +39,5 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 0e07a78f913864746b81b8084302ab25, type: 2}
     boss: {fileID: 0}
   shop:
-    shop: 0
-    basicItems: 0
     tier1Gear: []
-    tier2Gear: []
-    tier3Gear: []
-    amuletOffer:
-      cheaper: 0
-      expensive: 0
-    armorOffer:
-      cheaper: 0
-      expensive: 0
-    potionOffer:
-      cheaper: 0
-      expensive: 0
-    weaponOffer:
-      cheaper: 0
-      expensive: 0
-    magicalOffer:
-      cheaper: 0
-      expensive: 0
   peopleAtPlace: []

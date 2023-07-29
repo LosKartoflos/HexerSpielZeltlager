@@ -27,26 +27,7 @@ MonoBehaviour:
     minLevel: 0
     maxLevel: 0
     monsters: []
-    boss: {fileID: 0}
+    boss: {fileID: 11400000, guid: 5eb7a26e7c8398d4990b65dc516d82a9, type: 2}
   shop:
-    shop: 0
-    basicItems: 0
     tier1Gear: []
-    tier2Gear: []
-    tier3Gear: []
-    amuletOffer:
-      cheaper: 0
-      expensive: 0
-    armorOffer:
-      cheaper: 0
-      expensive: 0
-    potionOffer:
-      cheaper: 0
-      expensive: 0
-    weaponOffer:
-      cheaper: 0
-      expensive: 0
-    magicalOffer:
-      cheaper: 0
-      expensive: 0
   peopleAtPlace: []

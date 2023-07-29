@@ -25,6 +25,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c640ce2c07650034585e552ad0ebe46c, type: 2}
   - {fileID: 11400000, guid: 6180dbc8fb77cea45a385db2d68a087d, type: 2}
   npcInFight: {fileID: 0}
-  gearToSell: []
+  gearToSell:
+  - {fileID: 11400000, guid: d725e51f2c5219f4d9d2a2b455ebc920, type: 2}
   potionToSell: []
   questItemToSell: []
