@@ -56,6 +56,7 @@ namespace Hexerspiel.Character
 
         //to check if a Monster has been beaten (for quests and drops)
         public Dictionary<string, DateTime> killedMonsters = new Dictionary<string, DateTime>();
+        public Dictionary<string, DateTime> foughtAtSpot = new Dictionary<string, DateTime>();
         //public Dictionary<Spot, Time> visitedSpots = new Dictionary<Spot, Time>();
         //public Dictionary<NPC, Time> lastSocialInteraction = new Dictionary<NPC, Time>();
 

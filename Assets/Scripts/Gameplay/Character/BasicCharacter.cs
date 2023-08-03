@@ -56,9 +56,12 @@ namespace Hexerspiel.Character
 
         public virtual int Defend(int damageDealt)
         {
+            int damageFinal = 0;
             // wenn schaden negativ soll man kein leben dazubekommen, daher das ?:
-            int damageFinal = (damageDealt - defensiveStatsValue.armor) < 0 ? 0 : damageDealt - defensiveStatsValue.armor;
-            basicStatsValue.health -= damageFinal;
+            if (damageDealt - defensiveStatsValue.armor > 0)
+                damageFinal = defensiveStatsValue.armor;
+            Debug.Log("Damage Final " + damageFinal.ToString());
+            AddLife(-damageFinal);
             return damageFinal;
         }
 
@@ -79,7 +82,7 @@ namespace Hexerspiel.Character
         {
             return basicStatsValue.health;
 
-          
+
         }
 
         public abstract void Died();

@@ -1,5 +1,6 @@
 using Hexerspiel.Character;
 using Hexerspiel.Quests;
+using Hexerspiel.spots;
 using Hexerspiel.UI;
 using System;
 using System.Collections;
@@ -94,7 +95,7 @@ namespace Hexerspiel.UI
             UI_Inventory.AlertLookUp += ActivateAndFillRecievePanel;
 
             MainManager.AlertLeft += ActivateAndFillRecievePanel;
-
+            SpotManager.AlertSpot += ActivateAndFillRecievePanel;
             Player.levelUPEvent += CreateLevelUpPopUp;
         }
 
@@ -111,6 +112,7 @@ namespace Hexerspiel.UI
             UI_Inventory.AlertLookUp -= ActivateAndFillRecievePanel;
 
             MainManager.AlertLeft -= ActivateAndFillRecievePanel;
+            SpotManager.AlertSpot -= ActivateAndFillRecievePanel;
             Player.levelUPEvent -= CreateLevelUpPopUp;
         }
 

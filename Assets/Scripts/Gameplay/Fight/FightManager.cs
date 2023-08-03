@@ -38,6 +38,8 @@ namespace Hexerspiel.Fight
 
         int round = 1;
 
+        float lifePlayer, lifePlayeMax, lifeEnemy, LifeEnemyMax, manaPlayer, manaPlayerMax;
+
         #endregion
 
         #region Accessors
@@ -50,6 +52,22 @@ namespace Hexerspiel.Fight
             ResetRollInfo();
             UI_Fight.Instance.monsterNAme.text = Fight.enemy.MonsterName;
             round = 1;
+
+           
+            lifePlayer = Fight.player.basicStatsValue.health;
+            lifePlayeMax = Fight.player.basicStatsValue.healthMax;
+
+            manaPlayer = Fight.player.playerStats.mana;
+            manaPlayer = Fight.player.playerStats.manaMax;
+
+            lifeEnemy = Fight.enemy.basicStatsValue.health;
+            LifeEnemyMax = Fight.enemy.basicStatsValue.healthMax;
+
+            UseAmulet(Player.Instance.Inventory.GearInventory.AmuletEquipped);
+            FillPlayerInfo();
+            FillEnemyInfo();
+            ClearExtraDiceAndPoints();
+
         }
 
         private void OnEnable()
@@ -86,7 +104,7 @@ namespace Hexerspiel.Fight
         public void FillPlayerInfo()
         {
 
-            UI_Fight.Instance.health_player.SetValues(Fight.player.basicStatsValue.health, Fight.player.basicStatsValue.healthMax, " HP");
+            UI_Fight.Instance.health_player.SetValues(lifePlayer, lifePlayeMax, " HP");
             UI_Fight.Instance.mana_player.SetValues(Fight.player.playerStats.mana, Fight.player.playerStats.manaMax, " Mana");
             UI_Fight.Instance.info_dice_player.text = Fight.player.offensivStatsValue.attackDice.ToString();
             UI_Fight.Instance.info_succes_player.text = Fight.player.offensivStatsValue.succesThreshold.ToString();
@@ -98,7 +116,7 @@ namespace Hexerspiel.Fight
             {
                 case DamageType.Normal:
                     UI_Fight.Instance.damageType_player[0].SetActive(true);
-                   
+
                     break;
                 case DamageType.Magisch:
                     UI_Fight.Instance.damageType_player[1].SetActive(true);
@@ -142,7 +160,7 @@ namespace Hexerspiel.Fight
         public void ResetRollInfo()
         {
             UI_Fight.Instance.roll_dice_player.text = "0";
-            UI_Fight.Instance.roll_succes_player.text = "0";
+
             UI_Fight.Instance.roll_diceMod_player.text = "0";
             UI_Fight.Instance.roll_succesMod_player.text = "0";
             UI_Fight.Instance.roll_succesTotal_player.text = "0";
@@ -151,7 +169,7 @@ namespace Hexerspiel.Fight
             UI_Fight.Instance.roll_finalDamage_player.text = "0";
 
             UI_Fight.Instance.roll_dice_enemy.text = "0";
-            UI_Fight.Instance.roll_succes_enemy.text = "0";
+
             UI_Fight.Instance.roll_diceMod_enemy.text = "0";
             UI_Fight.Instance.roll_succesMod_enemy.text = "0";
             UI_Fight.Instance.roll_succesTotal_enemy.text = "0";
@@ -165,7 +183,7 @@ namespace Hexerspiel.Fight
         {
 
             UI_Fight.Instance.health_enemy.SetValues(Fight.enemy.basicStatsValue.health, Fight.enemy.basicStatsValue.healthMax, " HP");
-          
+
             UI_Fight.Instance.info_dice_enemy.text = Fight.enemy.offensivStatsValue.attackDice.ToString();
             UI_Fight.Instance.info_succes_enemy.text = Fight.enemy.offensivStatsValue.succesThreshold.ToString();
             UI_Fight.Instance.info_extraDice_enemy.text = malusDiceForEnemy.ToString();
@@ -235,15 +253,26 @@ namespace Hexerspiel.Fight
             int[] damageDealtByPlayer = Fight.player.Attack(0, extraPointsForPlayer, extraDiceForPlayer, Fight.enemy.BasicStatsValue.characterType, Fight.enemy.BasicStatsValue.characterMovement, out rollInfosPlayer);
             //add attribute Damage 
 
+            //int finalDamagetToMonster = Fight.enemy.Defend(damageDealtByPlayer[0]);
+            int finalDamagetToMonster = damageDealtByPlayer[0] - Fight.enemy.defensiveStatsValue.armor;
+            if (finalDamagetToMonster > 0)
+                lifeEnemy -=finalDamagetToMonster;
 
-            int finalDamagetToMonster = Fight.enemy.Defend(damageDealtByPlayer[0]);
             Debug.Log(string.Format("Player fought. Damge dealt {0}. Damaged modified {2}, Enemy has {1}hp.", damageDealtByPlayer[0], Fight.enemy.BasicStatsValue.health, damageDealtByPlayer[1]));
 
+            UI_Fight.Instance.roll_dice_player.text = rollInfosPlayer.rolledValues;
+            UI_Fight.Instance.roll_diceMod_player.text = rollInfosPlayer.modedValues;
+            UI_Fight.Instance.roll_succesMod_player.text = rollInfosPlayer.succssess.ToString();
+            UI_Fight.Instance.roll_succesTotal_player.text = rollInfosPlayer.succssess.ToString();
+            UI_Fight.Instance.roll_extraDamage_player.text = damageDealtByPlayer[1].ToString();
+            UI_Fight.Instance.roll_monsterArmor_player.text = Fight.enemy.defensiveStatsValue.armor.ToString();
+            UI_Fight.Instance.roll_finalDamage_player.text = finalDamagetToMonster.ToString();
 
             //falls monster schon besiegt ist
-            if (Fight.enemy.BasicStatsValue.health <= 0)
+            if (lifeEnemy <= 0)
             {
                 Fight.enemy.SetLife(0);
+                Fight.player.SetLife(lifePlayer);
                 Fight.enemy.Died();
 
                 fighIsOver = FIGHT_ENDING.playerWon;
@@ -252,14 +281,7 @@ namespace Hexerspiel.Fight
                 Player.Instance.PlayerValues.SetLife(Fight.player.GetLife());
 
 
-                UI_Fight.Instance.roll_dice_player.text = rollInfosPlayer.rolledValues;
-                UI_Fight.Instance.roll_succes_player.text = rollInfosPlayer.threshold.ToString();
-                UI_Fight.Instance.roll_diceMod_player.text = rollInfosPlayer.modedValues;
-                UI_Fight.Instance.roll_succesMod_player.text = rollInfosPlayer.succssess.ToString();
-                UI_Fight.Instance.roll_succesTotal_player.text = rollInfosPlayer.succssess.ToString();
-                UI_Fight.Instance.roll_extraDamage_player.text = damageDealtByPlayer[1].ToString();
-                UI_Fight.Instance.roll_monsterArmor_player.text = Fight.enemy.defensiveStatsValue.armor.ToString();
-                UI_Fight.Instance.roll_finalDamage_player.text = damageDealtByPlayer[0].ToString(); 
+
                 //playerInfo = string.Format(UI_Fight.PLAYER_INFO_FORMAT,
                 //Fight.player.BasicStatsValue.health,//0
                 //Fight.player.GetMana().ToString(),//1
@@ -291,15 +313,20 @@ namespace Hexerspiel.Fight
 
             //Enemy Attacks
             Debug.Log(string.Format("{0} attacks now. Player has {1}hp.", Fight.enemy.MonsterName, Fight.player.BasicStatsValue.health));
-            int[] damageDealtByEnemy = Fight.enemy.Attack(0, malusPointsForEnemy, malusDiceForEnemy, Fight.player.BasicStatsValue.characterType, Fight.player.BasicStatsValue.characterMovement, out rollInfosEnemy);
-            int finalDamagetToPlayer = Fight.player.Defend(damageDealtByEnemy[0]);
-            Debug.Log(string.Format("Round fought with. Damge dealt {0}. Damaged modified {2}, Player has {1}hp.", damageDealtByEnemy[0], Fight.player.BasicStatsValue.health, damageDealtByEnemy[1]));
+            int[] damageDealtByEnemy = Fight.enemy.Attack(0, -malusPointsForEnemy, -malusDiceForEnemy, Fight.player.BasicStatsValue.characterType, Fight.player.BasicStatsValue.characterMovement, out rollInfosEnemy);
+            //int finalDamagefromEnemy = Fight.player.Defend(damageDealtByEnemy[0]);
+            int finalDamagefromEnemy = damageDealtByEnemy[0] - Fight.player.defensiveStatsValue.armor;
+            if (finalDamagefromEnemy > 0)
+              lifePlayer -= finalDamagefromEnemy ;
+            
+                
+            Debug.Log(string.Format("Attack by enemy. Damge dealt {0}. final damage {2}, Player has {1}hp.", damageDealtByEnemy[0], Fight.player.BasicStatsValue.health, finalDamagefromEnemy));
 
             //Round fought check for results and reset;
-
             //falls spieler besiegt ist
-            if (Fight.player.BasicStatsValue.health <= 0)
+            if (lifePlayer <= 0)
             {
+               
                 Fight.player.SetLife(0);
                 Player.Instance.PlayerValues.Died();
 
@@ -307,14 +334,7 @@ namespace Hexerspiel.Fight
 
 
 
-                UI_Fight.Instance.roll_dice_enemy.text = rollInfosEnemy.rolledValues;
-                UI_Fight.Instance.roll_succes_enemy.text = rollInfosEnemy.threshold.ToString();
-                UI_Fight.Instance.roll_diceMod_enemy.text = rollInfosEnemy.modedValues;
-                UI_Fight.Instance.roll_succesMod_enemy.text = rollInfosEnemy.succssess.ToString();
-                UI_Fight.Instance.roll_succesTotal_enemy.text = rollInfosEnemy.succssess.ToString();
-                UI_Fight.Instance.roll_extraDamage_enemy.text = damageDealtByEnemy[1].ToString();
-                UI_Fight.Instance.roll_playerArmor_enemy.text = Fight.player.defensiveStatsValue.armor.ToString();
-                UI_Fight.Instance.roll_finalDamage_enemy.text = damageDealtByEnemy[0].ToString();
+
 
                 //    enemyInfo = string.Format(UI_Fight.Enemy_INFO_FORMAT,
                 //    Fight.enemy.BasicStatsValue.health,//0
@@ -342,49 +362,62 @@ namespace Hexerspiel.Fight
 
             // "Spieler:\nHP: {0}\nMana{1}\nSchaden erhalten: {2} - {3} = {4}\nWürfel gerolt: {5}\nThreshhol{6}, Modifikator:{7}\nWürfel modifiziert:{8}\nErfolge:{9}\n\nWaffenart und Gegnertypbonus: {10}";
 
-            playerInfo = string.Format(UI_Fight.PLAYER_INFO_FORMAT,
-                Fight.player.BasicStatsValue.health,//0
-                Fight.player.GetMana().ToString(),//1
-                damageDealtByEnemy[0].ToString(),//2
-                Fight.player.DeffensiveStatsValue.armor.ToString(),//3
-                finalDamagetToPlayer,//4
-                rollInfosPlayer.rolledValues,//5
-                rollInfosPlayer.threshold.ToString(),//6
-                rollInfosPlayer.mods.ToString(),//7
-                rollInfosPlayer.modedValues,//8
-                rollInfosPlayer.succssess,//9
-                damageDealtByPlayer[1],//10
-                damageDealtByPlayer[0],
-                Fight.player.BasicStatsValue.characterType.ToString(),
-                Fight.player.BasicStatsValue.characterMovement.ToString(),
-                Fight.player.OffensivStatsValue.weaponRange.ToString(),
-                Fight.player.OffensivStatsValue.damageType.ToString()
-                );
+            //playerInfo = string.Format(UI_Fight.PLAYER_INFO_FORMAT,
+            //    Fight.player.BasicStatsValue.health,//0
+            //    Fight.player.GetMana().ToString(),//1
+            //    damageDealtByEnemy[0].ToString(),//2
+            //    Fight.player.DeffensiveStatsValue.armor.ToString(),//3
+            //    finalDamagetToPlayer,//4
+            //    rollInfosPlayer.rolledValues,//5
+            //    rollInfosPlayer.threshold.ToString(),//6
+            //    rollInfosPlayer.mods.ToString(),//7
+            //    rollInfosPlayer.modedValues,//8
+            //    rollInfosPlayer.succssess,//9
+            //    damageDealtByPlayer[1],//10
+            //    damageDealtByPlayer[0],
+            //    Fight.player.BasicStatsValue.characterType.ToString(),
+            //    Fight.player.BasicStatsValue.characterMovement.ToString(),
+            //    Fight.player.OffensivStatsValue.weaponRange.ToString(),
+            //    Fight.player.OffensivStatsValue.damageType.ToString()
+            //    );
             // "Spieler:\nHP: {0}\n\nSchaden erhalten: {1} - {2} = {3}\nWürfel gerolt: {4}\nThreshhol{5}, Modifikator:{6}\nWürfel modifiziert:{7}\nErfolge:{8}\n\nWaffenart und Gegnertypbonus: {9}";
-            enemyInfo = string.Format(UI_Fight.Enemy_INFO_FORMAT,
-                Fight.enemy.BasicStatsValue.health,//0
-                damageDealtByPlayer[0].ToString(),//1
-                Fight.enemy.DeffensiveStatsValue.armor.ToString(),//2
-                finalDamagetToMonster,//3
-                rollInfosEnemy.rolledValues,//4
-                rollInfosEnemy.threshold.ToString(),//5
-                rollInfosEnemy.mods.ToString(),//6
-                rollInfosEnemy.modedValues,//7
-                rollInfosEnemy.succssess,//8
-                damageDealtByEnemy[1],//9
-                damageDealtByEnemy[0],
-                Fight.enemy.BasicStatsValue.characterType.ToString(),
-                Fight.enemy.BasicStatsValue.characterMovement.ToString(),
-                Fight.enemy.OffensivStatsValue.weaponRange.ToString(),
-                Fight.enemy.OffensivStatsValue.damageType.ToString()
-            );
+            //enemyInfo = string.Format(UI_Fight.Enemy_INFO_FORMAT,
+            //    Fight.enemy.BasicStatsValue.health,//0
+            //    damageDealtByPlayer[0].ToString(),//1
+            //    Fight.enemy.DeffensiveStatsValue.armor.ToString(),//2
+            //    finalDamagetToMonster,//3
+            //    rollInfosEnemy.rolledValues,//4
+            //    rollInfosEnemy.threshold.ToString(),//5
+            //    rollInfosEnemy.mods.ToString(),//6
+            //    rollInfosEnemy.modedValues,//7
+            //    rollInfosEnemy.succssess,//8
+            //    damageDealtByEnemy[1],//9
+            //    damageDealtByEnemy[0],
+            //    Fight.enemy.BasicStatsValue.characterType.ToString(),
+            //    Fight.enemy.BasicStatsValue.characterMovement.ToString(),
+            //    Fight.enemy.OffensivStatsValue.weaponRange.ToString(),
+            //    Fight.enemy.OffensivStatsValue.damageType.ToString()
+            //);
 
+            UI_Fight.Instance.roll_dice_enemy.text = rollInfosEnemy.rolledValues;
+
+            UI_Fight.Instance.roll_diceMod_enemy.text = rollInfosEnemy.modedValues;
+            UI_Fight.Instance.roll_succesMod_enemy.text = rollInfosEnemy.succssess.ToString();
+            UI_Fight.Instance.roll_succesTotal_enemy.text = rollInfosEnemy.succssess.ToString();
+            UI_Fight.Instance.roll_extraDamage_enemy.text = damageDealtByEnemy[1].ToString();
+            UI_Fight.Instance.roll_playerArmor_enemy.text = Fight.player.defensiveStatsValue.armor.ToString();
+            UI_Fight.Instance.roll_finalDamage_enemy.text = finalDamagefromEnemy.ToString();
+
+
+            UI_Fight.Instance.health_player.SetValues(lifePlayer, lifePlayeMax, " HP");
+            UI_Fight.Instance.health_enemy.SetValues(lifeEnemy, LifeEnemyMax, " HP");
             UI_Fight.Instance.UpdateAfterFightRound(round, playerInfo, enemyInfo);
 
             //invoke event
             RoundFought(round);
             round += 1;
             ClearExtraDiceAndPoints();
+            Fight.player.SetLife(lifePlayer);
             return fighIsOver;
         }
 
@@ -394,8 +427,12 @@ namespace Hexerspiel.Fight
         /// <param name="potionStats">potion to use</param>
         public void DrinkPotion(PotionStats potionStats)
         {
-            Fight.player.AddLife(potionStats.addLife);
-            Fight.player.AddMana(potionStats.addMana);
+            lifePlayer += potionStats.addLife;
+            if (lifePlayer > lifePlayeMax)
+                lifePlayer = lifePlayeMax;
+            manaPlayer += potionStats.addMana;
+            if (manaPlayer > manaPlayerMax)
+                manaPlayer = manaPlayerMax;
 
             extraDiceForPlayer += potionStats.diceManipulation.addDice;
             extraPointsForPlayer += potionStats.diceManipulation.addablePoints;
@@ -404,6 +441,7 @@ namespace Hexerspiel.Fight
             malusPointsForEnemy += potionStats.diceManipulation.subtractablePointsFromEnemy;
 
             FillPlayerInfo();
+            FillEnemyInfo();
         }
 
         public void UseAmulet(SO_amulet amulet)
@@ -429,13 +467,16 @@ namespace Hexerspiel.Fight
 
         private void PlayerWon()
         {
-
+            Player.Instance.SetLifeForPlayerOutsideFight(lifePlayer);
+            Player.Instance.SetManaForPlayerOutsideFight(manaPlayer);
             Player.Instance.RecieveLootMonster(Fight.enemy.MonsterStat);
             PlayerWonEvent(Fight.enemy);
         }
 
         private void PlayerLost()
         {
+            Player.Instance.SetLifeForPlayerOutsideFight(lifePlayer);
+            Player.Instance.SetManaForPlayerOutsideFight(manaPlayer);
             PlayerLostEvent();
         }
         #endregion

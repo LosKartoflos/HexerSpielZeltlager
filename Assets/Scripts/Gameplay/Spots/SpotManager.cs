@@ -17,6 +17,7 @@ namespace Hexerspiel.spots
     {
         #region Variables
         private static SpotManager instance;
+        public static event Action<string> AlertSpot;
 
         public static SO_spots currentStpot;
 
@@ -37,7 +38,7 @@ namespace Hexerspiel.spots
         #region Accessors
         public static SpotManager Instance { get => instance; }
         public List<SO_Monster> MonsterList { get => monsterList; }
-        public SO_Monster Boss { get => boss;  }
+        public SO_Monster Boss { get => boss; }
         public List<SO_item> ItemsToShop { get => itemsToShop; }
         #endregion
 
@@ -85,18 +86,18 @@ namespace Hexerspiel.spots
 
             if (QuestTracker.currentSpot == null)
             {
-              
+
                 return;
             }
             else if (QuestTracker.currentSpot != null)
             {
                 if (QuestTracker.currentSpot.fightingGround.monsters != null)
-                    monsterList.AddRange( QuestTracker.currentSpot.fightingGround.monsters);
+                    monsterList.AddRange(QuestTracker.currentSpot.fightingGround.monsters);
                 if (QuestTracker.currentSpot.fightingGround.boss != null)
                     boss = QuestTracker.currentSpot.fightingGround.boss;
                 if (QuestTracker.currentSpot.shop.tier1Gear != null && QuestTracker.currentSpot.shop.tier1Gear.Count > 0)
                 {
-                    itemsToShop.AddRange( QuestTracker.currentSpot.shop.tier1Gear);
+                    itemsToShop.AddRange(QuestTracker.currentSpot.shop.tier1Gear);
                     UI_Inventory.shopItemList = new List<SO_item>();
                     UI_Inventory.shopItemList.AddRange(itemsToShop);
                     UI_Inventory.atShop = true;
@@ -106,7 +107,7 @@ namespace Hexerspiel.spots
                     UI_Inventory.atShop = true;
                     UI_Inventory.shopItemList = new List<SO_item>();
                 }
-                    
+
 
                 minLevel = QuestTracker.currentSpot.fightingGround.minLevel;
                 maxLevel = QuestTracker.currentSpot.fightingGround.maxLevel;
@@ -126,7 +127,50 @@ namespace Hexerspiel.spots
             SceneManager.LoadScene("SpotScene");
         }
 
-     
+        public double CoolDownRemaining()
+        {
+            double cooldDown = 900;
+            double cooldDownRemaining = 0;
+            if (Player.Instance.PlayerValues.foughtAtSpot.ContainsKey(QuestTracker.currentSpot.name))
+            {
+
+                TimeSpan tsCooldown = DateTime.Now - Player.Instance.PlayerValues.foughtAtSpot[QuestTracker.currentSpot.name];
+                cooldDownRemaining = cooldDown - tsCooldown.TotalSeconds;
+                return cooldDownRemaining;
+            }
+
+            return 0;
+        }
+
+        public static bool CheckIfLastFightCooldown()
+        {
+            if (QuestTracker.currentSpot.name == null)
+                return false;
+
+            double cooldDown = 900;
+            double cooldDownRemaining = 0;
+            if (Player.Instance.PlayerValues.foughtAtSpot.ContainsKey(QuestTracker.currentSpot.name))
+            {
+
+                TimeSpan tsCooldown = DateTime.Now - Player.Instance.PlayerValues.foughtAtSpot[QuestTracker.currentSpot.name];
+                cooldDownRemaining = cooldDown - tsCooldown.TotalSeconds;
+
+                if (cooldDownRemaining <= 0)
+                {
+                    return true;
+
+                }
+                else
+                    return false;
+
+            }
+            else
+            {
+                return true;
+            }
+
+
+        }
 
         public static SO_Monster GetRandomMonster(List<SO_Monster> monsterList)
         {
@@ -142,12 +186,26 @@ namespace Hexerspiel.spots
 
         public void StartFightWithRandomMonster()
         {
-            Hexerspiel.Fight.Fight.StartFightingScene(GetRandomMonster(monsterList));
+            if (CheckIfLastFightCooldown())
+            {
+                Player.Instance.AddToSpotFoughtList(QuestTracker.currentSpot.name, DateTime.Now);
+                Hexerspiel.Fight.Fight.StartFightingScene(GetRandomMonster(monsterList));
+            }
+
+            else
+                AlertSpot("Der Cooldown ist nicht vorbei. Komme in " + CoolDownRemaining().ToString("0") + " Sekunden wieder");
         }
 
         public void StartFightWithBoss()
         {
-            Hexerspiel.Fight.Fight.StartFightingScene(boss);
+            if (CheckIfLastFightCooldown())
+            {
+                Player.Instance.AddToSpotFoughtList(QuestTracker.currentSpot.name, DateTime.Now);
+                Hexerspiel.Fight.Fight.StartFightingScene(boss);
+            }
+
+            else
+                AlertSpot("Der Cooldown ist nicht vorbei. Komme in " + CoolDownRemaining().ToString("0") + " Sekunden wieder");
         }
 
         #endregion

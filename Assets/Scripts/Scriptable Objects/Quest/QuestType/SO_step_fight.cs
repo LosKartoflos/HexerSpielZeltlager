@@ -82,6 +82,8 @@ namespace Hexerspiel.Quests
             return monsterHaseBeenFoughtInTime;
         }
 
+        
+
 
     }
 }

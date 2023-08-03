@@ -36,7 +36,7 @@ namespace Hexerspiel.UI
         [Header("player roll")]
 
         public TextMeshProUGUI roll_dice_player;
-        public TextMeshProUGUI roll_succes_player, roll_diceMod_player, roll_succesMod_player, roll_succesTotal_player, roll_extraDamage_player, roll_monsterArmor_player, roll_finalDamage_player;
+        public TextMeshProUGUI  roll_diceMod_player, roll_succesMod_player, roll_succesTotal_player, roll_extraDamage_player, roll_monsterArmor_player, roll_finalDamage_player;
 
         [Header("enemy info")]
         public Bar health_enemy;
@@ -51,7 +51,7 @@ namespace Hexerspiel.UI
         [Header("enemy roll")]
 
         public TextMeshProUGUI roll_dice_enemy;
-        public TextMeshProUGUI roll_succes_enemy, roll_diceMod_enemy, roll_succesMod_enemy, roll_succesTotal_enemy, roll_extraDamage_enemy, roll_playerArmor_enemy, roll_finalDamage_enemy;
+        public TextMeshProUGUI  roll_diceMod_enemy, roll_succesMod_enemy, roll_succesTotal_enemy, roll_extraDamage_enemy, roll_playerArmor_enemy, roll_finalDamage_enemy;
 
 
 
@@ -66,10 +66,13 @@ namespace Hexerspiel.UI
         Button bt_run;
 
         [SerializeField]
-        Button bt_usePotion;
+        Button bt_usePotion, bt_Exit;
 
         [SerializeField]
-        GameObject bt_usePotionGO;
+        GameObject bt_usePotionGO, finalObject;
+
+        [SerializeField]
+        TextMeshProUGUI label_fightOverInfo;
 
         //[SerializeField]
         //Button bt_ChangeEquipment;
@@ -80,31 +83,31 @@ namespace Hexerspiel.UI
         [SerializeField]
         private TextMeshProUGUI label_playerInfo, label_enemyInfo, label_round;
 
-        [Header("WinScreen")]
-        [SerializeField]
-        private GameObject panel_AfterFightWon;
+        //[Header("WinScreen")]
+        //[SerializeField]
+        //private GameObject panel_AfterFightWon;
 
-        [SerializeField]
-        private TextMeshProUGUI label_won_info;
+        //[SerializeField]
+        //private TextMeshProUGUI label_won_info;
 
-        [SerializeField]
-        private TextMeshProUGUI label_won_lastHit;
+        //[SerializeField]
+        //private TextMeshProUGUI label_won_lastHit;
 
-        [SerializeField]
-        private Button bt_continue_won;
+        //[SerializeField]
+        //private Button bt_continue_won;
 
-        [Header("LooseScreen")]
-        [SerializeField]
-        private GameObject panel_AfterFightLoose;
+        //[Header("LooseScreen")]
+        //[SerializeField]
+        //private GameObject panel_AfterFightLoose;
 
-        [SerializeField]
-        private TextMeshProUGUI label_loose_info;
+        //[SerializeField]
+        //private TextMeshProUGUI label_loose_info;
 
-        [SerializeField]
-        private Button bt_continue_loose;
+        //[SerializeField]
+        //private Button bt_continue_loose;
 
-        [SerializeField]
-        private TextMeshProUGUI label_loose_lastHit;
+        //[SerializeField]
+        //private TextMeshProUGUI label_loose_lastHit;
 
 
 
@@ -130,8 +133,9 @@ namespace Hexerspiel.UI
 
             bt_usePotion.onClick.AddListener(DrinkTestpotion);
             bt_fight.onClick.AddListener(fightManager.ProgressFight);
-            bt_continue_won.onClick.AddListener(UI_HeaderBar.Instance.LoadLastScene);
-            bt_continue_loose.onClick.AddListener(UI_HeaderBar.Instance.LoadLastScene);
+           bt_Exit.onClick.AddListener(UI_HeaderBar.Instance.LoadLastScene);
+            bt_Exit.gameObject.SetActive(false);
+            //bt_continue_loose.onClick.AddListener(UI_HeaderBar.Instance.LoadLastScene);
 
             //if (bt_usePotion == null)
             //{
@@ -140,17 +144,27 @@ namespace Hexerspiel.UI
             //else
             //    bt_fight.onClick.AddListener(DrinkTestpotion);
 
-            panel_AfterFightLoose.SetActive(false);
-            panel_AfterFightWon.SetActive(false);
+            //panel_AfterFightLoose.SetActive(false);
+            //panel_AfterFightWon.SetActive(false);
             panel_fightInteractions.SetActive(true);
 
-            
+            label_fightOverInfo.text = "";
+
+
+
         }
 
         private void OnEnable()
         {
             FightManager.PlayerWonEvent += WinScreen;
             FightManager.PlayerLostEvent += LooseScreen;
+        }
+
+
+        private void OnDisable()
+        {
+            FightManager.PlayerWonEvent -= WinScreen;
+            FightManager.PlayerLostEvent -= LooseScreen;
         }
         #endregion
 
@@ -160,24 +174,30 @@ namespace Hexerspiel.UI
             label_round.text = "Runde: " + round.ToString();
             label_playerInfo.text = playerInfo;
             label_enemyInfo.text = enemyInfo;
+
+           
         }
 
         public void WinScreen(MonsterCharacter monster)
         {
-            panel_fightInteractions.SetActive(false);
-            panel_AfterFightWon.SetActive(true);
-
-            label_won_lastHit.text = label_playerInfo.text;
-            label_won_info.text = "Ihr habt " + monster.MonsterName + " besiegt!\n\n" + Player.Instance.CollectedLoot;
+            finalObject.gameObject.SetActive(true);
+            bt_fight.gameObject.SetActive(false);
+            bt_run.gameObject.SetActive(false);
+            bt_usePotion.gameObject.SetActive(false);
+            bt_useSpell.gameObject.SetActive(false);
+            bt_Exit.gameObject.SetActive(true);
+            label_fightOverInfo.text = "Ihr habt " + monster.MonsterName + " besiegt und" + monster.MonsterStat.xp.ToString() + " XP bekommen.\n\n" + Player.Instance.CollectedLoot;
         }
 
         public void LooseScreen()
         {
-            panel_fightInteractions.SetActive(false);
-            panel_AfterFightLoose.SetActive(true);
-
-            label_loose_lastHit.text = label_enemyInfo.text;
-            label_loose_info.text = "Leider seid ihr gestorben. Versucht es später noch einmal!";
+            finalObject.gameObject.SetActive(true);
+            bt_fight.gameObject.SetActive(false);
+            bt_run.gameObject.SetActive(false);
+            bt_usePotion.gameObject.SetActive(false);
+            bt_useSpell.gameObject.SetActive(false);
+            bt_Exit.gameObject.SetActive(true);
+            label_fightOverInfo.text = "Leider seid ihr gestorben. Versucht es später noch einmal!";
         }
         public void DrinkTestpotion()
         {

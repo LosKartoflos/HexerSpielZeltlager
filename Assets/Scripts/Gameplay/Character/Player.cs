@@ -201,6 +201,19 @@ public class Player : MonoBehaviour
 
     }
 
+    public  void AddToSpotFoughtList(string spotName, DateTime fightTime)
+    {
+        if (playerValues.foughtAtSpot.ContainsKey(spotName))
+        {
+            playerValues.foughtAtSpot[spotName] = fightTime;
+        }
+        else
+            playerValues.foughtAtSpot.Add(spotName, fightTime);
+
+        Saver();
+
+    }
+
     /// <summary>
     /// use a potion outside of fight
     /// </summary>

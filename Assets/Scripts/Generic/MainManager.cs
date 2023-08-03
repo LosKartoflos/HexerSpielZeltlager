@@ -41,6 +41,7 @@ public class MainManager : MonoBehaviour
             spotEntered = (DateTime)ES3.Load("spotEntered");
         if (ES3.KeyExists("npcEntered"))
             npcEntered = (DateTime)ES3.Load("npcEntered");
+       
 
         mainManagerHasLoaded = true;
 
