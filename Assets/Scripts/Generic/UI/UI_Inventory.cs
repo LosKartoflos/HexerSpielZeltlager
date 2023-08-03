@@ -119,7 +119,9 @@ namespace Hexerspiel.UI
             bt_equip.onClick.AddListener(delegate { EquipItem(currentitemSelected.ItemAttached); });
             bt_use.onClick.AddListener(delegate { UseItem(currentitemSelected.ItemAttached); });
 
-
+            bt_eatHerb.onClick.AddListener(EatHerbs);
+            bt_eatMeat.onClick.AddListener(EatMeat);
+            bt_useMagicEssence.onClick.AddListener(EatMagicEssence);
         }
         #endregion
 
@@ -535,6 +537,39 @@ namespace Hexerspiel.UI
             }
 
 
+        }
+
+        public void EatHerbs()
+        {
+            if (Player.Instance.Inventory.BasicInventory.Amount.miscItems.herbs > 0 && Player.Instance.PlayerValues.GetLife() != Player.Instance.PlayerValues.basicStatsValue.healthMax)
+            {
+                UpdateMisc();
+                Player.Instance.Inventory.BasicInventory.ChangeHerbs(-1);
+                Player.Instance.PlayerValues.AddLife(1);
+                Player.Instance.SetLifeForPlayerOutsideFight(Player.Instance.PlayerValues.GetLife() + 1);
+            }
+        }
+
+        public void EatMeat()
+        {
+            if (Player.Instance.Inventory.BasicInventory.Amount.miscItems.meat > 0 && Player.Instance.PlayerValues.GetLife() != Player.Instance.PlayerValues.basicStatsValue.healthMax)
+            {
+                
+                Player.Instance.Inventory.BasicInventory.ChangeMeat(-1);
+                UpdateMisc();
+                Player.Instance.SetLifeForPlayerOutsideFight(Player.Instance.PlayerValues.GetLife() + 1);
+            }
+        }
+
+        public void EatMagicEssence()
+        {
+            if (Player.Instance.Inventory.BasicInventory.Amount.miscItems.meat > 0 && Player.Instance.PlayerValues.GetMana() != Player.Instance.PlayerValues.playerStats.manaMax)
+            {
+                
+                Player.Instance.Inventory.BasicInventory.ChangeMagicessence(-1);
+                UpdateMisc();
+                Player.Instance.SetManaForPlayerOutsideFight(Player.Instance.PlayerValues.GetMana() + 1);
+            }
         }
         #endregion
     }

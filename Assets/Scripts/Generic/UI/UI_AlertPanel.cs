@@ -97,6 +97,8 @@ namespace Hexerspiel.UI
             MainManager.AlertLeft += ActivateAndFillRecievePanel;
             SpotManager.AlertSpot += ActivateAndFillRecievePanel;
             Player.levelUPEvent += CreateLevelUpPopUp;
+
+            UI_Fight.AlertUIFight += ActivateAndFillRecievePanel;
         }
 
        
@@ -114,6 +116,8 @@ namespace Hexerspiel.UI
             MainManager.AlertLeft -= ActivateAndFillRecievePanel;
             SpotManager.AlertSpot -= ActivateAndFillRecievePanel;
             Player.levelUPEvent -= CreateLevelUpPopUp;
+
+            UI_Fight.AlertUIFight -= ActivateAndFillRecievePanel;
         }
 
 

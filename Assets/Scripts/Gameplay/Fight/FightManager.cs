@@ -17,6 +17,8 @@ namespace Hexerspiel.Fight
 
         #region Variables
 
+        private static FightManager instance;
+
         public static event Action<int> RoundFought = delegate { };
         public static event Action<MonsterCharacter> PlayerWonEvent = delegate { };
         public static event Action PlayerLostEvent = delegate { };
@@ -35,14 +37,17 @@ namespace Hexerspiel.Fight
         private RollInfos rollInfosPlayer;
         private RollInfos rollInfosEnemy;
 
-
+        public static bool potionAvailable = true;
         int round = 1;
 
         float lifePlayer, lifePlayeMax, lifeEnemy, LifeEnemyMax, manaPlayer, manaPlayerMax;
 
+
+
         #endregion
 
         #region Accessors
+        public static FightManager Instance { get => instance; }
         #endregion
 
         #region LifeCycle
@@ -53,12 +58,12 @@ namespace Hexerspiel.Fight
             UI_Fight.Instance.monsterNAme.text = Fight.enemy.MonsterName;
             round = 1;
 
-           
+
             lifePlayer = Fight.player.basicStatsValue.health;
             lifePlayeMax = Fight.player.basicStatsValue.healthMax;
 
             manaPlayer = Fight.player.playerStats.mana;
-            manaPlayer = Fight.player.playerStats.manaMax;
+            manaPlayerMax = Fight.player.playerStats.manaMax;
 
             lifeEnemy = Fight.enemy.basicStatsValue.health;
             LifeEnemyMax = Fight.enemy.basicStatsValue.healthMax;
@@ -68,6 +73,16 @@ namespace Hexerspiel.Fight
             FillEnemyInfo();
             ClearExtraDiceAndPoints();
 
+        }
+
+        private void Awake()
+        {
+            if (instance == null)
+            {
+                instance = this; // In first scene, make us the singleton.
+            }
+            else if (instance != this)
+                Destroy(gameObject);
         }
 
         private void OnEnable()
@@ -243,6 +258,7 @@ namespace Hexerspiel.Fight
         public FIGHT_ENDING FightARound()
         {
             FIGHT_ENDING fighIsOver = FIGHT_ENDING.none;
+            potionAvailable = true;
             //player Attacks
 
             //apply amulet dice modifiers
@@ -256,7 +272,7 @@ namespace Hexerspiel.Fight
             //int finalDamagetToMonster = Fight.enemy.Defend(damageDealtByPlayer[0]);
             int finalDamagetToMonster = damageDealtByPlayer[0] - Fight.enemy.defensiveStatsValue.armor;
             if (finalDamagetToMonster > 0)
-                lifeEnemy -=finalDamagetToMonster;
+                lifeEnemy -= finalDamagetToMonster;
 
             Debug.Log(string.Format("Player fought. Damge dealt {0}. Damaged modified {2}, Enemy has {1}hp.", damageDealtByPlayer[0], Fight.enemy.BasicStatsValue.health, damageDealtByPlayer[1]));
 
@@ -317,16 +333,16 @@ namespace Hexerspiel.Fight
             //int finalDamagefromEnemy = Fight.player.Defend(damageDealtByEnemy[0]);
             int finalDamagefromEnemy = damageDealtByEnemy[0] - Fight.player.defensiveStatsValue.armor;
             if (finalDamagefromEnemy > 0)
-              lifePlayer -= finalDamagefromEnemy ;
-            
-                
+                lifePlayer -= finalDamagefromEnemy;
+
+
             Debug.Log(string.Format("Attack by enemy. Damge dealt {0}. final damage {2}, Player has {1}hp.", damageDealtByEnemy[0], Fight.player.BasicStatsValue.health, finalDamagefromEnemy));
 
             //Round fought check for results and reset;
             //falls spieler besiegt ist
             if (lifePlayer <= 0)
             {
-               
+
                 Fight.player.SetLife(0);
                 Player.Instance.PlayerValues.Died();
 
@@ -421,6 +437,23 @@ namespace Hexerspiel.Fight
             return fighIsOver;
         }
 
+        public void RunAway()
+        {
+            Player.Instance.SetLifeForPlayerOutsideFight(lifePlayer);
+            Player.Instance.SetManaForPlayerOutsideFight(manaPlayer);
+
+
+            float newLife = Player.Instance.PlayerValues.GetLife() - Player.Instance.PlayerValues.GetLife() * 0.1f;
+            if (newLife > 0)
+                Player.Instance.PlayerValues.basicStatsValue.health = newLife;
+            else if (newLife == Player.Instance.PlayerValues.GetLife())
+                Player.Instance.PlayerValues.AddLife(-1);
+            else
+                Player.Instance.PlayerValues.SetLife(1);
+
+            UI_HeaderBar.Instance.LoadLastScene();
+        }
+
         /// <summary>
         /// use a potion in fight
         /// </summary>
@@ -433,6 +466,8 @@ namespace Hexerspiel.Fight
             manaPlayer += potionStats.addMana;
             if (manaPlayer > manaPlayerMax)
                 manaPlayer = manaPlayerMax;
+
+            Debug.Log("MAna player after drink " + manaPlayer.ToString());
 
             extraDiceForPlayer += potionStats.diceManipulation.addDice;
             extraPointsForPlayer += potionStats.diceManipulation.addablePoints;

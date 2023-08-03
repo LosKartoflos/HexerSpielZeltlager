@@ -5250,7 +5250,7 @@ MonoBehaviour:
   inventory: {fileID: 799964557}
   playerValues:
     basicStatsValue:
-      health: 50
+      health: 45
       healthMax: 50
       characterMovement: 0
       characterType: 0
