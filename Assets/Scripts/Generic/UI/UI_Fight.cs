@@ -105,6 +105,10 @@ namespace Hexerspiel.UI
 
         private ItemType itemTypeselectedByObjectItem = ItemType.none;
         private GearType gearTypeSelectedByObjectItem = GearType.none;
+
+        [Header("Spells")]
+        [SerializeField]
+        private GameObject spells;
         //[Header("WinScreen")]
         //[SerializeField]
         //private GameObject panel_AfterFightWon;
@@ -177,6 +181,8 @@ namespace Hexerspiel.UI
             bt_look.onClick.AddListener(delegate { lookAtItem(currentitemSelected.ItemAttached); });
             bt_usePotion.onClick.AddListener(delegate { OpenOverlay(ItemType.potion); });
             bt_closeOverlay.onClick.AddListener(closeOverlay);
+            bt_useSpell.onClick.AddListener(OpenSpell);
+            spells.SetActive(false);
 
         }
 
@@ -342,7 +348,15 @@ namespace Hexerspiel.UI
             }
         }
 
-
+        public void OpenSpell()
+        {
+            if (!FightManager.spellAvailable)
+            {
+                AlertUIFight("Du hast schon einen Zauber diese Runder gesprochen");
+                return;
+            }
+            spells.SetActive(true);
+        }
         #endregion
     }
 }

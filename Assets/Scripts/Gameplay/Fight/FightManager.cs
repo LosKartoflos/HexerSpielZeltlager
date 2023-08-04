@@ -38,9 +38,10 @@ namespace Hexerspiel.Fight
         private RollInfos rollInfosEnemy;
 
         public static bool potionAvailable = true;
+        public static bool spellAvailable = true;
         int round = 1;
 
-        float lifePlayer, lifePlayeMax, lifeEnemy, LifeEnemyMax, manaPlayer, manaPlayerMax;
+        public float lifePlayer, lifePlayeMax, lifeEnemy, LifeEnemyMax, manaPlayer, manaPlayerMax;
 
 
 
@@ -120,7 +121,7 @@ namespace Hexerspiel.Fight
         {
 
             UI_Fight.Instance.health_player.SetValues(lifePlayer, lifePlayeMax, " HP");
-            UI_Fight.Instance.mana_player.SetValues(Fight.player.playerStats.mana, Fight.player.playerStats.manaMax, " Mana");
+            UI_Fight.Instance.mana_player.SetValues(manaPlayer, manaPlayerMax, " Mana");
             UI_Fight.Instance.info_dice_player.text = Fight.player.offensivStatsValue.attackDice.ToString();
             UI_Fight.Instance.info_succes_player.text = Fight.player.offensivStatsValue.succesThreshold.ToString();
             UI_Fight.Instance.info_extraDice_player.text = extraDiceForPlayer.ToString();
@@ -197,7 +198,7 @@ namespace Hexerspiel.Fight
         public void FillEnemyInfo()
         {
 
-            UI_Fight.Instance.health_enemy.SetValues(Fight.enemy.basicStatsValue.health, Fight.enemy.basicStatsValue.healthMax, " HP");
+            UI_Fight.Instance.health_enemy.SetValues(lifeEnemy, LifeEnemyMax, " HP");
 
             UI_Fight.Instance.info_dice_enemy.text = Fight.enemy.offensivStatsValue.attackDice.ToString();
             UI_Fight.Instance.info_succes_enemy.text = Fight.enemy.offensivStatsValue.succesThreshold.ToString();
@@ -259,6 +260,7 @@ namespace Hexerspiel.Fight
         {
             FIGHT_ENDING fighIsOver = FIGHT_ENDING.none;
             potionAvailable = true;
+            spellAvailable = true;
             //player Attacks
 
             //apply amulet dice modifiers

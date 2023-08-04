@@ -1,4 +1,5 @@
 using Hexerspiel.Character;
+using Hexerspiel.Fight;
 using Hexerspiel.Quests;
 using Hexerspiel.spots;
 using Hexerspiel.UI;
@@ -99,6 +100,7 @@ namespace Hexerspiel.UI
             Player.levelUPEvent += CreateLevelUpPopUp;
 
             UI_Fight.AlertUIFight += ActivateAndFillRecievePanel;
+            Spells.AlertSpell += ActivateAndFillRecievePanel;
         }
 
        
@@ -118,6 +120,7 @@ namespace Hexerspiel.UI
             Player.levelUPEvent -= CreateLevelUpPopUp;
 
             UI_Fight.AlertUIFight -= ActivateAndFillRecievePanel;
+            Spells.AlertSpell += ActivateAndFillRecievePanel;
         }
 
 
