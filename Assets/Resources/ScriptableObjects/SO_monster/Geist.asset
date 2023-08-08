@@ -32,7 +32,7 @@ MonoBehaviour:
     dropedQuestItems: []
   offensivStats:
     succesThreshold: 2
-    attackDice: 4
+    attackDice: 5
     damageType: 1
     weaponRange: 1
   defensiveStats:
