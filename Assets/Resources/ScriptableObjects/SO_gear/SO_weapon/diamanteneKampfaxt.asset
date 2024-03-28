@@ -30,6 +30,6 @@ MonoBehaviour:
     charismaSpell: 0
   weaponStats:
     succesThreshold: 3
-    attackDice: 0
+    attackDice: 2
     damageType: 0
     weaponRange: 0

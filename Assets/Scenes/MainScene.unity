@@ -1917,7 +1917,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   armorsCollected: []
   amuletCollected: []
-  weaponsCollected: []
+  weaponsCollected:
+  - {fileID: 11400000, guid: 65d5f3233a9dc3745b3be052c2a99560, type: 2}
   armorEquiped: {fileID: 0}
   amuletEquipped: {fileID: 0}
   weaponEquipped: {fileID: 0}

@@ -365,7 +365,13 @@ namespace Hexerspiel.UI
         public void lookAtItem(SO_item itemToLook)
         {
             if (currentitemSelected != null)
-                AlertLookUp(itemToLook.itemName + "\n\n" + itemToLook.GetDescription());
+            {
+                if (itemToLook.Type != ItemType.potion)
+                    AlertLookUp(itemToLook.itemName + "\n\n" + itemToLook.GetDescription());
+                else
+                    AlertLookUp(itemToLook.itemName + "\n\n" + ((SO_potion)itemToLook).GetDescription());
+            }
+               
             else
                 AlertLookUp("kein Item ausgewählt");
         }

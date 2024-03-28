@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01b98ed72e2712248a586f05935f8908, type: 3}
   m_Name: manatrank
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Mana Trank
   itemImage: 
   valueBuy: 5
   valueSell: 1
